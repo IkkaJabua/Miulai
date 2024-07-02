@@ -1,0 +1,31 @@
+.container {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 100px;
+    width: 100%;
+}
+
+.img {
+    border-radius: 10px;
+}
+
+.title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.artist {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 400;
+
+}
