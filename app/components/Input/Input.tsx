@@ -10,10 +10,12 @@ export default () => {
         setShowIcon(!showIcon);
     }
 
-    return(
-        <div className={styles.container} id={styles.c} onFocus={showing} onBlur={showing}>
-            { showIcon && <Image src={'./searchIconBlur.svg'} alt='image' width={24} height={24} className={styles.img} />}
-            <input type="text" placeholder='Artists,tracks,albums' className={styles.input} />
+    return (
+        <div className={styles.container}  onFocus={showing} onBlur={showing}>
+          
+                {showIcon && <Image src={'./searchIconBlur.svg'} alt='image' width={24} height={24} className={styles.img} />}
+                <input type="text" placeholder='Artists,tracks,albums' className={styles.input} />
+
         </div>
     )
 }
