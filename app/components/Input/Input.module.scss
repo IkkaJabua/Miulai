@@ -1,0 +1,58 @@
+@import '../colors/colors.scss';
+
+.container {
+    max-width: 548px;
+    width: 100%;
+    height: 56px;
+    border: 1px double $hawksEye;
+    background-color: $background;
+    border-radius: 8px;
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding-left: 24px;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+}
+
+.container:hover {
+    background-color: #35353b;
+}
+
+.container:focus-within {
+    border-color: transparent;
+    background-image: linear-gradient(#000000, #000000),
+        linear-gradient(90deg, #F903D0 0%, #9A16F2 100%);
+    outline: none;
+}
+
+.input {
+    all: unset;
+    width: 100%;
+    height: 100%;
+    color: $stoneCold;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+}
+
+.input::placeholder {
+    color: $stoneCold;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    background-image: url('/searchIconBlur.svg');
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 30px;
+}
+
+.input:focus::placeholder {
+    color: transparent;
+    background-image: url('');
+}
