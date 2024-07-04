@@ -22,8 +22,8 @@
 
 .container:focus-within {
     border-color: transparent;
-    background-image: linear-gradient(#000000,#000000) ,
-    linear-gradient(90deg, #F903D0 0%, #9A16F2 100%);
+    background-image: linear-gradient(#000000, #000000),
+        linear-gradient(90deg, #F903D0 0%, #9A16F2 100%);
     outline: none;
 }
 
@@ -36,7 +36,6 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
-    padding-right: 24px;
     border: none;
 }
 
@@ -46,8 +45,14 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    background-image: url('/searchIconBlur.svg');
+    background-size: 25px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 30px;
 }
 
 .input:focus::placeholder {
     color: transparent;
+    background-image: url('');
 }
