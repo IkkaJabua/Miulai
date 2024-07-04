@@ -1,5 +1,4 @@
 'use client'
-
 import Input from "./components/Input/Input";
 'use client';
 import Card from "./components/Card/Card";
@@ -10,7 +9,6 @@ import "./page.module.scss";
 export default function Home() {
   return (
     <main>
-      
     </main>
   );
 }
