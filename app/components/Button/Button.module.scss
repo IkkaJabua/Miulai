@@ -7,7 +7,6 @@
     background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
     color: $white;
     max-width: 116px;
-    max-height: 44px;
     padding: 12px 32px;
     border-radius: 8px;
     text-transform: capitalize;
@@ -37,7 +36,7 @@
     border-radius: 10px;
     background-color: $dynamicBlack;
     padding: 12px 32px;
-    width: 116px;
+    max-width: 116px;
     color: $stoneCold;
     display: flex;
     align-items: center;
@@ -48,8 +47,8 @@
 
 .long_with_icon_disabled {
     background-color: $dynamicBlack;
-    width: 153px;
-    height: 44px;
+    max-width: 153px;
+    padding: 12px;
     border-radius: 8px;
     color: $stoneCold;
     display: flex;
@@ -63,8 +62,8 @@
 .short_with_icon_disabled {
     background-color: $dynamicBlack;
     color: $stoneCold;
-    width: 145px;
-    height: 44px;
+    max-width: 145px;
+    padding: 12px;
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -79,7 +78,8 @@
 // button LongWithIcon
 .LongWithIcon {
     max-width: 153px;
-    height: 44px;
+    padding: 12px 20px;
+    // height: 44px;
     border-radius: 8px;
     background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
     display: flex;
@@ -104,7 +104,7 @@
 
 .ShortWithIcon {
     max-width: 145px;
-    height: 44px;
+    padding: 12px;
     border-radius: 8px;
     background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
     display: flex;
