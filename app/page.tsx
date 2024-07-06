@@ -5,7 +5,7 @@ import "./page.module.scss";
 export default function Home() {
   return (
     <main>
-      <Button title='listen now' mode='short with icon' icon    />
+      <Button title='follow' mode='short with icon'    />
     </main>
   );
 }
