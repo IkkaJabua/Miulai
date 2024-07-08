@@ -2,7 +2,6 @@
 import Image from "next/image";
 import styles from '../components/Button/Button.module.scss'
 import { useEffect, useState, type JSX } from "react";
-import { useRecoilState } from "recoil";
 
 interface Props {
     disabled?: boolean;

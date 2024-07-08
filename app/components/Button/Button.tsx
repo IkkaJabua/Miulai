@@ -1,7 +1,6 @@
 import styles from "./Button.module.scss";
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { useRecoilState } from "recoil";
 import { getButtonStyles } from "@/app/helpers/ButtonHelper";
 
 interface Props {
