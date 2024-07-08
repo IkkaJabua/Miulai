@@ -9,8 +9,8 @@ interface Props {
 }
 
 export const getButtonStyles = (props: Props) => {
-    const [clip, setClip] = useState<any>();
-    const [classes, setClasses] = useState<any>([]);
+    const [clip, setClip] = useState<React.ReactElement>();
+    const [classes, setClasses] = useState<string[]>([]);
 
     useEffect(() => {
         const newClasses: string[] = [];
