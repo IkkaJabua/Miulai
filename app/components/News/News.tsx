@@ -1,6 +1,7 @@
 import { url } from 'inspector'
 import styles from './News.module.scss'
 import image from '../../../public/frame.png'
+import Button from '../Button/Button'
 
 interface Props {
     title: string
@@ -23,9 +24,7 @@ export default (props: Props) => {
                     <div className={styles.font_style_news}>{props.title}</div>
                     <div className={styles.font_style_plays}>795,900 Plays</div>
                 </div>
-                <div className={styles.button}>
-                    listen now
-                </div>
+                <Button title={'Listen Now'} mode={'long with icon'} icon/>
             </div>
         </div>
     )
