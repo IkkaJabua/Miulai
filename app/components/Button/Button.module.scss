@@ -1,0 +1,122 @@
+@import '../colors/colors.scss';
+
+
+
+// button WithoutIcon
+.WithoutIcon {
+    background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
+    color: $white;
+    max-width: 116px;
+    padding: 12px 32px;
+    border-radius: 8px;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.WithoutIcon:hover {
+    border-radius: 10px;
+    background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
+}
+
+.WithoutIcon:active {
+    border-radius: 10px;
+    background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
+}
+
+
+
+
+// disabled buttons
+.without_icon_disabled {
+    border-radius: 10px;
+    background-color: $dynamicBlack;
+    padding: 12px 32px;
+    max-width: 116px;
+    color: $stoneCold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    cursor: not-allowed;
+}
+
+.long_with_icon_disabled {
+    background-color: $dynamicBlack;
+    max-width: 153px;
+    padding: 12px;
+    border-radius: 8px;
+    color: $stoneCold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    cursor: not-allowed;
+    gap: 4px;
+}
+
+.short_with_icon_disabled {
+    background-color: $dynamicBlack;
+    color: $stoneCold;
+    max-width: 145px;
+    padding: 12px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    cursor: not-allowed;
+    gap: 4px;
+}
+
+
+
+// button LongWithIcon
+.LongWithIcon {
+    max-width: 153px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    text-transform: capitalize;
+    font-weight: 600;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.LongWithIcon:hover {
+    border-radius: 10px;
+    background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
+}
+
+.LongWithIcon:active {
+    border-radius: 10px;
+    background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
+}
+
+.ShortWithIcon {
+    max-width: 145px;
+    padding: 12px;
+    border-radius: 8px;
+    background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    text-transform: capitalize;
+    font-weight: 500;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.ShortWithIcon:hover {
+    border-radius: 10px;
+    background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
+}
