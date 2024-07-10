@@ -1,0 +1,53 @@
+@import '../colors/colors.scss';
+
+.container {
+    max-width: 1112px;
+    height: 393px;
+    // padding: 32px 32px;
+    display: flex;
+    align-items: flex-end;
+
+}
+
+.container_news {
+    width: 617px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.container_title {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+}
+
+
+
+//font styles
+
+.font_style_news {
+    color: $white;
+    font-size: 64px;
+    font-weight: 800;
+}
+
+.font_style_plays {
+    color: $glacierGrey;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.button {
+    color: white;
+    display: flex;
+    padding: 12px 24px 12px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 153px;
+    height: 44px;
+    border-radius: 8px;
+    background: var(--Gradient-apolo, linear-gradient(90deg, #F903D0 0%, #9A16F2 100%));
+}
