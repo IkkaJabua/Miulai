@@ -9,7 +9,7 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    max-width: 100px;
+    max-width: fit-content;
     width: 100%;
 }
 
@@ -21,6 +21,10 @@
     color: #fff;
     font-size: 18px;
     font-weight: 600;
+}
+.like{
+    display: flex;
+    flex-direction: column ;
 }
 
 .artist {
