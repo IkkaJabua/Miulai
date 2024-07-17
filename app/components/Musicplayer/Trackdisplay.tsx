@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image'
 import Button from '../Button/Button';
 import style from './TrackDisplay.module.scss';
-import HeartShapeBtn from '../Button/HeartShapeBtn';
+import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn';
 
 interface TrackDisplayProps {
     currentTrack: {
