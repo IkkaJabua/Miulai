@@ -1,11 +1,23 @@
-import React, { useState } from "react";
-import Heart from "react-animated-heart";
+import styles from "./Button.module.scss";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import { getButtonStyles } from "@/app/helpers/ButtonHelper";
 
-export default function Button() {
-  const [isClick, setClick] = useState(false);
-  return (
-    <div className="App">
-      <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
-    </div>
-  );
+interface Props {
+    title: string;
+    className?: string;
+    disabled?: boolean;
+    mode: 'without icon' | 'long with icon' | 'short with icon';
+    icon?: boolean
+}
+
+export default (props: Props) => {
+    const { classes, clip } = getButtonStyles(props);
+
+    return (
+        <div className={classes.join(' ').trim()}>
+            {props.icon && clip}
+            {props.title}
+        </div>
+    )
 }
