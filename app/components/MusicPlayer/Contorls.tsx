@@ -2,56 +2,22 @@ import React from 'react';
 import Image from 'next/image';
 import style from './Contorls.module.scss';
 import { StyleOutlined } from '@mui/icons-material';
+import props from './helperProp/prop';
+import formatTime from './helperProp/formatTime';
+import propsinterFace from './helperProp/prop';
 
-interface Props {
-    isPlaying: boolean;
-    onPlayPause: () => void;
-    onPrevious: () => void;
-    onNext: () => void;
-    onVolumeChange: (volume: number) => void;
-    volume: number;
-    isLooping: boolean;
-    onToggleLoop: () => void;
-    isShuffling: boolean;
-    onToggleShuffle: () => void;
-    currentTime: number;
-    duration: number;
-    onTimeChange: (newTime: number) => void;
-    backgroundImage: string
-}
-
-const Controls = ({
-    isPlaying,
-    onPlayPause,
-    onPrevious,
-    onNext,
-    onVolumeChange,
-    volume,
-    isLooping,
-    onToggleLoop,
-    isShuffling,
-    onToggleShuffle,
-    currentTime,
-    duration,
-    onTimeChange,
-}: Props) => {
+const Controls = (props: propsinterFace) => {
     const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newVolume = parseInt(e.target.value, 10);
-        onVolumeChange(newVolume);
-    };
-
-    const formatTime = (time: number) => {
-        const minutes = Math.floor(time / 60);
-        const seconds = Math.floor(time % 60);
-        return `${minutes}:${seconds.toString().padStart(2, '0')}`;
+        props.onVolumeChange(newVolume);
     };
 
     const handleTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newTime = parseFloat(e.target.value);
-        onTimeChange(newTime);
+        props.onTimeChange(newTime);
     };
 
-    const currentTimeInPrcnt = (currentTime / duration) * 100
+    const currentTimeInPrcnt = (props.currentTime / props.duration) * 100
 
     return (
         <>
@@ -59,14 +25,14 @@ const Controls = ({
             <div className={style.container}>
                 <div className={style.time} >
 
-                    <span className={style.timing}>{formatTime(currentTime)}</span>
+                    <span className={style.timing}>{formatTime(props.currentTime)}</span>
 
                     <div className={style.progressMain}>
                         <input
                             type="range"
                             min="0"
-                            max={duration}
-                            value={currentTime}
+                            max={props.duration}
+                            value={props.currentTime}
                             onChange={handleTimeChange}
                             className={style.load}
                         />
@@ -74,23 +40,23 @@ const Controls = ({
                         </div>
                     </div>
 
-                    <span className={style.timing}>{formatTime(duration)}</span>
+                    <span className={style.timing}>{formatTime(props.duration)}</span>
                 </div>
                 <div className={style.buttons}>
-                    <button onClick={onToggleShuffle} className={style.btn}>
-                        <Image src={isShuffling ? "/shuffleA.svg" : "/shuffle.svg"} alt="Shuffle" width={24} height={24} />
+                    <button onClick={props.onToggleShuffle} className={style.btn}>
+                        <Image src={props.isShuffling ? "/shuffleA.svg" : "/shuffle.svg"} alt="Shuffle" width={24} height={24} />
                     </button>
-                    <button onClick={onPrevious} className={style.btn}>
+                    <button onClick={props.onPrevious} className={style.btn}>
                         <Image src="/previous.svg" alt="Previous" width={24} height={24} />
                     </button>
-                    <button onClick={onPlayPause} className={`${style.btn} ${style.circle}`}>
-                        <Image src={isPlaying ? "/pause.svg" : "/Play.png"} alt={isPlaying ? "Pause" : "Play"} width={28} height={28} />
+                    <button onClick={props.onPlayPause} className={`${style.btn} ${style.circle}`}>
+                        <Image src={props.isPlaying ? "/pause.svg" : "/play.svg"} alt={props.isPlaying ? "Pause" : "Play"} width={48} height={48} />
                     </button>
-                    <button onClick={onNext} className={style.btn}>
+                    <button onClick={props.onNext} className={style.btn}>
                         <Image src="/previus-next.svg" alt="Next" width={24} height={24} />
                     </button>
-                    <button onClick={onToggleLoop} className={style.btn}>
-                        <Image src={isLooping ? "/repeat-one.png" : "/repeat.svg"} alt="Loop" width={24} height={24} />
+                    <button onClick={props.onToggleLoop} className={style.btn}>
+                        <Image src={props.isLooping ? "/repeat-one.png" : "/repeat.svg"} alt="Loop" width={24} height={24} />
                     </button>
                 </div>
 
@@ -105,7 +71,7 @@ const Controls = ({
                     type="range"
                     min="0"
                     max="100"
-                    value={volume}
+                    value={props.volume}
                     onChange={handleVolumeChange}
                     aria-label="Volume"
                     className={style.volSetting}
