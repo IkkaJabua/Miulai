@@ -1,15 +1,11 @@
-'use client';
-import Header from "./components/Header/Header";
-import Input from "./components/Input/Input";
-import Card from "./components/Card/Card";
-import Heart from "./components/CardItems/CardHeart/Heart";
-import ItemsUnion from "./components/CardItems/ItemsUnion/ItemsUnion";
+'use client'
+import IndexPage from "./components/MusicPlayer/IndexPage";
 import "./page.module.scss";
 
 export default function Home() {
   return (
     <main>
-        
+      <IndexPage></IndexPage>
     </main>
   );
 }
