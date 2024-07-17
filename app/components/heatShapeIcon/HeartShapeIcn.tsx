@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import style from './HeartShapeBtn.module.scss';
+import style from './HeartShapeIcn.module.scss';
 
 // Define the props interface
 interface Props {

@@ -17,6 +17,12 @@ const tracks = [
         albumArt: '/music/starBoy.png',
         audio: '/music/Starboy.mp3',
     },
+    {
+        title: 'Not like Us',
+        artist: 'by Kendrick lamar',
+        albumArt: '/music/notlikeus.jpg',
+        audio: '/music/NotLikeUs.mp3',
+    },
     
 ];
 
