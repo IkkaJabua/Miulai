@@ -5,11 +5,12 @@ import Card from "./components/Card/Card";
 import Heart from "./components/CardItems/CardHeart/Heart";
 import ItemsUnion from "./components/CardItems/ItemsUnion/ItemsUnion";
 import "./page.module.scss";
+import Menu from "./components/Menu/Menu";
 
 export default function Home() {
   return (
     <main>
-        
+        <Menu />
     </main>
   );
 }
