@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px 8px 12px;
+    gap: 8px;
+    background-color: #141414;
+    border-radius: 8px;
+    width: 133px;
+    cursor: pointer;
+}
+
+.playlist {
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+}
