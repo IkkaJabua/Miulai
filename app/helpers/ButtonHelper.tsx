@@ -5,12 +5,18 @@ import { useEffect, useState, type JSX } from "react";
 
 interface Props {
     disabled?: boolean;
-    mode: 'without icon' | 'long with icon' | 'short with icon';
+    mode: 'without icon' | 'long with icon' | 'short with icon' | 'reusable width';
+    width: number | string
 }
 
 export const getButtonStyles = (props: Props) => {
     const [clip, setClip] = useState<React.ReactElement>();
     const [classes, setClasses] = useState<string[]>([]);
+
+    const style: any = {
+        width: props.width || 'auto',
+
+    };
 
     useEffect(() => {
         const newClasses: string[] = [];
@@ -22,6 +28,8 @@ export const getButtonStyles = (props: Props) => {
         } else if (props.disabled && props.mode === 'short with icon') {
             newClasses.push(styles.short_with_icon_disabled);
             setClip(<Image src='../Images/Button Images/disabled-plus.svg' alt='clip logo' width={20} height={20} />);
+        } else if (props.disabled && props.mode === 'reusable width') {
+            newClasses.push(styles.reusableWidthDisabled)
         } else if (props.mode === 'without icon') {
             newClasses.push(styles.WithoutIcon);
         } else if (props.mode === 'long with icon') {
@@ -30,11 +38,13 @@ export const getButtonStyles = (props: Props) => {
         } else if (props.mode === 'short with icon') {
             newClasses.push(styles.ShortWithIcon);
             setClip(<Image src='../Images/Button Images/plus.svg' alt='plus' width={20} height={20} />);
+        } else if (props.mode === 'reusable width') {
+            newClasses.push(styles.reusablewidth)
         }
         setClasses(newClasses);
     }, [props.mode, props.disabled]);
 
-    return { classes, clip };
+    return { classes, clip, style };
 };
 
 
