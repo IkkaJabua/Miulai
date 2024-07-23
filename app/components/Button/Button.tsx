@@ -9,7 +9,7 @@ interface Props {
     disabled?: boolean;
     mode: 'without icon' | 'long with icon' | 'short with icon' | 'reusable width';
     icon?: boolean;
-    width: string | number
+    width?: string | number
 }
 
 export default (props: Props) => {

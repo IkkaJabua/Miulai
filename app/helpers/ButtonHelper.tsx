@@ -6,7 +6,7 @@ import { useEffect, useState, type JSX } from "react";
 interface Props {
     disabled?: boolean;
     mode: 'without icon' | 'long with icon' | 'short with icon' | 'reusable width';
-    width: number | string
+    width?: number | string
 }
 
 export const getButtonStyles = (props: Props) => {
