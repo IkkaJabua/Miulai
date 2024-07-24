@@ -1,0 +1,224 @@
+// .container {
+//     width: 1112px;
+//     background-color: gray;
+// }
+
+// .container_header {
+//     width: 833px;
+//     display: flex;
+//     gap: 271px;
+//     padding: 12px 10px;
+//     background-color: red;
+
+// }
+// .container_header_gap {
+//     display: flex;
+//     gap: 32px;
+// }
+// .container_header_gap_two {
+//     display: flex;
+//     gap: 263px;
+// }
+
+// .map_container {
+//     display: flex;
+//     padding-left: 8px;
+//     padding-top: 10px;
+//     padding-right: 10px;
+//     padding-bottom: 10px;
+//     background-color: red;
+//     // gap: 153px;
+// }
+// .map_container_id {
+//     padding: 10px 6px;
+//     display: flex;
+//     align-items: center;
+
+
+// }
+// .map_container_logo {
+//     display: flex;
+//     gap: 10px;
+// }
+// .container_author_width {
+//     width: 298px;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 10px;
+// }
+
+// .gap_container {
+//     display: flex;
+//     gap: 25.5px;
+// }
+
+// .map_container_title_gap {
+//     display: flex;
+
+// }
+// .album {
+//     width: 314px;
+//     padding: 10px 0px;
+// }
+// .time {
+//     width: 195px;
+//     color: white;
+//     padding-top: 10px;
+//     padding-bottom: 10px;
+
+// }
+
+// .like {
+//     width: 195px;
+//     padding-top: 10px;
+//     padding-bottom: 10px;
+//     display: flex;
+//     justify-content: center;
+
+
+// }
+// .icon_padding {
+//     padding: 10px;
+// }
+
+// .clicked_purple {
+//     height: 72px;
+//     width: 2px;
+//     background: var(--Gradient-apolo, linear-gradient(90deg, #F903D0 0%, #9A16F2 100%));
+// }
+
+
+@import '../colors/colors.scss';
+
+.musicTable {
+    color: #818385;
+    background-color: #050506;
+    font-family: Arial, sans-serif;
+}
+
+.tableHeader {
+    display: flex;
+    // padding: 10px 0;
+    // border-bottom: 1px solid #282828;         
+    // font-weight: bold;
+}
+
+.headerSongname {
+    width: 359px;
+    height: 48px;
+    padding: 12px 7px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.headerNumber {
+    width: 56px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 400;
+
+}
+
+.headerAlbum {
+    width: 307px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+
+}
+
+.headerTime {
+    width: 147px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.tableRow {
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    border-left: 4px solid #050506;
+}
+
+.tableHeader {
+    font-weight: bold;
+
+}
+
+.tableRow:hover {
+    border-radius: 4px 0px 0px 4px;
+    background-color: #1D1D1D;
+    border-left: 4px solid var(--Gradient-apolo, #F903D0);
+
+}
+
+.cellNumber {
+    width: 49px;
+    text-align: center;
+}
+
+.cellSongname {
+    width: 361px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.cellAlbum {
+    width: 311px;
+    color: #9E9A9F;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cellTime {
+    width: 147px;
+    color: #9E9A9F;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cellFavorite {
+    width: 40px;
+    text-align: center;
+}
+
+.cellSongname img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.songInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.songTitle {
+    color: $white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.songArtist {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    color: #9E9A9F;
+}
+
+.fontGap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
