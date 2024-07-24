@@ -6,12 +6,11 @@ import NewPlaylist from "./components/AddPlaylist/NewPlaylist/NewPlaylist";
 import ModuleList from "./components/ModuleList/ModuleList";
 import IndexPage from "./components/MusicPlayer/IndexPage";
 import "./page.module.scss";
+import Button from "./components/Button/Button";
 
 export default function Home() {
   return (
     <main>
-        <AddPlaylist />
-        <CreatePlaylist />
     </main>
   );
 }
