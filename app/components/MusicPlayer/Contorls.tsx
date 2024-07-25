@@ -5,6 +5,7 @@ import { StyleOutlined } from '@mui/icons-material';
 import props from './helperProp/prop';
 import formatTime from './helperProp/formatTime';
 import propsinterFace from './helperProp/prop';
+import Icon from '../Icon/Icon';
 
 const Controls = (props: propsinterFace) => {
     const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,19 +45,19 @@ const Controls = (props: propsinterFace) => {
                 </div>
                 <div className={style.buttons}>
                     <button onClick={props.onToggleShuffle} className={style.btn}>
-                        <Image src={props.isShuffling ? "/shuffleA.svg" : "/shuffle.svg"} alt="Shuffle" width={24} height={24} />
+                        <Icon name={props.isShuffling ? 'shuffle' : 'shuffle'} alt="Shuffle" width={24} height={24} />
                     </button>
                     <button onClick={props.onPrevious} className={style.btn}>
-                        <Image src="/previous.svg" alt="Previous" width={24} height={24} />
+                        <Icon name="previous" alt="Previous" width={24} height={24} />
                     </button>
                     <button onClick={props.onPlayPause} className={`${style.btn} ${style.circle}`}>
-                        <Image src={props.isPlaying ? "/pause.svg" : "/play.svg"} alt={props.isPlaying ? "Pause" : "Play"} width={48} height={48} />
+                        <Icon name={props.isPlaying ? "pause" : "/play"} alt={props.isPlaying ? "Pause" : "Play"} width={48} height={48} />
                     </button>
                     <button onClick={props.onNext} className={style.btn}>
-                        <Image src="/previus-next.svg" alt="Next" width={24} height={24} />
+                        <Icon name="previus-next" alt="Next" width={24} height={24} />
                     </button>
                     <button onClick={props.onToggleLoop} className={style.btn}>
-                        <Image src={props.isLooping ? "/repeat-one.png" : "/repeat.svg"} alt="Loop" width={24} height={24} />
+                        <Icon name={props.isLooping ? "/repeat-one.png" : "repeat"} alt="Loop" width={24} height={24} />
                     </button>
                 </div>
 

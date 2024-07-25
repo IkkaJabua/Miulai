@@ -153,8 +153,8 @@ const IndexPage: React.FC = () => {
                     onToggleShuffle={toggleShuffle}
                     currentTime={currentTime}
                     duration={duration}
-                    onTimeChange={handleTimeChange} 
-                    backgroundImage={''}                />
+                    onTimeChange={handleTimeChange}
+                    backgroundImage={''} name={undefined} isActive={undefined}                />
 
                 <audio
                     ref={audioRef}
