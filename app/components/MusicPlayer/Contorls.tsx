@@ -45,13 +45,13 @@ const Controls = (props: propsinterFace) => {
                 </div>
                 <div className={style.buttons}>
                     <button onClick={props.onToggleShuffle} className={style.btn}>
-                        <Icon name={props.isShuffling ? 'shuffle' : 'shuffle'} alt="Shuffle" width={24} height={24} />
+                        <Icon name={props.isShuffling ? 'shuffle' : 'shuffleA'} alt="Shuffle" width={24} height={24} />
                     </button>
                     <button onClick={props.onPrevious} className={style.btn}>
                         <Icon name="previous" alt="Previous" width={24} height={24} />
                     </button>
                     <button onClick={props.onPlayPause} className={`${style.btn} ${style.circle}`}>
-                        <Icon name={props.isPlaying ? "pause" : "/play"} alt={props.isPlaying ? "Pause" : "Play"} width={48} height={48} />
+                        <Icon name={props.isPlaying ? "pause" : "/play"} alt={props.isPlaying ? "Pause" : "Play"} width={48 } height={48} />
                     </button>
                     <button onClick={props.onNext} className={style.btn}>
                         <Icon name="previus-next" alt="Next" width={24} height={24} />
