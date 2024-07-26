@@ -1,6 +1,8 @@
 import { time } from 'console'
 import styles from './Table.module.scss'
 import Image from 'next/image'
+import Heart from '../CardItems/CardHeart/Heart';
+import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn';
 
 
 
@@ -109,7 +111,9 @@ export default () => {
                         </div>
                         <div className={styles.cellAlbum}>{item.album}</div>
                         <div className={styles.cellTime}>{item.time}</div>
-                        <div className={styles.cellFavorite}>❤️</div>
+                        <div className={styles.cellFavorite}>
+                            <HeartShapeBtn isActive={false}  isDisabled={false} onClick={() => {console.log("button clicked")}}/>
+                        </div>
                     </div>
                 ))}
             </div>
