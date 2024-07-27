@@ -9,15 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mui/icons-material": "^5.16.0",
+    "@mui/material": "^5.16.0",
     "next": "14.2.4",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recoil": "^0.7.7",
     "sass": "^1.77.6"
   },
   "devDependencies": {
     "@studiometa/prettier-config": "^4.1.0",
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/react": "^18.3.3",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",
