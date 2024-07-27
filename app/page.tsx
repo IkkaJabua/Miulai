@@ -7,8 +7,7 @@ import MusicCard from "./components/ MusicCard/ MusicCard";
 export default function Home() {
   return (
     <main>
-      <MusicCard title="Illusion" author="By Dua Lipa" />
+      
     </main>
   );
 }
-``
