@@ -1,3 +1,5 @@
+import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn'
+import Icon from '../Icon/Icon'
 import styles from './ MusicCard.module.scss'
 import Image from 'next/image'
 
@@ -21,7 +23,7 @@ export default (props: Props) => {
             <div className={styles.container_detals}>
                 <div className={styles.time_font_style}>3:45</div>
                 <div className={styles.container_like_point}>
-                    <div><Image src={'./Like.svg'} alt='Like button' width={24} height={24} /></div>
+                    <HeartShapeBtn isDisabled={false} isActive={true} onClick={() => (console.log('button clicked'))} />
                     <div><Image src={'./Dots.svg'} alt='Dots button' width={24} height={24} /></div>
                 </div>
             </div>
