@@ -1,0 +1,132 @@
+@import '../colors/colors.scss';
+
+.mainContainer {
+    background-color: #050506;
+}
+
+.musicTable {
+    color: #818385;
+    background-color: #050506;
+    border-left: 4px solid #050506;
+}
+
+.musicTable:hover {
+    border-radius: 4px 0px 0px 4px;
+    background-color: #1D1D1D;
+    border-left: 4px solid var(--Gradient-apolo, #F903D0);
+}
+
+
+.container {
+    color: #818385;
+    background-color: #050506;
+}
+
+.cellNumber {
+    max-width: 40px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+}
+
+.headerSongname {
+    flex: 0 0 339px !important;
+    max-width: 339px !important;
+    display: flex;
+    align-items: center;
+    padding: 12px 10px;
+}
+
+.headerAlbum {
+    flex: 0 0 307px !important;
+    max-width: 307px !important;
+    display: flex;
+    align-items: center;
+    padding: 12px 0px;
+}
+
+.headerTime {
+    max-width: 147px !important;
+    display: flex;
+    align-items: center;
+    padding: 12px 0px;
+
+}
+
+.HeaderLike {
+    width: 223px !important;
+    display: flex;
+    align-items: center;
+    padding: 12px 10px;
+}
+
+// =============== main rows styles ================= //
+
+.cellId {
+    max-width: 33px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 8px;
+}
+
+.cellName {
+    flex: 0 0 339px !important;
+    max-width: 339px !important;
+    display: flex;
+    // align-items: center;
+    padding: 12px 10px;
+
+}
+
+.cellAlbumName {
+    flex: 0 0 307px !important;
+    max-width: 307px !important;
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    color: #9E9A9F;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cellTimeName {
+    flex: 0 0 147px !important;
+    max-width: 147px !important;
+    display: flex;
+    align-items: center;
+    color: #9E9A9F;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cellSongname {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.fontGap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.songTitle {
+    color: $white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.songArtist {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    color: #9E9A9F;
+}
+
+.cellLike {
+    display: flex;
+    align-items: center;
+}
