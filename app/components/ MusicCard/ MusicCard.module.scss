@@ -1,0 +1,59 @@
+@import '../colors/colors.scss';
+
+
+//contaienr styles
+.container {
+    max-width: 548px;
+    height: 104px;
+    padding: 16px;
+    border-radius: 8px;
+    background: $darkVoid;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container_author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.container_name {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+
+.container_detals {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+}
+
+.container_like_point {
+    display: flex;
+    gap: 8px;
+}
+
+
+
+//font styles
+.music_name_font_style {
+    font-size: 16px;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+}
+
+.music_author_font_style {
+    color: $shadyLady;
+    font-size: 14px;
+    font-weight: 500;
+}
+.time_font_style {
+    color: $shadyLady;
+    font-size: 14px;
+}
