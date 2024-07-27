@@ -1,15 +1,14 @@
 .container {
     display: flex;
     align-items: center;
+    gap: 7px;
     padding: 8px 16px 8px 12px;
-    gap: 8px;
-    background-color: #141414;
     border-radius: 8px;
-    width: 133px;
+    background-color: #141414;
     cursor: pointer;
 }
 
-.playlist {
+.title {
     font-size: 14px;
     font-weight: 500;
     color: #fff;

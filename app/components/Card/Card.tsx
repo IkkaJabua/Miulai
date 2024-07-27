@@ -6,9 +6,9 @@ import { useState } from 'react';
 interface Props {
     header: string;
     image: string;
-    subtitle?: string;
+    subtitle: string;
     title: string;
-    imageStyle?: 'round' | 'normal';
+    imageStyle: 'round' | 'normal';
 }
 
 export default (props: Props) => {
