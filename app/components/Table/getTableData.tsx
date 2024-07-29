@@ -1,6 +1,5 @@
 
 
-
 export default () => {
 
     const tableData = [
@@ -83,8 +82,6 @@ export default () => {
             id: 11
         }
     ]
-
-
 
     return tableData
 }
