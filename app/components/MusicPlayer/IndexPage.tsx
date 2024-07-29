@@ -23,6 +23,18 @@ const tracks = [
         albumArt: '/music/notlikeus.jpg',
         audio: '/music/NotLikeUs.mp3',
     },
+    {
+        title: 'SDEQ',
+        artist: 'Mechanical Reinbow,Kordz',
+        albumArt: '/music/SDEQ.jpg',
+        audio: '/music/Kordz & Mechanical Rainbow - SDEQ (feat. Stephane) [OFFICIAL LYRIC VIDEO].mp3',
+    },
+    {
+        title: 'A$AP Rocky-Sundress',
+        artist: 'A$AP Rocky',
+        albumArt: '/music/AsapRocky.jpg',
+        audio: '/music/A$AP Rocky - Sundress (Official Video).mp3',
+    },
     
 ];
 
@@ -153,8 +165,8 @@ const IndexPage: React.FC = () => {
                     onToggleShuffle={toggleShuffle}
                     currentTime={currentTime}
                     duration={duration}
-                    onTimeChange={handleTimeChange} 
-                    backgroundImage={''}                />
+                    onTimeChange={handleTimeChange}
+                    backgroundImage={''} name={undefined} isActive={undefined}                />
 
                 <audio
                     ref={audioRef}

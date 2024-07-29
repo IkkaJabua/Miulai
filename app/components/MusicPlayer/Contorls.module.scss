@@ -33,9 +33,9 @@
 .load::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  
-  height: 2px;
-  width: 4px;
+
+  height: 1px;
+  width: 1px;
   background: var(--Gradient-apolo, linear-gradient(90deg, #F903D0 0%, #9A16F2 100%));
   border-radius: 12px;
 }
@@ -115,7 +115,7 @@
   position: relative;
   height: 10px;
   background: aqua;
-  bottom: 13px;
+  bottom: 14px;
   border-radius: 12px;
 background: var(--Gradient-apolo, linear-gradient(90deg, #F903D0 0%, #9A16F2 100%));
 }

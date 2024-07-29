@@ -1,4 +1,7 @@
 interface propsinterFace {
+    [x: string]: any;
+    name: any;
+    isActive: any;
     isPlaying: boolean;
     onPlayPause: () => void;
     onPrevious: () => void;
