@@ -2,13 +2,13 @@ import { Col, Row } from 'antd'
 import styles from './Table.module.scss'
 import Image from 'antd'
 import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn'
-import helper from './helper'
+import getTableData from './getTableData'
 
 
 
 export default () => {
 
-    const [tableData] = helper
+    const tableData = getTableData();
 
 
     return (

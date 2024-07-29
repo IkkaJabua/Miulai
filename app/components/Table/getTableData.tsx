@@ -86,5 +86,5 @@ export default () => {
 
 
 
-    return {tableData}
+    return tableData
 }
