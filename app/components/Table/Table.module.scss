@@ -1,105 +1,73 @@
 @import '../colors/colors.scss';
 
-.mainContainer {
-    // max-width: 1112px;
-    overflow: scroll;
-    background-color: #050506;
+// .wrapper {
+//     max-width: 1112px;
+// }
+
+.wrapper :global .ant-table-cell {
+    color: $hawksEye !important;
+    background-color: $blackMetal !important;
+    border: none !important;
+    padding: 10px !important;
 }
 
-.musicTable {
-    color: #818385;
-    background-color: #050506;
-    border-left: 4px solid #050506;
+.wrapper :global .ant-table-cell-row-hover {
+    background-color: $dynamicBlack !important;
 }
 
-.musicTable:hover{
+.wrapper :global .ant-table-cell:first-child {
+    border-left: 4px solid #050506 !important;
+}
+
+.wrapper :global .ant-table-cell-row-hover:first-child {
+    border-left: 4px solid var(--Gradient-apolo, $fuchsiaFlame) !important;
     border-radius: 4px 0px 0px 4px;
-    background-color: #1D1D1D;
-    border-left: 4px solid var(--Gradient-apolo, #F903D0);
 }
 
+.wrapper :global .ant-table {
+    background-color: unset !important;
+}
+
+.wrapper :global .ant-table-thead .ant-table-cell::before {
+    content: none !important;
+}
 
 .container {
-    color: #818385;
-    background-color: #050506;
-    border-left: 4px solid #050506;
+    color: $hawksEye !important;
+    background-color: $blackMetal !important;
+    border: none !important;
 }
 
-.cellNumber {
-    // max-width: 40px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 8px;
-}
 
-.headerSongname {
-    // flex: 0 0 339px !important;
-    // max-width: 339px !important;
-    display: flex;
-    align-items: center;
-    padding: 12px 10px;
-}
-
-.headerAlbum {
-    // flex: 0 0 307px !important;
-    // max-width: 307px !important;
-    display: flex;
-    align-items: center;
-    padding: 12px 0px;
-}
-
-.headerTime {
-    // max-width: 147px !important;
-    display: flex;
-    align-items: center;
-    padding: 12px 0px;
-
-}
-
-.HeaderLike {
-    // width: 223px !important;
-    display: flex;
-    align-items: center;
-    padding: 12px 10px;
-}
 
 // =============== main rows styles ================= //
 
 .cellId {
-    // max-width: 33px !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 8px;
+    color: $hawksEye;
+    font-size: 14px;
+    font-weight: 400;
 }
 
 .cellName {
-    // flex: 0 0 339px !important;
-    // max-width: 339px !important;
     display: flex;
     padding: 12px 10px;
-
 }
 
 .cellAlbumName {
-    // flex: 0 0 307px !important;
-    // max-width: 307px !important;
+
     display: flex;
     align-items: center;
     padding: 10px 0px;
-    color: #9E9A9F;
+    color: $shadyLady;
     font-size: 14px;
     font-weight: 500;
 }
 
 .cellTimeName {
-    // flex: 0 0 147px !important;
-    // max-width: 147px !important;
     display: flex;
     align-items: center;
     margin-left: 0.7px;
-    color: #9E9A9F;
+    color: $shadyLady;
     font-size: 14px;
     font-weight: 500;
 }
@@ -126,7 +94,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 500;
-    color: #9E9A9F;
+    color: $shadyLady;
 }
 
 .cellLike {
