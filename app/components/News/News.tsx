@@ -1,6 +1,4 @@
-import { url } from 'inspector'
 import styles from './News.module.scss'
-import image from '../../../public/frame.png'
 import Button from '../Button/Button'
 
 interface Props {
