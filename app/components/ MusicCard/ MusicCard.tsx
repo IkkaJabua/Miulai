@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn'
 import Icon from '../Icon/Icon'
 import styles from './ MusicCard.module.scss'
@@ -9,12 +10,17 @@ interface Props {
 }
 
 export default (props: Props) => {
+    const [isPlaylistVisible, setIsPlaylistVisible] = useState(false);
+      
+        const changeOnDotsClick = () => {
+          setIsPlaylistVisible(prev => !prev)
+        }
 
 
     return (
         <div className={styles.container}>
             <div className={styles.container_author}>
-                <div><Image src={'./MusicCover.svg'} alt='music cover' width={72} height={72}/></div>
+                <div><Image src={'./MusicCover.svg'} alt='music cover' width={72} height={72} /></div>
                 <div className={styles.container_name}>
                     <div className={styles.music_name_font_style}>{props.title}</div>
                     <div className={styles.music_author_font_style}>{props.author}</div>
@@ -24,7 +30,9 @@ export default (props: Props) => {
                 <div className={styles.time_font_style}>3:45</div>
                 <div className={styles.container_like_point}>
                     <HeartShapeBtn isDisabled={false} isActive={true} onClick={() => (console.log('button clicked'))} />
-                    <div><Image src={'./Dots.svg'} alt='Dots button' width={24} height={24} /></div>
+                    <div onClick={changeOnDotsClick}>
+                        <Image src={'./Dots.svg'} alt='Dots button' width={24} height={24} />
+                        </div>
                 </div>
             </div>
         </div>

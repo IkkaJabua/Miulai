@@ -21,9 +21,9 @@ const Playlist = () => {
     if (route === 0)
         return (
             <PlaylistBox className={styles.container}>
-                <PItem image={'./icons/playlist-icon.svg'} title={'Add to Playlist'} onClick={onForward} />
-                <PItem image={'./icons/album-icon.svg'} title={'Add to Album'} />
-                <PItem image={'./icons/artist-icon.svg'} title={'Add to Artist'} />
+                <PItem image={'playlistIcon'} title={'Add to Playlist'} onClick={onForward} />
+                <PItem image={'albumIcon'} title={'Add to Album'} />
+                <PItem image={'artistIcon'} title={'Add to Artist'} />
             </PlaylistBox>
         )
 
@@ -40,9 +40,9 @@ const Playlist = () => {
 
     return (
         <PlaylistBox className={styles.container}>
-            <PItem image={'./icons/playlist-icon.svg'} title={'Add to Playlist'} onClick={onForward} />
-            <PItem image={'./icons/album-icon.svg'} title={'Add to Album'} />
-            <PItem image={'./icons/artist-icon.svg'} title={'Add to Artist'} />
+            <PItem image={'playlistIcon'} title={'Add to Playlist'} onClick={onForward} />
+            <PItem image={'albumIcon'} title={'Add to Album'} />
+            <PItem image={'artistIcon'} title={'Add to Artist'} />
         </PlaylistBox>
     )
 }
