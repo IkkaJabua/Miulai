@@ -1,0 +1,20 @@
+@import '../colors/colors.scss';
+
+.container {
+    max-width: 277px;
+    height: 100vh;
+    background-color: $reversedGrey;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.container_menu {
+    width: 240px;
+    height: 699px;
+    background-color: $reversedGrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+}

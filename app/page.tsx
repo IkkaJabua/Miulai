@@ -1,18 +1,13 @@
-'use client';
-import Header from "./components/Header/Header";
-import Input from "./components/Input/Input";
-import Card from "./components/Card/Card";
-import Heart from "./components/CardItems/CardHeart/Heart";
+'use client'
 import ItemsUnion from "./components/CardItems/ItemsUnion/ItemsUnion";
+import IndexPage from "./components/MusicPlayer/IndexPage";
 import "./page.module.scss";
 import News from "./components/News/News";
 import image from '../../../public/frame2.png'
 
-
 export default function Home() {
   return (
     <main>
-      <News title={"Top Hit  Of the week"} image={"frame2.png"} />
     </main>
   );
 }
