@@ -1,6 +1,5 @@
-import Playlist from '../../Playlist/Playlist';
+import Icon from '../../Icon/Icon';
 import styles from './Dots.module.scss';
-import Image from "next/image";
 
 
 interface Props {
@@ -12,7 +11,7 @@ export default (props: Props) => {
 
     return(
         <div onClick={props.onClick}>   
-            <Image src={'/card-dots.svg'} alt="image" width={32} height={32} />
+            <Icon name={'/card-dots.svg'} alt="image" width={32} height={32} />
         </div>
     )
 }
