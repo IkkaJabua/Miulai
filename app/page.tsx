@@ -8,7 +8,6 @@ import image from '../../../public/frame2.png'
 export default function Home() {
   return (
     <main>
-      
     </main>
   );
 }

@@ -9,7 +9,7 @@ interface Props {
 
 export default (props: Props) => {
     const backImage: object = {
-        backgroundImage: `url(${props.image})`,
+        backgroundImage: `url(./${props.image})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center'
@@ -22,7 +22,7 @@ export default (props: Props) => {
                     <div className={styles.font_style_news}>{props.title}</div>
                     <div className={styles.font_style_plays}>795,900 Plays</div>
                 </div>
-                <Button title={'Listen Now'} mode={'long with icon'} icon />
+                <Button title={'Listen Now'} mode={'short with icon'} icon/>
             </div>
         </div>
     )
