@@ -1,0 +1,103 @@
+@import '../colors/colors.scss';
+
+// .wrapper {
+//     max-width: 1112px;
+// }
+
+.wrapper :global .ant-table-cell {
+    color: $hawksEye !important;
+    background-color: $blackMetal !important;
+    border: none !important;
+    padding: 10px !important;
+}
+
+.wrapper :global .ant-table-cell-row-hover {
+    background-color: $dynamicBlack !important;
+}
+
+.wrapper :global .ant-table-cell:first-child {
+    border-left: 4px solid #050506 !important;
+}
+
+.wrapper :global .ant-table-cell-row-hover:first-child {
+    border-left: 4px solid var(--Gradient-apolo, $fuchsiaFlame) !important;
+    border-radius: 4px 0px 0px 4px;
+}
+
+.wrapper :global .ant-table {
+    background-color: unset !important;
+}
+
+.wrapper :global .ant-table-thead .ant-table-cell::before {
+    content: none !important;
+}
+
+.container {
+    color: $hawksEye !important;
+    background-color: $blackMetal !important;
+    border: none !important;
+}
+
+
+
+// =============== main rows styles ================= //
+
+.cellId {
+    color: $hawksEye;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.cellName {
+    display: flex;
+    padding: 12px 10px;
+}
+
+.cellAlbumName {
+
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    color: $shadyLady;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cellTimeName {
+    display: flex;
+    align-items: center;
+    margin-left: 0.7px;
+    color: $shadyLady;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.cellSongname {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.fontGap {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.songTitle {
+    color: $white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.songArtist {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    color: $shadyLady;
+}
+
+.cellLike {
+    display: flex;
+    align-items: center;
+}
