@@ -9,7 +9,7 @@ interface Props {
     disabled?: boolean;
     mode: 'without icon' | 'long with icon' | 'short with icon' | 'reusable width';
     icon?: boolean;
-    width?: string | number
+    width?: string | number;
 }
 
 export default (props: Props) => {
@@ -17,9 +17,9 @@ export default (props: Props) => {
 
 
     return (
-        <div className={classes.join(' ').trim()} style={style}>
+        <button type="submit" className={classes.join(' ').trim()} style={style}>
             {props.icon && clip}
             {props.title}
-        </div>
+        </button>
     )
 }

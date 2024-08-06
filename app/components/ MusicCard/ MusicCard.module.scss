@@ -58,3 +58,14 @@
     color: $shadyLady;
     font-size: 14px;
 }
+
+.playlistHidden {
+    display: none;
+}
+
+.playlistVisible {
+    display: block;
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+}

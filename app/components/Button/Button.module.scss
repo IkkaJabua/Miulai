@@ -16,6 +16,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    
 }
 
 .WithoutIcon:hover {
@@ -128,7 +129,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $white;
+    color: $white;border: none;
     text-transform: capitalize;
     font-weight: 500;
     gap: 4px;
