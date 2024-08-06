@@ -1,0 +1,39 @@
+@import '../colors/colors.scss';
+
+.container {
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.container_news {
+    max-width: 617px;
+    margin-top: 181px;
+    margin-left: 32px;
+    margin-bottom: 32px;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.container_title {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+//font styles
+
+.font_style_news {
+    color: $white;
+    font-size: 64px;
+    font-weight: 800;
+}
+
+.font_style_plays {
+    color: $glacierGrey;
+    font-size: 24px;
+    font-weight: 400;
+}
