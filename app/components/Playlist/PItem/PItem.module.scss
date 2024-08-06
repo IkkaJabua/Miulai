@@ -1,0 +1,22 @@
+@import '../../colors/colors.scss';
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.container:active {
+    background-color: #141414;
+    border-radius: 8px;
+    width: 180px;
+    padding: 4px;
+}
+
+.title {
+    color: $white;
+    font-size: 16px;
+    font-weight: 500;
+}
