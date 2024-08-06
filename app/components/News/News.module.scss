@@ -1,15 +1,16 @@
 @import '../colors/colors.scss';
 
 .container {
-    max-width: 1112px;
-    height: 393px;
-    padding: 32px 32px;
+    width: 100%;
     display: flex;
     align-items: flex-end;
 }
 
 .container_news {
     max-width: 617px;
+    margin-top: 181px;
+    margin-left: 32px;
+    margin-bottom: 32px;
     min-height: 180px;
     display: flex;
     flex-direction: column;
