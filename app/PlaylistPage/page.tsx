@@ -19,6 +19,7 @@ export default () => {
                 </div>
             </div>
             <div className={styles.cellPlaylist}>
+<<<<<<< Updated upstream
                 <UserPlaylist />
                 <UserPlaylist />
                 <UserPlaylist />
@@ -26,6 +27,9 @@ export default () => {
                 <UserPlaylist />
                 <UserPlaylist />
 
+=======
+                
+>>>>>>> Stashed changes
 
             </div>
         </div>
