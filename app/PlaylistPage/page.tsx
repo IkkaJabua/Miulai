@@ -1,5 +1,6 @@
 import Button from '../components/Button/Button';
 import Input from '../components/Input/Input';
+import UserPlaylist from '../components/UserPlaylist/UserPlaylist';
 import styles from './page.module.scss'
 
 
@@ -18,11 +19,13 @@ export default () => {
                 </div>
             </div>
             <div className={styles.cellPlaylist}>
-                <div className={styles.box}></div>
-                <div className={styles.box}></div>
-                <div className={styles.box}></div>
-                <div className={styles.box}></div>
-                <div className={styles.box}></div>
+                <UserPlaylist />
+                <UserPlaylist />
+                <UserPlaylist />
+                <UserPlaylist />
+                <UserPlaylist />
+                <UserPlaylist />
+
 
             </div>
         </div>
