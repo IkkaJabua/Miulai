@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import styles from './Menu.module.scss'
 import MenuItem from '../MenuItem/MenuItem'

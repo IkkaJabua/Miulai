@@ -1,0 +1,43 @@
+.container {
+    color: white;
+    background-color: gray;
+    width: 100%;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.miniContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.cellheader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cellFont {
+    color: #FFF;
+    font-size: 32px;
+    font-weight: 500;
+}
+.cellInput {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.cellPlaylist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+}
+
+.box {
+    width: 266px;
+    height: 309px;
+    background-color: red;
+}

@@ -4,6 +4,7 @@
 
 // button WithoutIcon
 .WithoutIcon {
+    border: none;
     background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
     color: $white;
     max-width: 116px;
@@ -16,7 +17,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    
+
 }
 
 .WithoutIcon:hover {
@@ -34,10 +35,13 @@
 
 // disabled buttons
 .without_icon_disabled {
+    border: none;
     border-radius: 10px;
     background-color: $dynamicBlack;
     padding: 12px 32px;
     max-width: 116px;
+    font-size: 16px;
+    font-weight: 600;
     color: $stoneCold;
     display: flex;
     align-items: center;
@@ -47,20 +51,25 @@
 }
 
 .long_with_icon_disabled {
+    border: none;
     background-color: $dynamicBlack;
     max-width: 153px;
-    padding: 12px;
+    padding: 12px 16px;
     border-radius: 8px;
     color: $stoneCold;
     display: flex;
     align-items: center;
     justify-content: center;
     text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 500;
     cursor: not-allowed;
     gap: 4px;
 }
 
 .short_with_icon_disabled {
+    border: none;
+    font-size: 16px;
     background-color: $dynamicBlack;
     color: $stoneCold;
     max-width: 145px;
@@ -78,6 +87,7 @@
 
 // button LongWithIcon
 .LongWithIcon {
+    border: none;
     max-width: 153px;
     padding: 12px 20px;
     border-radius: 8px;
@@ -87,7 +97,8 @@
     justify-content: center;
     color: $white;
     text-transform: capitalize;
-    font-weight: 600;
+    font-size: 16px;
+    font-weight: 500;
     gap: 4px;
     cursor: pointer;
 }
@@ -103,8 +114,10 @@
 }
 
 .ShortWithIcon {
+    border: none;
     max-width: 145px;
-    padding: 12px;
+    height: 44px;
+    padding: 12px 16px;
     border-radius: 8px;
     background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
     display: flex;
@@ -112,7 +125,9 @@
     justify-content: center;
     color: $white;
     text-transform: capitalize;
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 16px;
     gap: 4px;
     cursor: pointer;
 }
@@ -123,13 +138,15 @@
 }
 
 .reusablewidth {
+    border: none;
     padding: 12px;
     border-radius: 8px;
     background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $white;border: none;
+    color: $white;
+    border: none;
     text-transform: capitalize;
     font-weight: 500;
     gap: 4px;
@@ -142,6 +159,7 @@
 }
 
 .reusableWidthDisabled {
+    border: none;
     background-color: $dynamicBlack;
     padding: 12px;
     border-radius: 8px;
