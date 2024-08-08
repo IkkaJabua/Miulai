@@ -27,7 +27,7 @@ export default ()  => {
             </div>
             <div className={styles.cellPlaylist}>
                 {
-                    active ? <Table /> : <UserPlaylist />
+                    active ? <UserPlaylist /> : <Table />
                 }
             </div>
         </div>
