@@ -1,11 +1,17 @@
+'use client'
+import { useState } from 'react';
 import Button from '../components/Button/Button';
 import Input from '../components/Input/Input';
 import UserPlaylist from '../components/UserPlaylist/UserPlaylist';
 import styles from './page.module.scss'
 import Image from 'next/image';
+import Table from '../components/Table/Table';
 
 
 export default ()  => {
+    const [active, setAcctive] = useState(false)
+
+
     return (
         <div className={styles.container}>
             <div className={styles.miniContainer}>
@@ -20,8 +26,9 @@ export default ()  => {
                 </div>
             </div>
             <div className={styles.cellPlaylist}>
-                <UserPlaylist />
-
+                {
+                    active ? <Table /> : <UserPlaylist />
+                }
             </div>
         </div>
     );
