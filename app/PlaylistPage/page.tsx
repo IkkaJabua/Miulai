@@ -21,11 +21,7 @@ export default ()  => {
             </div>
             <div className={styles.cellPlaylist}>
                 <UserPlaylist />
-                <UserPlaylist />
-                <UserPlaylist />
-                <UserPlaylist />
-                <UserPlaylist />
-                <UserPlaylist />
+
             </div>
         </div>
     );
