@@ -8,20 +8,11 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 8px;
+    cursor: pointer;
 }
 
 .font {
     color: #9E9A9F;
     font-size: 14px;
     font-weight: 600;
-}
-
-.test {
-    width: 200px;
-    height: 200px;
-    background-color: black;
-}
-
-.hoveredImage:hover {
-    background-color: rgba(149, 146, 146, 0.2);
 }
