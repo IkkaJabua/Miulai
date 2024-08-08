@@ -7,6 +7,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 8px;
 }
 
 .font {
@@ -19,4 +20,8 @@
     width: 200px;
     height: 200px;
     background-color: black;
+}
+
+.hoveredImage:hover {
+    background-color: rgba(149, 146, 146, 0.2);
 }
