@@ -1,6 +1,6 @@
 .container {
     color: white;
-    background-color: gray;
+    // background-color: gray;
     width: 100%;
     padding: 24px;
     display: flex;
@@ -17,6 +17,7 @@
 .cellheader {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .cellFont {

@@ -2,15 +2,16 @@ import Button from '../components/Button/Button';
 import Input from '../components/Input/Input';
 import UserPlaylist from '../components/UserPlaylist/UserPlaylist';
 import styles from './page.module.scss'
+import Image from 'next/image';
 
 
-export default () => {
+export default ()  => {
     return (
         <div className={styles.container}>
             <div className={styles.miniContainer}>
                 <div className={styles.cellheader}>
-                    <div>{'<'}</div>
-                    <div>image</div>
+                    <Image src={'./icon/isari.svg'}   width={32}  height={32}  alt='image' />
+                    <Image src={'./icon/profile-icon.svg'}  width={56} height={56} alt='profile image'/>
                 </div>
                 <div className={styles.cellFont}>My Playlists </div>
                 <div className={styles.cellInput}>
@@ -19,18 +20,12 @@ export default () => {
                 </div>
             </div>
             <div className={styles.cellPlaylist}>
-<<<<<<< Updated upstream
                 <UserPlaylist />
                 <UserPlaylist />
                 <UserPlaylist />
                 <UserPlaylist />
                 <UserPlaylist />
                 <UserPlaylist />
-
-=======
-                
->>>>>>> Stashed changes
-
             </div>
         </div>
     );
