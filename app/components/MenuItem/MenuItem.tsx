@@ -49,7 +49,7 @@ export default () => {
             title: 'Playlists',
             icon: 'menu-logo5',
             activeIcon: 'clicked-menu-logo5',
-            path: '/',
+            path: 'playlists',
             id: 5
         },
         {
@@ -88,7 +88,7 @@ export default () => {
                         <div className={activeItem === item.id ? styles.clicked_container : styles.container} onClick={() => setActiveItem(item.id)} >
                             <Icon name={`${activeItem === item.id ? item.activeIcon : item.icon}`} alt={'logo'} width={24} height={24} />
                             <Link className={activeItem === item.id ? styles.white_font : styles.font}
-                                href={`${item.path}`}>
+                                href={`../${item.path}`}>
                                 {item.title}
                             </Link>
                         </div>

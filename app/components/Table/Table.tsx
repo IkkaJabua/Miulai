@@ -1,3 +1,4 @@
+'use client'
 import { Table } from "antd";
 import HeartShapeBtn from "../heatShapeIcon/HeartShapeIcn";
 import type { DividerClassKey } from "@mui/material";
