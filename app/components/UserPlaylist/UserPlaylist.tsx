@@ -2,6 +2,7 @@
 import { title } from 'process'
 import styles from './UserPlaylist.module.scss'
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 export default () => {
@@ -36,7 +37,7 @@ export default () => {
         <>
             {
                 playListData.map((item) =>
-                    <div className={styles.container} >
+                    <Link className={styles.container} href={`playlists/${item.id}`} >
                         <div className={styles.hoveredImage}
                             style={{
                                 backgroundImage: `linear-gradient(0deg, rgba(149, 146, 146, 0.2)0%, rgba(149, 146, 146, 0.2)100%), url('./icon/${item.icon}')`,
@@ -51,7 +52,7 @@ export default () => {
                         >
                         </div>
                         <div className={styles.font}>{item.title}</div>
-                    </div>
+                    </Link>
                 )
             }
         </>

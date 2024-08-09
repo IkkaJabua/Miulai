@@ -1,8 +1,8 @@
 .container {
     color: white;
-    // background-color: gray;
     width: 100%;
-    padding: 24px;
+    padding: 0px 24px 24px 24px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -25,20 +25,26 @@
     font-size: 32px;
     font-weight: 500;
 }
+
 .cellInput {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-// .cellPlaylist {
-//     display: flex;
-//     flex-wrap: wrap;
-//     gap: 16px;
 
-// }
+.cellPlaylist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+}
 
 .box {
     width: 266px;
     height: 309px;
     background-color: red;
+}
+
+.cursor {
+    cursor: pointer;
 }

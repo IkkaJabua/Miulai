@@ -49,7 +49,7 @@ export default () => {
             title: 'Playlists',
             icon: 'menu-logo5',
             activeIcon: 'clicked-menu-logo5',
-            path: 'PlaylistPage',
+            path: 'playlists',
             id: 5
         },
         {
