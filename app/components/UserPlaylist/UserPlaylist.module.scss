@@ -9,6 +9,7 @@
     justify-content: space-between;
     gap: 8px;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .font {
@@ -18,7 +19,8 @@
 }
 
 .buttons {
-    display: flex;
+    position: absolute;
+    display: none;
     margin-bottom: 16px;
     gap: 8px;
 }
@@ -49,16 +51,11 @@
     align-items: flex-end;
 }
 
-
-.buttons {
-    display: flex;
-    margin-bottom: 16px;
-    gap: 8px;
-    display: none;
-}
-
-
-
 .container:hover .buttons {
     display: flex;
+
+}
+
+.container:hover .hoveredImage img {
+    opacity: 0.6;
 }

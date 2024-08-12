@@ -49,17 +49,8 @@ export default () => {
                         onClick={onclick}
 
                     >
-                        <div className={styles.hoveredImage}
-                            style={{
-                                backgroundImage: `linear-gradient(0deg, rgba(149, 146, 146, 0.2)0%, rgba(149, 146, 146, 0.2)100%), url('./icon/${item.icon}')`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
-                                backgroundRepeat: "no-repeat",
-                                width: "100%",
-                                height: "300px",
-                                borderRadius: '8px'
-                            }}
-                        >
+                        <div className={styles.hoveredImage} >
+                            <Image src={`./icon/${item.icon}`} width={234} height={251} alt='image' />
                             <div className={styles.buttons}>
                                 <div className={styles.cellEdit}>
                                     <Image src={'./icon/edit.svg'} width={24} height={24} alt={'edit button'} />
