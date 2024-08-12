@@ -9,7 +9,7 @@ interface Props {
     className?: string;
     disabled?: boolean;
     mode: 'without icon' | 'long with icon' | 'short with icon' | 'reusable width';
-    icon?: string;
+    icon?: boolean;
     width?: string | number;
     onClick: Function;
 }
@@ -19,10 +19,8 @@ export default (props: Props) => {
 
 
     return (
-        <button type="submit" className={classes.join(' ').trim()} style={style}>
-            {props.icon && (
-                <Image src={props.icon} alt={"wefnwh"} />
-            )}
+        <button type="submit" className={classes.join(' ').trim()} style={style} onClick={() => props.onClick()}>
+            {props.icon && clip}
             {props.title}
         </button>
     )
