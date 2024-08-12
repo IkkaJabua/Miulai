@@ -2,9 +2,17 @@
 import { title } from 'process'
 import styles from './UserPlaylist.module.scss'
 import Image from 'next/image'
+import { useState } from 'react'
 
 
 export default () => {
+    const [active, setActive] = useState(true)
+
+    const onclick = () => {
+        setActive(false)
+        console.log("Active state after click:");
+
+    }
 
 
     const playListData = [
@@ -36,7 +44,10 @@ export default () => {
         <>
             {
                 playListData.map((item) =>
-                    <div className={styles.container} >
+                    <div className={styles.container}
+                        onClick={onclick}
+
+                    >
                         <div className={styles.hoveredImage}
                             style={{
                                 backgroundImage: `linear-gradient(0deg, rgba(149, 146, 146, 0.2)0%, rgba(149, 146, 146, 0.2)100%), url('./icon/${item.icon}')`,
@@ -46,9 +57,22 @@ export default () => {
                                 width: "100%",
                                 height: "300px",
                                 borderRadius: '8px'
-
                             }}
+
+
                         >
+                            {
+                                active &&
+                                <div className={styles.buttons}>
+                                    <div className={styles.cellEdit}>
+                                        <Image src={'./icon/edit.svg'} width={24} height={24} alt={'edit button'} />
+                                    </div>
+                                    <div className={styles.cellDelete}>
+                                        <Image src={'./icon/delete.svg'} width={24} height={24} alt={'edit button'} />
+                                    </div>
+                                </div>
+
+                            }
                         </div>
                         <div className={styles.font}>{item.title}</div>
                     </div>
