@@ -7,14 +7,6 @@ import Link from 'next/link'
 
 
 export default () => {
-    const [active, setActive] = useState(true)
-
-    const onclick = () => {
-        setActive(false)
-        console.log("Active state after click:");
-
-    }
-
 
     const playListData = [
         {
@@ -46,11 +38,9 @@ export default () => {
             {
                 playListData.map((item) =>
                     <Link className={styles.container} href={`playlists/${item.id}`}
-                        onClick={onclick}
-
                     >
                         <div className={styles.hoveredImage} >
-                            <Image src={`./icon/${item.icon}`} width={234} height={251} alt='image' />
+                            <Image className={styles.cellImage} src={`./icon/${item.icon}`} width={234} height={251} alt='image' />
                             <div className={styles.buttons}>
                                 <div className={styles.cellEdit}>
                                     <Image src={'./icon/edit.svg'} width={24} height={24} alt={'edit button'} />
