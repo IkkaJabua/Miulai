@@ -3,6 +3,7 @@ import { title } from 'process'
 import styles from './UserPlaylist.module.scss'
 import Image from 'next/image'
 import { useState } from 'react'
+import Link from 'next/link'
 
 
 export default () => {
@@ -44,7 +45,7 @@ export default () => {
         <>
             {
                 playListData.map((item) =>
-                    <Link className={styles.container}
+                    <Link className={styles.container} href={`playlists/${item.id}`}
                         onClick={onclick}
 
                     >
@@ -69,7 +70,7 @@ export default () => {
                             </div>
                         </div>
                         <div className={styles.font}>{item.title}</div>
-                    </div>
+                    </Link>
                 )
             }
         </>

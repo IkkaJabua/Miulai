@@ -48,3 +48,17 @@
     justify-content: center;
     align-items: flex-end;
 }
+
+
+.buttons {
+    display: flex;
+    margin-bottom: 16px;
+    gap: 8px;
+    display: none;
+}
+
+
+
+.container:hover .buttons {
+    display: flex;
+}
