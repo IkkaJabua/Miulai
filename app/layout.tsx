@@ -7,6 +7,7 @@ import Header from "./components/Header/Header";
 import styles from './layout.module.scss';
 import IndexPage from "./components/MusicPlayer/IndexPage";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 
@@ -30,6 +31,7 @@ export default function RootLayout({
             <IndexPage />
           </div>
         </div>
+
       </body>
     </html>
   );

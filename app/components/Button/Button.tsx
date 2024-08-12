@@ -1,3 +1,4 @@
+'use client'
 import styles from "./Button.module.scss";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -10,6 +11,7 @@ interface Props {
     mode: 'without icon' | 'long with icon' | 'short with icon' | 'reusable width';
     icon?: string;
     width?: string | number;
+    onClick: Function;
 }
 
 export default (props: Props) => {
