@@ -44,7 +44,7 @@ export default () => {
         <>
             {
                 playListData.map((item) =>
-                    <div className={styles.container}
+                    <Link className={styles.container}
                         onClick={onclick}
 
                     >
@@ -58,21 +58,15 @@ export default () => {
                                 height: "300px",
                                 borderRadius: '8px'
                             }}
-
-
                         >
-                            {
-                                active &&
-                                <div className={styles.buttons}>
-                                    <div className={styles.cellEdit}>
-                                        <Image src={'./icon/edit.svg'} width={24} height={24} alt={'edit button'} />
-                                    </div>
-                                    <div className={styles.cellDelete}>
-                                        <Image src={'./icon/delete.svg'} width={24} height={24} alt={'edit button'} />
-                                    </div>
+                            <div className={styles.buttons}>
+                                <div className={styles.cellEdit}>
+                                    <Image src={'./icon/edit.svg'} width={24} height={24} alt={'edit button'} />
                                 </div>
-
-                            }
+                                <div className={styles.cellDelete}>
+                                    <Image src={'./icon/delete.svg'} width={24} height={24} alt={'edit button'} />
+                                </div>
+                            </div>
                         </div>
                         <div className={styles.font}>{item.title}</div>
                     </div>
