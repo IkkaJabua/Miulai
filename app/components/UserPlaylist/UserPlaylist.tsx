@@ -2,10 +2,17 @@
 import { title } from 'process'
 import styles from './UserPlaylist.module.scss'
 import Image from 'next/image'
-import Link from 'next/link'
+import { useState } from 'react'
 
 
 export default () => {
+    const [active, setActive] = useState(true)
+
+    const onclick = () => {
+        setActive(false)
+        console.log("Active state after click:");
+
+    }
 
 
     const playListData = [
@@ -37,7 +44,7 @@ export default () => {
         <>
             {
                 playListData.map((item) =>
-                    <Link className={styles.container} href={`playlists/${item.id}`} >
+                    <div className={styles.container} >
                         <div className={styles.hoveredImage}
                             style={{
                                 backgroundImage: `linear-gradient(0deg, rgba(149, 146, 146, 0.2)0%, rgba(149, 146, 146, 0.2)100%), url('./icon/${item.icon}')`,
