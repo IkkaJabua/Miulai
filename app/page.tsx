@@ -1,21 +1,16 @@
-'use client'
-import Button from "./components/Button/Button";
-import Input from "./components/Input/Input";
-import Menu from "./components/Menu/Menu";
-import News from "./components/News/News";
-import "./page.module.scss";
-
-
-
-
+'use client';
+import styles from '../app/page.module.scss';
+import Card from './components/Card/Card';
+import Playlist from './components/Playlist/Playlist';
+import Homepage from './Homepage/page';
 
 
 export default function Home() {
-    return (
-        <main>
-            
-        </main>
-    );
+  return (
+    <main className={styles.main}>
+        <Homepage />
+    </main>
+  );
 }
 
 

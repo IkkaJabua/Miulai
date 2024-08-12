@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    align-items: center;
+    max-width: 1250px;
+    justify-content: space-between;
+    margin-top: 25px;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.firstChild {
+    color: #fff;
+    font-size: 20px;
+}
+
+.lastChild {
+    display: flex;
+    align-items: center;
+    color: #818385;
+    font-size: 14px;
+    cursor: pointer;
+}

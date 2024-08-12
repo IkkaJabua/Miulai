@@ -17,7 +17,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-
+    outline: none;
 }
 
 .WithoutIcon:hover {
@@ -48,6 +48,7 @@
     justify-content: center;
     text-transform: capitalize;
     cursor: not-allowed;
+    outline: none;
 }
 
 .long_with_icon_disabled {
@@ -65,6 +66,7 @@
     font-weight: 500;
     cursor: not-allowed;
     gap: 4px;
+    outline: none;
 }
 
 .short_with_icon_disabled {
@@ -81,6 +83,7 @@
     text-transform: capitalize;
     cursor: not-allowed;
     gap: 4px;
+    outline: none;
 }
 
 
@@ -101,6 +104,7 @@
     font-weight: 500;
     gap: 4px;
     cursor: pointer;
+    outline: none;
 }
 
 .LongWithIcon:hover {
@@ -170,4 +174,5 @@
     text-transform: capitalize;
     cursor: not-allowed;
     gap: 4px;
+    outline: none;
 }

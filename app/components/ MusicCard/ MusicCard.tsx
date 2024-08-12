@@ -10,12 +10,7 @@ interface Props {
 }
 
 export default (props: Props) => {
-    const [isPlaylistVisible, setIsPlaylistVisible] = useState(false);
-      
-        const changeOnDotsClick = () => {
-          setIsPlaylistVisible(prev => !prev)
-        }
-
+    
 
     return (
         <div className={styles.container}>
@@ -30,7 +25,7 @@ export default (props: Props) => {
                 <div className={styles.time_font_style}>3:45</div>
                 <div className={styles.container_like_point}>
                     <HeartShapeBtn isDisabled={false} isActive={true} onClick={() => (console.log('button clicked'))} />
-                    <div onClick={changeOnDotsClick}>
+                    <div>
                         <Image src={'./Dots.svg'} alt='Dots button' width={24} height={24} />
                         </div>
                 </div>
