@@ -2,7 +2,7 @@
 
 .container {
     max-width: 277px;
-    height: 100vh;
+    min-height: 100%;
     background-color: $reversedGrey;
     display: flex;
     justify-content: center;

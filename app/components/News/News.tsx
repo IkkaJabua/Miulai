@@ -12,7 +12,8 @@ export default (props: Props) => {
         backgroundImage: `url(${props.image})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
-        backgroundPosition: 'center'
+        backgroundPosition: 'left',
+        
     }
 
     return (
@@ -22,7 +23,7 @@ export default (props: Props) => {
                     <div className={styles.font_style_news}>{props.title}</div>
                     <div className={styles.font_style_plays}>795,900 Plays</div>
                 </div>
-                <Button title={'Listen Now'} mode={'long with icon'} icon/>
+                <Button title={'Listen Now'} mode={'long with icon'} icon='' />
             </div>
         </div>
     )

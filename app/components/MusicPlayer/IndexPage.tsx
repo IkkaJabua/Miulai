@@ -1,4 +1,5 @@
 // pages/index.tsx
+'use client';
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Controls from './Contorls';
 import TrackDisplay from './Trackdisplay';

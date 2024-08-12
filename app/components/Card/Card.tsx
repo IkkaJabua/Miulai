@@ -6,9 +6,9 @@ import { useState } from 'react';
 interface Props {
     header: string;
     image: string;
-    subtitle: string;
+    subtitle?: string;
     title: string;
-    imageStyle: 'round' | 'normal';
+    imageStyle: 'normal' | 'round';
 }
 
 export default (props: Props) => {
@@ -21,7 +21,7 @@ export default (props: Props) => {
         <div className={styles.wrapper}>
             <h3 className={styles.heading}>{props.header}</h3>
             <div className={styles.container}>
-                <Image src={props.image} alt='image' width={234} height={202} className={radius.join(' ').trim()} />
+                <Image src={props.image} alt='image' width={230} height={210} className={radius.join(' ').trim()} />
 
                 <div className={styles.union}>
                     <ItemsUnion />

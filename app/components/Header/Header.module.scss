@@ -1,7 +1,7 @@
 @import '../colors/colors.scss';
 
 .image {
-    border-radius: 50%;
+    cursor: pointer;
 }
 
 .container {
@@ -9,4 +9,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+@media screen and (min-width: 300px) and (max-width: 1023px) {
+    .container {
+        gap: 20px;
+        justify-content: center;
+    }
 }

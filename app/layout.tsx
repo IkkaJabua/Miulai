@@ -4,6 +4,8 @@ import "./globals.scss";
 import { RecoilRoot } from "recoil";
 import Menu from "./components/Menu/Menu";
 import Header from "./components/Header/Header";
+import styles from './layout.module.scss';
+import IndexPage from "./components/MusicPlayer/IndexPage";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,9 +23,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div style={{display: 'flex'}}>
+        <div className={styles.container}>
           <Menu />
           {children}
+          <div className={styles.container2}>
+            <IndexPage />
+          </div>
         </div>
       </body>
     </html>
