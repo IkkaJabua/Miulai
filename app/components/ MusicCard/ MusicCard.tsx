@@ -27,7 +27,7 @@ export default (props: Props) => {
                     <HeartShapeBtn isDisabled={false} isActive={true} onClick={() => (console.log('button clicked'))} />
                     <div>
                         <Image src={'./Dots.svg'} alt='Dots button' width={24} height={24} />
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
