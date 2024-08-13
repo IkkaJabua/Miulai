@@ -31,7 +31,6 @@ export default function RootLayout({
             <IndexPage />
           </div>
         </div>
-
       </body>
     </html>
   );
