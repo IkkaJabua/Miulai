@@ -1,9 +1,11 @@
+@import '../colors/colors.scss';
+
 .container {
     padding: 16px;
     width: 266px;
     height: 309px;
     border-radius: 8px;
-    background: #151519;
+    background: $darkVoid;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -13,7 +15,7 @@
 }
 
 .font {
-    color: #9E9A9F;
+    color: $shadyLady;
     font-size: 14px;
     font-weight: 600;
 }
@@ -26,7 +28,7 @@
 }
 
 .cellEdit {
-    background-color: white;
+    background-color: $white;
     width: 32px;
     height: 32px;
     border-radius: 40px;
@@ -36,7 +38,7 @@
 }
 
 .cellDelete {
-    background-color: white;
+    background-color: $white;
     width: 32px;
     height: 32px;
     border-radius: 40px;
