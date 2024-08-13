@@ -27,7 +27,7 @@ const ChartsSection = () => {
             {
                 ChartsData.map((item, i) => (
                     <div className={styles.box}>
-                        <MusicCard title={item.title} author={item.author} />
+                        <MusicCard title={item.title} author={item.author} key={i} />
                     </div>
                 ))
             }

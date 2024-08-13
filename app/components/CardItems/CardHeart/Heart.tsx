@@ -12,7 +12,7 @@ export default (props: Props) => {
 
     return(
         <div className={styles.container} onClick={props.onClick}>
-            <Icon name={''} alt='image' width={32} height={32} />
+            <Image src={'/icon/heart-ntr.svg'} alt={'image'} width={32} height={32} />
         </div>
     )
 }
