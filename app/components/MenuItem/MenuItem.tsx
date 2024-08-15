@@ -34,7 +34,7 @@ export default () => {
             title: 'Top Hits',
             icon: 'menu-logo3',
             activeIcon: 'clicked-menu-logo3',
-            path: '/',
+            path: '/hits',
             id: 3
         },
         {
