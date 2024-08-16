@@ -1,5 +1,6 @@
 'use client';
 import styles from '../app/page.module.scss';
+import MusicCard from './components/ MusicCard/ MusicCard';
 import Homepage from './Homepage/page';
 
 
