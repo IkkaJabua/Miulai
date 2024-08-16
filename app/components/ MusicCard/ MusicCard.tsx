@@ -3,14 +3,13 @@ import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn'
 import Icon from '../Icon/Icon'
 import styles from './ MusicCard.module.scss'
 import Image from 'next/image'
-import { title } from 'process'
 import Playlist from '../Playlist/Playlist'
 
 
 
 export default () => {
-    const [active, setActive] = useState<any>()
-   
+    const [active, setActive] = useState<number>()
+
 
 
 
@@ -61,16 +60,18 @@ export default () => {
                         <div className={styles.container_detals}>
                             <div className={styles.time_font_style}>{item.time}</div>
                             <div className={styles.container_like_point}>
-                                <HeartShapeBtn isDisabled={false} isActive={true} onClick={() => (console.log('button clicked'))} />
-                                <div className={styles.cursor} onClick={() => setActive(item.id)}>                                
-                                    <Image src={'./Dots.svg'} alt='Dots button' width={24} height={24} />
-                                </div>  
-                                {
-                                    active === item.id &&
-                                    <div className={styles.playlist}>
-                                        <Playlist />
+                                <HeartShapeBtn isDisabled={true} isActive={true} onClick={() => (console.log('button clicked'))} />
+                                <div className={styles.cursor} onClick={() => setActive(item.id)}>
+                                    <div className={styles.cellPlaylist}>
+                                        {
+                                            active === item.id &&
+                                            <div className={styles.playlist}>
+                                                <Playlist />
+                                            </div>
+                                        }
                                     </div>
-                                }  
+                                    <Image src={'./Dots.svg'} alt='Dots button' width={24} height={24} />
+                                </div>
                             </div>
                         </div>
                     </div>

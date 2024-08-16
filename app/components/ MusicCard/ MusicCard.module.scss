@@ -76,13 +76,24 @@
     font-size: 14px;
 }
 
+.cellPlaylist {
+    position: relative;
+    // bottom: 185px;
+    // right: 266px
+    bottom: 215px;
+    right: 217px;
 
-.playlist {
-    position:relative;
-    top: -100px;
-    right: 100px;
+
 
 }
+
+.playlist {
+    position: absolute;
+    z-index: 1;
+    box-shadow: 2px 2px 16px 0px rgba(0, 0, 0, 0.50);
+
+}
+
 .cursor {
     cursor: pointer;
 }
