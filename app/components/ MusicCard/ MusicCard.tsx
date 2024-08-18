@@ -61,16 +61,16 @@ export default () => {
                             <div className={styles.time_font_style}>{item.time}</div>
                             <div className={styles.container_like_point}>
                                 <HeartShapeBtn isDisabled={true} isActive={true} onClick={() => (console.log('button clicked'))} />
-                                <div className={styles.cursor} onClick={() => setActive(item.id)}>
-                                    <div className={styles.cellPlaylist}>
-                                        {
-                                            active === item.id &&
-                                            <div className={styles.playlist}>
-                                                <Playlist />
-                                            </div>
-                                        }
-                                    </div>
+                                <div className={styles.cursor} onClick={() => setActive(active === item.id ? undefined : item.id)}>
                                     <Image src={'./Dots.svg'} alt='Dots button' width={24} height={24} />
+                                </div>
+                                <div className={styles.cellPlaylist}>
+                                    {
+                                        active === item.id &&
+                                        <div className={styles.playlist}>
+                                            <Playlist />
+                                        </div>
+                                    }
                                 </div>
                             </div>
                         </div>
