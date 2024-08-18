@@ -18,8 +18,9 @@
 
 
 .container {
-    max-width: 548px;
-    width: 100%;
+    // max-width: 548px;
+    // width: 100%;
+    width: 548px;
     height: 104px;
     padding: 16px;
     border-radius: 8px;
@@ -29,7 +30,6 @@
     justify-content: space-between;
     align-items: center;
 }
-
 .container_author {
     display: flex;
     align-items: center;
