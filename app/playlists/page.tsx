@@ -8,6 +8,7 @@ import styles from './page.module.scss'
 import Image from 'next/image';
 import Table from '../components/Table/Table';
 import CreatePlaylist from '../components/Playlist/CreatePlaylist/CreatePlaylist';
+import Link from 'next/link';
 
 
 export default () => {
@@ -19,7 +20,9 @@ export default () => {
         <div className={styles.container}>
             <div className={styles.miniContainer}>
                 <div className={styles.cellheader}>
-                    <Image className={styles.cursor} src={'./icon/isari.svg'} width={32} height={32} alt='image' />
+                    <Link href={'../'}>
+                        <Image className={styles.cursor} src={'./icon/isari.svg'} width={32} height={32} alt='image' />
+                    </Link>
                     <Image src={'./icon/profile-icon.svg'} width={56} height={56} alt='profile image' />
                 </div>
                 <div className={styles.cellFont}>My Playlists</div>
