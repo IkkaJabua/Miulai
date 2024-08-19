@@ -34,14 +34,14 @@ export default () => {
             title: 'Top Hits',
             icon: 'menu-logo3',
             activeIcon: 'clicked-menu-logo3',
-            path: '/hits',
+            path: '../hits',
             id: 3
         },
         {
             title: 'Top Charts',
             icon: 'menu-logo4',
             activeIcon: 'clicked-menu-logo4',
-            path: '/',
+            path: '../charts',
             id: 4
         },
         { type: 'header', title: 'Collection' },
@@ -85,7 +85,7 @@ export default () => {
                         return <div className={styles.menu_header} key={index}>{item.title}</div>;
                     }
                     return (
-                        <div className={activeItem === item.id ? styles.clicked_container : styles.container} onClick={() => setActiveItem(item.id)} >
+                        <div className={activeItem === item.id ? styles.clicked_container : styles.container} onClick={() => setActiveItem(item.id) } >
                             <Icon name={`${activeItem === item.id ? item.activeIcon : item.icon}`} alt={'logo'} width={24} height={24} />
                             <Link className={activeItem === item.id ? styles.white_font : styles.font}
                                 href={`../${item.path}`}>
