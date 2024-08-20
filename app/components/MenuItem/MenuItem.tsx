@@ -85,13 +85,12 @@ export default () => {
                         return <div className={styles.menu_header} key={index}>{item.title}</div>;
                     }
                     return (
-                        <div className={activeItem === item.id ? styles.clicked_container : styles.container} onClick={() => setActiveItem(item.id)} >
+                        <Link href={`../${item.path}`} className={activeItem === item.id ? styles.clicked_container : styles.container} onClick={() => setActiveItem(item.id)} >
                             <Icon name={`${activeItem === item.id ? item.activeIcon : item.icon}`} alt={'logo'} width={24} height={24} />
-                            <Link className={activeItem === item.id ? styles.white_font : styles.font}
-                                href={`../${item.path}`}>
+                            <div className={activeItem === item.id ? styles.white_font : styles.font}>
                                 {item.title}
-                            </Link>
-                        </div>
+                            </div>
+                        </Link>
                     );
                 })}
             </div>
