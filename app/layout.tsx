@@ -25,7 +25,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className={styles.container}>
-          <Menu />
+          <span className={styles.menu}> 
+            {/* აქ სპანში იმიტომ ჩავსვი მენიუ კომპონენტი რომ გამექრო დროებით ტაბლეტის და მობილურის ზომაზე , სანამ ბურგერ მენიუ გამზადდება */}
+            <Menu />
+          </span>
           {children}
           <div className={styles.container2}>
             <IndexPage />
