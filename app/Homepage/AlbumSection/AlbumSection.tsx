@@ -25,6 +25,12 @@ const AlbumData = [
         title: 'Radical Optimism',
         subtitle: 'Dua Lipa',
     },
+
+    {
+        image: '/image/test.png',
+        title: 'Radical Optimism',
+        subtitle: 'Dua Lipa',
+    },
 ]
 
 const AlbumSection = () => {

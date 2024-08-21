@@ -7,20 +7,20 @@ type Props = {
 }
 
 
-const   CardsHeader = ({title, subtitle}: Props) => {
+const CardsHeader = ({title, subtitle}: Props) => {
 
     return(
         <div className={styles.container}>
             <h3 className={styles.firstChild}>
                 {title}
             </h3>
-            <span className={styles.lastChild}>
+            <Link href={subtitle} className={styles.lastChild}>
                 <span>See All</span>
-                <Link href={subtitle} />
-            </span>
+                
+            </Link>
         </div>
     )
-}
+}   
 
 
 export default CardsHeader;

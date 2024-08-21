@@ -15,7 +15,7 @@ export default function Home() {
     <main className={styles.main}>
       <Header />
       <News title={'Top Hit Of The Week'} image={'/image/testImg.jpg'} />
-      <CardsHeader title={'Top Hits'} subtitle={''} />
+      <CardsHeader title={'Top Hits'} subtitle={'/hits'} />
       <HitsSection />
       <CardsHeader title={'Top Charts'} subtitle={''} />
       <ChartsSection />

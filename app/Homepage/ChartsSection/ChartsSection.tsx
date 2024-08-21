@@ -18,6 +18,14 @@ const ChartsData = [
         title: 'Sugar (feat. Francesco)',
         author: 'By Robin Schulz',
     },
+    {
+        title: 'Sugar (feat. Francesco)',
+        author: 'By Robin Schulz',
+    },
+    {
+        title: 'Sugar (feat. Francesco)',
+        author: 'By Robin Schulz',
+    },
 ]
 
 const ChartsSection = () => {

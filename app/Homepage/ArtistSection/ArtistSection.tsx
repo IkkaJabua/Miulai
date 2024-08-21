@@ -21,6 +21,12 @@ const ArtistData = [
         image: '/image/test.png',
         title: 'Ed Sheeran',
     },
+
+    {
+        image: '/image/test.png',
+        title: 'Ed Sheeran',
+    },
+
 ]
 
 const ArtistSection = () => {

@@ -1,7 +1,7 @@
 .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 18px;
     flex-wrap: wrap;
     padding-bottom: 20px;
 }
@@ -10,5 +10,12 @@
 @media screen and (min-width: 300px) and (max-width: 850px) {
     .container {
         justify-content: center;
+    }
+}
+
+@media screen and (min-width: 1650px) {
+    .container {
+        justify-content: center;
+        margin: 10px 0;
     }
 }

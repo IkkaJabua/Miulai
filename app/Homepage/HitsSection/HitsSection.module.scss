@@ -1,28 +1,34 @@
 .container {
    width: 100%;
-   display: flex;
-   flex-direction: column;
    margin-bottom: 25px;
+   display: flex;
 }
 
 .hits {
     max-width: 1350px;
     width: 100%;
     display: flex;
-    gap: 18px;
-    flex-wrap: wrap;
-    justify-content: space-between;
-   
+    gap: 20px;
 }
 
 .box {
     display: flex;
-    flex-wrap: wrap;
 }
 
 @media screen and (min-width: 300px) and (max-width: 882px) {
     .hits {
         justify-content: center;
         gap: 10px;
+        
+    }
+}
+
+@media screen and (min-width: 1650px) {
+    .hits {
+        justify-content: center;
+    }
+
+    .container {
+        justify-content: center;
     }
 }

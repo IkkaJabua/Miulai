@@ -1,7 +1,7 @@
 @import '../colors/colors.scss';
 
 .wrapper {
-    max-width: 266px;
+    max-width: 236px;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -24,6 +24,7 @@
     cursor: pointer;
     max-height: 100%;
     max-width: 100%;
+    display: grid;
 }
 
 .container:hover {
@@ -63,7 +64,7 @@
 
 .imageRounded {
     border-radius: 50%;
-    width: fit-content;
+    width: 200px;
 }
 
 .union {
