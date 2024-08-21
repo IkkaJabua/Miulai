@@ -16,8 +16,7 @@ const CardsHeader = ({title, subtitle}: Props) => {
             </h3>
             <Link href={subtitle} className={styles.lastChild}>
                 <span>See All</span>
-                
-            </Link>
+            </Link> 
         </div>
     )
 }   

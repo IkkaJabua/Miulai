@@ -10,9 +10,6 @@ import Playlist from '../Playlist/Playlist'
 export default () => {
     const [active, setActive] = useState<number>()
 
-
-
-
     const musicCardData = [
         {
             author: 'By Robin Schulz',

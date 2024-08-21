@@ -20,7 +20,7 @@
 .container {
     // max-width: 548px;
     // width: 100%;
-    width: 548px;
+    flex-basis: 600px;
     height: 104px;
     padding: 16px;
     border-radius: 8px;
@@ -28,7 +28,10 @@
     color: white;
     display: flex;
     justify-content: space-between;
+    flex-shrink: 1;
     align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 .container_author {
     display: flex;

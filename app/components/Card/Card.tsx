@@ -21,7 +21,7 @@ export default (props: Props) => {
         <div className={styles.wrapper}>
             <h3 className={styles.heading}>{props.header}</h3>
             <div className={styles.container}>
-                <Image src={props.image} alt='image' width={205} height={200} className={radius.join(' ').trim()} />
+                <Image src={props.image} alt='image' width={205} height={190} className={radius.join(' ').trim()} />
 
                 <div className={styles.union}>
                     <ItemsUnion />
