@@ -1,5 +1,11 @@
 @import '../components/colors/colors.scss';
 
+.cellPlaylist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
 .container {
     color: $white;
     width: 100%;
@@ -50,4 +56,25 @@
     z-index: 1;
     top: 310px;
     left: 620px;
+}
+
+.cellReusableinput {
+    max-width: 548px;
+    width: 100%;
+}
+
+@media screen and (max-width: 744px) {
+    .onlyInput {
+        max-width: 332px;
+        width: 100%;
+    }
+
+    .cellPlaylist {
+        flex: 1;
+    }
+
+    .cellReusableinput {
+        max-width: 332px;
+        width: 100%;
+    }
 }

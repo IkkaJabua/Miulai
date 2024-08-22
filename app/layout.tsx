@@ -25,10 +25,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div className={styles.container}>
-          <Menu />
+          {/* <Menu /> */}
           {children}
           <div className={styles.container2}>
-            <IndexPage />
+            {/* <IndexPage /> */}
           </div>
         </div>
       </body>

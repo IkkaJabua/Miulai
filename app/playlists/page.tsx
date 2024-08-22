@@ -26,7 +26,9 @@ export default () => {
                 </div>
                 <div className={styles.cellFont}>My Playlists</div>
                 <div className={styles.cellInput}>
-                    <Input />
+                    <div className={styles.cellReusableinput}>
+                        <Input />
+                    </div>
                     <Button
                         title={'New playlist'}
                         mode={'short with icon'}
