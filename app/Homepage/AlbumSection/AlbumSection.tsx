@@ -25,19 +25,27 @@ const AlbumData = [
         title: 'Radical Optimism',
         subtitle: 'Dua Lipa',
     },
+
+    {
+        image: '/image/test.png',
+        title: 'Radical Optimism',
+        subtitle: 'Dua Lipa',
+    },
 ]
 
 const AlbumSection = () => {
 
-    return(
+    return (
         <div className={styles.container}>
-            {
-                AlbumData.map((item,i) => (
-                    <div className={styles.box}>
-                        <Card header={''} image={item.image} title={item.title} subtitle={item.subtitle} imageStyle={'normal'} />
-                    </div>
-                ))
-            }
+            <div className={styles.album}>
+                {
+                    AlbumData.map((item, i) => (
+                        <div className={styles.box}>
+                            <Card header={''} image={item.image} title={item.title} subtitle={item.subtitle} imageStyle={'normal'} />
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     )
 }
