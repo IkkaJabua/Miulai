@@ -16,13 +16,7 @@ export default () => {
 
     const [tablet, setTablet] = useState<any>(false)
 
-    useEffect(() => {
-
-        const mediaQuery = window.matchMedia('(max-width: 744px)');
-        if (window.innerWidth <= 744) {
-            setTablet(mediaQuery.matches);
-        }
-    }, []);
+    
 
 
     return (
