@@ -25,7 +25,7 @@ export default () => {
             </div>
             <div>
                 <Image onClick={() => router.back()} className={styles.tabletCursor} src={'../icon/isari.svg'} width={32} height={32} alt='image' />
-                <News title={'Playlist 1'} image={'../frame2.png'} />
+                <News title={'Playlist 1'} image={'/image/testImg.jpg'} />
             </div>
             <div className={styles.input}>
                 <Input />

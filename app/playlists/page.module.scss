@@ -71,6 +71,9 @@
     display: none;
 }
 
+.mobileButton {
+    display: none;
+}
 
 @media screen and (min-width: 375px) and (max-width: 744px)  {
     .onlyInput {
@@ -102,11 +105,21 @@
     }
     .tabletBurgercursos {
         display: flex;
+        cursor: pointer;
     }
     .newPlaylist {
         left: 26%;
 
     }
 
+
+}
+@media screen and (max-width: 375px) {
+    .screenButton {
+        display: none;
+    }
+    .mobileButton {
+        display: flex;
+    }
 
 }

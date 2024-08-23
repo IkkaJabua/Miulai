@@ -49,12 +49,18 @@ export default () => {
                     <div className={styles.cellReusableinput}>
                         <Input />
                     </div>
-                    <Button
-                        title={'New playlist'}
-                        mode={'short with icon'}
-                        icon
-                        onClick={() => setActive(!active)}
-                    />
+                    <div className={styles.screenButton}>
+                        <Button
+                            title={'New playlist'}
+                            mode={'short with icon'}
+                            icon
+                            onClick={() => setActive(!active)}
+                        />
+                    </div>
+                    <div className={styles.mobileButton}>
+                        <Button title={'+'} mode={'without icon'} onClick={() => console.log('button clicked')} />
+
+                    </div>
                 </div>
                 <div className={styles.newPlaylist}>
                     {active &&
