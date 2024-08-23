@@ -14,17 +14,6 @@ export default () => {
 
     const [active, setActive] = useState(false)
 
-    const [tablet, setTablet] = useState<any>(false)
-
-    useEffect(() => {
-
-        const mediaQuery = window.matchMedia('(max-width: 744px)');
-        if (window.innerWidth <= 744) {
-            setTablet(mediaQuery.matches);
-        }
-    }, []);
-
-
     return (
         <div className={styles.container}>
             <div className={styles.miniContainer}>
@@ -41,8 +30,13 @@ export default () => {
                     <Link href={'/'}>
                         <Image className={styles.tabletCursos} src={'./icon/isari.svg'} width={32} height={32} alt='image' />
                     </Link>
-                    <div>
-                        My Playlists
+                    <div className={styles.mobileGap}>
+                        <div className={styles.cellMyPlaylist}>
+                            My Playlists
+                        </div>
+                        <div className={styles.mobileButton}>
+                            <Button title={'+'} mode={'without icon'} onClick={() => console.log('button clicked')} />
+                        </div>
                     </div>
                 </div>
                 <div className={styles.cellInput}>
@@ -56,10 +50,6 @@ export default () => {
                             icon
                             onClick={() => setActive(!active)}
                         />
-                    </div>
-                    <div className={styles.mobileButton}>
-                        <Button title={'+'} mode={'without icon'} onClick={() => console.log('button clicked')} />
-
                     </div>
                 </div>
                 <div className={styles.newPlaylist}>

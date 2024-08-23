@@ -28,6 +28,11 @@
 }
 
 @media screen and (min-width: 375px) and (max-width: 744px) {
+
+    .container {
+        margin-top: 32px;
+    }
+
     .input {
         max-width: 348px;
         width: 100%;
@@ -48,6 +53,15 @@
         cursor: pointer;
         left: 48px;
         top: 160px;
+    }
+
+}
+
+@media screen and (max-width: 375px) {
+    .container {
+        margin-top: 24px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
 }

@@ -7,6 +7,7 @@
     // width: 266px;
     // height: 309px;
     border-radius: 8px;
+    padding: 8px;
     background: $darkVoid;
     display: flex;
     flex-direction: column;
@@ -68,7 +69,6 @@
     .container {
         width: 142px;
         height: 168px;
-        padding: 8px;
         display: flex;
         flex-direction: column;
     }
@@ -80,5 +80,18 @@
 
     .font {
         margin-left: 5px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .container {
+        width: 148px;
+        height: 188px;
+        gap: 3px;
+    }
+
+    .cellImage {
+        width: 148px;
+        height: 168px;
     }
 }

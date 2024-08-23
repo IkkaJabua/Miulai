@@ -1,11 +1,5 @@
 @import '../components/colors/colors.scss';
 
-.cellPlaylist {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
 .container {
     color: $white;
     width: 100%;
@@ -29,9 +23,6 @@
 }
 
 .cellFont {
-    color: $white;
-    font-size: 32px;
-    font-weight: 500;
     display: flex;
 }
 
@@ -67,6 +58,7 @@
 .tabletCursos {
     display: none;
 }
+
 .tabletBurgercursos {
     display: none;
 }
@@ -75,7 +67,15 @@
     display: none;
 }
 
-@media screen and (min-width: 375px) and (max-width: 744px)  {
+.cellMyPlaylist {
+    font-size: 32px;
+    font-weight: 500;
+}
+
+@media screen and (min-width: 375px) and (max-width: 744px) {
+    .container {
+        margin-top: 32px;
+    }
     .onlyInput {
         max-width: 332px;
         width: 100%;
@@ -99,27 +99,63 @@
     .cursor {
         display: none;
     }
+
     .tabletCursos {
         display: flex;
         cursor: pointer;
     }
+
     .tabletBurgercursos {
         display: flex;
         cursor: pointer;
     }
+
     .newPlaylist {
         left: 26%;
 
     }
 
+    .cellMyPlaylist {
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 500;
+    }
+
 
 }
+
 @media screen and (max-width: 375px) {
+
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+        margin-top: 24px;
+    }
     .screenButton {
         display: none;
     }
+
     .mobileButton {
         display: flex;
     }
+
+    .mobileGap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    .cellMyPlaylist {
+        color: $white;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    .cellPlaylist {
+        gap: 10px;
+    }
+    
+
 
 }
