@@ -16,4 +16,38 @@
 
 .cursor {
     cursor: pointer;
+
+}
+
+.tabletBurgercursos {
+    display: none;
+}
+
+.tabletCursor {
+    display: none;
+}
+
+@media screen and (min-width: 375px) and (max-width: 744px) {
+    .input {
+        max-width: 348px;
+        width: 100%;
+    }
+
+    .cursor {
+        display: none;
+    }
+
+    .tabletBurgercursos {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .tabletCursor {
+        display: flex;
+        position: absolute;
+        cursor: pointer;
+        left: 48px;
+        top: 160px;
+    }
+
 }

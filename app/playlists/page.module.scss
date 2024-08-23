@@ -32,6 +32,7 @@
     color: $white;
     font-size: 32px;
     font-weight: 500;
+    display: flex;
 }
 
 .cellInput {
@@ -63,7 +64,15 @@
     width: 100%;
 }
 
-@media screen and (max-width: 744px) {
+.tabletCursos {
+    display: none;
+}
+.tabletBurgercursos {
+    display: none;
+}
+
+
+@media screen and (min-width: 375px) and (max-width: 744px)  {
     .onlyInput {
         max-width: 332px;
         width: 100%;
@@ -77,4 +86,27 @@
         max-width: 332px;
         width: 100%;
     }
+
+    .cellFont {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .cursor {
+        display: none;
+    }
+    .tabletCursos {
+        display: flex;
+        cursor: pointer;
+    }
+    .tabletBurgercursos {
+        display: flex;
+    }
+    .newPlaylist {
+        left: 26%;
+
+    }
+
+
 }
