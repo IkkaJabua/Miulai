@@ -1,5 +1,6 @@
 'use client';
 import styles from '../app/page.module.scss';
+import BurgerMenu from './components/BurgerMenu/BurgerMenu';
 import CardsHeader from './components/CardsHeader/CardsHeader';
 import Header from './components/Header/Header';
 import News from './components/News/News';
