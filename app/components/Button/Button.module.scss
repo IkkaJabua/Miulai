@@ -141,21 +141,32 @@
     background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
 }
 
-.reusablewidth {
+
+
+
+
+
+
+
+.reusableButton {
     border: none;
-    padding: 12px;
-    border-radius: 8px;
     background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
     display: flex;
     align-items: center;
     justify-content: center;
     color: $white;
-    border: none;
     text-transform: capitalize;
-    font-weight: 500;
-    gap: 4px;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
 
 .reusablewidth:hover {
     border-radius: 10px;

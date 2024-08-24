@@ -40,7 +40,7 @@ export default () => {
                             My Playlists
                         </div>
                         <div className={styles.mobileButton}>
-                            <Button title={'+'} mode={'reusable width'} width={'28px'} onClick={() => console.log('button clicked')} />
+                            <Button title={''} mode={'reusable width'} borderRadius='4px'  padding={'4px'} width={'28px'} onClick={() => console.log('button clicked')} />
                         </div>
                     </div>
                 </div>
