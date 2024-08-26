@@ -9,7 +9,7 @@ export default () => {
     return (
         <div className={styles.container}>
             <div className={styles.container_menu}>
-                <Link href={'/'}>
+                <Link className={styles.cursorLogo} href={'/'}>
                     <Image src={'./icon/miulailogo.svg'} alt='logo' width={98} height={83} />
                 </Link>
                 <MenuItem />
