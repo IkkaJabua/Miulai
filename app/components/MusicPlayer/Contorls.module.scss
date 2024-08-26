@@ -152,8 +152,64 @@ background: var(--Gradient-apolo, linear-gradient(90deg, #F903D0 0%, #9A16F2 100
   top: 24px;
   width: 68%;
 }
+}
+.likeSet{
+  display: none;
+}
 
 
+@media screen and (min-width:0px) and (max-width:767px) {
+ 
+  .timing{
+    display: none;
+  }
+  .btn{
+    display: none;
+  }
+  .volume{
+    display: none;
+  }
+  .circle{
+    display: flex;
+  }
+  .likeSet{
+    display: flex;
+  }
+  .likeplaybtn{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    
+  }
+  .progressMain{
+    display: flex;
+  }
   
+.load {
+  -webkit-appearance: none;
+  appearance: none;
+  width:100vh;
+  height: 4px;
+  outline: none;
+  background-color: #2E3133;
+  cursor: pointer;
+  position: absolute;
+  bottom: 49px;
+  right: 52px;
+  
+}
+
+.progressMain {
+  position: relative;
+}
+
+.progressDiv {
+  position: relative;
+  height: 10px;
+  background: aqua;
+  bottom: 14px;
+  border-radius: 12px;
+background: var(--Gradient-apolo, linear-gradient(90deg, #F903D0 0%, #9A16F2 100%));
+}
 
 }

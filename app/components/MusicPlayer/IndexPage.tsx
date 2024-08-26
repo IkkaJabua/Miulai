@@ -7,11 +7,18 @@ import TrackDisplay from './Trackdisplay';
 import style from './IndexPage.module.scss';
 
 const tracks = [
+    
     {
         title: 'Sugar (feat. Francesco)',
         artist: 'By Robin Schulz',
         albumArt: '/music/RobinSchluz.png',
         audio: '/music/RobinSchulz.mp3',
+    },
+    {
+        title: 'Kinetic Cyclone',
+        artist: 'Sample',
+        albumArt: '/music/toko.png',
+        audio: '/music/TokosTrack.mp3.mp3',
     },
     {
         title: 'Starboy',

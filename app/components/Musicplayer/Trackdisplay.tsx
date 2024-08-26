@@ -18,7 +18,9 @@ const TrackDisplay = ({ currentTrack }: TrackDisplayProps) => {
             <Image src={currentTrack.albumArt} alt="Album Art" width={80} height={80} className={style.img} />
             <div className={style.like}>
                 <div className={style.text}>
-                    <HeartShapeBtn isActive={true} isDisabled={false} onClick={() => console.log('Button clicked!')} />
+                    <div className={style.likebtn}>
+                        <HeartShapeBtn isActive={true} isDisabled={false} onClick={() => console.log('Button clicked!')} />
+                    </div>
                     <span className={style.title}>{currentTrack.title}</span>
                     <span className={style.artist}>{currentTrack.artist}</span>
 
