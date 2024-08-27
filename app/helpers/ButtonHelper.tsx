@@ -15,6 +15,7 @@ export const getButtonStyles = (props: Props) => {
 
     const style: any = {
         width: props.width || 'auto',
+        
 
     };
 
