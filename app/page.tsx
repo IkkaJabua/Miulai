@@ -9,8 +9,6 @@ import AlbumSection from './Homepage/AlbumSection/AlbumSection';
 import ArtistSection from './Homepage/ArtistSection/ArtistSection';
 import ChartsSection from './Homepage/ChartsSection/ChartsSection';
 import HitsSection from './Homepage/HitsSection/HitsSection';
-import Button from './components/Button/Button';
-
 
 
 export default function Home() {
