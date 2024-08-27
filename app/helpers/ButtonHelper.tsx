@@ -41,7 +41,7 @@ export const getButtonStyles = (props: Props) => {
     useEffect(() => {
         const newClasses: string[] = [];
         if (props.disabled && props.mode === 'reusable button') {
-            newClasses.push(styles.reusableWidthDisabled)
+            newClasses.push(styles.reusableButtonDisabled)
         } else if (props.mode === 'reusable button') {
             newClasses.push(styles.reusableButton)
         }

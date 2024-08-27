@@ -1,8 +1,37 @@
 @import '../colors/colors.scss';
 
 
+.reusableButton {
+    border: none;
+    background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    text-transform: capitalize;
+    cursor: pointer;
+}
 
-// // button WithoutIcon
+.reusableButton:hover {
+    border-radius: 10px;
+    background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
+}
+
+.reusableButtonDisabled {
+    border: none;
+    background-color: $dynamicBlack;
+    padding: 12px;
+    border-radius: 8px;
+    color: $stoneCold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: capitalize;
+    cursor: not-allowed;
+    gap: 4px;
+    outline: none;
+}
+
 // .WithoutIcon {
 //     border: none;
 //     background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
@@ -140,41 +169,3 @@
 //     border-radius: 10px;
 //     background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
 // }
-
-
-
-
-
-
-
-
-.reusableButton {
-    border: none;
-    background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $white;
-    text-transform: capitalize;
-    cursor: pointer;
-}
-
-.reusableButton:hover {
-    border-radius: 10px;
-    background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
-}
-
-.reusableWidthDisabled {
-    border: none;
-    background-color: $dynamicBlack;
-    padding: 12px;
-    border-radius: 8px;
-    color: $stoneCold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: capitalize;
-    cursor: not-allowed;
-    gap: 4px;
-    outline: none;
-}

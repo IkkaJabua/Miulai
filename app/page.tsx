@@ -1,6 +1,7 @@
 'use client';
 import { Butterfly_Kids } from 'next/font/google';
 import styles from '../app/page.module.scss';
+import Button from './components/Button/Button';
 import CardsHeader from './components/CardsHeader/CardsHeader';
 import Header from './components/Header/Header';
 import News from './components/News/News';

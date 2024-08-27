@@ -26,7 +26,6 @@ interface Props {
     imageWidth?: number | undefined;
     imageHeight?: number | undefined;
     imageAlt?: string;
-    
 }
 
 export default (props: Props) => {
@@ -47,3 +46,4 @@ export default (props: Props) => {
         </button>
     )
 }
+
