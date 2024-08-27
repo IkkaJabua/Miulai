@@ -2,144 +2,144 @@
 
 
 
-// button WithoutIcon
-.WithoutIcon {
-    border: none;
-    background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
-    color: $white;
-    max-width: 116px;
-    padding: 12px 32px;
-    border-radius: 8px;
-    text-transform: capitalize;
-    font-size: 16px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    outline: none;
-}
+// // button WithoutIcon
+// .WithoutIcon {
+//     border: none;
+//     background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
+//     color: $white;
+//     max-width: 116px;
+//     padding: 12px 32px;
+//     border-radius: 8px;
+//     text-transform: capitalize;
+//     font-size: 16px;
+//     font-weight: 600;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     cursor: pointer;
+//     outline: none;
+// }
 
-.WithoutIcon:hover {
-    border-radius: 10px;
-    background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
-}
+// .WithoutIcon:hover {
+//     border-radius: 10px;
+//     background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
+// }
 
-.WithoutIcon:active {
-    border-radius: 10px;
-    background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
-}
-
-
-
-
-// disabled buttons
-.without_icon_disabled {
-    border: none;
-    border-radius: 10px;
-    background-color: $dynamicBlack;
-    padding: 12px 32px;
-    max-width: 116px;
-    font-size: 16px;
-    font-weight: 600;
-    color: $stoneCold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: capitalize;
-    cursor: not-allowed;
-    outline: none;
-}
-
-.long_with_icon_disabled {
-    border: none;
-    background-color: $dynamicBlack;
-    max-width: 153px;
-    padding: 12px 16px;
-    border-radius: 8px;
-    color: $stoneCold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: capitalize;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: not-allowed;
-    gap: 4px;
-    outline: none;
-}
-
-.short_with_icon_disabled {
-    border: none;
-    font-size: 16px;
-    background-color: $dynamicBlack;
-    color: $stoneCold;
-    max-width: 145px;
-    padding: 12px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-transform: capitalize;
-    cursor: not-allowed;
-    gap: 4px;
-    outline: none;
-}
+// .WithoutIcon:active {
+//     border-radius: 10px;
+//     background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
+// }
 
 
 
-// button LongWithIcon
-.LongWithIcon {
-    border: none;
-    max-width: 153px;
-    padding: 12px 20px;
-    border-radius: 8px;
-    background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $white;
-    text-transform: capitalize;
-    font-size: 16px;
-    font-weight: 500;
-    gap: 4px;
-    cursor: pointer;
-    outline: none;
-}
 
-.LongWithIcon:hover {
-    border-radius: 10px;
-    background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
-}
+// // disabled buttons
+// .without_icon_disabled {
+//     border: none;
+//     border-radius: 10px;
+//     background-color: $dynamicBlack;
+//     padding: 12px 32px;
+//     max-width: 116px;
+//     font-size: 16px;
+//     font-weight: 600;
+//     color: $stoneCold;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     text-transform: capitalize;
+//     cursor: not-allowed;
+//     outline: none;
+// }
 
-.LongWithIcon:active {
-    border-radius: 10px;
-    background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
-}
+// .long_with_icon_disabled {
+//     border: none;
+//     background-color: $dynamicBlack;
+//     max-width: 153px;
+//     padding: 12px 16px;
+//     border-radius: 8px;
+//     color: $stoneCold;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     text-transform: capitalize;
+//     font-size: 16px;
+//     font-weight: 500;
+//     cursor: not-allowed;
+//     gap: 4px;
+//     outline: none;
+// }
 
-.ShortWithIcon {
-    border: none;
-    max-width: 145px;
-    height: 44px;
-    padding: 12px 16px;
-    border-radius: 8px;
-    background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $white;
-    text-transform: capitalize;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 16px;
-    gap: 4px;
-    cursor: pointer;
-}
+// .short_with_icon_disabled {
+//     border: none;
+//     font-size: 16px;
+//     background-color: $dynamicBlack;
+//     color: $stoneCold;
+//     max-width: 145px;
+//     padding: 12px;
+//     border-radius: 8px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     text-transform: capitalize;
+//     cursor: not-allowed;
+//     gap: 4px;
+//     outline: none;
+// }
 
-.ShortWithIcon:hover {
-    border-radius: 10px;
-    background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
-}
+
+
+// // button LongWithIcon
+// .LongWithIcon {
+//     border: none;
+//     max-width: 153px;
+//     padding: 12px 20px;
+//     border-radius: 8px;
+//     background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     color: $white;
+//     text-transform: capitalize;
+//     font-size: 16px;
+//     font-weight: 500;
+//     gap: 4px;
+//     cursor: pointer;
+//     outline: none;
+// }
+
+// .LongWithIcon:hover {
+//     border-radius: 10px;
+//     background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
+// }
+
+// .LongWithIcon:active {
+//     border-radius: 10px;
+//     background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
+// }
+
+// .ShortWithIcon {
+//     border: none;
+//     max-width: 145px;
+//     height: 44px;
+//     padding: 12px 16px;
+//     border-radius: 8px;
+//     background: var(--Gradient-apolo, linear-gradient(90deg, $fuchsiaFlame 0%, $singaporeOrchid 100%));
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     color: $white;
+//     text-transform: capitalize;
+//     font-weight: 400;
+//     font-size: 16px;
+//     line-height: 16px;
+//     gap: 4px;
+//     cursor: pointer;
+// }
+
+// .ShortWithIcon:hover {
+//     border-radius: 10px;
+//     background: linear-gradient(90deg, $PassionatePink 0%, $indivioletSunset 100%);
+// }
 
 
 
@@ -158,15 +158,6 @@
     text-transform: capitalize;
     cursor: pointer;
 }
-
-
-
-
-
-
-
-
-
 
 .reusablewidth:hover {
     border-radius: 10px;

@@ -16,7 +16,7 @@ export default () => {
 
     const [tablet, setTablet] = useState<any>(false)
 
-    
+
 
 
     return (
@@ -36,11 +36,18 @@ export default () => {
                         <Image className={styles.tabletCursos} src={'./icon/isari.svg'} width={32} height={32} alt='image' />
                     </Link>
                     <div className={styles.mobileGap}>
-                        <div className={styles.cellMy}>
+                        <div className={styles.cellMyPlaylist}>
                             My Playlists
                         </div>
                         <div className={styles.mobileButton}>
-                            <Button title={''} mode={'reusable width'} borderRadius='4px'  padding={'4px'} width={'28px'} onClick={() => console.log('button clicked')} />
+                            <Button title={''}
+                                mode={'reusable button'}
+                                imageSrc='plus.svg'
+                                imageHeight={20}
+                                imageWidth={20}
+                                padding='4px'
+                                borderRadius='4px'
+                                onClick={() => console.log('button clicked')} />
                         </div>
                     </div>
                 </div>
@@ -51,8 +58,15 @@ export default () => {
                     <div className={styles.screenButton}>
                         <Button
                             title={'New playlist'}
-                            mode={'short with icon'}
-                            icon
+                            mode={'reusable button'}
+                            imageSrc='plus.svg'
+                            imageHeight={20}
+                            imageWidth={20}
+                            padding='12px 16px 12px 12px'
+                            borderRadius='8px'
+                            gap='4px'
+                            fontSize='16px'
+                            fontWeight='500'
                             onClick={() => setActive(!active)}
                         />
                     </div>
