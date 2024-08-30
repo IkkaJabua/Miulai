@@ -24,13 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className={styles.container}>
-          <Menu />
-          {children}
-          <div className={styles.container2}>
-            <IndexPage />
-          </div>
-        </div>
+        {children}
       </body>
     </html>
   );
