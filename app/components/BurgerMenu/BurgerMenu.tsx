@@ -19,7 +19,8 @@ const BurgerMenu = (props: Props) => {
         <div className={`${styles.container} ${props.className}`} onClick={onMenuClick}>
             {
                     menu
-                    ? <Menu />
+
+                    ? <div className={styles.menu}><Menu /></div>
                     : <Image src={"/icon/burgerMenu.svg"} alt={"image"} width={44} height={44} />
             }
         </div>

@@ -11,10 +11,11 @@
 
 .container_menu {
     width: 240px;
-    height: 699px;
+    height: 100%;
     background-color: $reversedGrey;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 56px;
+
 }

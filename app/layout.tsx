@@ -33,7 +33,7 @@ export default function RootLayout({
           <BurgerMenu className={styles.burgerMenu} />
           {children}
           <div className={styles.container2}>
-            <IndexPage />
+            {/* <IndexPage /> */}
           </div>
         </div>
       </body>
