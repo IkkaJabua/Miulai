@@ -1,4 +1,5 @@
 'use client';
+import { Butterfly_Kids } from 'next/font/google';
 import styles from '../app/page.module.scss';
 import BurgerMenu from './components/BurgerMenu/BurgerMenu';
 import CardsHeader from './components/CardsHeader/CardsHeader';
@@ -8,7 +9,6 @@ import AlbumSection from './Homepage/AlbumSection/AlbumSection';
 import ArtistSection from './Homepage/ArtistSection/ArtistSection';
 import ChartsSection from './Homepage/ChartsSection/ChartsSection';
 import HitsSection from './Homepage/HitsSection/HitsSection';
-
 
 
 export default function Home() {
