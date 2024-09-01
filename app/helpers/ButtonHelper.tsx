@@ -5,6 +5,7 @@ import { useEffect, useState, type JSX } from "react";
 import { Height, Padding } from "@mui/icons-material";
 
 interface Props {
+    maxWidth: string;
     fontWeight: string;
     fontSize: string;
     gap: string;
@@ -28,6 +29,7 @@ export const getButtonStyles = (props: Props) => {
         gap: props.gap || 'auto',
         fontSize: props.fontSize || 'auto',
         fontWeight: props.fontWeight || 'auto',
+        maxWidth: props.maxWidth || 'auto'
 
     };
 
