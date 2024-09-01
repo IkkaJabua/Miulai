@@ -4,11 +4,8 @@ import styles from './BurgerMenu.module.scss';
 import { useState } from "react";
 import Menu from "../Menu/Menu";
 
-type Props = {
-    className: string;
-}
 
-const BurgerMenu = (props: Props) => {
+const BurgerMenu = () => {
     const [menu, setMenu] = useState(false);
 
     const onMenuClick = () => {
@@ -16,12 +13,13 @@ const BurgerMenu = (props: Props) => {
     }
 
     return (
-        <div className={`${styles.container} ${props.className}`} onClick={onMenuClick}>
+        <div className={styles.container} onClick={onMenuClick}>
             {
-                    menu
-
-                    ? <div className={styles.menu}><Menu /></div>
-                    : <Image src={"/icon/burgerMenu.svg"} alt={"image"} width={44} height={44} />
+                menu ?
+                    <div className={styles.menu}>
+                        <Menu />
+                    </div> :
+                    <Image src={"/icon/burgerMenu.svg"} alt={"image"} width={44} height={44} />
             }
         </div>
     )

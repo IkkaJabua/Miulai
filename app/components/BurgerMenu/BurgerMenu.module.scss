@@ -1,11 +1,12 @@
 .container {
     cursor: pointer;
-    height: 100%;
     position: relative;
-    z-index: 10;
+    // height: 300vh;
 }
 
 .menu {
     position: relative;
-    z-index: 10;
+    right: 26px;
+    bottom: 32px;
+    z-index: 2;
 }

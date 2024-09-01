@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Table from '../components/Table/Table';
 import CreatePlaylist from '../components/Playlist/CreatePlaylist/CreatePlaylist';
 import Link from 'next/link';
+import BurgerMenu from '../components/BurgerMenu/BurgerMenu';
 
 
 export default () => {
@@ -27,7 +28,10 @@ export default () => {
                         <Link href={'/'}>
                             <Image className={styles.cursor} src={'./icon/isari.svg'} width={32} height={32} alt='image' />
                         </Link>
-                        <Image className={styles.tabletBurgercursos} src={'../icon/menu-burger.svg'} width={44} height={44} alt='burger-menu-icon' />
+                        {/* <Image className={styles.tabletBurgercursos} src={'../icon/menu-burger.svg'} width={44} height={44} alt='burger-menu-icon' /> */}
+                         {/* <div className={styles.tabletBurgercursos}>
+                            <BurgerMenu className={''} />
+                        </div>  */}
                     </div>
                     <Image src={'./icon/profile-icon.svg'} width={56} height={56} alt='profile image' />
                 </div>
