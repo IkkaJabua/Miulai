@@ -14,6 +14,7 @@ interface Props {
 
 
     width?: string;
+    maxWidth?: string;
     padding?: string;
     borderRadius?: string;
     height?: string;
