@@ -33,7 +33,6 @@ export default function RootLayout({
           </div>
           <div className={styles.burgerMenu}>
             <BurgerMenu />
-
           </div>
           {children}
           <div className={styles.container2}>
