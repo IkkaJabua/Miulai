@@ -27,7 +27,7 @@ export default () => {
             title: 'Recommendations',
             icon: 'menu-logo2',
             activeIcon: 'clicked-menu-logo2',
-            path: '/',
+            path: '/recomendationPage',
             id: 2
         },
         {
