@@ -41,7 +41,7 @@ export default () => {
             title: 'Top Charts',
             icon: 'menu-logo4',
             activeIcon: 'clicked-menu-logo4',
-            path: '/',
+            path: '/ChartsPage',
             id: 4
         },
         { type: 'header', title: 'Collection' },
@@ -64,7 +64,7 @@ export default () => {
             title: 'Artist',
             icon: 'menu-logo7',
             activeIcon: 'clicked-menu-logo7',
-            path: '/',
+            path: '/favoritesPage',
             id: 7
         },
         {
