@@ -12,3 +12,15 @@
     align-items: center;
     justify-content: space-between;
 }
+
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+    .input {
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .input {
+        width: 260px;
+    }
+}

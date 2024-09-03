@@ -10,7 +10,7 @@ export default ({icon} : Props) => {
 
     return(
         <div className={styles.container}>
-            <Input />
+            <Input className={styles.input} />
             <Image src={icon} alt='image' width={56} height={56} className={styles.image} />
         </div>
     )
