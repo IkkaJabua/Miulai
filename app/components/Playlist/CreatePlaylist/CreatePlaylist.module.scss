@@ -1,0 +1,63 @@
+.container {
+    max-width: 335px;
+    max-height: 100%;
+    // top: 126px;
+    // left: 45%;
+    // position: relative;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 44px;
+    cursor: pointer;
+}
+
+.title {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.inp {
+    border: 1px solid #363636;  
+    max-width: 303px;
+    width: 100%;
+    padding: 12px 24px 12px 24px;
+    border-radius: 8px;
+    background-color: #141414;
+    outline: none;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;   
+    margin: 12px 0;
+}
+
+.inp::placeholder {
+    color: #ffffffb7;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.filesWrapper {
+    max-width: 303px;
+    width: 100%;
+    height: 195px;
+    border-radius: 8px;
+    border: 1px solid #363636;
+    background-color: #141414;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.files {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+

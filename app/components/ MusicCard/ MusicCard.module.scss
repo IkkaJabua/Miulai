@@ -1,0 +1,99 @@
+@import '../colors/colors.scss';
+
+
+//contaienr styles
+
+.mainContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
+
+.container {
+    // max-width: 548px;
+    // width: 100%;
+    flex-basis: 330px;
+    height: 104px;
+    padding: 16px;
+    border-radius: 8px;
+    background: $darkVoid;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+
+.container_author {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.container_name {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+}
+
+.container_detals {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+}
+
+.container_like_point {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+
+//font styles
+.music_name_font_style {
+    font-size: 14px;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+}
+
+@media screen and (max-width: 1450px) {
+    .music_author_font_style {
+        font-size: 11px;
+    }
+
+    .music_name_font_style {
+        font-size: 12px;
+    }
+}
+
+.music_author_font_style {
+    color: $shadyLady;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.time_font_style {
+    color: $shadyLady;
+    font-size: 14px;
+}
+
+.cellPlaylist {
+    position: relative;
+    bottom: 223px;
+    right: 249px;
+}
+
+.playlist {
+    position: absolute;
+    z-index: 1;
+    box-shadow: 2px 2px 16px 0px rgba(0, 0, 0, 0.50);
+}
+
+.cursor {
+    cursor: pointer;
+}

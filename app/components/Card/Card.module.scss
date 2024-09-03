@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    height: 100%;
 }
 
 .heading {
@@ -21,6 +22,8 @@
     border-radius: 8px;
     position: relative;
     cursor: pointer;
+    max-height: 100%;
+    max-width: 100%;
 }
 
 .container:hover {
@@ -77,6 +80,5 @@
 }
 
 .union:hover {
-    content-visibility: visible;  
+    content-visibility: visible;
 }
-

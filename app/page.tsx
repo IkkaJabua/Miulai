@@ -1,15 +1,35 @@
 'use client';
-import Header from "./components/Header/Header";
-import Input from "./components/Input/Input";
-import Card from "./components/Card/Card";
-import Heart from "./components/CardItems/CardHeart/Heart";
-import ItemsUnion from "./components/CardItems/ItemsUnion/ItemsUnion";
-import "./page.module.scss";
+import styles from '../app/page.module.scss';
+import Button from './components/Button/Button';
+import CardsHeader from './components/CardsHeader/CardsHeader';
+import Header from './components/Header/Header';
+import News from './components/News/News';
+import AlbumSection from './Homepage/AlbumSection/AlbumSection';
+import ArtistSection from './Homepage/ArtistSection/ArtistSection';
+import ChartsSection from './Homepage/ChartsSection/ChartsSection';
+import HitsSection from './Homepage/HitsSection/HitsSection';
+
+
 
 export default function Home() {
   return (
-    <main>
-        <Header icon={""} />
+    <main className={styles.main}>
+      <Header />
+      <News title={'Top Hit Of The Week'} image={'/image/testImg.jpg'} />
+      <CardsHeader title={'Top Hits'} subtitle={''} />
+      <HitsSection />
+      <CardsHeader title={'Top Charts'} subtitle={''} />
+      <ChartsSection />
+      <CardsHeader title={'Popular Artists'} subtitle={''} />
+      <ArtistSection />
+      <CardsHeader title={'Popular Albums'} subtitle={''} />
+      <AlbumSection />
     </main>
   );
 }
+
+
+
+
+
+

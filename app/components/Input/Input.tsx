@@ -4,8 +4,10 @@ import styles from './Input.module.scss';
 type Props = {
     className?: string;
 }
+import Image from 'next/image';
 
 export default (props: Props) => {
+
 
     return (
         <div className={styles.container + ' ' + props.className}>
