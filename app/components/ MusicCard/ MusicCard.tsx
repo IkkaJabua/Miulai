@@ -40,6 +40,22 @@ export default () => {
             id: 4,
             time: '3:45',
         },
+
+        {
+            author: 'By Japanese Breakfast',
+            title: 'Be Sweet',
+            icon: 'musiccard3.svg',
+            id: 4,
+            time: '3:45',
+        },
+
+        {
+            author: 'By Japanese Breakfast',
+            title: 'Be Sweet',
+            icon: 'musiccard3.svg',
+            id: 4,
+            time: '3:45',
+        },
     ]
 
 
