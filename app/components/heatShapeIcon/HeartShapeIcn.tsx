@@ -7,7 +7,7 @@ interface Props {
   onClick: () => void;
 }
 
-export default function HeartShapeBtn ({ isActive, isDisabled, onClick }: Props) {
+export default function HeartShapeBtn({ isActive, isDisabled, onClick }: Props) {
   const [isClicked, setIsClicked] = useState(false);
 
 
