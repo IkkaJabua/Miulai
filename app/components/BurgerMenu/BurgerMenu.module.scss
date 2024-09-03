@@ -5,8 +5,10 @@
 }
 
 .menu {
-    position: relative;
-    right: 26px;
-    bottom: 32px;
+    position: fixed;
+    // right: 26px;
+    // bottom: 32px;
+    left: 0;
+    top: 0px;
     z-index: 2;
 }
