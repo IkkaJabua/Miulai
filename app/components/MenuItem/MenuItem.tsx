@@ -71,7 +71,7 @@ export default () => {
             title: 'Album',
             icon: 'menu-logo8',
             activeIcon: 'clicked-menu-logo8',
-            path: '/',
+            path: 'albumpage',
             id: 8
         }
     ]

@@ -7,9 +7,9 @@ interface Props {
     icon?: string;
 }
 
-export default ({icon} : Props) => {
+export default ({ icon }: Props) => {
 
-    return(
+    return (
         <div className={styles.container}>
             <Input className={styles.input} />
             <Image src={icon} alt='image' width={56} height={56} className={styles.image} />       
