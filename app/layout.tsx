@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Noto_Sans, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.scss";
 import { RecoilRoot } from "recoil";
 import Menu from "./components/Menu/Menu";
@@ -9,12 +9,18 @@ import IndexPage from "./components/MusicPlayer/IndexPage";
 
 
 const inter = Inter({ subsets: ["latin"] });
+const PlusJakartaSans = Plus_Jakarta_Sans({
+weight : [],
+subsets:['latin'],
+variable : '--font-Plus-Jakarta-sans'
+})
 
 
 export const metadata: Metadata = {
   title: "Miulai",
   description: "Music App",
 };
+
 
 export default function RootLayout({
   children,
@@ -23,9 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} ${PlusJakartaSans.className}`} >
         <div className={styles.container}>
           <Menu />
+          
           {children}
           <div className={styles.container2}>
             <IndexPage />
