@@ -2,7 +2,7 @@
 import styles from '../app/page.module.scss';
 
 
-export default function Home() {
+export function Home() {
   return (
     <main className={styles.main}>
     

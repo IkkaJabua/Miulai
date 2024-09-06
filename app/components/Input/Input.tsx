@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import styles from './Input.module.scss';
 import Image from 'next/image';
 
-export default () => {
+const Input = () => {
 
 
     return (
@@ -11,3 +11,5 @@ export default () => {
         </div>
     )
 }
+
+export default Input;

@@ -7,7 +7,7 @@ import { render } from "sass";
 import { text } from "stream/consumers";
 
 
-export default () => {
+const Table = () => {
 
     const tableData = [
         {
@@ -165,3 +165,5 @@ export default () => {
 
     )
 }
+
+export default Table;

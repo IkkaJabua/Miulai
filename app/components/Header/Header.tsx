@@ -7,7 +7,7 @@ interface Props {
     icon?: string;
 }
 
-export default ({icon} : Props) => {
+const Header = ({icon} : Props) => {
 
     return(
         <div className={styles.container}>
@@ -18,4 +18,5 @@ export default ({icon} : Props) => {
 }
 
 
+export default Header;
 
