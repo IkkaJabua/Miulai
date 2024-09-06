@@ -7,7 +7,7 @@ type Props = {
 }
 
 
-const   CardsHeader = ({title, subtitle}: Props) => {
+const CardsHeader = ({title, subtitle}: Props) => {
 
     return(
         <div className={styles.container}>

@@ -12,7 +12,7 @@ import HitsSection from './Homepage/HitsSection/HitsSection';
 import Mobilemenu from './components/Mobilemenu/mobilemenu';
 
 
-export default function Home() {
+export function Home() {
   return (
     <main className={styles.main}>
       <Header />

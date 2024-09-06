@@ -11,7 +11,7 @@ interface Props {
     imageStyle: 'normal' | 'round';
 }
 
-export default (props: Props) => {
+const Card = (props: Props) => {
     const radius = [styles.image];
     if (props.imageStyle === 'round') radius.push(styles.imageRounded)
 
@@ -33,3 +33,5 @@ export default (props: Props) => {
         </div>
     )
 }
+
+export default Card;

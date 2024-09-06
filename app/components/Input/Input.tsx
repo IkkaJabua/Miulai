@@ -6,6 +6,9 @@ type Props = {
 }
 import Image from 'next/image';
 
+
+const Input = () => {
+
 export default (props: Props) => {
 
 
@@ -15,3 +18,5 @@ export default (props: Props) => {
         </div>
     )
 }
+
+export default Input;
