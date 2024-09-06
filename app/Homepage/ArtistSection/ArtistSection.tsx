@@ -21,19 +21,26 @@ const ArtistData = [
         image: '/image/test.png',
         title: 'Ed Sheeran',
     },
+
+    {
+        image: '/image/test.png',
+        title: 'Ed Sheeran',
+    },
 ]
 
 const ArtistSection = () => {
 
     return (
         <div className={styles.container}>
-            {
-                ArtistData.map((item, i) => (
-                    <div className={styles.box}>
-                        <Card header={''} image={item.image} title={item.title} imageStyle={'round'} />
-                    </div>
-                ))
-            }
+            <div className={styles.art}>
+                {
+                    ArtistData.map((item, i) => (
+                        <div className={styles.box}>
+                            <Card header={''} image={item.image} title={item.title} imageStyle={'round'} />
+                        </div>
+                    ))
+                }
+            </div>
         </div>
     )
 }

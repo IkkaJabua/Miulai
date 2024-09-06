@@ -11,8 +11,8 @@ const Header = ({icon} : Props) => {
 
     return(
         <div className={styles.container}>
-            <Input className={styles.input} />
-            <Image src={icon} alt='image' width={56} height={56} className={styles.image} />       
+            <Input />
+            <Image src={'icon/user-img.svg'} alt='image' width={38} height={38} className={styles.image} />
         </div>
     )
 }

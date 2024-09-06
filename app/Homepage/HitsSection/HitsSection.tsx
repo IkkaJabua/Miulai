@@ -25,6 +25,12 @@ const hitsData = [
         subtitle: 'Anyma',
         title: 'Genesys ||',
     },
+
+    {
+        image: '/image/test.png',
+        subtitle: 'Anyma',
+        title: 'Genesys ||',
+    },
 ]
 
 const HitsSection = () => {
