@@ -1,5 +1,5 @@
 'use client';
-import Input from '../components/Input/Input';
+import Input from '../components/Input/Input'
 import News from '../components/News/News';
 import ReusableHeader from '../components/ReusableHeader/ReusableHeader';
 import Table from '../components/Table/Table';

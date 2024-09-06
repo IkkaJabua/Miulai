@@ -7,7 +7,7 @@ interface Props {
 }
 
 
-export const News = (props: Props) => {
+const News = (props: Props) => {
     const backImage: object = {
         backgroundImage: `url(${props.image})`,
         backgroundRepeat: 'no-repeat',
@@ -55,3 +55,6 @@ export const News = (props: Props) => {
         </div>
     )
 }
+
+
+export default News;

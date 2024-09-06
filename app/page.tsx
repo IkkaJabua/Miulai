@@ -12,7 +12,7 @@ import HitsSection from './Homepage/HitsSection/HitsSection';
 import Mobilemenu from './components/Mobilemenu/mobilemenu';
 
 
-export function Home() {
+function Home() {
   return (
     <main className={styles.main}>
       <Header />
@@ -29,6 +29,7 @@ export function Home() {
   );
 }
 
+export default Home;
 
 
 

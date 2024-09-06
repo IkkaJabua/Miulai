@@ -10,8 +10,11 @@
     width: 100%;
 }
 
-@media screen and (max-width: 1023px) {
-    .menu {
+@media screen and (min-width: 1023px) {
+    .burgerMenu {
+        display: none;
+    }
+}
 .burgerMenu {
     display: none;
 }

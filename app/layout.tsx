@@ -13,9 +13,9 @@ import Mobilemenu from "./components/Mobilemenu/mobilemenu";
 
 const inter = Inter({ subsets: ["latin"] });
 const PlusJakartaSans = Plus_Jakarta_Sans({
-weight : [],
-subsets:['latin'],
-variable : '--font-Plus-Jakarta-sans'
+  weight: [],
+  subsets: ['latin'],
+  variable: '--font-Plus-Jakarta-sans'
 })
 
 
@@ -35,9 +35,9 @@ export default function RootLayout({
       <body className={`${inter.className} ${PlusJakartaSans.className}`} >
         <div className={styles.container}>
 
-          <span className={styles.menu}>
+          {/* <span className={styles.menu}>
             <Menu />
-          </span>
+          </span> */}
 
           <div className={styles.ordynaryMenu}>
             <Menu />

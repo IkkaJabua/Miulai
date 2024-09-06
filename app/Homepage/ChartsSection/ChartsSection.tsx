@@ -4,6 +4,12 @@ import styles from './ChartsSection.module.scss';
 
 const ChartsSection = () => {
 
+    const ChartsData = [
+        {
+            
+        }
+    ] 
+
     return (
         <div className={styles.container}>
             {
@@ -13,7 +19,6 @@ const ChartsSection = () => {
                     </div>
                 ))
             }
-            <MusicCard />
 
         </div>
     )
