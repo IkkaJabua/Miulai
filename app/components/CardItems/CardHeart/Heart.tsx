@@ -12,6 +12,8 @@ const Heart = (props: Props) => {
     return(
         <div className={styles.container} onClick={props.onClick}>
             <Image src={'/icon/heart-ntr.svg'} alt={'image'} width={32} height={32} />
+
+            <Image src={'/icon/heart-ntr.svg'} alt='image' width={32} height={32} />
         </div>
     )
 }

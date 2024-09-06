@@ -1,0 +1,12 @@
+.container {
+    cursor: pointer;
+    position: relative;
+    // height: 300vh;
+}
+
+.menu {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+}
