@@ -72,7 +72,7 @@
     font-weight: 500;
 }
 
-@media screen and (min-width: 375px) and (max-width: 744px) {
+@media screen and (min-width: 750px) and (max-width: 1024px) {
     .container {
         margin-top: 32px;
     }
@@ -126,7 +126,7 @@
 
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 750px) {
 
 
     .container {
@@ -155,7 +155,6 @@
         font-weight: 500;
     }
     .cellPlaylist {
-        justify-content: space-around;
         gap: 10px;
     }
     

@@ -65,7 +65,7 @@
     opacity: 0.6;
 }
 
-@media screen and (min-width: 375px) and (max-width: 744px) {
+@media screen and (min-width: 750px) and (max-width: 1024px) {
     .container {
         width: 142px;
         height: 168px;
@@ -83,7 +83,7 @@
     }
 }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 750px) {
     .container {
         width: 148px;
         height: 188px;
