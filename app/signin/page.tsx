@@ -1,9 +1,24 @@
+'use client'
 import styles from './page.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '../components/Button/Button';
+import { useForm } from 'react-hook-form';
+import axios from 'axios'
+
 
 const Signup = () => {
+
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+
+    const onLogin = (values: any) => {
+        axios.post('https://auth.novatori.ge/auth/login', values)
+            .then(r => {
+                localStorage.setItem('user', JSON.stringify(r.data))
+            })
+
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
@@ -25,10 +40,18 @@ const Signup = () => {
 
 
 
-                    <form action="" className={styles.formsWrapper}>
+                    <form onSubmit={handleSubmit(onLogin)} className={styles.formsWrapper}>
                         <div className={styles.inputWrapper}>
-                            <input type="email" placeholder='Email' className={styles.input} />
-                            <input type="password" name="" id="" placeholder='Password' className={styles.input} />
+                            <input type="email"
+                                placeholder='Email'
+                                className={styles.input}
+                                {...register('email')}
+                            />
+                            <input type="password"
+                                id="" placeholder='Password'
+                                className={styles.input}
+                                {...register('password')}
+                            />
                         </div>
                         <div className={styles.checkboxWrapper}>
                             <div className={styles.checkboxContainer}>
@@ -40,7 +63,14 @@ const Signup = () => {
                                 Forgot your password?
                             </Link>
                         </div>
-                        <Button title={'SIGN IN'} mode={'without icon'} onClick={undefined} />
+                        <Button title={'SIGN IN'}
+                            mode={'reusable button'}
+                            onClick={() => console.log('button clicked')}
+                            width='350px'
+                            padding='12px'
+                            borderRadius='8px'
+                            fontSize='16px'
+                        />
                     </form>
                     <Link href={''} className={styles.signup}>
                         <span>
