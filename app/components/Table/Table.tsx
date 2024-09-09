@@ -5,9 +5,9 @@ import type { DividerClassKey } from "@mui/material";
 import styles from './Table.module.scss'
 import { render } from "sass";
 import { text } from "stream/consumers";
+import Image from "next/image";
 
-
-const Table = () => {
+const Tables = () => {
 
     const tableData = [
         {
@@ -110,7 +110,7 @@ const Table = () => {
             width: '30%',
             render: (text: any, item: any) => (
                 <div className={styles.cellSongname}>
-                    <img src={item.icon} width={48} height={48} alt={text} />
+                    <Image src={item.icon} width={48} height={48} alt={text} />
                     <div className={styles.fontGap}>
                         <div className={styles.songTitle}>{text}</div>
                         <div className={styles.songArtist}>{item.author}</div>
@@ -166,4 +166,4 @@ const Table = () => {
     )
 }
 
-export default Table;
+export default Tables;

@@ -9,7 +9,7 @@ import AlbumSection from './Homepage/AlbumSection/AlbumSection';
 import ArtistSection from './Homepage/ArtistSection/ArtistSection';
 import ChartsSection from './Homepage/ChartsSection/ChartsSection';
 import HitsSection from './Homepage/HitsSection/HitsSection';
-import Mobilemenu from './components/Mobilemenu/mobilemenu';
+
 
 
 function Home() {
