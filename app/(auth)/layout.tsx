@@ -12,22 +12,16 @@ export default function RootLayout({
     return (
         <div className={styles.container}>
             <div className={styles.container}>
-
-                {/* <span className={styles.menu}>
-  <Menu />
-</span> */}
-
                 <div className={styles.ordynaryMenu}>
                     <Menu />
                 </div>
                 <div className={styles.burgerMenu}>
                     <BurgerMenu />
                 </div>
-
                 {children}
-                <div className={styles.container2}>
-                    {/* <IndexPage /> */}
-                </div>
+                {/* <div className={styles.container2}>
+                    <IndexPage />
+                </div> */}
                 <MobileMenu />
             </div>
         </div>
