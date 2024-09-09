@@ -5,11 +5,10 @@ const Registracion = () => {
 
 
 
-
     return (
         <div>
-
-         sandro
+            
+         
         </div>
 
 
