@@ -15,6 +15,7 @@ const Signup = () => {
         axios.post('https://auth.novatori.ge/auth/login', values)
             .then(r => {
                 localStorage.setItem('user', JSON.stringify(r.data))
+                console.log(r.data)
             })
 
     }
