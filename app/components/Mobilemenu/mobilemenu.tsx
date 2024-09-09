@@ -1,12 +1,12 @@
 'use client'
 import Link from 'next/link'
-import styles from './mobilemenu.module.scss'
+import styles from './MobileMenu.module.scss'
 import Image from 'next/image'
 
 import { useEffect, useState } from 'react'
 import Icon from '../Icon/Icon'
 
-export default () => {
+const MobileMenu = () => {
     const [activeItem, setActiveItem] = useState<number>();
 
     useEffect(() => {
@@ -48,7 +48,7 @@ export default () => {
         <nav className={styles.container} >
             {
                 MenuData.map(item => (
-                    <Link href={item.path} className={styles.cellMenuItem} onClick={() => setActiveItem(item.id)} >
+                    <Link href={item.path} key={item.id} className={styles.cellMenuItem} onClick={() => setActiveItem(item.id)} >
                         <Icon name={`${activeItem === item.id ? item.activeIcon : item.icon}`} alt={'icon'} width={24} height={24} />
                         <div  className={activeItem == item.id ? styles.activeFont: styles.unActiveFont}>
                             {item.title}
@@ -60,3 +60,7 @@ export default () => {
         </nav>
     )
 }
+
+MobileMenu.displayName = 'MobileMenu';
+
+export default MobileMenu;

@@ -12,6 +12,7 @@
     "@mui/icons-material": "^5.16.0",
     "@mui/material": "^5.16.0",
     "antd": "^5.20.1",
+    "axios": "^1.7.7",
     "next": "14.2.4",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -22,7 +23,7 @@
   "devDependencies": {
     "@studiometa/prettier-config": "^4.1.0",
     "@types/node": "^20",
-    "@types/react": "^18.3.3",
+    "@types/react": "^18.3.5",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.4",

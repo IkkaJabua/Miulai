@@ -9,8 +9,10 @@
 .playlistVisible {
     display: block;
     position: absolute;
-    bottom: 40px;
-    right: 0;
+    z-index: 2;
+    height: fit-content;
+    top: -200px;
+    left: -79px;
 }
 
 .wrapper {
