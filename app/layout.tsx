@@ -7,7 +7,7 @@ import Header from "./components/Header/Header";
 import styles from './layout.module.scss';
 import IndexPage from "./components/MusicPlayer/IndexPage";
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
-import Mobilemenu from "./components/Mobilemenu/mobilemenu";
+import Mobilemenu from "./components/Mobilemenu/MobileMenu";
 
 
 

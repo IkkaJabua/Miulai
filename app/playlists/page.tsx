@@ -11,7 +11,7 @@ import Link from 'next/link';
 import BurgerMenu from '../components/BurgerMenu/BurgerMenu';
 
 
-export default () => {
+const Playlists = () => {
 
     const [active, setActive] = useState(false)
 
@@ -87,3 +87,7 @@ export default () => {
         </div>
     );
 }
+
+Playlists.displayName = 'Playlists';
+
+export default Playlists;
