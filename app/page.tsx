@@ -14,17 +14,8 @@ import Mobilemenu from './components/Mobilemenu/mobilemenu';
 
 function Home() {
   return (
-    <main className={styles.main}>
-      <Header />
-      <News title={'Top Hit Of The Week'} image={'/image/testImg.jpg'} />
-      <CardsHeader title={'Top Hits'} subtitle={''} />
-      <HitsSection />
-      <CardsHeader title={'Top Charts'} subtitle={''} />
-      <ChartsSection />
-      <CardsHeader title={'Popular Artists'} subtitle={''} />
-      <ArtistSection />
-      <CardsHeader title={'Popular Albums'} subtitle={''} />
-      <AlbumSection />
+    <main>
+
     </main>
   );
 }

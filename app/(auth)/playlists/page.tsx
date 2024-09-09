@@ -1,14 +1,19 @@
 'use client'
 import { useEffect, useState } from 'react';
-import Button from '../components/Button/Button';
-import Input from '../components/Input/Input';
-import UserPlaylist from '../components/UserPlaylist/UserPlaylist';
+// import Button from '../components/Button/Button';
+// import Input from '../components/Input/Input';
+// import UserPlaylist from '../components/UserPlaylist/UserPlaylist';
 import styles from './page.module.scss'
 import Image from 'next/image';
-import Table from '../components/Table/Table';
-import CreatePlaylist from '../components/Playlist/CreatePlaylist/CreatePlaylist';
 import Link from 'next/link';
 import BurgerMenu from '../components/BurgerMenu/BurgerMenu';
+import Input from '@/app/components/Input/Input';
+import Button from '@/app/components/Button/Button';
+import CreatePlaylist from '@/app/components/Playlist/CreatePlaylist/CreatePlaylist';
+import UserPlaylist from '@/app/components/UserPlaylist/UserPlaylist';
+// import Table from '../components/Table/Table';
+// import CreatePlaylist from '../components/Playlist/CreatePlaylist/CreatePlaylist';
+// import Link from 'next/link';
 
 
 export default () => {
