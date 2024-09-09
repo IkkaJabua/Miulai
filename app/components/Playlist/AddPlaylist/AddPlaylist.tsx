@@ -65,7 +65,7 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
                 }
 
                 {Object.values(checkboxValues).find((val) => val === true) &&
-                    <Button title={'Save'} mode={'reusable button'} width={"225px"} onClick={() => console.log('button clicked')} />
+                    <Button title={'Save'} mode={'reusable width'} width={225} />
                 }
 
             </form>

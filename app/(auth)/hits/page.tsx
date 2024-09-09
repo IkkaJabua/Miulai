@@ -7,7 +7,7 @@ import Table from '../../components/Table/Table';
 import styles from './page.module.scss';
 
 
-const Hits = () => {
+export default () => {
 
     return(
         <div className={styles.container}>
@@ -18,7 +18,3 @@ const Hits = () => {
         </div>
     )
 }
-
-Hits.displayName = 'Hits'
-
-export default Hits;

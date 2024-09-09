@@ -7,7 +7,7 @@ import Icon from '../Icon/Icon';
 
 
 
-const MenuItem = () => {
+export default () => {
     const [activeItem, setActiveItem] = useState<number>();
 
     useEffect(() => {
@@ -85,7 +85,7 @@ const MenuItem = () => {
                         return <div className={styles.menu_header} key={index}>{item.title}</div>;
                     }
                     return (
-                        <Link href={`../${item.path}`} key={item.id} className={activeItem === item.id ? styles.clicked_container : styles.container} onClick={() => setActiveItem(item.id)} >
+                        <Link href={`../${item.path}`} className={activeItem === item.id ? styles.clicked_container : styles.container} onClick={() => setActiveItem(item.id)} >
                             <Icon name={`${activeItem === item.id ? item.activeIcon : item.icon}`} alt={'logo'} width={24} height={24} />
                             <div className={activeItem === item.id ? styles.white_font : styles.font}>
                                 {item.title}
@@ -97,7 +97,3 @@ const MenuItem = () => {
         </>
     )
 }
-
-MenuItem.displayName = 'MenuItem';
-
-export default MenuItem;

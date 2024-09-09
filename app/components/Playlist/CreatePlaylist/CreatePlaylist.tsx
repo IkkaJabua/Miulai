@@ -22,7 +22,7 @@ const CreatePlaylist = ({ onClick }: Props) => {
                 <Image src={'/icon/camera.png'} alt='image' width={88} height={80} className={styles.image} />
             </div>
 
-            <Button title={'Save'} mode={'reusable button'} width={"290px"} onClick={() => console.log('button clicked')} />
+            <Button title={'Save'} mode={'reusable width'} width={290} onClick={() => console.log('button clicked')} />
 
         </PlaylistBox>
     )

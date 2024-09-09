@@ -4,7 +4,7 @@ import styles from './Menu.module.scss'
 import MenuItem from '../MenuItem/MenuItem'
 import Link from 'next/link';
 
-const Menu = () => {
+export default () => {
 
     return (
         <div className={styles.container}>
@@ -17,7 +17,3 @@ const Menu = () => {
         </div>
     )
 }
-
-Menu.displayName = 'Menu';
-
-export default Menu;

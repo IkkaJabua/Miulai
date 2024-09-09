@@ -6,7 +6,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 
-const UserPlaylist = () => {
+export default () => {
 
     const playListData = [
         {
@@ -37,7 +37,7 @@ const UserPlaylist = () => {
         <>
             {
                 playListData.map((item) =>
-                    <Link className={styles.container} key={item.id} href={`playlists/${item.id}`}
+                    <Link className={styles.container} href={`playlists/${item.id}`}
                     >
                         <div className={styles.hoveredImage} >
                             <Image className={styles.cellImage} src={`./icon/${item.icon}`} width={234} height={251} alt='image' />
@@ -58,5 +58,3 @@ const UserPlaylist = () => {
     )
 }
 
-UserPlaylist.displayName = 'UserPlaylist';
-export default UserPlaylist;

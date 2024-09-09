@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import style from './Contorls.module.scss';
+import { StyleOutlined } from '@mui/icons-material';
+import props from './helperProp/prop';
 import formatTime from './helperProp/formatTime';
 import propsinterFace from './helperProp/prop';
 import Icon from '../Icon/Icon';

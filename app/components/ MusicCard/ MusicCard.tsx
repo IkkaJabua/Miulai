@@ -7,7 +7,7 @@ import Playlist from '../Playlist/Playlist'
 
 
 
-const MusicCard = () => {
+export default () => {
     const [active, setActive] = useState<number>()
 
 
@@ -63,7 +63,7 @@ const MusicCard = () => {
         <div className={styles.mainContainer}>
             {
                 musicCardData.map((item: any, index: any) => (
-                    <div className={styles.container} key={item.id}>
+                    <div className={styles.container}>
                         <div className={styles.container_author}>
                             <div>
                                 <Image src={`./icon/${item.icon}`} alt='music cover' width={72} height={72} />
@@ -98,4 +98,3 @@ const MusicCard = () => {
 }
 
 
-export default MusicCard;
