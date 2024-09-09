@@ -16,7 +16,7 @@ import UserPlaylist from '@/app/components/UserPlaylist/UserPlaylist';
 // import Link from 'next/link';
 
 
-export default () => {
+const Playlists = () => {
 
     const [active, setActive] = useState(false)
 
@@ -92,3 +92,7 @@ export default () => {
         </div>
     );
 }
+
+Playlists.displayName = 'Playlists';
+
+export default Playlists;

@@ -11,7 +11,7 @@ import { useRouter } from 'next/navigation'
 
 
 
-export default () => {
+const Id = () => {
     const router = useRouter();
 
     return (
@@ -35,3 +35,6 @@ export default () => {
     )
 }
 
+Id.displayName = 'Id';
+
+export default Id;

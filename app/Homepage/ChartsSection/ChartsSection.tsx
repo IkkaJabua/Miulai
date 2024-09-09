@@ -4,22 +4,23 @@ import styles from './ChartsSection.module.scss';
 
 const ChartsSection = () => {
 
-    const ChartsData = [
+    const Charts = [
         {
-            
+            title: 'Sugar (feat. Francesco)',
+            subtitle: 'By Robin Schulz',
+            id:1
         }
-    ] 
+    ]
 
     return (
         <div className={styles.container}>
-            {
-                ChartsData.map((item, i) => (
-                    <div className={styles.box}>
-                        <MusicCard title={item.title} author={item.author} key={i} />
-                    </div>
-                ))
-            }
-
+            <div className={styles.box}>
+                {
+                    Charts.map((item) => (
+                        <MusicCard key={item.id} />
+                    ))
+                }
+            </div>
         </div>
     )
 }
