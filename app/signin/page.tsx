@@ -5,17 +5,29 @@ import Link from 'next/link';
 import Button from '../components/Button/Button';
 import { useForm } from 'react-hook-form';
 import axios from 'axios'
+import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
+import { message } from 'antd';
+import { useRouter } from 'next/navigation';
+import { setCookie } from '../cookies';
 
+
+type SignIn = {
+    email: string;
+    password: string;
+    remember: boolean;
+}
 
 const Signup = () => {
-
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const router = useRouter()
+    const { register, handleSubmit, watch, formState: { errors } } = useForm<SignIn>();
 
     const onLogin = (values: any) => {
-        axios.post('https://auth.novatori.ge/auth/login', values)
+        axios.post('https://interstellar-1-pdzj.onrender.com/auth', values)
             .then(r => {
-                localStorage.setItem('user', JSON.stringify(r.data))
-                console.log(r.data)
+                // localStorage.setItem('user', JSON.stringify(r.data))
+                // console.log(r.data)
+                setCookie('token', r.data.accesToken, 60)
+                router.push('/')
             })
 
     }
@@ -46,19 +58,41 @@ const Signup = () => {
                             <input type="email"
                                 placeholder='Email'
                                 className={styles.input}
-                                {...register('email')}
+                                {...register('email', {
+                                    required: {
+                                        value: true,
+                                        message: 'email is required'
+                                    },
+                                    pattern: {
+                                        value: /\S+@\S+\.\S+/,
+                                        message: "Entered value does not match email format",
+                                    },
+                                })}
                             />
+
+                            {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
+
                             <input type="password"
                                 id="" placeholder='Password'
                                 className={styles.input}
-                                {...register('password')}
+                                {...register('password', {
+                                    required: {
+                                        value: true,
+                                        message: 'password is required'
+                                    },
+                                    // minLength: {
+                                    //     value: 8,
+                                    //     message: 'min length of password should be 8 character'
+                                    // }
+                                })}
                             />
+                            {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
                         </div>
                         <div className={styles.checkboxWrapper}>
-                            <div className={styles.checkboxContainer}>
-                                <input type="checkbox" />
+                            {/* <div className={styles.checkboxContainer}>
+                                <input type="checkbox" {...register('remember')} />
                                 <span className={styles.remember}>Remember me</span>
-                            </div>
+                            </div> */}
 
                             <Link href={'/'} className={styles.forgot}>
                                 Forgot your password?
@@ -87,3 +121,4 @@ const Signup = () => {
     )
 }
 export default Signup;
+
