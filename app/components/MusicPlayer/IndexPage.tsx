@@ -4,7 +4,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Controls from './Contorls';
 import style from './IndexPage.module.scss';
-import TrackDisplay from './TrackDisplay';
+// import TrackDisplay from './TrackDisplay';
 
 const tracks = [
     {
@@ -151,7 +151,7 @@ const IndexPage: React.FC = () => {
             <div className={style.container}>
 
                 
-                <TrackDisplay currentTrack={currentTrack} />
+                {/* <TrackDisplay currentTrack={currentTrack} /> */}
 
 
                 <Controls
