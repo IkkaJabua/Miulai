@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image'
 import Button from '../Button/Button';
-import style from './Trackdisplay.module.scss';
+import style from './TrackDisplay.module.scss';
 import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn';
 
 interface TrackDisplayProps {
