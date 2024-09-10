@@ -1,4 +1,4 @@
-import styles from './ErrorMessage.module.scss';
+import styles from './ErrorMessage.module.scss'
 
 interface Props {
     children?: React.ReactNode;
@@ -6,10 +6,12 @@ interface Props {
 
 const ErrorMessage = (props: Props) => {
 
-    return(
-        <>
-            {props.children}
-        </>
+    return (
+        <div className={styles.container}>
+            <div className={styles.wrapper}>
+                {props.children}
+            </div>
+        </div>
     )
 }
 

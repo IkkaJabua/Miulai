@@ -80,19 +80,19 @@ const Signup = () => {
                                         value: true,
                                         message: 'password is required'
                                     },
-                                    // minLength: {
-                                    //     value: 8,
-                                    //     message: 'min length of password should be 8 character'
-                                    // }
+                                    minLength: {
+                                        value: 8,
+                                        message: 'min length of password should be 8 character'
+                                    }
                                 })}
                             />
                             {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
                         </div>
                         <div className={styles.checkboxWrapper}>
-                            {/* <div className={styles.checkboxContainer}>
+                            <div className={styles.checkboxContainer}>
                                 <input type="checkbox" {...register('remember')} />
                                 <span className={styles.remember}>Remember me</span>
-                            </div> */}
+                            </div>
 
                             <Link href={'/'} className={styles.forgot}>
                                 Forgot your password?
