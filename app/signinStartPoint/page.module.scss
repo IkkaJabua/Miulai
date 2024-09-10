@@ -1,0 +1,126 @@
+.container {
+    background:
+        url('/icon/signin-img.svg') no-repeat right bottom / contain,
+        url('/image/backgroundImage-auth.png') no-repeat center / cover;
+    min-height: 100vh;
+    background-attachment: fixed;
+}
+
+.logo {
+    padding-top: 20px;
+    padding-left: 25px;
+    padding-bottom: 30px;
+}
+
+.wrapper {
+    max-width: 533px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.whiteWords {
+    display: flex;
+    align-items: baseline;
+    color: #fff;
+    gap: 15px;
+    line-height: 110%;
+}
+
+.whiteWords span:first-child {
+    font-size: 54px;
+    font-weight: 700;
+    font-family: "SF Pro Display";
+}
+
+.whiteWords span:last-child {
+    font-size: 64px;
+    font-weight: 400;
+    font-family: AG_Futura;
+}
+
+.colouredWords {
+    display: flex;
+    align-items: baseline;
+    background: linear-gradient(90deg, #F903D0 0%, #9A16F2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    gap: 15px;
+    line-height: 68px;
+}
+
+.colouredWords span:first-child {
+    font-size: 64px;
+    font-weight: 400;
+}
+
+.colouredWords span:last-child {
+    font-size: 54px;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #C5B0C9;
+    font-family: "Plus Jakarta Sans";
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .wrapper {
+        margin: 0 auto;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .whiteWords span:first-child {
+        font-size: 30px;
+        font-weight: 700;
+        font-family: "SF Pro Display";
+    }
+
+    .whiteWords span:last-child {
+        font-size: 35px;
+        font-weight: 400;
+        font-family: AG_Futura;
+    }
+
+    .colouredWords span:first-child {
+        font-size: 35px;
+        font-weight: 400;
+    }
+    
+    .colouredWords span:last-child {
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    .whiteWords, .colouredWords {
+        gap: 10px;
+    }
+    
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .wrapper {
+        margin: 0 auto;
+    }
+
+    .container {
+        background:
+        url('/icon/signin-img.svg') no-repeat center bottom / 700px 500px,
+        url('/image/backgroundImage-auth.png') no-repeat center / cover;
+    min-height: 100vh;
+    background-attachment: fixed;
+    }
+}
