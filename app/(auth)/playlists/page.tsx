@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import styles from './page.module.scss'
 import Image from 'next/image';
 import Link from 'next/link';
-import BurgerMenu from '../components/BurgerMenu/BurgerMenu';
+import BurgerMenu from '@/app/components/BurgerMenu/BurgerMenu';
 import Input from '@/app/components/Input/Input';
 import Button from '@/app/components/Button/Button';
 import CreatePlaylist from '@/app/components/Playlist/CreatePlaylist/CreatePlaylist';
