@@ -19,9 +19,9 @@ export default function RootLayout({
                     <BurgerMenu />
                 </div>
                 {children}
-                {/* <div className={styles.container2}>
+                <div className={styles.container2}>
                     <IndexPage />
-                </div> */}
+                </div>
                 <MobileMenu />
             </div>
         </div>
