@@ -6,20 +6,29 @@ import Image from 'next/image'
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { error } from 'console';
 
+
+interface RegisterForm {
+    name: string,
+    email: string,
+    password: string,
+    currentPassword: string,
+}
 
 
 const Registracion = () => {
     const router = useRouter()
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm<RegisterForm>();
 
-    const onSubmit = (values: any) => {
+    const onSubmit = (values: RegisterForm) => {
 
         axios.post('https://interstellar-1-pdzj.onrender.com/user', values).
             then(r => {
                 router.push('/signin')
-                console.log(r)
             })
+        console.log('values', values)
+
 
     }
 
@@ -40,28 +49,48 @@ const Registracion = () => {
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className={styles.registracion}>
-                        {/* <input
+                        <input
                             className={styles.input}
                             type='text'
                             placeholder='name'
-                            {...register('name')}
-                        /> */}
+                            {...register('name', {
+                                required: true,
+                                minLength: 2,
+                            })}
+                        />
+                        {
+                            errors.name && <div className={styles.errorMassage}>Enter your name</div>
+                        }
 
                         <input className={styles.input}
                             type='email'
                             placeholder='Email'
-                            {...register('email')}
+                            {...register('email', {
+                                required: {
+                                    value: true,
+                                    message: 'Enter correct Email'
+                                }
+                            })}
                         />
+                        {
+                            errors.email &&
+                            <div className={styles.errorMassage}>{errors.email.message}</div>
+                        }
 
 
                         <input className={styles.input}
                             type='text'
                             placeholder='Password'
-                            {...register('password')}
+                            {...register('password', {
+                                required: true,
+                                minLength: 8,
+
+                            })}
                         />
+
                         <div className={styles.registrationErors}>
-                            <div>Password must contain: </div>
-                            <div>*8 or more characters </div>
+                            <div>Password must contain:</div>
+                            <div>*8 or more characters</div>
                             <div>*at least one capital letter  </div>
                             <div>*at least one number</div>
                         </div>
@@ -69,8 +98,13 @@ const Registracion = () => {
                         <input className={styles.input}
                             type='text'
                             placeholder='current Password'
-                            {...register('currentpassword')}
+                            {...register('currentPassword', {
+                                required: true
+                            })}
                         />
+                        {
+                            errors.currentPassword && <span className={styles.errorMassage}>This is required</span>
+                        }
 
 
                     </div>
@@ -97,4 +131,4 @@ const Registracion = () => {
 
 }
 
-export default Registracion
+export default RegisterForm
