@@ -9,6 +9,8 @@ import { useRouter } from 'next/navigation';
 import { error } from 'console';
 
 
+
+
 interface RegisterForm {
     name: string,
     email: string,
@@ -19,25 +21,33 @@ interface RegisterForm {
 
 const Registracion = () => {
     const router = useRouter()
+    const [passwordHide, setPasswordHide] = useState<string>('password')
     const { register, handleSubmit, watch, formState: { errors } } = useForm<RegisterForm>();
 
     const onSubmit = (values: RegisterForm) => {
+        const password = watch('password')
+        const currentpassword = watch('currentPassword')
+        if (password === currentpassword) {
+            axios.post('https://interstellar-1-pdzj.onrender.com/user', values).
+                then(r => {
+                    router.push('/signin')
+                })
 
-        axios.post('https://interstellar-1-pdzj.onrender.com/user', values).
-            then(r => {
-                router.push('/signin')
-            })
-        console.log('values', values)
-
+        }
 
     }
 
+
     return (
         <div className={styles.container}>
+            <div className={styles.logoTablet}>
+                <Image src={'/icon/logo.svg'} alt='image' width={97} height={83} />
+            </div>
             <div className={styles.cellStructure}>
-                <div>
+                <div className={styles.logoDesktop}>
                     <Image src={'/icon/logo.svg'} alt='image' width={97} height={83} />
                 </div>
+
                 <div className={styles.subtitle}>
                     <div className={styles.firstFont}>
                         Where <span>Harmony</span>
@@ -47,20 +57,27 @@ const Registracion = () => {
                     </div>
                     <div className={styles.thirdFont}>The Future Of Music Streaming</div>
                 </div>
+                <div className={styles.tabletFont}>Sign up</div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className={styles.registracion}>
-                        <input
+                        {/* <input
                             className={styles.input}
                             type='text'
                             placeholder='name'
                             {...register('name', {
-                                required: true,
-                                minLength: 2,
+                                required: {
+                                    value: true,
+                                    message: 'Enter your name'
+                                },
+                                minLength: {
+                                    value: 2,
+                                    message: 'MinLength is 2'
+                                },
                             })}
                         />
                         {
-                            errors.name && <div className={styles.errorMassage}>Enter your name</div>
-                        }
+                            errors.name && <div className={styles.errorMassage}>{errors.name.message}</div>
+                        } */}
 
                         <input className={styles.input}
                             type='email'
@@ -68,7 +85,11 @@ const Registracion = () => {
                             {...register('email', {
                                 required: {
                                     value: true,
-                                    message: 'Enter correct Email'
+                                    message: 'Email is required'
+                                },
+                                pattern: {
+                                    value: /\S+@\S+\.\S+/,
+                                    message: "Enter correct Email"
                                 }
                             })}
                         />
@@ -77,52 +98,69 @@ const Registracion = () => {
                             <div className={styles.errorMassage}>{errors.email.message}</div>
                         }
 
+                        <div className={styles.passwordInput} >
+                            <input
+                                className={styles.inputPassword}
+                                type={passwordHide}
+                                placeholder='Password'
+                                {...register('password', {
+                                    required: true,
+                                    minLength: 8,
 
-                        <input className={styles.input}
-                            type='text'
-                            placeholder='Password'
-                            {...register('password', {
-                                required: true,
-                                minLength: 8,
+                                })}
+                            />
 
-                            })}
-                        />
+                            <div className={styles.cursor} onClick={() => passwordHide === 'text' ? setPasswordHide('password') : setPasswordHide('text')}>
+                                <Image src={'./icon/hide.svg'} width={16} height={16} alt='hide' />
+                            </div>
+
+                        </div>
+
 
                         <div className={styles.registrationErors}>
                             <div>Password must contain:</div>
                             <div>*8 or more characters</div>
-                            <div>*at least one capital letter  </div>
+                            <div>*at least one capital letter</div>
                             <div>*at least one number</div>
                         </div>
 
-                        <input className={styles.input}
-                            type='text'
-                            placeholder='current Password'
-                            {...register('currentPassword', {
-                                required: true
-                            })}
-                        />
+                        <div className={styles.passwordInput}>
+                            <input className={styles.inputPassword}
+                                type={passwordHide}
+                                placeholder='current Password'
+                                {...register('currentPassword', {
+                                    required: {
+                                        value: true,
+                                        message: 'This is required'
+                                    },
+
+                                })}
+                            />
+                            <div className={styles.cursor} onClick={() => passwordHide === 'text' ? setPasswordHide('password') : setPasswordHide('text')}>
+                                <Image src={'./icon/hide.svg'} width={16} height={16} alt='hide' />
+                            </div>
+                        </div>
+
                         {
-                            errors.currentPassword && <span className={styles.errorMassage}>This is required</span>
+                            errors.currentPassword && <span className={styles.errorMassage}>{errors.currentPassword.message}</span>
                         }
-
-
+                        <div className={styles.button}>
+                            <Button title={'SIGN IN'}
+                                mode={'reusable button'}
+                                onClick={() => console.log('button clicked')}
+                                width='350px'
+                                padding='12px'
+                                borderRadius='8px'
+                                fontSize='16px'
+                            />
+                        </div>
+                        <div className={styles.haveAnAccount}>
+                            <div>Already have  an account?</div>
+                            <div onClick={() => router.push('/signin')} className={styles.signInButton}>Sign in</div>
+                        </div>
                     </div>
-                    <div className={styles.button}>
-                        <Button title={'SIGN IN'}
-                            mode={'reusable button'}
-                            onClick={() => console.log('button clicked')}
-                            width='350px'
-                            padding='12px'
-                            borderRadius='8px'
-                            fontSize='16px'
-                        />
-                    </div>
-
                 </form>
             </div>
-            <Image className={styles.sokrate} src={'/image/sokrate4.svg'} height={711} width={700} alt='sokrate' />
-
         </div>
 
 
@@ -131,4 +169,5 @@ const Registracion = () => {
 
 }
 
-export default RegisterForm
+
+export default Registracion

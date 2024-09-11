@@ -1,45 +1,24 @@
-// .container {
-//     background:
-//         url('/icon/signin-img.svg') no-repeat right bottom / contain,
-//         url('/image/backgroundImage-auth.png') no-repeat center / cover;
-//     height: 100vh;
-// }
+@import '../components/colors/colors.scss';
 
-// .container {
-//     background-image: url('/image/sokrate4.svg'), url('/image/backgroundImage-auth.png');
-//     background-repeat: no-repeat, no-repeat;
-//     background-position: right bottom, center;
-//     background-size: auto, 100% 100%;
-//     height: 100vh;
-//     padding-top: 60px;
-//     padding-left: 80px;
-// }
 .container {
-    background-image: url('/image/backgroundImage-auth.png');
-    background-repeat: no-repeat;
-    // background-position: center;
-    background-size: 100%;
+    background-image: url('/icon/signin-img.svg'), url('/image/backgroundImage-auth.png');
+    background-repeat: no-repeat, no-repeat;
+    background-size: 750px 855px, cover;
+    background-position: right bottom, center;
+    background-attachment: auto, fixed;
     width: 100%;
-    min-height: 100vh;
+    min-height: 940px;
     padding-top: 48px;
     padding-left: 80px;
     display: flex;
     justify-content: space-between;
-    overflow: hidden;
-
+    // overflow: hidden;
 
 }
-
-.sokrate {
-    display: flex;
-    align-self: flex-end;
-    margin-bottom: -44px;
-}
-
 
 .subtitle {
     // margin-top: 73px;
-    margin-top: 50px;
+    margin-top: 104px;
     display: flex;
     flex-direction: column;
     line-height: 65px;
@@ -48,8 +27,7 @@
 .cellStructure {
     display: flex;
     flex-direction: column;
-    // margin-left: 80px;
-    // margin-top: 60px;
+
 }
 
 .secondFont {
@@ -93,6 +71,7 @@
 
 .input {
     border: none;
+    outline: none;
     width: 350px;
     height: 48px;
     border-radius: 8px;
@@ -107,6 +86,8 @@
 .registracion {
     display: flex;
     flex-direction: column;
+    max-width: 350px;
+    width: 90%;
     gap: 14px;
     // width: 348px;
 }
@@ -118,8 +99,9 @@
     font-weight: 500;
     margin-top: -12px;
 }
+
 .button {
-    margin-top: 24px;
+    margin-top: 10px;
 }
 
 
@@ -129,4 +111,168 @@
     font-size: 12px;
     font-weight: 500;
     margin-top: -5px;
+}
+
+.passwordInput {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+    height: 48px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+
+}
+
+.inputPassword {
+    border: none;
+    color: #C5B0C9;
+    width: 250px;
+    height: 48px;
+    outline: none;
+    display: flex;
+    align-items: flex-start;
+
+
+
+}
+
+.inputPassword::placeholder {
+    color: #C5B0C9
+}
+
+.cursor {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.haveAnAccount {
+    margin-top: 10px;
+    display: flex;
+    align-self: center;
+    gap: 3px;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.signInButton {
+    cursor: pointer;
+    color: #9A16F2;
+}
+
+
+// ================ tablet responsive
+.logoTablet {
+    display: none;
+}
+
+.tabletFont {
+    display: none;
+}
+
+@media screen and (min-width: 750px) and (max-width: 1024px) {
+    .logoTablet {
+        display: flex;
+    }
+
+    .logoDesktop {
+        display: none;
+    }
+
+    .subtitle {
+        display: none;
+    }
+
+    .cellStructure {
+        align-self: center;
+
+    }
+
+    .container {
+        flex-direction: column;
+        justify-content: unset;
+        min-height: unset;
+        min-height: 100vh;
+        background-image: url('/image/backgroundImage-auth.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        width: 100%;
+        padding-top: 48px;
+        padding-left: 80px;
+
+
+    }
+
+    .tabletFont {
+        display: flex;
+        justify-content: center;
+        color: #C5B0C9;
+        font-size: 24px;
+        font-weight: 500;
+        margin-top: 72px;
+    }
+
+    .registracion {
+        margin-top: 32px;
+    }
+
+
+
+
+}
+
+@media screen and (min-width: 0px) and (max-width: 750px) {
+    .logoTablet {
+        display: flex;
+    }
+
+    .logoDesktop {
+        display: none;
+    }
+
+    .subtitle {
+        display: none;
+    }
+
+    .cellStructure {
+        align-self: center;
+
+    }
+
+    .container {
+        flex-direction: column;
+        justify-content: unset;
+        min-height: unset;
+        min-height: 100vh;
+        background-image: url('/image/backgroundImage-auth.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        width: 100%;
+        padding: 16px;
+        padding-top: 24px;
+
+
+    }
+
+    .tabletFont {
+        display: flex;
+        justify-content: center;
+        color: #C5B0C9;
+        font-size: 24px;
+        font-weight: 500;
+        margin-top: 72px;
+    }
+
+    .registracion {
+        margin-top: 32px;
+    }
+
 }
