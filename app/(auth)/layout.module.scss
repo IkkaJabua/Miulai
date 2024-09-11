@@ -20,7 +20,6 @@
 
 .container2 {
     position: fixed;
-    bottom: 0;
     width: 100%;
 }
 
@@ -37,9 +36,12 @@
     display: flex;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 767px) {
     .ordynaryMenu {
         display: none;
+    }
+    .container2 {
+        bottom: 58px;
     }
 }
 
