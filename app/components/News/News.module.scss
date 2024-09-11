@@ -12,7 +12,7 @@
     margin-top: 181px;
     margin-left: 32px;
     margin-bottom: 32px;
-    min-height: 180px;
+    // min-height: 180px;
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -37,4 +37,54 @@
     color: $glacierGrey;
     font-size: 24px;
     font-weight: 400;
+}
+
+.mobileButton {
+    display: none;
+}
+
+
+@media screen and (min-width: 375px) and (max-width: 744px) {
+    .font_style_news {
+        font-size: 48px;
+    }
+
+    .font_style_plays {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .container_news {
+        margin-top: 114px;
+        margin-left: 24px;
+        margin-bottom: 24px;
+        gap: 24px;
+    }
+
+}
+
+@media screen and (max-width: 375px) {
+    .font_style_news {
+        font-size: 28px;
+    }
+
+    .font_style_plays {
+        font-size: 14px;
+    }
+
+    .mainButton {
+        display: none;
+    }
+
+    .mobileButton {
+        display: flex;
+    }
+
+    .container_news {
+        margin-top: 80px;
+        margin-left: 16px;
+        margin-bottom: 16px;
+        gap: 16px;
+    }
+
 }

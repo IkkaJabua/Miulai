@@ -10,17 +10,12 @@
     gap: 20px;
 }
 
-@media screen and (min-width: 300px) and (max-width: 1323px) {
-    .mainContainer {
-        justify-content: center;
-    }
-}
 
 
 .container {
     // max-width: 548px;
     // width: 100%;
-    width: 548px;
+    flex-basis: 330px;
     height: 104px;
     padding: 16px;
     border-radius: 8px;
@@ -28,8 +23,9 @@
     color: white;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    flex: 1;
 }
+
 .container_author {
     display: flex;
     align-items: center;
@@ -59,10 +55,20 @@
 
 //font styles
 .music_name_font_style {
-    font-size: 16px;
-    font-weight: 600;
+    font-size: 14px;
+    font-weight: 500;
     font-size: 16px;
     color: white;
+}
+
+@media screen and (max-width: 1450px) {
+    .music_author_font_style {
+        font-size: 11px;
+    }
+
+    .music_name_font_style {
+        font-size: 12px;
+    }
 }
 
 .music_author_font_style {

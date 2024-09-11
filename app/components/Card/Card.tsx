@@ -11,7 +11,7 @@ interface Props {
     imageStyle: 'normal' | 'round';
 }
 
-export default (props: Props) => {
+const Card = (props: Props) => {
     const radius = [styles.image];
     if (props.imageStyle === 'round') radius.push(styles.imageRounded)
 
@@ -21,7 +21,7 @@ export default (props: Props) => {
         <div className={styles.wrapper}>
             <h3 className={styles.heading}>{props.header}</h3>
             <div className={styles.container}>
-                <Image src={props.image} alt='image' width={230} height={210} className={radius.join(' ').trim()} />
+                <Image src={props.image} alt='image' width={210} height={195} className={radius.join(' ').trim()} />
 
                 <div className={styles.union}>
                     <ItemsUnion />
@@ -33,3 +33,5 @@ export default (props: Props) => {
         </div>
     )
 }
+
+export default Card;

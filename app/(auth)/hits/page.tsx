@@ -1,12 +1,13 @@
 'use client';
-import Input from '../components/Input/Input';
-import News from '../components/News/News';
-import ReusableHeader from '../components/ReusableHeader/ReusableHeader';
-import Table from '../components/Table/Table';
+
+import Input from '../../components/Input/Input';
+import News from '../../components/News/News';
+import ReusableHeader from '../../components/ReusableHeader/ReusableHeader';
+import Table from '../../components/Table/Table';
 import styles from './page.module.scss';
 
 
-export default () => {
+const Hits = () => {
 
     return(
         <div className={styles.container}>
@@ -17,3 +18,7 @@ export default () => {
         </div>
     )
 }
+
+Hits.displayName = 'Hits'
+
+export default Hits;

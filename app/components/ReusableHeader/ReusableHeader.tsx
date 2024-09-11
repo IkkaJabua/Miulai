@@ -13,7 +13,7 @@ const ReusableHeader = (props: Props) => {
             <Link href={'/'} className={styles.img}>
                 <Image src={'/icon/arrow-left.svg'} alt={'image'} width={22} height={22} />
             </Link>
-            <Image src={'/icon/userIcon.svg'} alt='image' width={45} height={45} className={styles.img} />
+            <Image src={'/icon/user-img.svg'} alt='image' width={38} height={38} className={styles.img} />
         </div>
     )
 }

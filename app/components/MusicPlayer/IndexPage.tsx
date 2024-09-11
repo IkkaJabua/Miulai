@@ -3,10 +3,7 @@
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Controls from './Contorls';
-import TrackDisplay from './Trackdisplay';
 import style from './IndexPage.module.scss';
-import { Slider } from 'antd';
-import SliderMobile from './Slider/Slider';
 
 const tracks = [
     
