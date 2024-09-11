@@ -182,34 +182,21 @@ background: var(--Gradient-apolo, linear-gradient(90deg, #F903D0 0%, #9A16F2 100
     
   }
   .progressMain{
-    display: flex;
+    display: none;
+
   }
   
 .load {
-  -webkit-appearance: none;
-  appearance: none;
-  width:100vh;
-  height: 4px;
-  outline: none;
-  background-color: #2E3133;
-  cursor: pointer;
-  position: absolute;
-  bottom: 49px;
-  right: 52px;
-  
+  display: none;
+
 }
 
 .progressMain {
-  position: relative;
+  display: none;
 }
 
 .progressDiv {
-  position: relative;
-  height: 10px;
-  background: aqua;
-  bottom: 14px;
-  border-radius: 12px;
-background: var(--Gradient-apolo, linear-gradient(90deg, #F903D0 0%, #9A16F2 100%));
+display: none;
 }
 
 }

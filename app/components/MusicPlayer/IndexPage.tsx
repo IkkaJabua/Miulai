@@ -5,6 +5,8 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Controls from './Contorls';
 import TrackDisplay from './Trackdisplay';
 import style from './IndexPage.module.scss';
+import { Slider } from 'antd';
+import SliderMobile from './Slider/Slider';
 
 const tracks = [
     
@@ -154,8 +156,23 @@ const IndexPage: React.FC = () => {
 
     return (
         <div className={style.main}>
-
+            <SliderMobile 
+                    isPlaying={isPlaying}
+                    onPlayPause={playPause}
+                    onNext={playNextTrack}
+                    onPrevious={playPrevious}
+                    onVolumeChange={handleVolumeChange}
+                    volume={volume}
+                    isLooping={isLooping}
+                    onToggleLoop={toggleLoop}
+                    isShuffling={isShuffling}
+                    onToggleShuffle={toggleShuffle}
+                    currentTime={currentTime}
+                    duration={duration}
+                    onTimeChange={handleTimeChange}
+                    backgroundImage={''} name={undefined} isActive={undefined}  />
             <div className={style.container}>
+
 
                 
                 <TrackDisplay currentTrack={currentTrack} />
