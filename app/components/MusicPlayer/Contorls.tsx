@@ -4,6 +4,7 @@ import style from './Contorls.module.scss';
 import formatTime from './helperProp/formatTime';
 import propsinterFace from './helperProp/prop';
 import Icon from '../Icon/Icon';
+import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn';
 
 const Controls = (props: propsinterFace) => {
     const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,9 +49,14 @@ const Controls = (props: propsinterFace) => {
                     <button onClick={props.onPrevious} className={style.btn}>
                         <Icon name="previous" alt="Previous" width={24} height={24} />
                     </button>
-                    <button onClick={props.onPlayPause} className={`${style.btn} ${style.circle}`}>
-                        <Icon name={props.isPlaying ? "pause" : "/play"} alt={props.isPlaying ? "Pause" : "Play"} width={48 } height={48} />
-                    </button>
+                    <div className={style.likeplaybtn}>
+                        <div className={style.likeSet}>
+                        <HeartShapeBtn isActive={true} isDisabled={false} onClick={() => console.log('Button clicked!')} />
+                        </div>
+                        <button onClick={props.onPlayPause} className={`${style.btn} ${style.circle}`}>
+                            <Icon name={props.isPlaying ? "pause" : "/play"} alt={props.isPlaying ? "Pause" : "Play"} width={48} height={48} />
+                        </button>
+                    </div>
                     <button onClick={props.onNext} className={style.btn}>
                         <Icon name="previus-next" alt="Next" width={24} height={24} />
                     </button>

@@ -6,7 +6,7 @@
 
 .text{
     display: flex;
-    flex-direction: column;
+    flex-direction:column;
     gap: 8px;
     max-width: fit-content;
     width: 100%;
@@ -33,3 +33,18 @@
 
 }
 
+
+@media screen and (min-width:0px) and (max-width:767px) {
+.text{
+    display: flex;
+}
+.text{
+    display: flex;
+    gap: 8px;
+    max-width: fit-content;
+    width: 100%;
+}
+.likebtn{
+    display: none;
+}
+}
