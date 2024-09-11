@@ -4,16 +4,19 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Icon from '../Icon/Icon';
+import { useRouter } from 'next/navigation';
 
 
 
 export default () => {
+    const router = useRouter()
     const [activeItem, setActiveItem] = useState<number>();
 
     useEffect(() => {
         if (activeItem === undefined) setActiveItem(MenuData[0].id)
         console.log(activeItem)
     }, [activeItem])
+
 
     const MenuData = [
         {
