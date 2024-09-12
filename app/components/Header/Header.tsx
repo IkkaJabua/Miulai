@@ -7,10 +7,12 @@ import Image from 'next/image';
 
 const Header = () => {
 
-    return(
+    return (
         <div className={styles.container}>
-            <Input className={styles.input} />
-            <Image src={'/icon/userHeaderIcon.svg'} alt='image' width={32} height={32} className={styles.image} />       
+            <div className={styles.wrapper}>
+                <Input className={styles.input} />
+                <Image src={'/icon/userHeaderIcon.svg'} alt='image' width={32} height={32} className={styles.image} />
+            </div>
         </div>
     )
 }

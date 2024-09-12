@@ -10,7 +10,13 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 30px;
+}
 
+.wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
@@ -22,9 +28,12 @@
 @media screen and (min-width: 300px) and (max-width: 767px) {
     .input {
         width: 260px;
-
         margin-bottom: 40px;
         flex-wrap: wrap;
+    }
+
+    .container {
+        align-items: baseline;
     }
 }
 
