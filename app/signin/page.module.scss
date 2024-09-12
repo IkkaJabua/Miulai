@@ -10,7 +10,9 @@
     align-items: flex-start;
     flex-direction: column;
     margin-top: 70px;
+    font-family: var('--font-Plus-Jakarta-sans');
 }
+
 
 .white:first-child {
     color: #fff;
@@ -146,3 +148,155 @@
     font-weight: 400;
 }
 
+.signInTitle {
+    color: #C5B0C9;
+    text-align: center;
+    font-family: var('--font-Plus-Jakarta-sans');
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: none;
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+
+    // .header,
+    // .subtitle {
+    //     display: none;
+    // }
+
+    // .container {
+    //     background:
+    //         url('/image/backgroundImage-auth.png') no-repeat center / cover;
+    // }
+
+    // .signInTitle {
+    //     display: block;
+    //     margin-top: 20px;
+    // }
+
+    // .signup {
+    //     display: flex;
+    //     justify-content: center;
+    // }
+
+    // .logoWrapper {
+    //     position: absolute;
+    //     left: 25px;
+    //     top: 20px;
+    // }
+
+    // .wrapper {
+    //     padding-top: 100px;
+    //     margin: 0 auto;
+    // }
+
+    // .input {
+    //     min-width: 280px;
+    //     max-width: 330px;
+    //     width: 100%;
+    //     margin: 0 auto;
+    // }
+
+    // .inputWrapper {
+    //     margin: 0 28px;
+    // }
+
+    // .checkboxWrapper {
+    //     justify-content: space-evenly;
+    //     margin: 0 auto;
+    //     margin-top: 20px;
+    //     margin-bottom: 20px;
+    //     display: flex;
+    //     align-items: center;
+    //     gap: 10px;
+    // }
+
+    // .logoWrapper {
+    //     position: absolute;
+    //     left: 25px;
+    //     top: 20px;
+    // }
+
+    // .formsWrapper {
+    //     padding-top: 50px;
+    // }
+
+    .header,
+    .subtitle {
+        display: none;
+    }
+
+    .container {
+        background:
+            url('/image/backgroundImage-auth.png') no-repeat center / cover;
+    }
+
+    .signInTitle {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .signup {
+        display: flex;
+        justify-content: center;
+    }
+
+    .logoWrapper {
+        position: absolute;
+        left: 25px;
+        top: 20px;
+    }
+
+    .wrapper {
+        padding-top: 120px;
+        margin: 0 auto;
+    }   
+
+    .input {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .checkboxWrapper {
+        justify-content: space-around;
+        margin-left: 10px;
+    }
+    
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .header,
+    .subtitle {
+        display: none;
+    }
+
+    .container {
+        background:
+            url('/image/backgroundImage-auth.png') no-repeat center / cover;
+    }
+
+    .signInTitle {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .signup {
+        display: flex;
+        justify-content: center;
+    }
+
+    .logoWrapper {
+        position: absolute;
+        left: 25px;
+        top: 20px;
+    }
+
+    .wrapper {
+        padding-top: 120px;
+        margin: 0 auto;
+    }
+}
