@@ -11,6 +11,7 @@ import Input from '@/app/components/Input/Input';
 import Button from '@/app/components/Button/Button';
 import CreatePlaylist from '@/app/components/Playlist/CreatePlaylist/CreatePlaylist';
 import UserPlaylist from '@/app/components/UserPlaylist/UserPlaylist';
+import { useRouter } from 'next/navigation';
 // import Table from '../components/Table/Table';
 // import CreatePlaylist from '../components/Playlist/CreatePlaylist/CreatePlaylist';
 // import Link from 'next/link';
@@ -22,6 +23,8 @@ const Playlists = () => {
 
     const [tablet, setTablet] = useState<any>(false)
 
+    const router = useRouter()
+
 
 
 
@@ -30,13 +33,9 @@ const Playlists = () => {
             <div className={styles.miniContainer}>
                 <div className={styles.cellheader}>
                     <div>
-                        <Link href={'/'}>
+                        <div onClick={() => router.push('/')}>
                             <Image className={styles.cursor} src={'./icon/isari.svg'} width={32} height={32} alt='image' />
-                        </Link>
-                        {/* <Image className={styles.tabletBurgercursos} src={'../icon/menu-burger.svg'} width={44} height={44} alt='burger-menu-icon' /> */}
-                         {/* <div className={styles.tabletBurgercursos}>
-                            <BurgerMenu className={''} />
-                        </div>  */}
+                        </div>
                     </div>
                     <Image src={'./icon/profile-icon.svg'} width={56} height={56} alt='profile image' />
                 </div>
