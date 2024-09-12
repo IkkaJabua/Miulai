@@ -19,30 +19,34 @@
     justify-content: space-between;
 }
 
-@media screen and (min-width: 767px) and (max-width: 1023px) {
-    .input {
-        width: 350px;
-    }
-}
+
 
 @media screen and (min-width: 300px) and (max-width: 767px) {
     .input {
-        width: 260px;
-        margin-bottom: 40px;
         flex-wrap: wrap;
+        max-width: 350px;
+        width: 100%;
     }
 
-    .container {
-        align-items: baseline;
+    .wrapper {
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
     }
 }
 
-@media screen and (min-width: 300px) and (max-width: 1023px) {
-    .container {
-        justify-content: space-around;
-        margin-left: 23px;
-        gap: 20px;
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .wrapper {
+        justify-content: space-between;
+        margin-left: 227px;
     }
+
+    .input {
+        max-width: 380px;
+        width: 100%;
+    }
+    
+
 }
 
 @media screen and (min-width: 300px) and (max-width: 800px) {
