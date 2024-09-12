@@ -2,8 +2,10 @@
     background:
         url('/icon/signin-img.svg') no-repeat right bottom / contain,
         url('/image/backgroundImage-auth.png') no-repeat center / cover;
-    height: 100vh;
+        min-height: 100vh; /* Full viewport height */
+        background-attachment: scroll;
 }
+
 
 .header {
     display: flex;
