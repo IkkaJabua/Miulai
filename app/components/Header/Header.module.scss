@@ -10,6 +10,7 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 30px;
+
 }
 
 @media screen and (min-width: 767px) and (max-width: 1023px) {
@@ -22,8 +23,9 @@
     .input {
         width: 260px;
 
-    margin-bottom: 40px;
-    flex-wrap: wrap;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+    }
 }
 
 @media screen and (min-width: 300px) and (max-width: 1023px) {

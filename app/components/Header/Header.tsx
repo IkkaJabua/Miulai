@@ -9,12 +9,10 @@ const Header = () => {
 
     return(
         <div className={styles.container}>
-            <Input />
-            <Image src={'icon/userHeaderIcon.svg'} alt='image' width={33} height={33} className={styles.image} />
+            <Input className={styles.input} />
+            <Image src={'/icon/userHeaderIcon.svg'} alt='image' width={32} height={32} className={styles.image} />       
         </div>
     )
 }
 
-
-export default Header;
 
