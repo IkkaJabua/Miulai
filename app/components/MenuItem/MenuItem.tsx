@@ -30,21 +30,21 @@ const MenuItem = () => {
             title: 'Recommendations',
             icon: 'menu-logo2',
             activeIcon: 'clicked-menu-logo2',
-            path: '/',
+            path: 'recommendations',
             id: 2
         },
         {
             title: 'Top Hits',
             icon: 'menu-logo3',
             activeIcon: 'clicked-menu-logo3',
-            path: '/hits',
+            path: 'hits',
             id: 3
         },
         {
             title: 'Top Charts',
             icon: 'menu-logo4',
             activeIcon: 'clicked-menu-logo4',
-            path: '/',
+            path: 'charts',
             id: 4
         },
         { type: 'header', title: 'Collection' },
@@ -59,7 +59,7 @@ const MenuItem = () => {
             title: 'Favorites',
             icon: 'menu-logo6',
             activeIcon: 'clicked-menu-logo6',
-            path: '/',
+            path: 'favorites',
             id: 6
         },
         { type: 'header', title: 'Discover' },
@@ -67,14 +67,14 @@ const MenuItem = () => {
             title: 'Artist',
             icon: 'menu-logo7',
             activeIcon: 'clicked-menu-logo7',
-            path: '/artist',
+            path: 'artist',
             id: 7
         },
         {
             title: 'Album',
             icon: 'menu-logo8',
             activeIcon: 'clicked-menu-logo8',
-            path: '/',
+            path: 'almub',
             id: 8
         }
     ]
@@ -92,7 +92,7 @@ const MenuItem = () => {
                             className={activeItem === item.id ? styles.clicked_container : styles.container}
                             onClick={() => {
                                 setActiveItem(item.id)
-                                router.push(`../${item.path}`)
+                                router.push(`./${item.path}`)
                             }} >
 
                             <Icon name={`${activeItem === item.id ? item.activeIcon : item.icon}`} alt={'logo'} width={24} height={24} />
