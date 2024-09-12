@@ -87,17 +87,14 @@
     outline: none;
     height: 48px;
     padding-left: 16px;
+    color: #C5B0C9;
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .input::placeholder {
     color: #C5B0C9;
-    font-size: 14px;
-    font-weight: 500;
-}
-
-.input:focus {
-    color: #C5B0C9;
-    font-size: 16px;
+    font-family: var('--font-Plus-Jakarta-sans');
 }
 
 .remember {
@@ -161,6 +158,38 @@
     font-weight: 500;
     line-height: normal;
     display: none;
+}
+
+.passwordImg {
+    cursor: pointer;
+}
+
+.passwordWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 340px;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #fff;
+    height: 48px;
+    padding-left: 16px;
+    padding-right: 16px;
+    font-weight: 500;
+    color: #C5B0C9;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.inputPassword {
+    all: unset;
+    width: 100%;
+    height: 48px;
+    font-family: var('--font-Plus-Jakarta-sans');
+}
+
+.inputPassword::placeholder {
+    color: #C5B0C9;
 }
 
 @media screen and (min-width: 300px) and (max-width: 767px) {
