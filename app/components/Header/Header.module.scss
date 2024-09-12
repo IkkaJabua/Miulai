@@ -43,6 +43,7 @@
         gap: 30px;
     }
 }
+}
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
     .wrapper {
@@ -61,5 +62,9 @@
 @media screen and (min-width: 300px) and (max-width: 800px) {
     .container {
         flex-wrap: wrap;
+    }
+
+    .input {
+        width: 348px;
     }
 }

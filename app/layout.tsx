@@ -6,8 +6,6 @@ import Menu from "./components/Menu/Menu";
 import Header from "./components/Header/Header";
 import styles from './layout.module.scss';
 import IndexPage from "./components/MusicPlayer/IndexPage";
-import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
-import Mobilemenu from "./components/Mobilemenu/mobilemenu";
 
 
 
@@ -32,8 +30,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${PlusJakartaSans.className}`} >
-        {children}
+      <body className={inter.className}>
+        <div className={styles.container}>
+          <div className={styles.ordynaryMenu}>
+            <Menu />
+          </div>
+          {children}
+          <div className={styles.container2}>
+            {/* <IndexPage /> */}
+          </div>
+        </div>
       </body>
     </html>
   );

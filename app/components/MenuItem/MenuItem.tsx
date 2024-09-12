@@ -17,7 +17,6 @@ const MenuItem = () => {
     }, [activeItem])
 
 
-
     const MenuData = [
         {
             title: 'Home',

@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import styles from './page.module.scss'
 import Image from 'next/image';
 import Link from 'next/link';
-import BurgerMenu from '../../components/BurgerMenu/BurgerMenu';
 import Input from '@/app/components/Input/Input';
 import Button from '@/app/components/Button/Button';
 import CreatePlaylist from '@/app/components/Playlist/CreatePlaylist/CreatePlaylist';
@@ -20,23 +19,14 @@ const Playlists = () => {
 
     const [active, setActive] = useState(false)
 
-    const [tablet, setTablet] = useState<any>(false)
-
-
-
-
     return (
         <div className={styles.container}>
             <div className={styles.miniContainer}>
                 <div className={styles.cellheader}>
                     <div>
-                        <Link href={'/'}>
+                        <div onClick={() => router.push('/')}>
                             <Image className={styles.cursor} src={'./icon/isari.svg'} width={32} height={32} alt='image' />
-                        </Link>
-                        {/* <Image className={styles.tabletBurgercursos} src={'../icon/menu-burger.svg'} width={44} height={44} alt='burger-menu-icon' /> */}
-                         {/* <div className={styles.tabletBurgercursos}>
-                            <BurgerMenu className={''} />
-                        </div>  */}
+                        </div>
                     </div>
                     <Image src={'./icon/profile-icon.svg'} width={56} height={56} alt='profile image' />
                 </div>
