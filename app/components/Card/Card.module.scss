@@ -37,7 +37,7 @@
 .container span:only-of-type {
     color: $shadyLady;
     font-size: 14px;
-    font-family: "Plus Jakarta Sans";
+    font-family: var(--font-Plus-Jakarta-sans);
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -45,7 +45,7 @@
 
 .container h4 {
     color: #FFF;
-    font-family: "Plus Jakarta Sans";
+    font-family: var(--font-Plus-Jakarta-sans);
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
