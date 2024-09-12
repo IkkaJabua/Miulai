@@ -25,15 +25,6 @@ export default function RootLayout({
                 </div>
                 <MobileMenu />
             </div>
-            <div className={styles.burgerMenu}>
-                <BurgerMenu />
-            </div>
-
-            {children}
-            <div className={styles.container2}>
-                {/* <IndexPage /> */}
-            </div>
-            <Mobilemenu />
         </div>
     )
 }

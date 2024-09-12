@@ -22,6 +22,7 @@ export interface ButtonProps {
     imageWidth?: number | undefined;
     imageHeight?: number | undefined;
     imageAlt?: string;
+    className?: string;
 }
 
 const ButtonHelper = (props: ButtonProps) => {
