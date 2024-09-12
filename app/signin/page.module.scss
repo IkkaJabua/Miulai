@@ -207,6 +207,7 @@
     .signInTitle {
         display: block;
         margin-top: 20px;
+        margin-bottom: 30px;
     }
 
     .signup {
@@ -225,7 +226,7 @@
         margin: 0 auto;
     }   
 
-    .input {
+    .input, .inputWrapper {
         width: 300px;
         margin: 0 auto;
     }
