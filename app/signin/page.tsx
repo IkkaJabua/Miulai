@@ -111,7 +111,7 @@ const Signup = () => {
                             borderRadius='8px'
                             fontSize='16px'/>
                     </form>
-                    <div className={styles.signup}>
+                    <div onClick={() => router.push('/singup')} className={styles.signup}>
                         <span>
                             Don’t have an account?
                         </span>
