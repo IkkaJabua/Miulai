@@ -3,15 +3,18 @@ import Image from 'next/image'
 import styles from './Menu.module.scss'
 import MenuItem from '../MenuItem/MenuItem'
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const Menu = () => {
+
+    const router = useRouter()
 
     return (
         <div className={styles.container}>
             <div className={styles.container_menu}>
-                <Link className={styles.cursorLogo} href={'/'}>
+                <div className={styles.cursorLogo} onClick={() => router.push('/')}>
                     <Image src={'./icon/miulailogo.svg'} alt='logo' width={98} height={83} />
-                </Link>
+                </div>
                 <MenuItem />
             </div>
         </div>

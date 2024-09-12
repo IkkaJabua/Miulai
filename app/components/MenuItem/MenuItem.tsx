@@ -4,10 +4,14 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Icon from '../Icon/Icon';
+import { useRouter } from 'next/navigation';
 
 
 
 const MenuItem = () => {
+    const router = useRouter()
+
+
     const [activeItem, setActiveItem] = useState<number>();
 
     useEffect(() => {
@@ -34,7 +38,7 @@ const MenuItem = () => {
             title: 'Top Hits',
             icon: 'menu-logo3',
             activeIcon: 'clicked-menu-logo3',
-            path: '/hits',
+            path: 'hits',
             id: 3
         },
         {
@@ -56,7 +60,7 @@ const MenuItem = () => {
             title: 'Favorites',
             icon: 'menu-logo6',
             activeIcon: 'clicked-menu-logo6',
-            path: '/',
+            path: 'favorites',
             id: 6
         },
         { type: 'header', title: 'Discover' },
@@ -64,14 +68,14 @@ const MenuItem = () => {
             title: 'Artist',
             icon: 'menu-logo7',
             activeIcon: 'clicked-menu-logo7',
-            path: '/artist',
+            path: 'artist',
             id: 7
         },
         {
             title: 'Album',
             icon: 'menu-logo8',
             activeIcon: 'clicked-menu-logo8',
-            path: '/',
+            path: 'album',
             id: 8
         }
     ]
@@ -85,12 +89,16 @@ const MenuItem = () => {
                         return <div className={styles.menu_header} key={index}>{item.title}</div>;
                     }
                     return (
-                        <Link href={`../${item.path}`} key={item.id} className={activeItem === item.id ? styles.clicked_container : styles.container} onClick={() => setActiveItem(item.id)} >
+                        <div key={item.id} className={activeItem === item.id ? styles.clicked_container : styles.container}
+                            onClick={() => {
+                                setActiveItem(item.id)
+                                router.push(`/${item.path}`)
+                            }} >
                             <Icon name={`${activeItem === item.id ? item.activeIcon : item.icon}`} alt={'logo'} width={24} height={24} />
                             <div className={activeItem === item.id ? styles.white_font : styles.font}>
                                 {item.title}
                             </div>
-                        </Link>
+                        </div>
                     );
                 })}
             </div>
