@@ -107,14 +107,14 @@ const Signup = () => {
                             fontSize='16px'
                         />
                     </form>
-                    <Link href={''} className={styles.signup}>
+                    <div className={styles.signup}>
                         <span>
                             Don’t have an account?
                         </span>
                         <span>
                             Sign up
                         </span>
-                    </Link>
+                    </div>
                 </div>
             </div>
         </div>
