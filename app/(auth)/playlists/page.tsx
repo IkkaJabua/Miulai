@@ -10,12 +10,14 @@ import Input from '@/app/components/Input/Input';
 import Button from '@/app/components/Button/Button';
 import CreatePlaylist from '@/app/components/Playlist/CreatePlaylist/CreatePlaylist';
 import UserPlaylist from '@/app/components/UserPlaylist/UserPlaylist';
+import { useRouter } from 'next/navigation';
 // import Table from '../components/Table/Table';
 // import CreatePlaylist from '../components/Playlist/CreatePlaylist/CreatePlaylist';
 // import Link from 'next/link';
 
 
 const Playlists = () => {
+    const router = useRouter()
 
     const [active, setActive] = useState(false)
 
