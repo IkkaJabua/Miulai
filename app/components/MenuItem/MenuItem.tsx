@@ -4,16 +4,19 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Icon from '../Icon/Icon';
+import { useRouter } from 'next/navigation';
 
 
 
 const MenuItem = () => {
+    const router = useRouter()
     const [activeItem, setActiveItem] = useState<number>();
 
     useEffect(() => {
         if (activeItem === undefined) setActiveItem(MenuData[0].id)
-        console.log(activeItem)
     }, [activeItem])
+
+
 
     const MenuData = [
         {
@@ -85,12 +88,18 @@ const MenuItem = () => {
                         return <div className={styles.menu_header} key={index}>{item.title}</div>;
                     }
                     return (
-                        <Link href={`../${item.path}`} key={item.id} className={activeItem === item.id ? styles.clicked_container : styles.container} onClick={() => setActiveItem(item.id)} >
+                        <div key={item.id}
+                            className={activeItem === item.id ? styles.clicked_container : styles.container}
+                            onClick={() => {
+                                setActiveItem(item.id)
+                                router.push(`../${item.path}`)
+                            }} >
+
                             <Icon name={`${activeItem === item.id ? item.activeIcon : item.icon}`} alt={'logo'} width={24} height={24} />
                             <div className={activeItem === item.id ? styles.white_font : styles.font}>
                                 {item.title}
                             </div>
-                        </Link>
+                        </div>
                     );
                 })}
             </div>
