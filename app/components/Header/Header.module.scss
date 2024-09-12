@@ -17,6 +17,16 @@
     align-items: center;
     width: 100%;
     justify-content: space-between;
+    // margin-bottom: 32px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+    .input {
+        width: 350px;
+    }
+    .container {
+        padding-left: 72px;
+    }
 }
 
 

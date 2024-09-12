@@ -12,22 +12,14 @@
     width: 100%;
 }
 
-.container {
-    display: flex;
-    width: 100%;
-    margin-bottom: 133px;
-}
 
-.container2 {
-    position: fixed;
-    width: 100%;
-}
 
 @media screen and (min-width: 1023px) {
     .burgerMenu {
         display: none;
     }
 }
+
 .burgerMenu {
     display: none;
 }
@@ -45,7 +37,7 @@
     }
 }
 
-@media screen and (min-width: 750px) and (max-width: 1024px) {
+@media screen and (min-width: 767px) and (max-width: 1024px) {
     .burgerMenu {
         display: flex;
         position: absolute;
@@ -58,3 +50,6 @@
         display: none;
     }
 }
+
+
+

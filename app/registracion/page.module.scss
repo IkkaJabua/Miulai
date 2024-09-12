@@ -1,0 +1,278 @@
+@import '../components/colors/colors.scss';
+
+.container {
+    background-image: url('/icon/signin-img.svg'), url('/image/backgroundImage-auth.png');
+    background-repeat: no-repeat, no-repeat;
+    background-size: 750px 855px, cover;
+    background-position: right bottom, center;
+    background-attachment: auto, fixed;
+    width: 100%;
+    min-height: 940px;
+    padding-top: 48px;
+    padding-left: 80px;
+    display: flex;
+    justify-content: space-between;
+    // overflow: hidden;
+
+}
+
+.subtitle {
+    // margin-top: 73px;
+    margin-top: 104px;
+    display: flex;
+    flex-direction: column;
+    line-height: 65px;
+}
+
+.cellStructure {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.secondFont {
+    background: linear-gradient(90deg, #F903D0 0%, #9A16F2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 62px;
+    font-weight: 600;
+    text-transform: uppercase;
+
+}
+
+.secondFont span {
+    font-size: 72px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-right: 7.5px;
+}
+
+.firstFont {
+    font-size: 62px;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.firstFont span {
+    color: #FFF;
+    font-size: 72px;
+    font-weight: 300;
+    text-transform: uppercase;
+    margin-left: 15px;
+}
+
+.thirdFont {
+    color: #C5B0C9;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.input {
+    border: none;
+    outline: none;
+    width: 350px;
+    height: 48px;
+    border-radius: 8px;
+    padding: 16px;
+    color: #C5B0C9
+}
+
+.input::placeholder {
+    color: #C5B0C9
+}
+
+.registracion {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    width: 90%;
+    gap: 14px;
+    // width: 348px;
+}
+
+
+.registrationErors {
+    color: #B1B1B1;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: -12px;
+}
+
+.button {
+    margin-top: 10px;
+}
+
+
+.errorMassage {
+    // color: rgb(245, 51, 51);
+    color: #B1B1B1;
+    font-size: 12px;
+    font-weight: 500;
+    margin-top: -5px;
+}
+
+.passwordInput {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 350px;
+    height: 48px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+
+}
+
+.inputPassword {
+    border: none;
+    color: #C5B0C9;
+    width: 250px;
+    height: 48px;
+    outline: none;
+    display: flex;
+    align-items: flex-start;
+
+
+
+}
+
+.inputPassword::placeholder {
+    color: #C5B0C9
+}
+
+.cursor {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.haveAnAccount {
+    margin-top: 10px;
+    display: flex;
+    align-self: center;
+    gap: 3px;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.signInButton {
+    cursor: pointer;
+    color: #9A16F2;
+}
+
+
+// ================ tablet responsive
+.logoTablet {
+    display: none;
+}
+
+.tabletFont {
+    display: none;
+}
+
+@media screen and (min-width: 750px) and (max-width: 1024px) {
+    .logoTablet {
+        display: flex;
+    }
+
+    .logoDesktop {
+        display: none;
+    }
+
+    .subtitle {
+        display: none;
+    }
+
+    .cellStructure {
+        align-self: center;
+
+    }
+
+    .container {
+        flex-direction: column;
+        justify-content: unset;
+        min-height: unset;
+        min-height: 100vh;
+        background-image: url('/image/backgroundImage-auth.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        width: 100%;
+        padding-top: 48px;
+        padding-left: 80px;
+
+
+    }
+
+    .tabletFont {
+        display: flex;
+        justify-content: center;
+        color: #C5B0C9;
+        font-size: 24px;
+        font-weight: 500;
+        margin-top: 72px;
+    }
+
+    .registracion {
+        margin-top: 32px;
+    }
+
+
+
+
+}
+
+@media screen and (min-width: 0px) and (max-width: 750px) {
+    .logoTablet {
+        display: flex;
+    }
+
+    .logoDesktop {
+        display: none;
+    }
+
+    .subtitle {
+        display: none;
+    }
+
+    .cellStructure {
+        align-self: center;
+
+    }
+
+    .container {
+        flex-direction: column;
+        justify-content: unset;
+        min-height: unset;
+        min-height: 100vh;
+        background-image: url('/image/backgroundImage-auth.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        width: 100%;
+        padding: 16px;
+        padding-top: 24px;
+
+
+    }
+
+    .tabletFont {
+        display: flex;
+        justify-content: center;
+        color: #C5B0C9;
+        font-size: 24px;
+        font-weight: 500;
+        margin-top: 72px;
+    }
+
+    .registracion {
+        margin-top: 32px;
+    }
+
+}
