@@ -145,7 +145,7 @@ const Registracion = () => {
                             errors.currentPassword && <span className={styles.errorMassage}>{errors.currentPassword.message}</span>
                         }
                         <div className={styles.button}>
-                            <Button title={'SIGN IN'}
+                            <Button title={'SIGN UP'}
                                 mode={'reusable button'}
                                 onClick={() => console.log('button clicked')}
                                 width='350px'
