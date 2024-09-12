@@ -9,6 +9,7 @@ import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 import { message } from 'antd';
 import { useRouter } from 'next/navigation';
 import { setCookie } from '../cookies';
+import { useState } from 'react';
 
 
 type SignIn = {
@@ -20,6 +21,7 @@ type SignIn = {
 const Signup = () => {
     const router = useRouter()
     const { register, handleSubmit, watch, formState: { errors } } = useForm<SignIn>();
+    const [showPassword, setShowPassword] = useState(false);
 
     const onLogin = (values: any) => {
         axios.post('https://interstellar-1-pdzj.onrender.com/auth', values)
@@ -29,8 +31,11 @@ const Signup = () => {
                 setCookie('token', r.data.accesToken, 60)
                 router.push('/')
             })
-
     }
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+      };
 
     return (
         <div className={styles.container}>
@@ -77,20 +82,36 @@ const Signup = () => {
 
                             {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
 
-                            <input type="password"
-                                id="" placeholder='Password'
-                                className={styles.input}
-                                {...register('password', {
-                                    required: {
-                                        value: true,
-                                        message: 'password is required'
-                                    },
-                                    minLength: {
-                                        value: 8,
-                                        message: 'min length of password should be 8 character'
-                                    }
-                                })}
-                            />
+
+                            <div className={styles.passwordWrapper}>
+                                <input  type={showPassword ? 'text' : 'password'}
+                                    id="" 
+                                    placeholder='Password'
+                                    className={styles.inputPassword}
+                                    {...register('password', {
+                                        required: {
+                                            value: true,
+                                            message: 'password is required'
+                                        },
+                                        minLength: {
+                                            value: 8,
+                                            message: 'min length of password should be 8 character'
+                                        }
+                                    })}
+                                />
+
+                                <Image onClick={togglePasswordVisibility} 
+                                src={showPassword ? '/icon/show-password.svg' : '/icon/hide-showPass.svg'} 
+                                alt='image' 
+                                width={16} 
+                                height={16} 
+                                className={styles.passwordImg} />
+                            </div>
+
+
+
+
+
                             {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
                         </div>
                         <div className={styles.checkboxWrapper}>
@@ -109,7 +130,7 @@ const Signup = () => {
                             width='340px'
                             padding='12px'
                             borderRadius='8px'
-                            fontSize='16px'/>
+                            fontSize='16px' />
                     </form>
                     <div onClick={() => router.push('/singup')} className={styles.signup}>
                         <span>

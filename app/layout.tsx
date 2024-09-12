@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} ${PlusJakartaSans.className}`} >
-          {children}
+        {children}
       </body>
     </html>
   );
