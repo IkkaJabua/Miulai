@@ -3,11 +3,9 @@ import Input from '../Input/Input';
 import styles from './Header.module.scss';
 import Image from 'next/image';
 
-interface Props {
-    icon?: string;
-}
 
-export default ({icon} : Props) => {
+
+const Header = () => {
 
     return(
         <div className={styles.container}>
@@ -18,4 +16,4 @@ export default ({icon} : Props) => {
 }
 
 
-
+export default Header;
