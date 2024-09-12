@@ -4,8 +4,8 @@ import styles from './Header.module.scss';
 import Image from 'next/image';
 
 
-export default () => {
-const Header = ({icon} : Props) => {
+
+const Header = () => {
 
     return(
         <div className={styles.container}>
