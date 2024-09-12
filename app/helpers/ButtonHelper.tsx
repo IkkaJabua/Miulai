@@ -2,22 +2,29 @@
 import Image from "next/image";
 import styles from '../components/Button/Button.module.scss'
 import { useEffect, useState, type JSX } from "react";
-import { Height, Padding } from "@mui/icons-material";
 
-interface Props {
-    fontWeight: string;
-    fontSize: string;
-    gap: string;
-    height: string;
-    borderRadius: string;
-    padding: string;
+
+export interface ButtonProps {
+    title: string;
     disabled?: boolean;
     mode: 'without icon' | 'long with icon' | 'short with icon' | 'reusable button';
-    width?: number | string
+    icon?: boolean;
+    onClick: Function;
+    width?: string;
+    maxWidth?: string;
+    padding?: string;
+    borderRadius?: string;
+    height?: string;
+    gap?: string;
+    fontSize?: string;
+    fontWeight?: string;
+    imageSrc?: string | undefined;
+    imageWidth?: number | undefined;
+    imageHeight?: number | undefined;
+    imageAlt?: string;
 }
 
-export const getButtonStyles = (props: Props) => {
-    const [clip, setClip] = useState<React.ReactElement>();
+const ButtonHelper = (props: ButtonProps) => {
     const [classes, setClasses] = useState<string[]>([]);
 
     const style: any = {
@@ -28,6 +35,7 @@ export const getButtonStyles = (props: Props) => {
         gap: props.gap || 'auto',
         fontSize: props.fontSize || 'auto',
         fontWeight: props.fontWeight || 'auto',
+        maxWidth: props.maxWidth || 'auto'
 
     };
 
@@ -48,7 +56,8 @@ export const getButtonStyles = (props: Props) => {
         setClasses(newClasses);
     }, [props.mode, props.disabled]);
 
-    return { classes, clip, style };
+    return { classes, style };
 };
 
 
+export default ButtonHelper;

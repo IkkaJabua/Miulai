@@ -7,6 +7,7 @@
     // width: 266px;
     // height: 309px;
     border-radius: 8px;
+    padding: 8px;
     background: $darkVoid;
     display: flex;
     flex-direction: column;
@@ -62,4 +63,35 @@
 
 .container:hover .hoveredImage .cellImage {
     opacity: 0.6;
+}
+
+@media screen and (min-width: 750px) and (max-width: 1024px) {
+    .container {
+        width: 142px;
+        height: 168px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cellImage {
+        width: 142px;
+        height: 142px;
+    }
+
+    .font {
+        margin-left: 5px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .container {
+        width: 148px;
+        height: 188px;
+        gap: 3px;
+    }
+
+    .cellImage {
+        width: 148px;
+        height: 168px;
+    }
 }

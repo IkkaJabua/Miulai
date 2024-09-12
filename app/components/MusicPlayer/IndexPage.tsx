@@ -3,8 +3,8 @@
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Controls from './Contorls';
-import TrackDisplay from './Trackdisplay';
 import style from './IndexPage.module.scss';
+import TrackDisplay from './TrackDisplay';
 
 const tracks = [
     {

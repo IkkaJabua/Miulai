@@ -7,15 +7,16 @@ interface Props {
     icon?: string;
 }
 
-export default ({icon} : Props) => {
+const Header = ({icon} : Props) => {
 
     return(
         <div className={styles.container}>
             <Input />
-            <Image src={'icon/userIcon.svg'} alt='image' width={52} height={52} className={styles.image} />
+            <Image src={'icon/user-img.svg'} alt='image' width={38} height={38} className={styles.image} />
         </div>
     )
 }
 
 
+export default Header;
 

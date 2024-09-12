@@ -2,7 +2,7 @@
     display: flex;
     width: 100%;
     max-height: 100%;
-    margin-bottom: 133px;
+    // margin-bottom: 133px;
     background-color: #000;
 }
 
@@ -10,4 +10,49 @@
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 133px;
+}
+
+.container2 {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+@media screen and (min-width: 1023px) {
+    .burgerMenu {
+        display: none;
+    }
+}
+.burgerMenu {
+    display: none;
+}
+
+.ordynaryMenu {
+    display: flex;
+}
+
+@media screen and (max-width: 750px) {
+    .ordynaryMenu {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 750px) and (max-width: 1024px) {
+    .burgerMenu {
+        display: flex;
+        position: absolute;
+        left: 25px;
+        top: 44px;
+        z-index: 1;
+    }
+
+    .ordynaryMenu {
+        display: none;
+    }
 }

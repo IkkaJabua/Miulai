@@ -6,7 +6,7 @@ import Playlist from '../../Playlist/Playlist';
 import Card from '../../Card/Card';
 
 
-export default () => {
+const ItemsUnion = () => {
    
         const [isPlaylistVisible, setIsPlaylistVisible] = useState(false);
       
@@ -28,3 +28,5 @@ export default () => {
         </div>
     )
 }
+
+export default ItemsUnion;

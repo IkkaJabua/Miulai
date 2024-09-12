@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import style from './HeartShapeIcn.module.scss';
+import Image from 'next/image';
 
 interface Props {
   isActive: boolean;
@@ -7,7 +8,7 @@ interface Props {
   onClick: () => void;
 }
 
-export default function HeartShapeBtn ({ isActive, isDisabled, onClick }: Props) {
+export default function HeartShapeBtn({ isActive, isDisabled, onClick }: Props) {
   const [isClicked, setIsClicked] = useState(false);
 
 
@@ -24,7 +25,7 @@ export default function HeartShapeBtn ({ isActive, isDisabled, onClick }: Props)
       onClick={handleClick}
       disabled={isDisabled}
     >
-      <img
+      <Image
         src={`/icon/heart${isDisabled ? 'Disabled' : (isClicked ? '2' : '1')}.svg`}
         alt="Heart Icon"
         width={32}
