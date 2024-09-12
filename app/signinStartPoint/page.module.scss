@@ -92,7 +92,7 @@
     .whiteWords span:last-child {
         font-size: 35px;
         font-weight: 400;
-        font-family: AG_Futura;
+        font-family: var('--font-Plus-Jakarta-sans');
     }
 
     .colouredWords span:first-child {
@@ -118,7 +118,7 @@
 
     .container {
         background:
-        url('/icon/signin-img.svg') no-repeat center bottom / 700px 500px,
+        url('/icon/signin-img.svg') no-repeat right bottom / 730px 650px,
         url('/image/backgroundImage-auth.png') no-repeat center / cover;
     min-height: 100vh;
     background-attachment: fixed;
