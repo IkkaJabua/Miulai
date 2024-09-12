@@ -10,7 +10,7 @@ const Header = () => {
     return(
         <div className={styles.container}>
             <Input />
-            <Image src={'icon/user-img.svg'} alt='image' width={38} height={38} className={styles.image} />
+            <Image src={'icon/userHeaderIcon.svg'} alt='image' width={33} height={33} className={styles.image} />
         </div>
     )
 }
