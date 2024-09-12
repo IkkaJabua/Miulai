@@ -54,8 +54,35 @@ const fakeData = [
     {
         image: '/icon/albumicon1.svg',
         title: 'Taylor Swift',
-        id: 9
+        id: 10
     },
+    {
+        image: '/image/testImg.jpg',
+        title: 'Taylor Swift',
+        id: 11
+    },
+    {
+        image: '/image/testImg.jpg',
+        title: 'Taylor Swift',
+        id: 12
+    },
+    {
+        image: '/image/testImg.jpg',
+        title: 'Taylor Swift',
+        id: 13
+    },
+    {
+        image: '/image/testImg.jpg',
+        title: 'Taylor Swift',
+        id: 14
+    },
+    {
+        image: '/image/testImg.jpg',
+        title: 'Taylor Swift',
+        id: 15
+    },
+    
+
 
 ]
 
