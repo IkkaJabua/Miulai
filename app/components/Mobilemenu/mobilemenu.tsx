@@ -1,6 +1,6 @@
 'use client'
 import Link from 'next/link'
-import styles from './MobileMenu.module.scss'
+import styles from './mobilemenu.module.scss'
 import Image from 'next/image'
 
 import { useEffect, useState } from 'react'
