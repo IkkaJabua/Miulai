@@ -2,8 +2,7 @@
     background:
         url('/icon/signin-img.svg') no-repeat right bottom / contain,
         url('/image/backgroundImage-auth.png') no-repeat center / cover;
-        min-height: 100vh; /* Full viewport height */
-        background-attachment: scroll;
+        min-height: 100vh; 
 }
 
 
@@ -208,6 +207,7 @@
     .signInTitle {
         display: block;
         margin-top: 20px;
+        margin-bottom: 30px;
     }
 
     .signup {
@@ -226,7 +226,7 @@
         margin: 0 auto;
     }   
 
-    .input {
+    .input, .inputWrapper {
         width: 300px;
         margin: 0 auto;
     }
