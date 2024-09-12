@@ -64,7 +64,7 @@ const MenuItem = () => {
             title: 'Artist',
             icon: 'menu-logo7',
             activeIcon: 'clicked-menu-logo7',
-            path: '/',
+            path: '/artist',
             id: 7
         },
         {

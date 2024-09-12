@@ -9,33 +9,57 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 30px;
 }
 
-@media screen and (min-width: 767px) and (max-width: 1023px) {
+.wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    // margin-bottom: 32px;
+}
+
+@media screen and (min-width: 767px) and (max-width: 1024px) {
     .input {
         width: 350px;
     }
+    .container {
+        padding-left: 72px;
+    }
 }
+
+
 
 @media screen and (min-width: 300px) and (max-width: 767px) {
     .input {
-        width: 260px;
+        flex-wrap: wrap;
+        max-width: 350px;
+        width: 100%;
+    }
 
-    margin-bottom: 40px;
-    flex-wrap: wrap;
+    .wrapper {
+        align-items: center;
+        gap: 30px;
+    }
 }
 
-@media screen and (min-width: 300px) and (max-width: 1023px) {
-    .container {
-        justify-content: space-around;
-        margin-left: 23px;
-        gap: 20px;
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    .wrapper {
+        justify-content: space-between;
+        margin-left: 70px;
     }
+
+    .input {
+        max-width: 380px;
+        width: 100%;
+    }
+    
+
 }
 
 @media screen and (min-width: 300px) and (max-width: 800px) {
     .container {
         flex-wrap: wrap;
     }
-}
 }

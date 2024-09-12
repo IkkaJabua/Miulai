@@ -36,7 +36,9 @@ const Signup = () => {
         <div className={styles.container}>
             <div className={styles.wrapper}>
                 <div>
-                    <Image src={'/icon/logo.svg'} alt='image' width={97} height={83} className={styles.logo} />
+                    <div className={styles.logoWrapper}>
+                        <Image src={'/icon/logo.svg'} alt='image' width={97} height={83} className={styles.logo} />
+                    </div>
                     <h1 className={styles.header}>
                         <p className={styles.white}>
                             <span>Where</span>
@@ -50,6 +52,9 @@ const Signup = () => {
                     <p className={styles.subtitle}>
                         The Future Of Music Streaming
                     </p>
+                    <span className={styles.signInTitle}>
+                        Sign In
+                    </span>
 
 
 
@@ -101,11 +106,10 @@ const Signup = () => {
                         <Button title={'SIGN IN'}
                             mode={'reusable button'}
                             onClick={() => console.log('button clicked')}
-                            width='350px'
+                            width='340px'
                             padding='12px'
                             borderRadius='8px'
-                            fontSize='16px'
-                        />
+                            fontSize='16px'/>
                     </form>
                     <div className={styles.signup}>
                         <span>

@@ -5,13 +5,21 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Controls from './Contorls';
 import style from './IndexPage.module.scss';
 import TrackDisplay from './TrackDisplay';
+import SliderMobile from './Slider/Slider';
 
 const tracks = [
+    
     {
         title: 'Sugar (feat. Francesco)',
         artist: 'By Robin Schulz',
         albumArt: '/music/RobinSchluz.png',
         audio: '/music/RobinSchulz.mp3',
+    },
+    {
+        title: 'Kinetic Cyclone',
+        artist: 'Sample',
+        albumArt: '/music/toko.png',
+        audio: '/music/TokosTrack.mp3.mp3',
     },
     {
         title: 'Starboy',
@@ -147,8 +155,23 @@ const IndexPage: React.FC = () => {
 
     return (
         <div className={style.main}>
-
+            <SliderMobile 
+                    isPlaying={isPlaying}
+                    onPlayPause={playPause}
+                    onNext={playNextTrack}
+                    onPrevious={playPrevious}
+                    onVolumeChange={handleVolumeChange}
+                    volume={volume}
+                    isLooping={isLooping}
+                    onToggleLoop={toggleLoop}
+                    isShuffling={isShuffling}
+                    onToggleShuffle={toggleShuffle}
+                    currentTime={currentTime}
+                    duration={duration}
+                    onTimeChange={handleTimeChange}
+                    backgroundImage={''} name={undefined} isActive={undefined}  />
             <div className={style.container}>
+
 
                 
                 <TrackDisplay currentTrack={currentTrack} />

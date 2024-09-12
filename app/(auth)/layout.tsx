@@ -3,6 +3,7 @@ import IndexPage from '../components/MusicPlayer/IndexPage';
 import styles from './layout.module.scss';
 import MobileMenu from '../components/Mobilemenu/mobilemenu';
 import BurgerMenu from '../components/BurgerMenu/BurgerMenu';
+import Mobilemenu from '../components/Mobilemenu/mobilemenu';
 
 export default function RootLayout({
     children,
@@ -19,14 +20,16 @@ export default function RootLayout({
                     <BurgerMenu />
                 </div>
                 {children}
-                {/* <div className={styles.container2}>
+                <div className={styles.container2}>
                     <IndexPage />
-                </div> */}
+                </div>
                 <MobileMenu />
             </div>
         </div>
     )
 }
+
+
 
 
 
