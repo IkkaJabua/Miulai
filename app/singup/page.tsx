@@ -6,7 +6,6 @@ import Image from 'next/image'
 import { useForm } from "react-hook-form";
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { error } from 'console';
 
 
 
