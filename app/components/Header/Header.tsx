@@ -12,7 +12,7 @@ export default ({icon} : Props) => {
     return(
         <div className={styles.container}>
             <Input className={styles.input} />
-            <Image src={icon} alt='image' width={56} height={56} className={styles.image} />       
+            <Image src={'/icon/userHeaderIcon.svg'} alt='image' width={32} height={32} className={styles.image} />       
         </div>
     )
 }
