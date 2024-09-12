@@ -3,10 +3,8 @@ import Input from '../Input/Input';
 import styles from './Header.module.scss';
 import Image from 'next/image';
 
-interface Props {
-    icon?: string;
-}
 
+export default () => {
 const Header = ({icon} : Props) => {
 
     return(
