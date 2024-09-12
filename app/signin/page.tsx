@@ -72,7 +72,7 @@ const Signup = () => {
                         <Button title={'SIGN IN'}
                             mode={'reusable button'}
                             onClick={() => console.log('button clicked')}
-                            width='350px'
+                            width='340px'
                             padding='12px'
                             borderRadius='8px'
                             fontSize='16px'/>
