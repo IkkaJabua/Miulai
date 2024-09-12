@@ -60,7 +60,7 @@ const Registracion = () => {
                 <div className={styles.tabletFont}>Sign up</div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className={styles.registracion}>
-                        {/* <input
+                        <input
                             className={styles.input}
                             type='text'
                             placeholder='name'
@@ -77,7 +77,7 @@ const Registracion = () => {
                         />
                         {
                             errors.name && <div className={styles.errorMassage}>{errors.name.message}</div>
-                        } */}
+                        }
 
                         <input className={styles.input}
                             type='email'
