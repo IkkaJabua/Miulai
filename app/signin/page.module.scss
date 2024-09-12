@@ -12,7 +12,9 @@
     align-items: flex-start;
     flex-direction: column;
     margin-top: 70px;
+    font-family: var('--font-Plus-Jakarta-sans');
 }
+
 
 .white:first-child {
     color: #fff;
@@ -38,18 +40,19 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: "SF Pro Display";
+    font-family: var('--font-Plus-Jakarta-sans');
     font-size: 62px;
     font-weight: 700;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     gap: 30px;
+
 }
 
 .subtitle {
     color: #C5B0C9;
-    font-family: "Plus Jakarta Sans";
+    font-family: var('--font-Plus-Jakarta-sans');
     font-size: 24px;
     font-weight: 500;
 }
@@ -78,7 +81,7 @@
 }
 
 .input {
-    max-width: 336px;
+    max-width: 340px;
     width: 100%;
     border-radius: 8px;
     border: none;
@@ -140,11 +143,103 @@
     color: #FFF;
     font-size: 16px;
     font-weight: 400;
+    font-family: var('--font-Plus-Jakarta-sans');
 }
 
 .signup span:last-child {
     color: #F903D0;
     font-size: 16px;
     font-weight: 400;
+    font-family: var('--font-Plus-Jakarta-sans');
 }
 
+.signInTitle {
+    color: #C5B0C9;
+    text-align: center;
+    font-family: var('--font-Plus-Jakarta-sans');
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    display: none;
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+
+    .header,
+    .subtitle {
+        display: none;
+    }
+
+    .container {
+        background:
+            url('/image/backgroundImage-auth.png') no-repeat center / cover;
+    }
+
+    .signInTitle {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .signup {
+        display: flex;
+        justify-content: center;
+    }
+
+    .logoWrapper {
+        position: absolute;
+        left: 25px;
+        top: 20px;
+    }
+
+    .wrapper {
+        padding-top: 120px;
+        margin: 0 auto;
+    }   
+
+    .input {
+        width: 300px;
+        margin: 0 auto;
+    }
+
+    .checkboxWrapper {
+        justify-content: space-around;
+        margin-left: 10px;
+    }
+    
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+
+    .header,
+    .subtitle {
+        display: none;
+    }
+
+    .container {
+        background:
+            url('/image/backgroundImage-auth.png') no-repeat center / cover;
+    }
+
+    .signInTitle {
+        display: block;
+        margin-top: 20px;
+    }
+
+    .signup {
+        display: flex;
+        justify-content: center;
+    }
+
+    .logoWrapper {
+        position: absolute;
+        left: 25px;
+        top: 20px;
+    }
+
+    .wrapper {
+        padding-top: 120px;
+        margin: 0 auto;
+    }
+}
