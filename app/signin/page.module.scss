@@ -1,0 +1,148 @@
+.container {
+    background:
+        url('/icon/signin-img.svg') no-repeat right bottom / contain,
+        url('/image/backgroundImage-auth.png') no-repeat center / cover;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 70px;
+}
+
+.white:first-child {
+    color: #fff;
+    font-size: 62px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.white:last-child {
+    color: #fff;
+    font-size: 72px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.white {
+    display: flex;
+    gap: 20px;
+}
+
+.gradients {
+    background: linear-gradient(90deg, #F903D0 0%, #9A16F2 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: "SF Pro Display";
+    font-size: 62px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.subtitle {
+    color: #C5B0C9;
+    font-family: "Plus Jakarta Sans";
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.wrapper {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    max-width: 750px;
+    width: 100%;
+    align-items: center;
+    padding-top: 40px;
+}
+
+.formsWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.input {
+    max-width: 336px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    height: 48px;
+    padding-left: 16px;
+}
+
+.input::placeholder {
+    color: #C5B0C9;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.input:focus {
+    color: #C5B0C9;
+    font-size: 16px;
+}
+
+.remember {
+    color: #FFF;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.forgot {
+    color: #B1B1B1;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+.checkboxContainer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.checkboxWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 335px;
+    margin-top: 12px;
+    margin-bottom: 24px;
+}
+
+.signup {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 24px;
+}
+
+.signup span:first-child {
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.signup span:last-child {
+    color: #F903D0;
+    font-size: 16px;
+    font-weight: 400;
+}
+

@@ -1,16 +1,26 @@
 .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.art {
+    max-width: 1350px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 30px;
+    gap: 15px;
 }
 
-.box {
-    display: flex;
-}
 
-@media screen and (min-width: 300px) and (max-width: 850px) {
-    .container {
-        justify-content: center;
+@media screen and (max-width: 1555px) {
+    .art {
+        overflow-x: scroll;
+        padding-bottom: 10px;
+    }
+
+    .art::-webkit-scrollbar {
+        display: none;
     }
 }

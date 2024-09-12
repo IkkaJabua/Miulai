@@ -2,36 +2,11 @@
 import styles from "./Button.module.scss";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import { getButtonStyles } from "@/app/helpers/ButtonHelper";
-
-interface Props {
-    title: string;
-    disabled?: boolean;
-    mode: 'without icon' | 'long with icon' | 'short with icon' | 'reusable button';
-    icon?: boolean;
-    onClick: Function;
+import ButtonHelper, { ButtonProps } from "@/app/helpers/ButtonHelper";
 
 
-
-    width?: string;
-    maxWidth?: string;
-    padding?: string;
-    borderRadius?: string;
-    height?: string;
-    gap?: string;
-    fontSize?: string;
-    fontWeight?: string;
-
-
-    imageSrc?: string | undefined;
-    imageWidth?: number | undefined;
-    imageHeight?: number | undefined;
-    imageAlt?: string;
-
-}
-
-export default (props: Props) => {
-    const { classes, clip, style } = getButtonStyles(props);
+const Button = (props: ButtonProps) => {
+    const { classes, style } = ButtonHelper(props);
 
 
     return (
@@ -49,3 +24,5 @@ export default (props: Props) => {
     )
 }
 
+
+export default Button;

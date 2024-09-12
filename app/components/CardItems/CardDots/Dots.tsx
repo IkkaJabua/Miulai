@@ -6,7 +6,7 @@ interface Props {
     onClick?: () => void;
 }
 
-export default (props: Props) => {
+const CreatePlaylist = (props: Props) => {
 
 
     return(
@@ -15,3 +15,5 @@ export default (props: Props) => {
         </div>
     )
 }
+
+export default CreatePlaylist;

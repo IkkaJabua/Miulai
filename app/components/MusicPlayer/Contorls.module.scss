@@ -131,7 +131,7 @@ background: var(--Gradient-apolo, linear-gradient(90deg, #F903D0 0%, #9A16F2 100
   -webkit-appearance: none;
   appearance: none;
   // width: 628px  ;
-  max-width: 800px;
+  max-width: 600px;
   width: 40%;
   height: 10px;
   border-radius: 5px;
@@ -151,9 +151,53 @@ background: var(--Gradient-apolo, linear-gradient(90deg, #F903D0 0%, #9A16F2 100
   position: absolute;
   top: 24px;
   width: 68%;
+  gap: 16px;
+}
+}
+.likeSet{
+  display: none;
 }
 
 
+@media screen and (min-width:0px) and (max-width:767px) {
+ 
+  .timing{
+    display: none;
+  }
+  .btn{
+    display: none;
+  }
+  .volume{
+    display: none;
+  }
+  .circle{
+    display: flex;
+  }
+  .likeSet{
+    display: flex;
+  }
+  .likeplaybtn{
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    
+  }
+  .progressMain{
+    display: none;
+
+  }
   
+.load {
+  display: none;
+
+}
+
+.progressMain {
+  display: none;
+}
+
+.progressDiv {
+display: none;
+}
 
 }
