@@ -81,9 +81,17 @@
 .fontGap {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    // gap: 10px;
 }
+@media screen and (max-width: 350px) and (max-width: 767px){
+    .fontGap {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
 
+    
+}
 .songTitle {
     color: $white;
     font-size: 14px;

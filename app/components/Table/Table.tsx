@@ -6,10 +6,13 @@ import styles from './Table.module.scss'
 import { render } from "sass";
 import { text } from "stream/consumers";
 import Image from "next/image";
-import useViewport from './viewport'
+import { useWindowSize } from "react-use";
 const Tables = () => {
 
-    const isVisible = useViewport();
+    const { width, height } = useWindowSize();
+    const isMobile = width > 767
+    
+
 
 
     const tableData = [
@@ -101,7 +104,7 @@ const Tables = () => {
 
     const columns = [
         {
-            title: '#',
+            title: isMobile ? '#' : '',
             dataIndex: 'id',
             key: 'id',
             width: '1%',
@@ -113,7 +116,7 @@ const Tables = () => {
         },
         
         {
-            title: 'Song Name',
+            title: isMobile ? 'Song Name' : '',
             dataIndex: 'title',
             key: 'title',
             width: '30%',
@@ -127,7 +130,7 @@ const Tables = () => {
                 </div>
             ),
         },
-        {
+        width > 725 ? {
             title: 'Album',
             dataIndex: 'album',
             key: 'album',
@@ -137,8 +140,9 @@ const Tables = () => {
                     {text}
                 </div>
             )
-        },
-        {
+        } : {},
+        isMobile ?
+        { 
             title: 'Time',
             dataIndex: 'time',
             key: 'time',
@@ -148,7 +152,7 @@ const Tables = () => {
                     {text}
                 </div>
             )
-        },
+        } : {},
         {
             title: '',
             key: 'like',
