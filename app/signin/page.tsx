@@ -26,8 +26,7 @@ const Signup = () => {
     const onLogin = (values: any) => {
         axios.post('https://interstellar-1-pdzj.onrender.com/auth', values)
             .then(r => {
-                // localStorage.setItem('user', JSON.stringify(r.data))
-                // console.log(r.data)
+              
                 setCookie('token', r.data.accesToken, 60)
                 router.push('/')
             })
