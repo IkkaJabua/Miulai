@@ -20,6 +20,21 @@
     // margin-bottom: 32px;
 }
 
+.popupWrapper {
+    position: absolute;
+    top: 90px; // Adjust as needed
+    right: 305px;
+    background-color: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 100;
+}
+
+.userIconWrapper {
+    cursor: pointer;
+    position: relative;
+}
+
 @media screen and (min-width: 767px) and (max-width: 1024px) {
     .input {
         width: 350px;
