@@ -10,14 +10,14 @@ import { usePathname } from 'next/navigation';
 
 
 
+
 const MenuItem = () => {
     const router = useRouter()
-    const [activeItem, setActiveItem] = useState<number>();
+    const pathname = usePathname()
 
     useEffect(() => {
-        if (activeItem === undefined) setActiveItem(MenuData[0].id)
-    }, [activeItem])
-
+        if (pathname === undefined) router.push('/')
+    }, [pathname])
 
     const MenuData = [
         {
@@ -31,21 +31,21 @@ const MenuItem = () => {
             title: 'Recommendations',
             icon: 'menu-logo2',
             activeIcon: 'clicked-menu-logo2',
-            path: '/',
+            path: '/recommendations',
             id: 2
         },
         {
             title: 'Top Hits',
             icon: 'menu-logo3',
             activeIcon: 'clicked-menu-logo3',
-            path: 'hits',
+            path: '/hits',
             id: 3
         },
         {
             title: 'Top Charts',
             icon: 'menu-logo4',
             activeIcon: 'clicked-menu-logo4',
-            path: '/',
+            path: '/charts',
             id: 4
         },
         { type: 'header', title: 'Collection' },
@@ -53,14 +53,14 @@ const MenuItem = () => {
             title: 'Playlists',
             icon: 'menu-logo5',
             activeIcon: 'clicked-menu-logo5',
-            path: 'playlists',
+            path: '/playlists',
             id: 5
         },
         {
             title: 'Favorites',
             icon: 'menu-logo6',
             activeIcon: 'clicked-menu-logo6',
-            path: 'favorites',
+            path: '/favorites',
             id: 6
         },
         { type: 'header', title: 'Discover' },
@@ -68,14 +68,14 @@ const MenuItem = () => {
             title: 'Artist',
             icon: 'menu-logo7',
             activeIcon: 'clicked-menu-logo7',
-            path: 'artist',
+            path: '/artist',
             id: 7
         },
         {
             title: 'Album',
             icon: 'menu-logo8',
             activeIcon: 'clicked-menu-logo8',
-            path: 'album',
+            path: '/album',
             id: 8
         }
     ]
@@ -89,13 +89,13 @@ const MenuItem = () => {
                         return <div className={styles.menu_header} key={index}>{item.title}</div>;
                     }
                     return (
-                        <div key={item.id} className={activeItem === item.id ? styles.clicked_container : styles.container}
+                        <div key={item.id} className={pathname === item.path ? styles.clicked_container : styles.container}
                             onClick={() => {
-                                setActiveItem(item.id)
-                                router.push(`/${item.path}`)
+                                // setActiveItem(pathname)
+                                router.push(`${item.path}`)
                             }} >
-                            <Icon name={`${activeItem === item.id ? item.activeIcon : item.icon}`} alt={'logo'} width={24} height={24} />
-                            <div className={activeItem === item.id ? styles.white_font : styles.font}>
+                            <Icon name={`${pathname === item.path ? item.activeIcon : item.icon}`} alt={'logo'} width={24} height={24} />
+                            <div className={pathname === item.path ? styles.white_font : styles.font}>
                                 {item.title}
                             </div>
                         </div>
