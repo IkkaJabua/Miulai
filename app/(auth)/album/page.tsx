@@ -7,7 +7,7 @@ import styles from './page.module.scss'
 import Link from 'next/link'
 
 
-export default () => {
+const album = () => {
 
     return (
         <div className={styles.container}>
@@ -24,3 +24,6 @@ export default () => {
     )
 
 }
+
+
+export default album

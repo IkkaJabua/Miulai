@@ -95,7 +95,7 @@ const Artist = () => {
             <div className={styles.dataWrapper}>
                 {
                     fakeData.map((item) => (
-                        <div>
+                        <div key={item.id}>
                             <Card header={''} image={item.image} title={item.title} imageStyle={'round'} />
                         </div>
                     ))
