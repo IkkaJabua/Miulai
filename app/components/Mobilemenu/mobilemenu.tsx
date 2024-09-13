@@ -5,14 +5,23 @@ import Image from 'next/image'
 
 import { useEffect, useState } from 'react'
 import Icon from '../Icon/Icon'
+import { usePathname, useRouter } from 'next/navigation'
 
 const MobileMenu = () => {
     const [activeItem, setActiveItem] = useState<number>();
 
+    const router = useRouter()
+    const pathname = usePathname()
+
     useEffect(() => {
-        if (activeItem === undefined) setActiveItem(MenuData[0].id)
-        console.log(activeItem)
-    }, [activeItem])
+        if (pathname === undefined) router.push('/')
+    }, [pathname])
+
+
+    // useEffect(() => {
+    //     if (activeItem === undefined) setActiveItem(MenuData[0].id)
+    //     console.log(activeItem)
+    // }, [activeItem])
 
 
 
@@ -28,7 +37,7 @@ const MobileMenu = () => {
             title: 'Search',
             icon: 'search-icon',
             activeIcon: 'whitesearch-icon',
-            path: '',
+            path: '/search',
             id: 2
         },
         {
@@ -48,12 +57,12 @@ const MobileMenu = () => {
         <nav className={styles.container} >
             {
                 MenuData.map(item => (
-                    <Link href={item.path} key={item.id} className={styles.cellMenuItem} onClick={() => setActiveItem(item.id)} >
-                        <Icon name={`${activeItem === item.id ? item.activeIcon : item.icon}`} alt={'icon'} width={24} height={24} />
-                        <div  className={activeItem == item.id ? styles.activeFont: styles.unActiveFont}>
+                    <div key={item.id} className={styles.cellMenuItem} onClick={() => router.push(`${item.path}`)} >
+                        <Icon name={`${pathname === item.path ? item.activeIcon : item.icon}`} alt={'icon'} width={24} height={24} />
+                        <div className={pathname == item.path ? styles.activeFont: styles.unActiveFont}>
                             {item.title}
                         </div>
-                    </Link>
+                    </div>
                 ))
             }
 
