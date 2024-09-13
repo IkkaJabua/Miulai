@@ -8,6 +8,15 @@ import { useRouter } from 'next/navigation';
 import { usePathname } from 'next/navigation';
 
 
+interface menuData {
+    title?: string,
+    icon?: string,
+    activeIcon?: string,
+    path?: string,
+    key: string,
+    type?: string
+}
+
 
 
 
@@ -19,64 +28,71 @@ const MenuItem = () => {
         if (pathname === undefined) router.push('/')
     }, [pathname])
 
-    const MenuData = [
+    const MenuData: menuData[] = [
         {
             title: 'Home',
             icon: 'menu-logo-1',
             activeIcon: 'clicked-menu-logo1',
             path: '/',
-            id: 1
+            key: '/',
         },
         {
             title: 'Recommendations',
             icon: 'menu-logo2',
             activeIcon: 'clicked-menu-logo2',
             path: '/recommendations',
-            id: 2
+            key: '/recommendations',
+
         },
         {
             title: 'Top Hits',
             icon: 'menu-logo3',
             activeIcon: 'clicked-menu-logo3',
             path: '/hits',
-            id: 3
+            key: '/hits',
+
         },
         {
             title: 'Top Charts',
             icon: 'menu-logo4',
             activeIcon: 'clicked-menu-logo4',
             path: '/charts',
-            id: 4
+            key: '/charts',
+
         },
-        { type: 'header', title: 'Collection' },
+        { type: 'header', title: 'Collection', key: 'title' },
         {
             title: 'Playlists',
             icon: 'menu-logo5',
             activeIcon: 'clicked-menu-logo5',
             path: '/playlists',
-            id: 5
+            key: '/playlists',
+
         },
         {
             title: 'Favorites',
             icon: 'menu-logo6',
             activeIcon: 'clicked-menu-logo6',
             path: '/favorites',
-            id: 6
+            key: '/favorites',
+
         },
-        { type: 'header', title: 'Discover' },
+        { type: 'header', title: 'Discover', key: 'title' },
         {
             title: 'Artist',
             icon: 'menu-logo7',
             activeIcon: 'clicked-menu-logo7',
             path: '/artist',
-            id: 7
+            key: '/artist',
+
         },
         {
             title: 'Album',
             icon: 'menu-logo8',
             activeIcon: 'clicked-menu-logo8',
             path: '/album',
-            id: 8
+            key: '/album',
+
         }
     ]
 
@@ -85,14 +101,15 @@ const MenuItem = () => {
         <>
             <div className={styles.main_container}>
                 {MenuData.map((item, index) => {
+                    const active = item.key === '/' ? pathname === '/' : pathname.startsWith(item.key)
                     if (item.type === 'header') {
                         return <div className={styles.menu_header} key={index}>{item.title}</div>;
                     }
                     return (
-                        <div key={item.id} className={pathname === item.path ? styles.clicked_container : styles.container}
+                        <div key={item.key} className={active ? styles.clicked_container : styles.container}
                             onClick={() => router.push(`${item.path}`)} >
-                            <Icon name={`${pathname === item.path ? item.activeIcon : item.icon}`} alt={'logo'} width={24} height={24} />
-                            <div className={pathname === item.path ? styles.white_font : styles.font}>
+                            <Icon name={`${active ? item.activeIcon : item.icon}`} alt={'logo'} width={24} height={24} />
+                            <div className={active ? styles.white_font : styles.font}>
                                 {item.title}
                             </div>
                         </div>
