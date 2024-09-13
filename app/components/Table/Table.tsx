@@ -6,8 +6,11 @@ import styles from './Table.module.scss'
 import { render } from "sass";
 import { text } from "stream/consumers";
 import Image from "next/image";
-
+import useViewport from './viewport'
 const Tables = () => {
+
+    const isVisible = useViewport();
+
 
     const tableData = [
         {
@@ -66,7 +69,9 @@ const Tables = () => {
             album: 'I Hear You',
             time: '3:54',
             id: 8
-        }, {
+        },
+         {
+            
             icon: '/table-icon9.svg',
             title: 'Girls Are Fascinating',
             author: 'By Anetha',
@@ -89,6 +94,9 @@ const Tables = () => {
             id: 11
         }
     ]
+ 
+
+
 
 
     const columns = [
@@ -103,6 +111,7 @@ const Tables = () => {
                 </div>
             )
         },
+        
         {
             title: 'Song Name',
             dataIndex: 'title',
