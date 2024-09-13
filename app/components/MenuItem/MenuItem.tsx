@@ -90,10 +90,7 @@ const MenuItem = () => {
                     }
                     return (
                         <div key={item.id} className={pathname === item.path ? styles.clicked_container : styles.container}
-                            onClick={() => {
-                                // setActiveItem(pathname)
-                                router.push(`${item.path}`)
-                            }} >
+                            onClick={() => router.push(`${item.path}`)} >
                             <Icon name={`${pathname === item.path ? item.activeIcon : item.icon}`} alt={'logo'} width={24} height={24} />
                             <div className={pathname === item.path ? styles.white_font : styles.font}>
                                 {item.title}

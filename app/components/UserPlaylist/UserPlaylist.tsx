@@ -4,9 +4,11 @@ import styles from './UserPlaylist.module.scss'
 import Image from 'next/image'
 import { useState } from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 
 const UserPlaylist = () => {
+    const router = useRouter()
 
     const playListData = [
         {
@@ -37,7 +39,7 @@ const UserPlaylist = () => {
         <>
             {
                 playListData.map((item) =>
-                    <Link className={styles.container} key={item.id} href={`playlists/${item.id}`}
+                    <div className={styles.container} key={item.id} onClick={() => router.push(`playlists/${item.id}`)}
                     >
                         <div className={styles.hoveredImage} >
                             <Image className={styles.cellImage} src={`./icon/${item.icon}`} width={234} height={251} alt='image' />
@@ -51,7 +53,7 @@ const UserPlaylist = () => {
                             </div>
                         </div>
                         <div className={styles.font}>{item.title}</div>
-                    </Link>
+                    </div>
                 )
             }
         </>

@@ -6,13 +6,19 @@ import News from '@/app/components/News/News'
 import Input from '../../../components/Input/Input'
 import Table from '../../../components/Table/Table'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 
 
 
 
 const Id = () => {
     const router = useRouter();
+    const pathname = usePathname()
+
+    // useEffect(() => {
+    //     if (pathname === )
+    // })
 
     return (
         <div className={styles.container}>
