@@ -26,6 +26,8 @@
 
 .wrapper :global .ant-table {
     background-color: unset !important;
+    max-width: 1112px;
+    width: 100%;
 }
 
 .wrapper :global .ant-table-thead .ant-table-cell::before {
@@ -36,6 +38,9 @@
     color: $hawksEye !important;
     background-color: $blackMetal !important;
     border: none !important;
+    max-width: 1112px;
+    width: 100%;
+    border-radius: 8px !important;
 }
 
 
