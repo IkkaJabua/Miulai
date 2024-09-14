@@ -130,11 +130,11 @@ const Signup = () => {
                             borderRadius='8px'
                             fontSize='16px' />
                     </form>
-                    <div onClick={() => router.push('/singup')} className={styles.signup}>
+                    <div className={styles.signup}>
                         <span>
                             Don’t have an account?
                         </span>
-                        <span>
+                        <span onClick={() => router.push('/singup')}>
                             Sign up
                         </span>
                     </div>
