@@ -6,7 +6,6 @@ import Button from '../components/Button/Button';
 import { useForm } from 'react-hook-form';
 import axios from 'axios'
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
-import { message } from 'antd';
 import { useRouter } from 'next/navigation';
 import { setCookie } from '../cookies';
 import { useState } from 'react';
