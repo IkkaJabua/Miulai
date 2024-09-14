@@ -13,13 +13,13 @@ const MusicCard = () => {
 
     const [cardData, setCardData] = useState<any>([])
 
-    useEffect(() => {
-        axios.get('https://fakestoreapi.com/products/7')
-            .then((r) => {
-                setCardData(r.data)
-                console.log(cardData)
-            })
-    }, [])
+    // useEffect(() => {
+    //     axios.get('https://fakestoreapi.com/products/7')
+    //         .then((r) => {
+    //             setCardData(r.data)
+    //             console.log(cardData)
+    //         })
+    // }, [])
 
 
 
@@ -75,16 +75,15 @@ const MusicCard = () => {
     return (
         <div className={styles.mainContainer}>
             {
-                cardData.map((item: any, index: any) => (
+                musicCardData.map((item: any, index: any) => (
                     <div className={styles.container} key={item.id}>
                         <div className={styles.container_author}>
                             <div>
-                                {/* <Image src={`./icon/${item.icon}`} alt='music cover' width={72} height={72} /> */}
-                                <img src={item.image} width={72} height={72} />
+                                <Image src={`./icon/${item.icon}`} alt='music cover' width={72} height={72} />
                             </div>
                             <div className={styles.container_name}>
-                                <div className={styles.music_name_font_style}>{item.category}</div>
-                                <div className={styles.music_author_font_style}>{item.category}</div>
+                                <div className={styles.music_name_font_style}>{item.title}</div>
+                                <div className={styles.music_author_font_style}>{item.author}</div>
                             </div>
                         </div>
                         <div className={styles.container_detals}>
