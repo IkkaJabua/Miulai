@@ -56,8 +56,8 @@ const MenuItem = () => {
             title: 'Top Charts',
             icon: 'menu-logo4',
             activeIcon: 'clicked-menu-logo4',
-            path: '/Charts',
-            key: '/Charts',
+            path: '/charts',
+            key: '/charts',
 
         },
         { type: 'header', title: 'Collection', key: 'title' },
