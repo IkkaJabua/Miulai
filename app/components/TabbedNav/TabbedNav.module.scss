@@ -1,0 +1,96 @@
+.tabbedNav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    
+
+    .tabs {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        margin-bottom: 10px;
+        margin-left: 30px;
+        max-width: 500px;
+    }
+
+    .tab {
+        position: relative;
+        background: none;
+        border: none;
+        font-size: 16px;
+        color: gray;
+        padding: 10px 20px;
+        cursor: pointer;
+        outline: none;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+            color: white; // Hover effect, turns pink
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #F903D0; // Pink color for active underline
+            transition: width 0.3s ease-in-out;
+        }
+
+        &.active {
+            color: #fff; // Active tab turns pink
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+    .tabContent {
+        width: 100%;
+        padding: 20px;
+        
+
+    }
+}
+
+.cards {
+    display: flex;
+    gap: 10px;
+    margin-left: -10px;
+    overflow-x: scroll;
+}
+
+.cards::-webkit-scrollbar {
+    display: none;
+}
+
+.bio {
+    max-width: 1112px;
+    width: 100%;
+    padding: 24px 16px;
+    background-color: #050506;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+}
+
+
+.bioRightside {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.bioRightside p {
+    color: #fff;
+} 
+
+.bioRightside h2 {
+    color: #fff;
+}
