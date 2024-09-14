@@ -11,7 +11,7 @@ const Tables = () => {
 
     const { width, height } = useWindowSize();
     const isMobile = width > 767
-    
+
 
 
 
@@ -73,8 +73,8 @@ const Tables = () => {
             time: '3:54',
             id: 8
         },
-         {
-            
+        {
+
             icon: '/table-icon9.svg',
             title: 'Girls Are Fascinating',
             author: 'By Anetha',
@@ -97,7 +97,7 @@ const Tables = () => {
             id: 11
         }
     ]
- 
+
 
 
 
@@ -114,7 +114,7 @@ const Tables = () => {
                 </div>
             )
         },
-        
+
         {
             title: isMobile ? 'Song Name' : '',
             dataIndex: 'title',
@@ -140,19 +140,32 @@ const Tables = () => {
                     {text}
                 </div>
             )
-        } : {},
-        isMobile ?
-        { 
-            title: 'Time',
-            dataIndex: 'time',
-            key: 'time',
-            width: '15%',
-            render: (text: any, item: any) => (
-                <div className={styles.cellTimeName}>
-                    {text}
+        } : {
+            width: '0.5%',
+            render: () => (
+                <div>
+
                 </div>
             )
-        } : {},
+        },
+        isMobile ?
+            {
+                title: 'Time',
+                dataIndex: 'time',
+                key: 'time',
+                width: '15%',
+                render: (text: any, item: any) => (
+                    <div className={styles.cellTimeName}>
+                        {text}
+                    </div>
+                )
+            } : {
+                width: '0.5%',
+                render: () => (
+                    <div>
+                    </div>
+                )
+            },
         {
             title: '',
             key: 'like',
@@ -180,3 +193,4 @@ const Tables = () => {
 }
 
 export default Tables;
+
