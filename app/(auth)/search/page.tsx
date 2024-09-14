@@ -9,7 +9,7 @@ import axios from 'axios'
 
 
 const search = () => {
-    const [inputValue, setInputValue] = useState('');
+    const [inputValue, setInputValue] = useState();
 
     const inputChange = (e: any) => {
         // const newValue = e.target.value;
@@ -19,9 +19,13 @@ const search = () => {
 
     const [searchItems, setSearchItems] = useState<[]>()
 
-    useEffect(() => {
-        axios.get('https://interstellar-1-pdzj.onrender.com/search?search=pink')
-    })
+    useEffect(()=> {
+        axios.get(`https://freetestapi.com/api/v1/countries?search=${inputValue}`)
+        .then( async (r) => {
+            setSearchItems(r.data)
+            console.log(r.data)
+        })
+    }, [inputValue])
 
 
 
@@ -30,9 +34,19 @@ const search = () => {
 
         <div className={styles.container}>
             <Header value={inputValue} onChange={inputChange} />
-            {
+            <div className={styles.insideContainer}>
+                {
+                    searchItems?.map((item: any) => (
+                        <div className={styles.itemContainer}>
+                            <div><h4>{item.name}</h4></div>
+                        </div>
 
-            }
+                    ))
+
+                }
+
+            </div>
+
 
         </div>
     )
