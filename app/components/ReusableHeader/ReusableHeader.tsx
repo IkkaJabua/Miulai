@@ -1,18 +1,19 @@
+'use client';
 import styles from './ReusableHeader.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
-type Props = {
-    href: string;
-}
 
-const ReusableHeader = (props: Props) => {
+
+const ReusableHeader = () => {
+    const router = useRouter();
 
     return(
         <div className={styles.container}>
-            <Link href={'/'} className={styles.img}>
+            <div onClick={() => router.push('/')} className={styles.img}>
                 <Image src={'/icon/arrow-left.svg'} alt={'image'} width={22} height={22} />
-            </Link>
+            </div>
             <Image src={'/icon/user-img.svg'} alt='image' width={38} height={38} className={styles.img} />
         </div>
     )

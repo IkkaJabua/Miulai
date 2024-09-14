@@ -11,8 +11,8 @@ const Hits = () => {
 
     return(
         <div className={styles.container}>
-            <ReusableHeader href={'/Homepage'} />
-            <News title={'Top Hit Of The Week'} image={'/image/testImg.jpg'} />
+            <ReusableHeader />
+            <News title={'Top Hit Of The Week'} image={'/image/testImg.jpg'} plays={'795,900'} />
             <Input />
             <Table />
         </div>

@@ -1,8 +1,9 @@
 @import '../colors/colors.scss';
 
-// .wrapper {
-//     max-width: 1112px;
-// }
+.wrapper {
+    width: 100%;
+    max-width: 1112px;
+}
 
 .wrapper :global .ant-table-cell {
     color: $hawksEye !important;
@@ -28,6 +29,7 @@
     background-color: unset !important;
     max-width: 1112px;
     width: 100%;
+   
 }
 
 .wrapper :global .ant-table-thead .ant-table-cell::before {

@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <main className={styles.main}>
       <Header />
-      <News title={'Top Hit Of The Week'} image={'/image/testImg.jpg'} />
+      <News title={'Top Hit Of The Week'} image={'/image/testImg.jpg'} plays={'643,421'} />
       <CardsHeader title={'Top Hits'} subtitle={''} />
       <HitsSection />
       <CardsHeader title={'Top Charts'} subtitle={''} />
