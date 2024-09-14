@@ -14,7 +14,7 @@ const MusicCard = () => {
     const [cardData, setCardData] = useState<any>([])
 
     useEffect(() => {
-        axios.get('https://fakestoreapi.com/products/7')
+        axios.get('https://fakestoreapi.com/products')
             .then((r) => {
                 setCardData(r.data)
                 console.log(cardData)
