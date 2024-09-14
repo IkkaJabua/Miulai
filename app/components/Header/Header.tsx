@@ -1,23 +1,18 @@
+// Use the "use client" directive at the very top of the file
+'use client';
 
-import Icon from '../Icon/Icon';
 import Input from '../Input/Input';
 import styles from './Header.module.scss';
 import Image from 'next/image';
 import { useState } from 'react';
 import UserPopup from '../UserPopup/UserPopup';
-import { useRouter } from 'next/router';
-
 
 const Header = () => {
-
     const [showPopup, setShowPopup] = useState(false);
-    // const router = useRouter();
 
-    // toggle - ს პრინციპია ამ ფუნქციაში
     const togglePopup = () => {
         setShowPopup(!showPopup);
     };
-    
     
     return (
         <div className={styles.container}>
@@ -43,8 +38,7 @@ const Header = () => {
                 )}
             </div>
         </div>
-    )
-}
-
+    );
+};
 
 export default Header;
