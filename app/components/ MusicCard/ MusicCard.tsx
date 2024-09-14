@@ -4,11 +4,24 @@ import Icon from '../Icon/Icon'
 import styles from './ MusicCard.module.scss'
 import Image from 'next/image'
 import Playlist from '../Playlist/Playlist'
+import axios from 'axios'
 
 
 
 const MusicCard = () => {
     const [active, setActive] = useState<number>()
+
+    const [cardData, setCardData] = useState<any>([])
+
+    useEffect(() => {
+        axios.get('https://fakestoreapi.com/products/7')
+            .then((r) => {
+                setCardData(r.data)
+                console.log(cardData)
+            })
+    }, [])
+
+
 
 
 
@@ -62,19 +75,20 @@ const MusicCard = () => {
     return (
         <div className={styles.mainContainer}>
             {
-                musicCardData.map((item: any, index: any) => (
+                cardData.map((item: any, index: any) => (
                     <div className={styles.container} key={item.id}>
                         <div className={styles.container_author}>
                             <div>
-                                <Image src={`./icon/${item.icon}`} alt='music cover' width={72} height={72} />
+                                {/* <Image src={`./icon/${item.icon}`} alt='music cover' width={72} height={72} /> */}
+                                <img src={item.image} width={72} height={72} />
                             </div>
                             <div className={styles.container_name}>
-                                <div className={styles.music_name_font_style}>{item.title}</div>
-                                <div className={styles.music_author_font_style}>{item.author}</div>
+                                <div className={styles.music_name_font_style}>{item.category}</div>
+                                <div className={styles.music_author_font_style}>{item.category}</div>
                             </div>
                         </div>
                         <div className={styles.container_detals}>
-                            <div className={styles.time_font_style}>{item.time}</div>
+                            <div className={styles.time_font_style}>{item.price}</div>
                             <div className={styles.container_like_point}>
                                 <HeartShapeBtn isDisabled={false} isActive={true} onClick={() => (console.log('button clicked'))} />
                                 <div className={styles.cursor} onClick={() => setActive(active === item.id ? undefined : item.id)}>
