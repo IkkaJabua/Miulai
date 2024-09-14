@@ -86,7 +86,7 @@ const fakeData = [
 
 ]
 
-const Artist = () => {
+const Recommendations = () => {
 
     return (
         <div className={styles.container}>
@@ -106,4 +106,4 @@ const Artist = () => {
 }
 
 
-export default Artist;
+export default Recommendations;
