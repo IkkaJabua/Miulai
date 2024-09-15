@@ -14,7 +14,7 @@ const Artist = () => {
             title={'Peggy Gou'} 
             image={'/image/artist-demo-image.png'} 
             plays={'509,678'} />
-            <TabbedNav />
+            <TabbedNav biographyText={''} />
         </div>
     )
 }
