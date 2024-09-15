@@ -1,0 +1,129 @@
+.tabbedNav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+
+
+    .tabs {
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        margin-bottom: 10px;
+        margin-left: 30px;
+        max-width: 500px;
+    }
+
+    .tab {
+        position: relative;
+        background: none;
+        border: none;
+        font-size: 16px;
+        color: gray;
+        padding: 10px 20px;
+        cursor: pointer;
+        outline: none;
+        transition: color 0.3s ease-in-out;
+
+        &:hover {
+            color: white; // Hover effect, turns pink
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #F903D0; // Pink color for active underline
+            transition: width 0.3s ease-in-out;
+        }
+
+        &.active {
+            color: #fff; // Active tab turns pink
+
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+    .tabContent {
+        width: 100%;
+        padding: 20px;
+
+
+    }
+}
+
+.cards {
+    display: flex;
+    gap: 10px;
+    margin-left: -10px;
+    overflow-x: scroll;
+}
+
+.image {
+    max-width: 360px;
+    width: 100%;
+    max-height: 325px;
+    height: 100%;
+}
+
+.cards::-webkit-scrollbar {
+    display: none;
+}
+
+.bio {
+    max-width: 1112px;
+    width: 100%;
+    padding: 10px 16px 30px 10px;
+    background-color: #050506;
+    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.bioRightside {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    position: relative;
+    bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.bioRightside h2 {
+    color: #FFF;
+    font-family: "Plus Jakarta Sans";
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+}
+
+.text {
+    color: #9E9A9F;
+    text-align: justify;
+    font-family: "Plus Jakarta Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.bio::-webkit-scrollbar {
+    width: 9px;               
+  }
+  
+.bio::-webkit-scrollbar-thumb {
+    background-color: #9A16F2;   
+    border-radius: 20px;      
+    border: 3px solid black;  
+  }
+  
