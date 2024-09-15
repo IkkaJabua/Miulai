@@ -4,7 +4,7 @@ import Button from '../Button/Button'
 interface Props {
     title: string;
     image: string;
-    plays: string;
+    plays?: string;
 }
 
 
