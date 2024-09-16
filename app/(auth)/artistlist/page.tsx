@@ -1,5 +1,5 @@
 'use client';
-import styles from './page.module.scss'
+import styles from './page.module.scss';
 import { useRouter } from 'next/navigation';
 import Header from '@/app/components/Header/Header';
 import Card from '@/app/components/Card/Card';
@@ -50,7 +50,6 @@ const artistsData = [
         title: 'Eminem',
         image: '/image/artist-demo-image.png'
     },
-
     {
         id: 10,
         title: 'Eminem',
@@ -83,14 +82,14 @@ const ArtistsList = () => {
 
                 <div className={styles.wrapper}>
                     {
-                        artistsData.map((item) =>
-                            <div onClick={handleCardClick}>
+                        artistsData.map((item) => (
+                            <div key={item.id} onClick={handleCardClick}>
                                 <Card header={''} image={item.image} title={item.title} imageStyle={'round'} />
-                            </div>)
+                            </div>
+                        ))
                     }
                 </div>
             </div>
-
         </div>
     );
 };

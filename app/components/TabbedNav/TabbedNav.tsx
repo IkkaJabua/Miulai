@@ -46,9 +46,7 @@ const albumCardData = [
     }
 ]
 
-
 const TabbedNav = (props: Props) => {
-
     const [activeTab, setActiveTab] = useState('topSongs');
 
     const onTabClick = (tab: string) => {
@@ -80,42 +78,45 @@ const TabbedNav = (props: Props) => {
                 </button>
             </div>
 
-
-
             <div className={styles.tabContent}>
-                {
-                    activeTab === 'topSongs'
-                    &&
-                    <Tables />
-                }
+                {activeTab === 'topSongs' && <Tables />}
 
-                {
-                    activeTab === 'albums'
-                    &&
+                {activeTab === 'albums' && (
                     <div className={styles.cards}>
-                        {
-                            albumCardData.map((item) => <Card header={''} image={item.image} title={item.title} imageStyle={'normal'} />)
-                        }
+                        {albumCardData.map((item) => (
+                            <Card
+                                key={item.id}
+                                header={''}
+                                image={item.image}
+                                title={item.title}
+                                imageStyle={'normal'}
+                            />
+                        ))}
                     </div>
-                }
-                {activeTab === 'biography' &&
+                )}
+
+                {activeTab === 'biography' && (
                     <div className={styles.bio}>
-                        <Image src={'/image/albumcard-demo-image1.png'} alt='image' width={250} height={230} className={styles.image} />
+                        <Image
+                            src={'/image/albumcard-demo-image1.png'}
+                            alt='image'
+                            width={250}
+                            height={230}
+                            className={styles.image}
+                        />
                         <div className={styles.bioRightside}>
                             <h2>peggy goy</h2>
                             <p className={styles.text}>
-                                {/* {props.biographyText} */}
                                 Peggy Gou (born July 3, 1991) is a South Korean DJ and producer based in Berlin.
                                 Originally from Incheon, South Korea, she began taking piano lessons at the age 
                                 teenage years to study English. After a brief return to South Korea, Gou returned  
-                                teenage years to study English. After a brief return to South Korea, Gou returnedOriginally from Incheon, South Korea, she began taking piano lessons at the age 
                                 teenage years to study English. After a brief return to South Korea, Gou returnedOriginally from Incheon, South Korea, she began taking piano lessons at the age 
                                 teenage years to study English. After a brief return to South Korea, Gou returnedOriginally from Incheon, South Korea, she began taking piano lessons at the age 
                                 teenage years to study English. After a brief return to South Korea, Gou returned
                             </p>
                         </div>
                     </div>
-                }
+                )}
             </div>
         </div>
     );
