@@ -6,7 +6,6 @@ import Image from 'next/image'
 import Playlist from '../Playlist/Playlist'
 
 
-
 const MusicCard = () => {
     const [active, setActive] = useState<number>()
 
