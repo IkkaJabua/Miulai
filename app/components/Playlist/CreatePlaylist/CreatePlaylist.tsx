@@ -53,7 +53,7 @@ const CreatePlaylist = ({ onClick }: Props) => {
                     />
                     <Image src={'/icon/camera.png'} alt='image' width={88} height={80} className={styles.image} />
                 </div>
-                <Button title={'Save'} mode={'reusable button'} width={"290px"} onClick={() => console.log('button clicked')} />
+                <Button title={'Save'} mode={'reusable button'} width={"290px"} height='100px' onClick={() => console.log('button clicked')} />
             </form>
 
         </PlaylistBox>
@@ -61,7 +61,3 @@ const CreatePlaylist = ({ onClick }: Props) => {
 }
 
 export default CreatePlaylist;
-
-function usestate(): [any, any] {
-    throw new Error('Function not implemented.');
-}
