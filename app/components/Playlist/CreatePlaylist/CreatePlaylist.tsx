@@ -4,30 +4,35 @@ import PlaylistBox from '../../PlaylistBox/PlaylistBox';
 import styles from './CreatePlaylist.module.scss';
 import Image from 'next/image';
 import { useForm, SubmitHandler } from "react-hook-form"
+import { useEffect, useState } from 'react'
+import axios from 'axios';
+
 
 
 type Props = {
     onClick?: () => void;
 
+
 }
 
 const CreatePlaylist = ({ onClick }: Props) => {
-
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm<any>()
+    const { register, handleSubmit, watch, formState: { errors }, } = useForm<any>()
 
     const onSubmit = async (values: any) => {
+        const data: any = new FormData()
+        data.append('name', values.Playlistname)
+        data.append('file', values.file[0])
 
+        axios.post('', data, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then((r) => {
+            console.log(r)
+        })
 
-        const data = new FormData()
-        data.append('playlistName', values.target.value)
-
-
-        console.log(data)
+        // console.log('=====>>>>', values.Playlistname)
+        // console.log('=====>>>>', values.file[0])
     }
 
     return (
@@ -37,7 +42,7 @@ const CreatePlaylist = ({ onClick }: Props) => {
                 <span className={styles.title}>Create New Playlist</span>
             </div>
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-                <input type="text" value={} placeholder='Playlist name' className={styles.inp}
+                <input type="text" placeholder='Playlist name' className={styles.inp}
                     {...register('Playlistname')}
 
                 />
@@ -56,3 +61,7 @@ const CreatePlaylist = ({ onClick }: Props) => {
 }
 
 export default CreatePlaylist;
+
+function usestate(): [any, any] {
+    throw new Error('Function not implemented.');
+}
