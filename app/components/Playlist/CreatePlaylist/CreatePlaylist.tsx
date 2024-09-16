@@ -3,12 +3,32 @@ import Icon from '../../Icon/Icon';
 import PlaylistBox from '../../PlaylistBox/PlaylistBox';
 import styles from './CreatePlaylist.module.scss';
 import Image from 'next/image';
+import { useForm, SubmitHandler } from "react-hook-form"
+
 
 type Props = {
     onClick?: () => void;
+
 }
 
 const CreatePlaylist = ({ onClick }: Props) => {
+
+    const {
+        register,
+        handleSubmit,
+        watch,
+        formState: { errors },
+    } = useForm<any>()
+
+    const onSubmit = async (values: any) => {
+
+
+        const data = new FormData()
+        data.append('playlistName', values.target.value)
+
+
+        console.log(data)
+    }
 
     return (
         <PlaylistBox className={styles.container}>
@@ -16,13 +36,20 @@ const CreatePlaylist = ({ onClick }: Props) => {
                 <Icon name={'leftsideArrow'} alt='image' width={20} height={20} onClick={onClick} />
                 <span className={styles.title}>Create New Playlist</span>
             </div>
-            <input type="text" placeholder='Playlist name' className={styles.inp} />
-            <div className={styles.filesWrapper}>
-                <input type="file" className={styles.files} />
-                <Image src={'/icon/camera.png'} alt='image' width={88} height={80} className={styles.image} />
-            </div>
+            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+                <input type="text" value={} placeholder='Playlist name' className={styles.inp}
+                    {...register('Playlistname')}
 
-            <Button title={'Save'} mode={'reusable button'} width={"290px"} onClick={() => console.log('button clicked')} />
+                />
+                <div className={styles.filesWrapper}>
+                    <input type='file' className={styles.files}
+                        {...register('file')}
+
+                    />
+                    <Image src={'/icon/camera.png'} alt='image' width={88} height={80} className={styles.image} />
+                </div>
+                <Button title={'Save'} mode={'reusable button'} width={"290px"} onClick={() => console.log('button clicked')} />
+            </form>
 
         </PlaylistBox>
     )

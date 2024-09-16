@@ -25,7 +25,7 @@ export default function Home() {
       <CardsHeader title={'Popular Artists'} subtitle={''} />
       <ArtistSection />
       <CardsHeader title={'Popular Albums'} subtitle={''} />
-      <AlbumSection />
+      <AlbumSection /> 
     </main>
   );
 }
