@@ -49,7 +49,7 @@ const AlbumSection = () => {
         axios.get('https://interstellar-1-pdzj.onrender.com/album')
             .then((r) => {
                 setCardData(r.data)
-                console.log(cardData)
+                console.log(r.data[0].musics)
             })
     }, [])
 
