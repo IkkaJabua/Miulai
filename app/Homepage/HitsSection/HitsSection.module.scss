@@ -3,6 +3,8 @@
    display: flex;
    justify-content: center;
    margin-bottom: 25px;
+   position: relative;
+   right: 15px;
 }
 
 .hits {
@@ -10,7 +12,6 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 15px;
 }
 
 .box {
