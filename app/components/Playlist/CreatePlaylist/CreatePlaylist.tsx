@@ -21,15 +21,14 @@ const CreatePlaylist = ({ onClick }: Props) => {
     const onSubmit = async (values: any) => {
         const data: any = new FormData()
         data.append('name', values.Playlistname)
+        data.append('artistName', values.artistName)
         data.append('file', values.file[0])
 
-        axios.post('', data, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        }).then((r) => {
-            console.log(r)
-        })
+
+        axios.post('https://interstellar-1-pdzj.onrender.com/music', data).
+            then((r) => {
+                console.log(r)
+            })
 
         // console.log('=====>>>>', values.Playlistname)
         // console.log('=====>>>>', values.file[0])
@@ -46,6 +45,8 @@ const CreatePlaylist = ({ onClick }: Props) => {
                     {...register('Playlistname')}
 
                 />
+                <input type='text'    {...register('artistName')} />
+
                 <div className={styles.filesWrapper}>
                     <input type='file' className={styles.files}
                         {...register('file')}
