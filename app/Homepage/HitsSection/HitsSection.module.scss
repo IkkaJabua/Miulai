@@ -22,7 +22,8 @@
 @media screen and (max-width: 1555px) {
     .hits {
         overflow-x: scroll;
-        padding-bottom: 10px;
+      
+       padding: 57px 0;
     }
 
     .hits::-webkit-scrollbar {

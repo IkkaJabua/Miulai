@@ -38,6 +38,10 @@ const Playlist = () => {
         )
 
 
+
+
+
+        
     return (
         <PlaylistBox className={styles.container}>
             <PItem image={'playlistIcon'} title={'Add to Playlist'} onClick={onForward} />

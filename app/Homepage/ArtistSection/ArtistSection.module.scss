@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     margin-bottom: 25px;
-    position: relative;
+    overflow: visible;
     right: 15px;
 }
 
@@ -18,7 +18,8 @@
 @media screen and (max-width: 1555px) {
     .art {
         overflow-x: scroll;
-        padding-bottom: 10px;
+     
+        padding: 57px 0;
     }
 
     .art::-webkit-scrollbar {
