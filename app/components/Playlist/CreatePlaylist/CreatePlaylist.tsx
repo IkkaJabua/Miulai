@@ -23,9 +23,10 @@ const CreatePlaylist = ({ onClick }: Props) => {
         data.append('name', values.Playlistname)
         data.append('artistName', values.artistName)
         data.append('file', values.file[0])
+        data.append('description', values.description)
 
 
-        axios.post('https://interstellar-1-pdzj.onrender.com/music', data).
+        axios.post('https://interstellar-1-pdzj.onrender.com/playlist', data).
             then((r) => {
                 console.log(r)
             })
@@ -45,7 +46,7 @@ const CreatePlaylist = ({ onClick }: Props) => {
                     {...register('Playlistname')}
 
                 />
-                <input type='text'    {...register('artistName')} />
+                <input type='text'    {...register('description')} />
 
                 <div className={styles.filesWrapper}>
                     <input type='file' className={styles.files}

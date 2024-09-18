@@ -79,11 +79,11 @@ const MusicCard = () => {
                     <div className={styles.container} key={item.id}>
                         <div className={styles.container_author}>
                             <div>
-                                <Image src={`./icon/musiccard1.svg`} alt='music cover' width={72} height={72} />
+                                <Image src={item.files[0]?.url} alt={'foto ar ari '} width={72} height={72} />
                             </div>
                             <div className={styles.container_name}>
                                 <div className={styles.music_name_font_style}>{item.name}</div>
-                                <div className={styles.music_author_font_style}>{item.author}</div>
+                                <div className={styles.music_author_font_style}>{item.artistName} Daft Punk</div>
                             </div>
                         </div>
                         <div className={styles.container_detals}>

@@ -49,7 +49,8 @@ const AlbumSection = () => {
         axios.get('https://interstellar-1-pdzj.onrender.com/album')
             .then((r) => {
                 setCardData(r.data)
-                console.log(r.data[0].musics)
+                // console.log(r.data[0].musics)
+                console.log(r.data)
             })
     }, [])
 
@@ -60,7 +61,7 @@ const AlbumSection = () => {
                 {
                     cardData.map((item: any) => (
                         <div className={styles.box} key={item.id}>
-                            <Card header={''} key={item.id} image={'/image/3.png'} title={item.title} subtitle={item.artistName} imageStyle={'normal'} />
+                            <Card header={''} key={item.id} image={item.files[0]?.url} title={item.albumName} subtitle={'DUa Lipa'} imageStyle={'normal'} />
                         </div>
                     ))
                 }

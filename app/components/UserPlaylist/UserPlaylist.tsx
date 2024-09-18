@@ -59,8 +59,8 @@ const UserPlaylist = () => {
                         onClick={() => router.push(`playlists/${item.id}`)}
                     >
                         <div className={styles.hoveredImage} >
-                            {/* <Image className={styles.cellImage} src={`./icon/${item.icon}`} width={234} height={251} alt='image' /> */}
-                            <img className={styles.cellImage} src={`./icon/albumicon3.svg`} width={234} height={251} alt='image' />
+                            <Image className={styles.cellImage} src={item.files[0]?.url} width={234} height={251} alt='image' />
+                            {/* <img className={styles.cellImage} src={`./icon/albumicon3.svg`} width={234} height={251} alt='image' /> */}
 
                             <div className={styles.buttons}>
                                 <div className={styles.cellEdit}>
