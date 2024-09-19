@@ -23,6 +23,55 @@ const MusicCard = () => {
 
 
 
+
+
+
+    const musicCardData = [
+        {
+            author: 'By Robin Schulz',
+            title: 'Sugar (feat. Francesco)',
+            icon: 'musiccard1.svg',
+            id: 1,
+            time: '3:45',
+        },
+        {
+            author: 'By Ariana Grande',
+            title: 'Blazed',
+            icon: 'musiccard2.svg',
+            id: 2,
+            time: '3:45',
+        }, {
+            author: 'By Dua Lipa',
+            title: 'Illusion',
+            icon: 'musiccard4.svg',
+            id: 3,
+            time: '3:45',
+        }, {
+            author: 'By Japanese Breakfast',
+            title: 'Be Sweet',
+            icon: 'musiccard3.svg',
+            id: 4,
+            time: '3:45',
+        },
+
+        {
+            author: 'By Japanese Breakfast',
+            title: 'Be Sweet',
+            icon: 'musiccard3.svg',
+            id: 5,
+            time: '3:45',
+        },
+
+        {
+            author: 'By Japanese Breakfast',
+            title: 'Be Sweet',
+            icon: 'musiccard3.svg',
+            id: 6,
+            time: '3:45',
+        },
+    ]
+
+
     return (
         <div className={styles.mainContainer}>
             {
