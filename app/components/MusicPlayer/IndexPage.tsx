@@ -6,40 +6,45 @@ import Controls from './Contorls';
 import style from './IndexPage.module.scss';
 import TrackDisplay from './TrackDisplay';
 import SliderMobile from './Slider/Slider';
-
 const tracks = [
     
     {
+        id:1,
         title: 'Sugar (feat. Francesco)',
         artist: 'By Robin Schulz',
         albumArt: '/music/RobinSchluz.png',
         audio: '/music/RobinSchulz.mp3',
     },
     {
+        id:2,
         title: 'Kinetic Cyclone',
         artist: 'Sample',
         albumArt: '/music/toko.png',
         audio: '/music/TokosTrack.mp3.mp3',
     },
     {
+        id:3,
         title: 'Starboy',
         artist: 'by Weekend',
         albumArt: '/music/starBoy.png',
         audio: '/music/Starboy.mp3',
     },
     {
+        id:4,
         title: 'Not like Us',
         artist: 'by Kendrick lamar',
         albumArt: '/music/notlikeus.jpg',
         audio: '/music/NotLikeUs.mp3',
     },
     {
+        id:5,
         title: 'SDEQ',
         artist: 'Mechanical Reinbow,Kordz',
         albumArt: '/music/SDEQ.jpg',
         audio: '/music/Kordz & Mechanical Rainbow - SDEQ (feat. Stephane) [OFFICIAL LYRIC VIDEO].mp3',
     },
     {
+        id:5,
         title: 'A$AP Rocky-Sundress',
         artist: 'A$AP Rocky',
         albumArt: '/music/AsapRocky.jpg',
