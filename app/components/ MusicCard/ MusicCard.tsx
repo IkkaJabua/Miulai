@@ -109,3 +109,5 @@ const MusicCard = () => {
         </div>
     )
 }
+
+export default MusicCard

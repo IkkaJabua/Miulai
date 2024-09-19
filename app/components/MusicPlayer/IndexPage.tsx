@@ -204,3 +204,5 @@ const IndexPage: React.FC = () => {
         </div>
     );
 };
+
+export default IndexPage
