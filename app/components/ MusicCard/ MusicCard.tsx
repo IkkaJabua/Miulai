@@ -34,7 +34,7 @@ const MusicCard = () => {
                             </div>
                             <div className={styles.container_name}>
                                 <div className={styles.music_name_font_style}>{item.name}</div>
-                                <div className={styles.music_author_font_style}>{item.artistName} Daft Punk</div>
+                                <div className={styles.music_author_font_style}>{item.artistName}</div>
                             </div>
                         </div>
                         <div className={styles.container_detals}>
