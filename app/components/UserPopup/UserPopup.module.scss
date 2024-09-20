@@ -1,0 +1,38 @@
+.container {
+    border-radius: 8px;
+    background: #29292E;
+    width: 280px;
+    padding: 13px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: absolute;
+}
+
+.userName {
+    font-family: var('--font-Plus-Jakarta-sans');
+    font-size: 14px;
+    color: #fff;
+}
+
+.gmail {
+    font-family: var('--font-Plus-Jakarta-sans');
+    color: #fff;
+}
+
+.userNameWrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logoutWrapper {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.logout {
+    color: rgba(255, 255, 255, 0.70);
+}
