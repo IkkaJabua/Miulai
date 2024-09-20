@@ -37,14 +37,6 @@ const MenuItem = () => {
             key: '/',
         },
         {
-            title: 'Recommendations',
-            icon: 'menu-logo2',
-            activeIcon: 'clicked-menu-logo2',
-            path: '/recommendations',
-            key: '/recommendations',
-
-        },
-        {
             title: 'Top Hits',
             icon: 'menu-logo3',
             activeIcon: 'clicked-menu-logo3',
