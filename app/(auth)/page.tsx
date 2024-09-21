@@ -1,5 +1,6 @@
 'use client';
 
+import { Play } from 'next/font/google';
 import CardsHeader from '../components/CardsHeader/CardsHeader';
 import Header from '../components/Header/Header';
 import News from '../components/News/News';
@@ -9,9 +10,12 @@ import ArtistSection from '../Homepage/ArtistSection/ArtistSection';
 import ChartsSection from '../Homepage/ChartsSection/ChartsSection';
 import HitsSection from '../Homepage/HitsSection/HitsSection';
 import styles from './page.module.scss';
+import { Track } from '../atom/atom';
 
 
-
+const play = (item: Track) => {
+  setCurrentTrack(item);
+};
 
 export default function Home() {
   return (
@@ -21,7 +25,7 @@ export default function Home() {
       <CardsHeader title={'Top Hits'} subtitle={''} />
       <HitsSection />
       <CardsHeader title={'Top Charts'} subtitle={''} />
-      <ChartsSection />
+      <ChartsSection onSelectTrack={play}/>
       <CardsHeader title={'Popular Artists'} subtitle={''} />
       <ArtistSection />
       <CardsHeader title={'Popular Albums'} subtitle={''} />
@@ -34,4 +38,8 @@ export default function Home() {
 
 
 
+
+function setCurrentTrack(item: Track) {
+  throw new Error('Function not implemented.');
+}
 

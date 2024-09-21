@@ -1,9 +1,11 @@
+'use client'
 import Menu from '../components/Menu/Menu';
 import IndexPage from '../components/MusicPlayer/IndexPage';
 import styles from './layout.module.scss';
 import MobileMenu from '../components/Mobilemenu/mobilemenu';
 import BurgerMenu from '../components/BurgerMenu/BurgerMenu';
 import Mobilemenu from '../components/Mobilemenu/mobilemenu';
+import RecoilWrapper from '../components/RecoilWrapper/recoilWrapper';
 
 export default function RootLayout({
     children,
@@ -11,6 +13,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
+        <RecoilWrapper>
         <div className={styles.container}>
             <div className={styles.container}>
                 <div className={styles.ordynaryMenu}>
@@ -26,6 +29,7 @@ export default function RootLayout({
                 <MobileMenu />
             </div>
         </div>
+        </RecoilWrapper>
     )
 }
 

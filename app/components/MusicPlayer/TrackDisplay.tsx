@@ -3,29 +3,30 @@ import Image from 'next/image';
 import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn';
 import style from './TrackDisplay.module.scss';
 
-interface TrackDisplayProps {
-    currentTrack?: {
-        title: string;
-        artist: string;
-        albumArt: string;
-    };
+interface Track {
+    title: string;
+    artist: string;
+    albumArt: string;
 }
 
-const TrackDisplay = ({ currentTrack }: TrackDisplayProps) => {
+interface TrackDisplayProps {
+    currentTrack?: Track | null; 
+}
+
+const TrackDisplay: React.FC<TrackDisplayProps> = ({ currentTrack }) => {
     if (!currentTrack) {
-        // Return a default placeholder or nothing if no currentTrack is provided
         return (
             <div className={style.container}>
                 <p>No track selected</p>
             </div>
         );
     }
-
+  
     return (
         <div className={style.container}>
             <Image
-                src={currentTrack.albumArt || '/defaultAlbumArt.jpg'} // Fallback if albumArt is missing
-                alt="AlbumArt"
+                src={currentTrack.albumArt || '/defaultAlbumArt.jpg'} 
+                alt="Album Art"
                 width={80}
                 height={80}
                 className={style.img}

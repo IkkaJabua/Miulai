@@ -43,7 +43,7 @@ const ArtistSection = () => {
         axios.get('https://interstellar-1-pdzj.onrender.com/author')
             .then((r) => {
                 setCardData(r.data)
-                console.log( '========================' ,r.data)
+                
             })
     }, [])
 

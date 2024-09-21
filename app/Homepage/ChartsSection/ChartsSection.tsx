@@ -1,25 +1,16 @@
-// ChartsSection.tsx
-import MusicCard from '@/app/components/ MusicCard/ MusicCard';
+import { FC } from 'react';
 import styles from './ChartsSection.module.scss';
+import MusicCard from '@/app/components/ MusicCard/ MusicCard';
 
-const ChartsSection = () => {
-    const charts = [
-        {
-            title: 'Sugar (feat. Francesco)',
-            subtitle: 'By Robin Schulz',
-            icon: 'musiccard1.svg',
-            id: 1,
-            time: '3:45'
-        },
-        // Add more tracks as needed...
-    ];
+interface ChartsSectionProps {
+    onSelectTrack: (track: any) => void;
+}
 
+const ChartsSection: FC<ChartsSectionProps> = ({ onSelectTrack }) => {
     return (
         <div className={styles.container}>
             <div className={styles.box}>
-                {charts.map((track) => (
-                    <MusicCard key={track.id} track={track} />
-                ))}
+                <MusicCard currentTrack={onSelectTrack} />
             </div>
         </div>
     );

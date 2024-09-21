@@ -40,11 +40,9 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
     const checkboxValues = watch();
 
     const onSubmit = (values: any) => {
-        console.log('Values', values)
     }
 
 
-    console.log(checkboxValues, Object.values(checkboxValues))
 
     return (
         <PlaylistBox className={styles.container}>

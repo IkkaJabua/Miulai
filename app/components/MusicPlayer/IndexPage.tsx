@@ -1,81 +1,46 @@
-// pages/index.tsx
-'use client';
-
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import Controls from './Contorls';
+import { useRecoilState } from 'recoil';
 import style from './IndexPage.module.scss';
 import TrackDisplay from './TrackDisplay';
 import SliderMobile from './Slider/Slider';
-
-const tracks = [
-
-    {
-        title: 'Sugar (feat. Francesco)',
-        artist: 'By Robin Schulz',
-        albumArt: '/music/RobinSchluz.png',
-        audio: '/music/RobinSchulz.mp3',
-    },
-    {
-        title: 'Kinetic Cyclone',
-        artist: 'Sample',
-        albumArt: '/music/toko.png',
-        audio: '/music/TokosTrack.mp3.mp3',
-    },
-    {
-        title: 'Starboy',
-        artist: 'by Weekend',
-        albumArt: '/music/starBoy.png',
-        audio: '/music/Starboy.mp3',
-    },
-    {
-        title: 'Not like Us',
-        artist: 'by Kendrick lamar',
-        albumArt: '/music/notlikeus.jpg',
-        audio: '/music/NotLikeUs.mp3',
-    },
-    {
-        title: 'SDEQ',
-        artist: 'Mechanical Reinbow,Kordz',
-        albumArt: '/music/SDEQ.jpg',
-        audio: '/music/Kordz & Mechanical Rainbow - SDEQ (feat. Stephane) [OFFICIAL LYRIC VIDEO].mp3',
-    },
-    {
-        title: 'A$AP Rocky-Sundress',
-        artist: 'A$AP Rocky',
-        albumArt: '/music/AsapRocky.jpg',
-        audio: '/music/A$AP Rocky - Sundress (Official Video).mp3',
-    },
-
-];
+import { currentTrackState, isPlayingState, Track } from '@/app/atom/atom';
+import axios from 'axios';
+import Controls from './Contorls';
 
 const IndexPage: React.FC = () => {
-    const [currentTrackId, setCurrentTrackId] = useState(0);
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [volume, setVolume] = useState(50);
-    const [isLooping, setIsLooping] = useState(false);
-    const [isShuffling, setIsShuffling] = useState(false);
-    const [currentTime, setCurrentTime] = useState(0);
-    const [duration, setDuration] = useState(0);
+    const [currentTrack, setCurrentTrack] = useRecoilState(currentTrackState);
+    const [isPlaying, setIsPlaying] = useRecoilState(isPlayingState);
+    const [volume, setVolume] = useState<number>(50);
+    const [isLooping, setIsLooping] = useState<boolean>(false);
+    const [isShuffling, setIsShuffling] = useState<boolean>(false);
+    const [currentTime, setCurrentTime] = useState<number>(0);
+    const [duration, setDuration] = useState<number>(0);
     const audioRef = useRef<HTMLAudioElement>(null);
 
-    const currentTrack = tracks[currentTrackId];
+    const fetchTrack = async (trackId: number) => {
+        try {
+            const response = await axios.get(`https://interstellar-1-pdzj.onrender.com/music/${trackId}`);
+            const track: Track = response.data;
+            setCurrentTrack(track);
+            setIsPlaying(true);
+        } catch (error) {
+            console.error('Error fetching the track:', error);
+        }
+    };
 
     useEffect(() => {
         const audio = audioRef.current;
         if (audio) {
-            audio.volume = volume / 100;
-            audio.loop = isLooping;
+            audio.src = currentTrack?.audio || 'https://interstellar-1-pdzj.onrender.com/music';
+            if (isPlaying) {
+                audio.play().catch(error => console.error('Playback failed:', error));
+            }
         }
-    }, [volume, isLooping]);
+    }, [currentTrack, isPlaying]);
 
     const playNextTrack = useCallback(() => {
-        const newIndex = isShuffling
-            ? Math.floor(Math.random() * tracks.length)
-            : (currentTrackId + 1) % tracks.length;
-        setCurrentTrackId(newIndex);
-        setCurrentTime(0);
-        setIsPlaying(true);
-    }, [isShuffling, currentTrackId]);
+        // Handle logic for playing the next track
+    }, [currentTrack]);
 
     useEffect(() => {
         const audio = audioRef.current;
@@ -104,26 +69,9 @@ const IndexPage: React.FC = () => {
         };
     }, [playNextTrack]);
 
-    useEffect(() => {
-        if (audioRef.current) {
-            if (isPlaying) {
-                audioRef.current.play().catch(error => console.error("Playback failed:", error));
-            } else {
-                audioRef.current.pause();
-            }
-        }
-    }, [isPlaying, currentTrackId]);
-
     const playPause = useCallback(() => {
-        setIsPlaying(prevIsPlaying => !prevIsPlaying);
+        setIsPlaying(prev => !prev);
     }, []);
-
-    const playPrevious = useCallback(() => {
-        const newIndex = (currentTrackId - 1 + tracks.length) % tracks.length;
-        setCurrentTrackId(newIndex);
-        setCurrentTime(0);
-        setIsPlaying(true);
-    }, [currentTrackId]);
 
     const handleVolumeChange = useCallback((newVolume: number) => {
         setVolume(newVolume);
@@ -132,77 +80,52 @@ const IndexPage: React.FC = () => {
         }
     }, []);
 
-    const toggleLoop = useCallback(() => {
-        setIsLooping(prevIsLooping => !prevIsLooping);
-    }, []);
-
-    const toggleShuffle = useCallback(() => {
-        setIsShuffling(prevIsShuffling => !prevIsShuffling);
-    }, []);
-
-    const handleTimeChange = useCallback((newTime: number) => {
-        setCurrentTime(newTime);
-        if (audioRef.current) {
-            audioRef.current.currentTime = newTime;
-        }
-    }, []);
-
-    const formatTime = (time: number) => {
-        const minutes = Math.floor(time / 60);
-        const seconds = Math.floor(time % 60);
-        return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-    };
-
     return (
         <div className={style.main}>
             <SliderMobile
                 isPlaying={isPlaying}
                 onPlayPause={playPause}
-                onNext={playNextTrack}
-                onPrevious={playPrevious}
                 onVolumeChange={handleVolumeChange}
                 volume={volume}
                 isLooping={isLooping}
-                onToggleLoop={toggleLoop}
                 isShuffling={isShuffling}
-                onToggleShuffle={toggleShuffle}
                 currentTime={currentTime}
-                duration={duration}
-                onTimeChange={handleTimeChange}
-                backgroundImage={''} name={undefined} isActive={undefined} />
+                duration={duration} name={undefined} isActive={undefined} onPrevious={function (): void {
+                    throw new Error('Function not implemented.');
+                } } onNext={function (): void {
+                    throw new Error('Function not implemented.');
+                } } onToggleLoop={function (): void {
+                    throw new Error('Function not implemented.');
+                } } onToggleShuffle={function (): void {
+                    throw new Error('Function not implemented.');
+                } } onTimeChange={function (newTime: number): void {
+                    throw new Error('Function not implemented.');
+                } } backgroundImage={''}            />
             <div className={style.container}>
-
-
-
                 <TrackDisplay currentTrack={currentTrack} />
-
-
                 <Controls
                     isPlaying={isPlaying}
                     onPlayPause={playPause}
-                    onNext={playNextTrack}
-                    onPrevious={playPrevious}
                     onVolumeChange={handleVolumeChange}
                     volume={volume}
                     isLooping={isLooping}
-                    onToggleLoop={toggleLoop}
                     isShuffling={isShuffling}
-                    onToggleShuffle={toggleShuffle}
                     currentTime={currentTime}
-                    duration={duration}
-                    onTimeChange={handleTimeChange}
-                    backgroundImage={''} name={undefined} isActive={undefined} />
-
-                <audio
-                    ref={audioRef}
-                    src={currentTrack.audio}
-                    onError={() => console.error('Audio failed to load')}
-                />
-
+                    duration={duration} name={undefined} isActive={undefined} onPrevious={function (): void {
+                        throw new Error('Function not implemented.');
+                    } } onNext={function (): void {
+                        throw new Error('Function not implemented.');
+                    } } onToggleLoop={function (): void {
+                        throw new Error('Function not implemented.');
+                    } } onToggleShuffle={function (): void {
+                        throw new Error('Function not implemented.');
+                    } } onTimeChange={function (newTime: number): void {
+                        throw new Error('Function not implemented.');
+                    } } backgroundImage={''}                />
+                <audio ref={audioRef} />
             </div>
-
         </div>
     );
 };
 
-export default IndexPage
+export default IndexPage;

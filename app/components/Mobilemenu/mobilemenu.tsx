@@ -18,11 +18,7 @@ const MobileMenu = () => {
     }, [pathname])
 
 
-    // useEffect(() => {
-    //     if (activeItem === undefined) setActiveItem(MenuData[0].id)
-    //     console.log(activeItem)
-    // }, [activeItem])
-
+   
 
 
     const MenuData = [

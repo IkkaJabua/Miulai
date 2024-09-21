@@ -42,7 +42,7 @@ const UserPlaylist = () => {
         axios.get('https://interstellar-1-pdzj.onrender.com/playlist')
             .then((r) => {
                 setPlylistdata(r.data)
-                console.log(r.data)
+                
             })
     }, [])
 

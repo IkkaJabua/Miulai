@@ -28,11 +28,10 @@ const CreatePlaylist = ({ onClick }: Props) => {
 
         axios.post('https://interstellar-1-pdzj.onrender.com/playlist', data).
             then((r) => {
-                console.log(r)
+                
             })
 
-        // console.log('=====>>>>', values.Playlistname)
-        // console.log('=====>>>>', values.file[0])
+        
     }
 
     return (
