@@ -57,7 +57,7 @@ const ArtistSection = () => {
                 {
                     cardData.map((item: any) => (
                         <div className={styles.box} key={item.id}>
-                            <Card header={''} key={item.id} image={'/image/eilish.png'} title={`${item.firstName} ${item.lastName}`} imageStyle={'round'} />
+                            <Card header={''} key={item.id} image={item.files[0].url} title={`${item.firstName} ${item.lastName}`} imageStyle={'round'} />
                         </div>
                     ))
                 }
