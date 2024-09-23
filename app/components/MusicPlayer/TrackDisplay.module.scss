@@ -6,12 +6,15 @@
 
 .text{
     display: flex;
-    flex-direction:column;
     gap: 8px;
     max-width: fit-content;
     width: 100%;
+    flex-direction: column;
 }
-
+.flexing{
+    display: flex;
+    flex-direction: column;
+}
 .img {
     border-radius: 8px;
 }
@@ -23,7 +26,6 @@
 }
 .like{
     display: flex;
-    flex-direction: column ;
 }
 
 .artist {
