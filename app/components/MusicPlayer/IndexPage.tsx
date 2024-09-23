@@ -1,14 +1,12 @@
-// pages/index.tsx
-'use client';
-
+'use client'
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Controls from './Contorls';
 import style from './IndexPage.module.scss';
 import TrackDisplay from './TrackDisplay';
 import SliderMobile from './Slider/Slider';
+import ModalPlayer from './modalPlayer';
 
 const tracks = [
-
     {
         title: 'Sugar (feat. Francesco)',
         artist: 'By Robin Schulz',
@@ -29,7 +27,7 @@ const tracks = [
     },
     {
         title: 'Not like Us',
-        artist: 'by Kendrick lamar',
+        artist: 'by Kendrick Lamar',
         albumArt: '/music/notlikeus.jpg',
         audio: '/music/NotLikeUs.mp3',
     },
@@ -45,7 +43,6 @@ const tracks = [
         albumArt: '/music/AsapRocky.jpg',
         audio: '/music/A$AP Rocky - Sundress (Official Video).mp3',
     },
-
 ];
 
 const IndexPage: React.FC = () => {
@@ -56,6 +53,7 @@ const IndexPage: React.FC = () => {
     const [isShuffling, setIsShuffling] = useState(false);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
+    const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal
     const audioRef = useRef<HTMLAudioElement>(null);
 
     const currentTrack = tracks[currentTrackId];
@@ -153,6 +151,15 @@ const IndexPage: React.FC = () => {
         return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
 
+    // Handle album art click to open the modal
+    const handleAlbumArtClick = () => {
+        setIsModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <div className={style.main}>
             <SliderMobile
@@ -170,12 +177,10 @@ const IndexPage: React.FC = () => {
                 duration={duration}
                 onTimeChange={handleTimeChange}
                 backgroundImage={''} name={undefined} isActive={undefined} />
+
             <div className={style.container}>
 
-
-
-                <TrackDisplay currentTrack={currentTrack} />
-
+                <TrackDisplay currentTrack={currentTrack} onAlbumArtClick={handleAlbumArtClick} />
 
                 <Controls
                     isPlaying={isPlaying}
@@ -201,8 +206,21 @@ const IndexPage: React.FC = () => {
 
             </div>
 
+            {/* Modal player for larger view */}
+            {isModalOpen && (
+                <ModalPlayer 
+                    currentTrack={currentTrack} 
+                    isPlaying={isPlaying} 
+                    onClose={handleCloseModal}
+                    onPlayPause={playPause}
+                    onNext={playNextTrack}
+                    onPrevious={playPrevious}
+                    currentTime={currentTime}
+                    duration={duration}
+                    volume={volume}                />
+            )}
         </div>
     );
 };
 
-export default IndexPage
+export default IndexPage;

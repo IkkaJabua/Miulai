@@ -4,14 +4,15 @@ import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn';
 import style from './TrackDisplay.module.scss';
 
 interface TrackDisplayProps {
-    currentTrack?: {
+    currentTrack: {
         title: string;
         artist: string;
         albumArt: string;
     };
+    onAlbumArtClick: () => void; // Added the onAlbumArtClick prop
 }
 
-const TrackDisplay = ({ currentTrack }: TrackDisplayProps) => {
+const TrackDisplay: React.FC<TrackDisplayProps> = ({ currentTrack, onAlbumArtClick }) => {
     if (!currentTrack) {
         // Return a default placeholder or nothing if no currentTrack is provided
         return (
@@ -23,13 +24,15 @@ const TrackDisplay = ({ currentTrack }: TrackDisplayProps) => {
 
     return (
         <div className={style.container}>
-            <Image
-                src={currentTrack.albumArt || '/defaultAlbumArt.jpg'} // Fallback if albumArt is missing
-                alt="AlbumArt"
-                width={80}
-                height={80}
-                className={style.img}
-            />
+            <div onClick={onAlbumArtClick} className={style.albumArt}> {/* Clickable area */}
+                <Image
+                    src={currentTrack.albumArt || '/defaultAlbumArt.jpg'} // Fallback if albumArt is missing
+                    alt="AlbumArt"
+                    width={80}
+                    height={80}
+                    className={style.img}
+                />
+            </div>
             <div className={style.like}>
                 <div className={style.text}>
                     <div className={style.likebtn}>
