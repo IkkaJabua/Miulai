@@ -6,16 +6,13 @@
 .mainContainer {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 20px;
+
 }
-
-
-
 .container {
-    // max-width: 548px;
-    // width: 100%;
-    flex-basis: 330px;
+    max-width: 600px;
+    width: 100%;
+    // width: 330px;
     height: 104px;
     padding: 16px;
     border-radius: 8px;
@@ -24,7 +21,9 @@
     display: flex;
     justify-content: space-between;
     flex: 1;
+    cursor: pointer;
 }
+
 
 .container_author {
     display: flex;
@@ -96,4 +95,7 @@
 
 .cursor {
     cursor: pointer;
+}
+.image {
+    border-radius: 8px;
 }

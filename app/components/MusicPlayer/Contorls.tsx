@@ -54,7 +54,7 @@ const Controls = (props: propsinterFace) => {
                         <HeartShapeBtn isActive={true} isDisabled={false} onClick={() => console.log('Button clicked!')} />
                         </div>
                         <button onClick={props.onPlayPause} className={`${style.btn} ${style.circle}`}>
-                            <Icon name={props.isPlaying ? "pause" : "/play"} alt={props.isPlaying ? "Pause" : "Play"} width={48} height={48} />
+                            <Icon name={props.isPlaying ? "Pause" : "/Play"} alt={props.isPlaying ? "Pause" : "Play"} width={48} height={48} />
                         </button>
                     </div>
                     <button onClick={props.onNext} className={style.btn}>

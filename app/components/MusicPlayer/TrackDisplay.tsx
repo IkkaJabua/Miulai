@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn';
 import style from './TrackDisplay.module.scss';
+import { useRecoilState } from 'recoil';
+import { musicState } from '@/app/states';
 
 interface TrackDisplayProps {
     currentTrack: {
@@ -13,6 +15,8 @@ interface TrackDisplayProps {
 }
 
 const TrackDisplay: React.FC<TrackDisplayProps> = ({ currentTrack, onAlbumArtClick }) => {
+    const [music, setMusic] = useRecoilState<any>(musicState)
+
     if (!currentTrack) {
         // Return a default placeholder or nothing if no currentTrack is provided
         return (
@@ -25,8 +29,8 @@ const TrackDisplay: React.FC<TrackDisplayProps> = ({ currentTrack, onAlbumArtCli
     return (
         <div className={style.container}>
             <div onClick={onAlbumArtClick} className={style.albumArt}> {/* Clickable area */}
-                <Image
-                    src={currentTrack.albumArt || '/defaultAlbumArt.jpg'} // Fallback if albumArt is missing
+                <img
+                    src={music?.coverImgUrl || '/defaultAlbumArt.jpg'} // Fallback if albumArt is missing
                     alt="AlbumArt"
                     width={80}
                     height={80}
@@ -42,8 +46,8 @@ const TrackDisplay: React.FC<TrackDisplayProps> = ({ currentTrack, onAlbumArtCli
                             onClick={() => console.log('Like button clicked!')}
                         />
                     </div>
-                    <span className={style.title}>{currentTrack.title || 'Unknown Title'}</span> {/* Fallback for title */}
-                    <span className={style.artist}>{currentTrack.artist || 'Unknown Artist'}</span> {/* Fallback for artist */}
+                    <span className={style.title}>{music?.title || 'Unknown Title'}</span> {/* Fallback for title */}
+                    <span className={style.artist}>{music?.artistName || 'Unknown Artist'}</span> {/* Fallback for artist */}
                 </div>
             </div>
         </div>

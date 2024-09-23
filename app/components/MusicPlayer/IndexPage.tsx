@@ -5,6 +5,9 @@ import style from './IndexPage.module.scss';
 import TrackDisplay from './TrackDisplay';
 import SliderMobile from './Slider/Slider';
 import ModalPlayer from './modalPlayer';
+import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { chartsState, musicState, playerState } from '@/app/states';
 
 const tracks = [
     {
@@ -57,6 +60,10 @@ const IndexPage: React.FC = () => {
     const audioRef = useRef<HTMLAudioElement>(null);
 
     const currentTrack = tracks[currentTrackId];
+    const [musicId, setMusicID] = useRecoilState(chartsState)
+    const [music, setMusic] = useRecoilState<any>(musicState)
+
+
 
     useEffect(() => {
         const audio = audioRef.current;
@@ -161,6 +168,7 @@ const IndexPage: React.FC = () => {
     };
 
     return (
+
         <div className={style.main}>
             <SliderMobile
                 isPlaying={isPlaying}
@@ -200,7 +208,7 @@ const IndexPage: React.FC = () => {
 
                 <audio
                     ref={audioRef}
-                    src={currentTrack.audio}
+                    src={music?.audioUrl}
                     onError={() => console.error('Audio failed to load')}
                 />
 
@@ -208,16 +216,16 @@ const IndexPage: React.FC = () => {
 
             {/* Modal player for larger view */}
             {isModalOpen && (
-                <ModalPlayer 
-                    currentTrack={currentTrack} 
-                    isPlaying={isPlaying} 
+                <ModalPlayer
+                    currentTrack={currentTrack}
+                    isPlaying={isPlaying}
                     onClose={handleCloseModal}
                     onPlayPause={playPause}
                     onNext={playNextTrack}
                     onPrevious={playPrevious}
                     currentTime={currentTime}
                     duration={duration}
-                    volume={volume}                />
+                    volume={volume} />
             )}
         </div>
     );
