@@ -18,7 +18,7 @@ const ChartsSection = () => {
         <div className={styles.container}>
             <div className={styles.box}>
                 {charts.map((track) => (
-                    <MusicCard key={track.id} track={track} />
+                    <MusicCard key={track.id}/>
                 ))}
             </div>
         </div>
