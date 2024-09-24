@@ -11,14 +11,50 @@ const ChartsSection = () => {
             id: 1,
             time: '3:45'
         },
-        // Add more tracks as needed...
+        
+        {
+            title: 'Sugar (feat. Francesco)',
+            subtitle: 'By Robin Schulz',
+            icon: 'musiccard1.svg',
+            id: 1,
+            time: '3:45'
+        },
+        {
+            title: 'Sugar (feat. Francesco)',
+            subtitle: 'By Robin Schulz',
+            icon: 'musiccard1.svg',
+            id: 1,
+            time: '3:45'
+        },
+        {
+            title: 'Sugar (feat. Francesco)',
+            subtitle: 'By Robin Schulz',
+            icon: 'musiccard1.svg',
+            id: 1,
+            time: '3:45'
+        },
+        {
+            title: 'Sugar (feat. Francesco)',
+            subtitle: 'By Robin Schulz',
+            icon: 'musiccard1.svg',
+            id: 1,
+            time: '3:45'
+        },
+        {
+            title: 'Sugar (feat. Francesco)',
+            subtitle: 'By Robin Schulz',
+            icon: 'musiccard1.svg',
+            id: 1,
+            time: '3:45'
+        },
+        
     ];
 
     return (
         <div className={styles.container}>
             <div className={styles.box}>
                 {charts.map((track) => (
-                    <MusicCard key={track.id} track={track} />
+                    <MusicCard key={track.id}  />
                 ))}
             </div>
         </div>
