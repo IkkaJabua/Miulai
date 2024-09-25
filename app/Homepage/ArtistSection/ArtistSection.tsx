@@ -3,37 +3,7 @@ import styles from './ArtistSection.module.scss'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const ArtistData = [
-    {
-        image: '/image/swift.png',
-        title: 'Taylor Swift',
-        id: 1
-    },
 
-    {
-        image: '/image/eilish.png',
-        title: 'Billie Eilish',
-        id: 2
-    },
-
-    {
-        image: '/image/sza.png',
-        title: 'SZA',
-        id: 3
-    },
-
-    {
-        image: '/image/test.png',
-        title: 'Ed Sheeran',
-        id: 4
-    },
-
-    {
-        image: '/image/test.png',
-        title: 'Ed Sheeran',
-        id: 5
-    },
-]
 
 const ArtistSection = () => {
 

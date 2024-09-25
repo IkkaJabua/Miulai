@@ -3,42 +3,6 @@ import styles from './AlbumSection.module.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const AlbumData = [
-    {
-        image: '/image/1.png',
-        title: 'Fever Dream',
-        subtitle: 'Of Monsters And Men',
-        id: 1
-    },
-
-    {
-        image: '/image/2.png',
-        title: 'I Hear You',
-        subtitle: 'Peggy Gou',
-        id: 2
-    },
-
-    {
-        image: '/image/3.png',
-        title: 'What Happened To Heart?',
-        subtitle: 'Aurora',
-        id: 3
-    },
-
-    {
-        image: '/image/test.png',
-        title: 'Radical Optimism',
-        subtitle: 'Dua Lipa',
-        id: 4
-    },
-
-    {
-        image: '/image/test.png',
-        title: 'Radical Optimism',
-        subtitle: 'Dua Lipa',
-        id: 5
-    },
-]
 
 const AlbumSection = () => {
 

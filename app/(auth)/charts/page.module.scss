@@ -3,13 +3,14 @@
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    margin: 25px 25px 180px 25px;
+    margin: 25px 25px 200px 25px;
     gap: 30px;
 }
 
-@media screen and (min-width: 300px) and (max-width: 767px) {
-    .container {
-        margin-bottom: 190px;
-    }
-} 
+// @media screen and (min-width: 300px) and (max-width: 767px) {
+//     .container {
+//         margin-bottom: 200px;
+//     }
+// } 
+
 

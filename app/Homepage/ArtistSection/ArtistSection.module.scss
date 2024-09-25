@@ -11,6 +11,7 @@
     max-width: 1350px;
     width: 100%;
     display: flex;
+    gap: 25px;
     // justify-content: space-between;
 }
 
@@ -18,7 +19,6 @@
 @media screen and (max-width: 1555px) {
     .art {
         overflow-x: scroll;
-     
         padding: 57px 0;
     }
 
