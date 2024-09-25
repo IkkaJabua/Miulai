@@ -50,7 +50,7 @@ const News = (props: Props) => {
                         imageSrc='clip.svg'
                         imageWidth={16}
                         imageHeight={16}
-                        onClick={() => console.log('button clicked')} />
+                        onClick={() => {}} />
                 </div>
             </div>
         </div>

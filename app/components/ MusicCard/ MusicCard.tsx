@@ -5,7 +5,7 @@ import Image from 'next/image'
 import Playlist from '../Playlist/Playlist'
 import axios from 'axios'
 import { useRecoilState } from 'recoil'
-import { chartsState, musicState, playerState } from '@/app/states'
+import { chartsState, currentTrackIdState, musicState, playerState } from '@/app/states'
 import styles from './ MusicCard.module.scss'
 
 const MusicCard = () => {
@@ -13,6 +13,10 @@ const MusicCard = () => {
     const [cardData, setCardData] = useState<any[]>([])
     const [player, setPlayer] = useRecoilState(playerState)
     const [music, setMusic] = useRecoilState(musicState)
+
+
+
+    const [currentTrackId, setCurrentTrackIdState] = useRecoilState(currentTrackIdState)
 
 
     // const [musicId, setMusicID] = useRecoilState(chartsState)
@@ -25,15 +29,10 @@ const MusicCard = () => {
         })
             .then((r) => {
                 setCardData(r.data)
+                setCurrentTrackIdState(r.data.id)
                 // console.log(r.data,'=====>>><><><><')
             })
     }, [])
-
-    // const musicID = (id: number) => {
-    //     setMusicID(id)
-    //     console.log(id,'id for music')
-    // }
-
 
     const playerMusic = (id: number) => {
         axios.get(`https://enigma-wtuc.onrender.com/musics/${id}`, {
@@ -45,7 +44,9 @@ const MusicCard = () => {
                 setMusic(r.data)
                 console.log(r.data, '=-=-=-=-=-=-=-=-=-=-')
             })
-    }
+
+    } 
+ 
 
 
 

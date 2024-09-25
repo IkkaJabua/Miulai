@@ -51,7 +51,7 @@ const Controls = (props: propsinterFace) => {
                     </button>
                     <div className={style.likeplaybtn}>
                         <div className={style.likeSet}>
-                        <HeartShapeBtn isActive={true} isDisabled={false} onClick={() => console.log('Button clicked!')} />
+                        <HeartShapeBtn isActive={true} isDisabled={false} onClick={() => {}} />
                         </div>
                         <button onClick={props.onPlayPause} className={`${style.btn} ${style.circle}`}>
                             <Icon name={props.isPlaying ? "Pause" : "/Play"} alt={props.isPlaying ? "Pause" : "Play"} width={48} height={48} />

@@ -50,7 +50,7 @@ const AlbumSection = () => {
             .then((r) => {
                 setCardData(r.data)
                 // console.log(r.data[0].musics)
-                console.log(r.data)
+                console.log(r.data,'albomis dataaaaa')
             })
     }, [])
 
@@ -61,7 +61,7 @@ const AlbumSection = () => {
                 {
                     cardData.map((item: any) => (
                         <div className={styles.box} key={item.id}>
-                            <Card header={''} key={item.id} image={item.files[0]?.url} title={item.albumName} subtitle={'DUa Lipa'} imageStyle={'normal'} />
+                            <Card header={''} key={item.id} image={item.file?.url} title={item.albumName} subtitle={item.artistName} imageStyle={'normal'} />
                         </div>
                     ))
                 }

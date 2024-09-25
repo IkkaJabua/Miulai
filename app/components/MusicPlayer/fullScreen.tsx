@@ -22,7 +22,7 @@ const Fullscreen = ({ currentTrack }: FullscreenProps) => {
                         <span className={style.title}>{currentTrack.title}</span>
                         <span className={style.artist}>{currentTrack.artist}</span>
                         <div className={style.likebtn}>
-                            <HeartShapeBtn isActive={true} isDisabled={false} onClick={() => console.log('Button clicked!')} />
+                            <HeartShapeBtn isActive={true} isDisabled={false} onClick={() => {}} />
                         </div></div>
                 </div>
 

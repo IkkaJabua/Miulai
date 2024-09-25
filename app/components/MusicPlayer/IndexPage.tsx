@@ -7,7 +7,8 @@ import SliderMobile from './Slider/Slider';
 import ModalPlayer from './modalPlayer';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
-import { chartsState, musicState, playerState } from '@/app/states';
+import { chartsState, currentTrackIdState, musicState, playerState } from '@/app/states';
+import { log } from 'console';
 
 const tracks = [
     {
@@ -73,14 +74,10 @@ const IndexPage: React.FC = () => {
         }
     }, [volume, isLooping]);
 
-    const playNextTrack = useCallback(() => {
-        const newIndex = isShuffling
-            ? Math.floor(Math.random() * tracks.length)
-            : (currentTrackId + 1) % tracks.length;
-        setCurrentTrackId(newIndex);
-        setCurrentTime(0);
-        setIsPlaying(true);
-    }, [isShuffling, currentTrackId]);
+    const playNextTrack = () => {
+        
+    }
+
 
     useEffect(() => {
         const audio = audioRef.current;

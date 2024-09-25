@@ -17,6 +17,11 @@ export const musicState = atom({
     default: null
 })
 
+export const currentTrackIdState = atom({
+    key: 'currentTrackIdState',
+    default: 0
+})
+
 
 
 
