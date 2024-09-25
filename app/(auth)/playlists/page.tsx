@@ -12,6 +12,7 @@ import Button from '@/app/components/Button/Button';
 import CreatePlaylist from '@/app/components/Playlist/CreatePlaylist/CreatePlaylist';
 import UserPlaylist from '@/app/components/UserPlaylist/UserPlaylist';
 import { useRouter } from 'next/navigation';
+import ReusableHeader from '@/app/components/ReusableHeader/ReusableHeader';
 // import Table from '../components/Table/Table';
 // import CreatePlaylist from '../components/Playlist/CreatePlaylist/CreatePlaylist';
 // import Link from 'next/link';
@@ -32,12 +33,13 @@ const Playlists = () => {
         <div className={styles.container}>
             <div className={styles.miniContainer}>
                 <div className={styles.cellheader}>
-                    <div>
+                    {/* <div>
                         <div onClick={() => router.push('/')}>
                             <Image className={styles.cursor} src={'./icon/isari.svg'} width={32} height={32} alt='image' />
                         </div>
                     </div>
-                    <Image src={'./icon/profile-icon.svg'} width={56} height={56} alt='profile image' />
+                    <Image src={'./icon/profile-icon.svg'} width={56} height={56} alt='profile image' /> */}
+                    <ReusableHeader />
                 </div>
                 <div className={styles.cellFont}>
                     <Link href={'/'}>
