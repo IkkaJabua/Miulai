@@ -1,39 +1,70 @@
-'use client'
+
+'use client';
 import styles from './page.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import Button from '../components/Button/Button';
 import { useForm } from 'react-hook-form';
-import axios from 'axios'
+import axios from 'axios';
 import ErrorMessage from '../components/ErrorMessage/ErrorMessage';
 import { useRouter } from 'next/navigation';
 import { setCookie } from '../cookies';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+
 
 
 type SignIn = {
     email: string;
     password: string;
     remember: boolean;
-}
+};
 
 const Signup = () => {
-    const router = useRouter()
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<SignIn>();
+    const [rememberMe, setRememberMe] = useState(false);
+    const router = useRouter();
+    const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<SignIn>();
     const [showPassword, setShowPassword] = useState(false);
 
-    const onLogin = (values: any) => {
+
+    useEffect(() => {
+        const savedEmail = localStorage.getItem('email');
+        const savedPassword = localStorage.getItem('password');
+     
+
+        if (savedEmail) {
+            setValue('email', savedEmail);
+        }
+        if (savedPassword) {
+            setValue('password', savedPassword);
+        }
+
+        setRememberMe(!!(savedEmail && savedPassword)) 
+        
+    }, [setValue]);
+    
+
+    const onLogin = (values: SignIn) => {
         axios.post('https://interstellar-1-pdzj.onrender.com/auth', values)
             .then(r => {
-              
-                setCookie('token', r.data.accesToken, 60)
-                router.push('/')
-            })
-    }
+                setCookie('token', r.data.accesToken, 60);
+                if (rememberMe) {
+                    localStorage.setItem('email', values.email);
+                    localStorage.setItem('password', values.password);
+        
+                } 
+                else {
+                    localStorage.removeItem('email');
+                    localStorage.removeItem('password');
+                }
+                router.push('/');
+            });
+    };
+
+
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
-      };
+    };
 
     return (
         <div className={styles.container}>
@@ -59,8 +90,6 @@ const Signup = () => {
                         Sign In
                     </span>
 
-
-
                     <form onSubmit={handleSubmit(onLogin)} className={styles.formsWrapper}>
                         <div className={styles.inputWrapper}>
                             <input type="email"
@@ -77,13 +106,10 @@ const Signup = () => {
                                     },
                                 })}
                             />
-
                             {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
 
-
                             <div className={styles.passwordWrapper}>
-                                <input  type={showPassword ? 'text' : 'password'}
-                                    id="" 
+                                <input type={showPassword ? 'text' : 'password'}
                                     placeholder='Password'
                                     className={styles.inputPassword}
                                     {...register('password', {
@@ -97,25 +123,20 @@ const Signup = () => {
                                         }
                                     })}
                                 />
-
-                                <Image onClick={togglePasswordVisibility} 
-                                src={showPassword ? '/icon/show-password.svg' : '/icon/hide-showPass.svg'} 
-                                alt='image' 
-                                width={16} 
-                                height={16} 
-                                className={styles.passwordImg} />
+                                <Image onClick={togglePasswordVisibility}
+                                    src={showPassword ? '/icon/show-password.svg' : '/icon/hide-showPass.svg'}
+                                    alt='image'
+                                    width={16}
+                                    height={16}
+                                    className={styles.passwordImg} />
                             </div>
-
-
-
                             {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
                         </div>
                         <div className={styles.checkboxWrapper}>
                             <div className={styles.checkboxContainer}>
-                                <input type="checkbox" {...register('remember')} />
+                                <input type="checkbox" {...register('remember')} checked={rememberMe} onChange={() => setRememberMe(!rememberMe)} />
                                 <span className={styles.remember}>Remember me</span>
                             </div>
-
                             <Link href={'/'} className={styles.forgot}>
                                 Forgot your password?
                             </Link>
@@ -139,7 +160,23 @@ const Signup = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
+
 export default Signup;
+
+
+
+
+
+
+
+
+
+
+
+
+function removeCookie(arg0: string) {
+    throw new Error('Function not implemented.');
+}
 
