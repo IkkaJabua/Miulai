@@ -1,44 +1,41 @@
 // Use the "use client" directive at the very top of the file
-'use client';
+"use client";
 
-import Input from '../Input/Input';
-import styles from './Header.module.scss';
-import Image from 'next/image';
-import { useState } from 'react';
-import UserPopup from '../UserPopup/UserPopup';
+import Input from "../Input/Input";
+import styles from "./Header.module.scss";
+import Image from "next/image";
+import { useState } from "react";
+import UserPopup from "../UserPopup/UserPopup";
 
 const Header = () => {
-    const [showPopup, setShowPopup] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
-    const togglePopup = () => {
-        setShowPopup(!showPopup);
-    };
-    
-    return (
-        <div className={styles.container}>
-            <div className={styles.wrapper}>
-                <Input className={styles.input} />
-               
-                <div className={styles.userIconWrapper} onClick={togglePopup}>
-                    <Image
-                        src={'/icon/userHeaderIcon.svg'}
-                        alt='User Icon'
-                        width={32}
-                        height={32}
-                        className={styles.image}
-                    />
-                </div>
-                {showPopup && (
-                    <div className={styles.popupWrapper}>
-                        <UserPopup
-                            userName={'george'}
-                            userGmail={'no@gmail.com'}      
-                        />
-                    </div>
-                )}
-            </div>
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <Input className={styles.input} />
+
+        <div className={styles.userIconWrapper} onClick={togglePopup}>
+          <Image
+            src={"/icon/userHeaderIcon.svg"}
+            alt="User Icon"
+            width={32}
+            height={32}
+            className={styles.image}
+          />
         </div>
-    );
+        {showPopup && (
+          <div className={styles.popupWrapper}>
+            <UserPopup />
+          </div>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default Header;
