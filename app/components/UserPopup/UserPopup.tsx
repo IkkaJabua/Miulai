@@ -40,5 +40,3 @@ const UserPopup = ({ userName, userGmail }: Props) => {
     </div>
   );
 };
-
-export default UserPopup;
