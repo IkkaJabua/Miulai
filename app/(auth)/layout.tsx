@@ -4,7 +4,7 @@ import styles from './layout.module.scss';
 import MobileMenu from '../components/Mobilemenu/mobilemenu';
 import BurgerMenu from '../components/BurgerMenu/BurgerMenu';
 import Mobilemenu from '../components/Mobilemenu/mobilemenu';
-import RecoilWrapper from '../components/RecoilWrapper/recoilWrapper';
+import RecoilWrapper from '../components/RecoilWrapper/RecoilWrapper';
 
 export default function RootLayout({
     children,
