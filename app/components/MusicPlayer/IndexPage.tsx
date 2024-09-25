@@ -6,6 +6,7 @@ import Controls from './Contorls';
 import style from './IndexPage.module.scss';
 import TrackDisplay from './TrackDisplay';
 import SliderMobile from './Slider/Slider';
+import axios from 'axios';
 
 const tracks = [
 
@@ -153,6 +154,17 @@ const IndexPage: React.FC = () => {
         return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
     };
 
+    const [music, setMusic] = useState<any>()
+
+    useEffect(() => {
+        axios.get('https://interstellar-1-pdzj.onrender.com/music/1'). 
+        then((r) => {
+            console.log(r.data.files[0].url)
+            setMusic(r.data.files[0].url)
+
+        })
+    },[])
+
     return (
         <div className={style.main}>
             <SliderMobile
@@ -195,7 +207,7 @@ const IndexPage: React.FC = () => {
 
                 <audio
                     ref={audioRef}
-                    src={currentTrack.audio}
+                    src={music}
                     onError={() => console.error('Audio failed to load')}
                 />
 
