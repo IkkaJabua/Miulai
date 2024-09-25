@@ -1,5 +1,7 @@
 import Card from '@/app/components/Card/Card';
 import styles from './ArtistSection.module.scss'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const ArtistData = [
     {
@@ -35,13 +37,27 @@ const ArtistData = [
 
 const ArtistSection = () => {
 
+    const [cardData, setCardData] = useState<any>([])
+
+    useEffect(() => {
+        axios.get('https://interstellar-1-pdzj.onrender.com/author')
+            .then((r) => {
+                setCardData(r.data)
+                console.log( '========================' ,r.data)
+            })
+    }, [])
+
+
+
+
+
     return (
         <div className={styles.container}>
             <div className={styles.art}>
                 {
-                    ArtistData.map((item, i) => (
+                    cardData.map((item: any) => (
                         <div className={styles.box} key={item.id}>
-                            <Card header={''} key={item.id} image={item.image} title={item.title} imageStyle={'round'} />
+                            <Card header={''} key={item.id} image={'/image/eilish.png'} title={`${item.firstName} ${item.lastName}`} imageStyle={'round'} />
                         </div>
                     ))
                 }

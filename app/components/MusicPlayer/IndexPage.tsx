@@ -8,7 +8,7 @@ import TrackDisplay from './TrackDisplay';
 import SliderMobile from './Slider/Slider';
 
 const tracks = [
-    
+
     {
         title: 'Sugar (feat. Francesco)',
         artist: 'By Robin Schulz',
@@ -45,11 +45,11 @@ const tracks = [
         albumArt: '/music/AsapRocky.jpg',
         audio: '/music/A$AP Rocky - Sundress (Official Video).mp3',
     },
-    
+
 ];
 
 const IndexPage: React.FC = () => {
-    const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+    const [currentTrackId, setCurrentTrackId] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
     const [volume, setVolume] = useState(50);
     const [isLooping, setIsLooping] = useState(false);
@@ -58,7 +58,7 @@ const IndexPage: React.FC = () => {
     const [duration, setDuration] = useState(0);
     const audioRef = useRef<HTMLAudioElement>(null);
 
-    const currentTrack = tracks[currentTrackIndex];
+    const currentTrack = tracks[currentTrackId];
 
     useEffect(() => {
         const audio = audioRef.current;
@@ -71,11 +71,11 @@ const IndexPage: React.FC = () => {
     const playNextTrack = useCallback(() => {
         const newIndex = isShuffling
             ? Math.floor(Math.random() * tracks.length)
-            : (currentTrackIndex + 1) % tracks.length;
-        setCurrentTrackIndex(newIndex);
+            : (currentTrackId + 1) % tracks.length;
+        setCurrentTrackId(newIndex);
         setCurrentTime(0);
         setIsPlaying(true);
-    }, [isShuffling, currentTrackIndex]);
+    }, [isShuffling, currentTrackId]);
 
     useEffect(() => {
         const audio = audioRef.current;
@@ -112,18 +112,18 @@ const IndexPage: React.FC = () => {
                 audioRef.current.pause();
             }
         }
-    }, [isPlaying, currentTrackIndex]);
+    }, [isPlaying, currentTrackId]);
 
     const playPause = useCallback(() => {
         setIsPlaying(prevIsPlaying => !prevIsPlaying);
     }, []);
 
     const playPrevious = useCallback(() => {
-        const newIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
-        setCurrentTrackIndex(newIndex);
+        const newIndex = (currentTrackId - 1 + tracks.length) % tracks.length;
+        setCurrentTrackId(newIndex);
         setCurrentTime(0);
         setIsPlaying(true);
-    }, [currentTrackIndex]);
+    }, [currentTrackId]);
 
     const handleVolumeChange = useCallback((newVolume: number) => {
         setVolume(newVolume);
@@ -155,25 +155,25 @@ const IndexPage: React.FC = () => {
 
     return (
         <div className={style.main}>
-            <SliderMobile 
-                    isPlaying={isPlaying}
-                    onPlayPause={playPause}
-                    onNext={playNextTrack}
-                    onPrevious={playPrevious}
-                    onVolumeChange={handleVolumeChange}
-                    volume={volume}
-                    isLooping={isLooping}
-                    onToggleLoop={toggleLoop}
-                    isShuffling={isShuffling}
-                    onToggleShuffle={toggleShuffle}
-                    currentTime={currentTime}
-                    duration={duration}
-                    onTimeChange={handleTimeChange}
-                    backgroundImage={''} name={undefined} isActive={undefined}  />
+            <SliderMobile
+                isPlaying={isPlaying}
+                onPlayPause={playPause}
+                onNext={playNextTrack}
+                onPrevious={playPrevious}
+                onVolumeChange={handleVolumeChange}
+                volume={volume}
+                isLooping={isLooping}
+                onToggleLoop={toggleLoop}
+                isShuffling={isShuffling}
+                onToggleShuffle={toggleShuffle}
+                currentTime={currentTime}
+                duration={duration}
+                onTimeChange={handleTimeChange}
+                backgroundImage={''} name={undefined} isActive={undefined} />
             <div className={style.container}>
 
 
-                
+
                 <TrackDisplay currentTrack={currentTrack} />
 
 
@@ -191,7 +191,7 @@ const IndexPage: React.FC = () => {
                     currentTime={currentTime}
                     duration={duration}
                     onTimeChange={handleTimeChange}
-                    backgroundImage={''} name={undefined} isActive={undefined}                />
+                    backgroundImage={''} name={undefined} isActive={undefined} />
 
                 <audio
                     ref={audioRef}
@@ -205,4 +205,4 @@ const IndexPage: React.FC = () => {
     );
 };
 
-export default IndexPage;
+export default IndexPage

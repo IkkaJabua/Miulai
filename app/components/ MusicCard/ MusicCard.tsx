@@ -13,13 +13,13 @@ const MusicCard = () => {
 
     const [cardData, setCardData] = useState<any>([])
 
-    // useEffect(() => {
-    //     axios.get('https://fakestoreapi.com/products')
-    //         .then((r) => {
-    //             setCardData(r.data)
-    //             console.log(cardData)
-    //         })
-    // }, [])
+    useEffect(() => {
+        axios.get('https://interstellar-1-pdzj.onrender.com/music')
+            .then((r) => {
+                setCardData(r.data)
+                // console.log(r.data.musics)
+            })
+    }, [])
 
 
 
@@ -75,19 +75,19 @@ const MusicCard = () => {
     return (
         <div className={styles.mainContainer}>
             {
-                musicCardData.map((item: any, index: any) => (
+                cardData.map((item: any, index: any) => (
                     <div className={styles.container} key={item.id}>
                         <div className={styles.container_author}>
                             <div>
-                                <Image src={`./icon/${item.icon}`} alt='music cover' width={72} height={72} />
+                                <Image src={item.files[0]?.url} alt={'foto ar ari '} width={72} height={72} />
                             </div>
                             <div className={styles.container_name}>
-                                <div className={styles.music_name_font_style}>{item.title}</div>
-                                <div className={styles.music_author_font_style}>{item.author}</div>
+                                <div className={styles.music_name_font_style}>{item.name}</div>
+                                <div className={styles.music_author_font_style}>{item.artistName} Daft Punk</div>
                             </div>
                         </div>
                         <div className={styles.container_detals}>
-                            <div className={styles.time_font_style}>{item.price}</div>
+                            <div className={styles.time_font_style}>3.58</div>
                             <div className={styles.container_like_point}>
                                 <HeartShapeBtn isDisabled={false} isActive={true} onClick={() => (console.log('button clicked'))} />
                                 <div className={styles.cursor} onClick={() => setActive(active === item.id ? undefined : item.id)}>
@@ -110,5 +110,4 @@ const MusicCard = () => {
     )
 }
 
-
-export default MusicCard;
+export default MusicCard
