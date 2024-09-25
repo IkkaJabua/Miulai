@@ -4,10 +4,11 @@ import styles from './CardsHeader.module.scss';
 type Props = {
     title: string;
     subtitle: string;
+    onClick?: () => void;
 }
 
 
-const CardsHeader = ({title, subtitle}: Props) => {
+const CardsHeader = ({title, subtitle, onClick}: Props) => {
 
     return(
         <div className={styles.container}>
@@ -15,7 +16,7 @@ const CardsHeader = ({title, subtitle}: Props) => {
                 {title}
             </h3>
             <span className={styles.lastChild}>
-                <span>See All</span>
+                <button onCanPlay={onClick}>See All</button>
                 <Link href={subtitle} />
             </span>
         </div>

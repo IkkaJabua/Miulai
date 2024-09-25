@@ -11,16 +11,16 @@ import HitsSection from '../Homepage/HitsSection/HitsSection';
 import styles from './page.module.scss';
 
 
-
+// songs.slice(0, 6).map(() => {})
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <Header />
       <News title={'Top Hit Of The Week'} image={'/image/testImg.jpg'} plays={'643,421'} />
-      <CardsHeader title={'Top Hits'} subtitle={''} />
+      <CardsHeader  title={'Top Hits'} subtitle={''} />
       <HitsSection />
-      <CardsHeader title={'Top Charts'} subtitle={''} />
+      <CardsHeader  title={'Top Charts'} subtitle={''} />
       <ChartsSection />
       <CardsHeader title={'Popular Artists'} subtitle={''} />
       <ArtistSection />

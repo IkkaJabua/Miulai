@@ -108,8 +108,6 @@ const Signup = () => {
 
 
 
-
-
                             {errors.password && <ErrorMessage>{errors.password.message}</ErrorMessage>}
                         </div>
                         <div className={styles.checkboxWrapper}>
