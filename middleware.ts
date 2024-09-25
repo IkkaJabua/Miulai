@@ -20,7 +20,7 @@ export default async function middleware(req: NextRequest) {
 
     if(!token && !pathIsPublic /*path !== '/signin'*/) {
       
-        return NextResponse.redirect(new URL('/signin', req.url))
+        return NextResponse.redirect(new URL('/signup', req.url))
     }
 
     return NextResponse.next()
