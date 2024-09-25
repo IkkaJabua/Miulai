@@ -61,7 +61,7 @@ const AlbumSection = () => {
                 {
                     cardData.map((item: any) => (
                         <div className={styles.box} key={item.id}>
-                            <Card header={''} key={item.id} image={item.files[0]?.url} title={item.albumName} subtitle={item.artistName} imageStyle={'normal'} />
+                            <Card header={''} key={item.id} image={item.file?.url} title={item.albumName} subtitle={item.artistName} imageStyle={'normal'} />
                         </div>
                     ))
                 }
