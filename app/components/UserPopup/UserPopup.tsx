@@ -21,7 +21,6 @@ const UserPopup = ({ userName, userGmail }: Props) => {
 
   
   
-
   return (
     <div className={styles.container}>
       <div className={styles.userNameWrapper}>
@@ -40,3 +39,6 @@ const UserPopup = ({ userName, userGmail }: Props) => {
     </div>
   );
 };
+
+
+export default UserPopup;
