@@ -2,7 +2,7 @@ import Card from '@/app/components/Card/Card';
 import styles from './AlbumSection.module.scss';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import Cookies from 'js-cookie';
 
 const AlbumSection = () => {
 
@@ -10,8 +10,15 @@ const AlbumSection = () => {
     const [cardData, setCardData] = useState<any>([])
 
     useEffect(() => {
-        axios.get('https://interstellar-1-pdzj.onrender.com/album')
+        const token = Cookies.get("token");
+
+        axios.get('https://interstellar-1-pdzj.onrender.com/album', {
+            headers: {
+                Authorization: `Bearer ${token}`,
+              },
+        })
             .then((r) => {
+                
                 setCardData(r.data)
                 // console.log(r.data[0].musics)
                 console.log(r.data)
