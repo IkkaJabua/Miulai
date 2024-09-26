@@ -1,51 +1,41 @@
-import Card from '@/app/components/Card/Card';
-import styles from './AlbumSection.module.scss';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import Cookies from 'js-cookie';
+import Card from "@/app/components/Card/Card";
+import styles from "./AlbumSection.module.scss";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const AlbumSection = () => {
+  const [cardData, setCardData] = useState<any>([]);
 
+  useEffect(() => {
+    axios.get("https://interstellar-1-pdzj.onrender.com/album").then((r) => {
+      setCardData(r.data);
+      // console.log(r.data[0].musics)
+      console.log(r.data);
+    });
+  }, []);
 
-    const [cardData, setCardData] = useState<any>([])
+  return (
+    <div className={styles.container}>
 
-    useEffect(() => {
-        const token = Cookies.get("token");
-
-        axios.get('https://interstellar-1-pdzj.onrender.com/album', {
-            headers: {
-                Authorization: `Bearer ${token}`,
-              },
-        })
-            .then((r) => {
-                
-                setCardData(r.data)
-                // console.log(r.data[0].musics)
-                console.log(r.data)
-            })
-    }, [])
-
-
-    return (
-        <div className={styles.container}>
-            <div className={styles.album}>
-                {
-                    cardData.map((item: any) => (
-
-                        <div className={styles.box} key={item.id}>
-                            <Card header={''} key={item.id} image={item.file?.url} title={item.albumName} subtitle={item.artistName} imageStyle={'normal'} />
-                        </div>
-                    ))
-                }
-            </div>
-        </div>
-    )
-}
-
+      <div className={styles.album}>
+        {cardData.map((item: any) => (
+          <div className={styles.box} key={item.id}>
+            <Card
+              header={""}
+              key={item.id}
+              image={item.file?.url}
+              title={item.albumName}
+              subtitle={item.artistName}
+              imageStyle={"normal"}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default AlbumSection;
-
-
 
 // import Card from '@/app/components/Card/Card';
 // import styles from './AlbumSection.module.scss';

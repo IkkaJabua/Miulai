@@ -18,13 +18,13 @@ export default function Home() {
     <main className={styles.main}>
       <Header />
       <News title={'Top Hit Of The Week'} image={'/image/testImg.jpg'} plays={'643,421'} />
-      <CardsHeader  title={'Top Hits'} subtitle={''} />
+      <CardsHeader  title={'Top Hits'} subtitle={'See all'} addRoute='hits' />
       <HitsSection />
-      <CardsHeader  title={'Top Charts'} subtitle={''} />
+      <CardsHeader  title={'Top Charts'} subtitle={'See all'} addRoute='charts' />
       <ChartsSection />
-      <CardsHeader title={'Popular Artists'} subtitle={''} />
+      <CardsHeader title={'Popular Artists'} subtitle={'See All'} addRoute='artistlist' />
       <ArtistSection />
-      <CardsHeader title={'Popular Albums'} subtitle={''} />
+      <CardsHeader title='Popular Albums' />
       <AlbumSection /> 
     </main>
   );

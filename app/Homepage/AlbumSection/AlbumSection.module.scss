@@ -10,8 +10,18 @@
     max-width: 1350px;
     width: 100%;
     display: flex;
-   gap: 25px;
+    gap: 25px;
+    overflow-x: scroll;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+    padding-top: 45px;
 }
+
+.album::-webkit-scrollbar {
+    display: none; 
+}
+
+
 
 
 
