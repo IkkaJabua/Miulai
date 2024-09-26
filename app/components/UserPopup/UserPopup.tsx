@@ -17,7 +17,7 @@ const UserPopup = ({ userName,}: Props) => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const token = getToken();
+                const token = Cookies.get("token");
                 console.log(token , 'token ')
 
                 const response = await axios.get('https://interstellar-1-pdzj.onrender.com/user/me', {
