@@ -5,10 +5,13 @@ import Header from '@/app/components/Header/Header';
 import Card from '@/app/components/Card/Card';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { albumidState } from '@/app/state';
 
     
 
 const ArtistsList = () => {
+    const [albumId, setAlbumId] = useRecoilState(albumidState);
     const router = useRouter();
     const handleCardClick = () => {
         axios.get(`https://interstellar-1-pdzj.onrender.com/author`)
@@ -24,7 +27,6 @@ const ArtistsList = () => {
         axios.get(`https://interstellar-1-pdzj.onrender.com/author`)
         .then((r) => {
             setArtists(r.data)
-            // console.log(r.data);
         })
         
     },[])
@@ -38,7 +40,11 @@ const ArtistsList = () => {
                 <div className={styles.wrapper}>
                     {
                         artists.map((item: any, i) => (
-                            <div onClick={handleCardClick}>
+                            <div onClick={() => {
+                                setAlbumId(item.id)
+                                console.log(item.id, 'id id di d did did ')
+                                handleCardClick()
+                            }} >   
                                 <Card key={i} image={item?.files[0]?.url} title={item.firstName} imageStyle={'round'} />
                             </div>
                         ))
