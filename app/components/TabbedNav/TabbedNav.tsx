@@ -30,7 +30,7 @@ const TabbedNav = (props: Props) => {
 
   const [musicArray, setMusicArray] = useRecoilState(musicState);
   const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
-    const [artistName, setArtistName] = useRecoilState(artistNameState);
+  const [artistName, setArtistName] = useRecoilState(artistNameState);
 
 
   const onTabClick = (tab: string) => {
@@ -48,7 +48,7 @@ const TabbedNav = (props: Props) => {
           setImage(r.data?.files[0]?.url);
           setArtistPhoto(r.data.files[0].url);
           setAlbumData(r.data.albums);
-          // setGlobalAlbum(r.data.albums);
+          console.log(r.data)
           setArtistName(r.data.firstName);
           const albumNames = r.data.albums.map((album: any) => album.albumName);
           setGlobalAlbum(albumNames);
