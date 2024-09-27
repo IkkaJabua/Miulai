@@ -9,43 +9,6 @@ type Props = {
   biographyText: string;
 };
 
-// const albumCardData = [
-//   {
-//     title: "Lobster Telephone",
-//     id: 1,
-//     image: "/image/albumcard-demo-image1.png",
-//   },
-//   {
-//     title: "Lobster Telephone",
-//     id: 2,
-//     image: "/image/albumcard-demo-image2.png",
-//   },
-//   {
-//     title: "Lobster Telephone",
-//     id: 3,
-//     image: "/image/albumcard-demo-image3.png",
-//   },
-//   {
-//     title: "Lobster Telephone",
-//     id: 4,
-//     image: "/image/albumcard-demo-image1.png",
-//   },
-//   {
-//     title: "Lobster Telephone",
-//     id: 5,
-//     image: "/image/albumcard-demo-image2.png",
-//   },
-//   {
-//     title: "Lobster Telephone",
-//     id: 6,
-//     image: "/image/albumcard-demo-image2.png",
-//   },
-//   {
-//     title: "Lobster Telephone",
-//     id: 7,
-//     image: "/image/albumcard-demo-image2.png",
-//   },
-// ];
 
 const TabbedNav = (props: Props) => {
   const [activeTab, setActiveTab] = useState("topSongs");
@@ -57,7 +20,7 @@ const TabbedNav = (props: Props) => {
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://interstellar-1-pdzj.onrender.com/author`).then((r) => {
+    axios.get(`https://interstellar-1-pdzj.onrender.com/album`).then((r) => {
       setAlbums(r.data);
       console.log(r.data);
     });
@@ -101,10 +64,9 @@ const TabbedNav = (props: Props) => {
             {albums.map((item: any, i) => (
               <Card
                 key={i}
-                image={item?.files[0]?.url}
+                image={item?.file.url}
                 title={item.firstName}
                 imageStyle={"normal"}
-                
               />
             ))}
           </div>

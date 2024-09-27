@@ -5,6 +5,7 @@ import MobileMenu from '../components/Mobilemenu/mobilemenu';
 import BurgerMenu from '../components/BurgerMenu/BurgerMenu';
 import Mobilemenu from '../components/Mobilemenu/mobilemenu';
 
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -19,7 +20,9 @@ export default function RootLayout({
                 <div className={styles.burgerMenu}>
                     <BurgerMenu />
                 </div>
+               
                 {children}
+             
                 <div className={styles.container2}>
                     <IndexPage />
                 </div>

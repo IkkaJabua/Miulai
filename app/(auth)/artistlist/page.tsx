@@ -6,74 +6,13 @@ import Card from '@/app/components/Card/Card';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-// const artistsData = [
-//     {
-//         id: 1,
-//         title: 'Eminem',
-//         image: '/image/artist-demo-image.png'
-//     },
-//     {
-//         id: 2,
-//         title: 'Eminem',
-//         image: '/image/artist-demo-image.png'
-//     },
-//     {
-//         id: 3,
-//         title: 'Eminem',
-//         image: '/image/artist-demo-image.png'
-//     },
-//     {
-//         id: 4,
-//         title: 'Eminem',
-//         image: '/image/artist-demo-image.png'
-//     },
-//     {
-//         id: 5,
-//         title: 'Eminem',
-//         image: '/image/artist-demo-image.png'
-//     },
-//     {
-//         id: 6,
-//         title: 'Eminem',
-//         image: '/image/artist-demo-image.png'
-//     },
-//     {
-//         id: 7,
-//         title: 'Eminem',
-//         image: '/image/artist-demo-image.png'
-//     },
-//     {
-//         id: 8,
-//         title: 'Eminem',
-//         image: '/image/artist-demo-image.png'
-//     },
-//     {
-//         id: 9,
-//         title: 'Eminem',
-//         image: '/image/artist-demo-image.png'
-//     },
-//     {
-//         id: 10,
-//         title: 'Eminem',
-//         image: '/image/artist-demo-image.png'
-//     },
-//     {
-//         id: 11,
-//         title: 'Eminem',
-//         image: '/image/artist-demo-image.png'
-//     },
-//     {
-//         id: 12,
-//         title: 'Eminem',
-//         image: '/image/artist-demo-image.png'
-//     },
-// ];
     
 
 const ArtistsList = () => {
     const router = useRouter();
     const handleCardClick = () => {
         axios.get(`https://interstellar-1-pdzj.onrender.com/author`)
+        
         router.push(`/artist`);
     };
 
@@ -82,7 +21,7 @@ const ArtistsList = () => {
     const [artists, setArtists] = useState([]);
 
     useEffect(() => {
-        axios.get(`https://interstellar-1-pdzj.onrender.com/author/`)
+        axios.get(`https://interstellar-1-pdzj.onrender.com/author`)
         .then((r) => {
             setArtists(r.data)
             // console.log(r.data);
