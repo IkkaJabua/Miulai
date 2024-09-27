@@ -7,7 +7,11 @@ import { render } from "sass";
 import { text } from "stream/consumers";
 import Image from "next/image";
 import { useWindowSize } from "react-use";
+import { useRecoilState } from "recoil";
+import { musicState } from "@/app/state";
 const Tables = () => {
+      const [musicArray, setMusicArray] = useRecoilState(musicState);
+
 
     const { width, height } = useWindowSize();
     const isMobile = width > 767

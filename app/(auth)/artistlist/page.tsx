@@ -42,7 +42,6 @@ const ArtistsList = () => {
                         artists.map((item: any, i) => (
                             <div onClick={() => {
                                 setAlbumId(item.id)
-                                console.log(item.id, 'id id di d did did ')
                                 handleCardClick()
                             }} >   
                                 <Card key={i} image={item?.files[0]?.url} title={item.firstName} imageStyle={'round'} />

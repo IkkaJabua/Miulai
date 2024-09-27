@@ -1,17 +1,34 @@
 import Card from "../Card/Card";
 import Tables from "../Table/Table";
 import styles from "./TabbedNav.module.scss";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Image from "next/image";
 import axios from "axios";
+import { useRecoilState } from "recoil";
+import {
+  albumidState,
+  globalAlbumDataState,
+  musicState,
+  newsImageState,
+} from "@/app/state";
+import ArtistTable from "../Table/ArtistTable/ArtistTable";
 
 type Props = {
   biographyText: string;
 };
 
-
 const TabbedNav = (props: Props) => {
   const [activeTab, setActiveTab] = useState("topSongs");
+  const [albumId, setAlbumId] = useRecoilState(albumidState);
+  const [biography, setBiography] = useState();
+  const [image, setImage] = useState();
+  const [albumData, setAlbumData] = useState<any[]>([]);
+  const [music, setMusic] = useState<any[]>([]);
+
+  const [artistPhoto, setArtistPhoto] = useRecoilState(newsImageState);
+
+  const [musicArray, setMusicArray] = useRecoilState(musicState);
+  const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
 
   const onTabClick = (tab: string) => {
     setActiveTab(tab);
@@ -20,16 +37,28 @@ const TabbedNav = (props: Props) => {
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-    axios.get(`https://interstellar-1-pdzj.onrender.com/album`).then((r) => {
-      setAlbums(r.data);
-      console.log(r.data);
-    });
-  }, []);
+    if (!!albumId) {
+      axios
+        .get(`https://interstellar-1-pdzj.onrender.com/author/${albumId}`)
+        .then((r: any) => {
+          setBiography(r.data.biography);
+          setImage(r.data?.files[0]?.url);
+          setArtistPhoto(r.data.files[0].url);
+          setAlbumData(r.data.albums);
+          // setGlobalAlbum(r.data.albums);
+          console.log(r.data, "artist");
+          const albumNames = r.data.albums.map((album: any) => album.albumName);
+          setGlobalAlbum(albumNames);
 
-  // useEffect(() => {
-  //   axios.get(`https://interstellar-1-pdzj.onrender.com/author`)
-  //   .then
-  // })
+          const allMusics = r.data.albums.reduce((acc: any[], album: any) => {
+            return acc.concat(album.musics || []);
+          }, []);
+
+          setMusicArray(allMusics);
+          console.log(allMusics, "2paac");
+        });
+    }
+  }, []);
 
   return (
     <div className={styles.tabbedNav}>
@@ -57,15 +86,15 @@ const TabbedNav = (props: Props) => {
       </div>
 
       <div className={styles.tabContent}>
-        {activeTab === "topSongs" && <Tables />}
+        {activeTab === "topSongs" && <ArtistTable />}
 
         {activeTab === "albums" && (
           <div className={styles.cards}>
-            {albums.map((item: any, i) => (
+            {albumData?.map((item: any, i) => (
               <Card
                 key={i}
-                image={item?.file.url}
-                title={item.firstName}
+                image={item.file?.url}
+                title={item.albumName}
                 imageStyle={"normal"}
               />
             ))}
@@ -75,15 +104,15 @@ const TabbedNav = (props: Props) => {
         {activeTab === "biography" && (
           <div className={styles.bio}>
             <Image
-              src={"/image/albumcard-demo-image1.png"}
+              src={`${image}`}
               alt="image"
               width={250}
               height={230}
               className={styles.image}
             />
             <div className={styles.bioRightside}>
-              <h2>{albums[0].firstName}</h2>
-              <p className={styles.text}>{albums[0].biography}</p>
+              <h2></h2>
+              <p className={styles.text}>{biography}</p>
             </div>
           </div>
         )}

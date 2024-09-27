@@ -20,10 +20,12 @@ const CreatePlaylist = ({ onClick }: Props) => {
 
     const onSubmit = async (values: any) => {
         const data: any = new FormData()
-        data.append('name', values.Playlistname)
-        data.append('artistName', values.artistName)
-        data.append('file', values.file[0])
-        data.append('description', values.description)
+        data.append('name', String(values.name))
+        // data.append('useId', )
+
+        // data.append('artistName', values.artistName)
+        // data.append('file', values.file[0])
+        // data.append('description', values.description)
 
 
         axios.post('https://interstellar-1-pdzj.onrender.com/playlist', data).
@@ -36,30 +38,44 @@ const CreatePlaylist = ({ onClick }: Props) => {
     }
 
     return (
-        <PlaylistBox className={styles.container}>
-            <div className={styles.header}>
-                <Icon name={'leftsideArrow'} alt='image' width={20} height={20} onClick={onClick} />
-                <span className={styles.title}>Create New Playlist</span>
-            </div>
-            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-                <input type="text" placeholder='Playlist name' className={styles.inp}
-                    {...register('Playlistname')}
-
-                />
-                <input type='text'    {...register('description')} />
-
-                <div className={styles.filesWrapper}>
-                    <input type='file' className={styles.files}
-                        {...register('file')}
-
-                    />
-                    <Image src={'/icon/camera.png'} alt='image' width={88} height={80} className={styles.image} />
-                </div>
-                <Button title={'Save'} mode={'reusable button'} width={"290px"} height='100px' onClick={() => console.log('button clicked')} />
-            </form>
-
-        </PlaylistBox>
-    )
+      <PlaylistBox className={styles.container}>
+        <div className={styles.header}>
+          <Icon
+            name={"leftsideArrow"}
+            alt="image"
+            width={20}
+            height={20}
+            onClick={onClick}
+          />
+          <span className={styles.title}>Create New Playlist</span>
+        </div>
+        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+          <input
+            type="text"
+            placeholder="Playlist name"
+            className={styles.inp}
+            {...register("name")}
+          />
+          <div className={styles.filesWrapper}>
+            <input type="file" className={styles.files} {...register("file")} />
+            <Image
+              src={"/icon/camera.png"}
+              alt="image"
+              width={88}
+              height={80}
+              className={styles.image}
+            />
+          </div>
+          <Button
+            title={"Save"}
+            mode={"reusable button"}
+            width={"290px"}
+            height="100px"
+            onClick={() => console.log("button clicked")}
+          />
+        </form>
+      </PlaylistBox>
+    );
 }
 
 export default CreatePlaylist;
