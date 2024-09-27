@@ -12,35 +12,55 @@
     justify-content: space-between;
     margin-bottom: 30px;
 }
-.searchWrapper { 
+
+.searchWrapper {
     position: relative;
     width: 500px;
 }
-.searchDropdown { 
+
+.searchDropdown {
     background-color: black;
     width: 100%;
     height: 400px;
     position: absolute;
     top: 59px;
     display: flex;
+    flex-direction: column;
     gap: 8px;
-    align-items: center;
     color: gray;
     width: 500px;
     padding: 10px;
     border-bottom: 8px;
     background: #151519;
-
+    overflow-y: auto;
 }
+
 .img {
     border-radius: 8px;
 }
+
 .wrapper {
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: space-between;
-    // margin-bottom: 32px;
+}
+
+.searchItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.white {
+    color: white;
 }
 
 @media screen and (min-width: 767px) and (max-width: 1024px) {

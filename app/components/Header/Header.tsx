@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Icon from "../Icon/Icon";
 import Input from "../Input/Input";
 import styles from "./Header.module.scss";
@@ -10,55 +10,95 @@ interface InputTpo {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Header = (props: InputTpo) => {
-  const [inputValue, setInputValue] = useState();
-  const [searchItems, setSearchItems] = useState<any>();
-  console.log(searchItems, "searchItems");
+const Header: React.FC<InputTpo> = (props) => {
+  const [inputValue, setInputValue] = useState('');
+  const [searchItems, setSearchItems] = useState([]);
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const searchWrapperRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
-    axios
-      .get(
-        `https://interstellar-1-pdzj.onrender.com/search?search=${inputValue}`
-      )
-      .then(async (r) => {
-        setSearchItems(r.data.authors);
-        console.log(r.data.authors.atristName);
-      });
+    if (inputValue) {
+      axios
+        .get(`https://interstellar-1-pdzj.onrender.com/search?search=${inputValue}`)
+        .then((r) => {
+          setSearchItems(r.data.authors);
+          setShowDropdown(true);
+        })
+        .catch((error) => console.error("Error fetching search results:", error));
+    } else {
+      setSearchItems([]);
+      setShowDropdown(false);
+    }
   }, [inputValue]);
-  console.log(searchItems, "ss");
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleInputFocus = () => {
+    setIsFocused(true);
+    setShowDropdown(true);
+  };
+
+  const handleInputBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    // Delay the blur action to allow clicking on dropdown items
+    setTimeout(() => {
+      if (!searchWrapperRef.current?.contains(document.activeElement)) {
+        setIsFocused(false);
+        setShowDropdown(false);
+        if (isFocused) {
+          setInputValue('');
+        }
+      }
+    }, 200);
+  };
+
+  const handleItemClick = (item: any) => {
+    setInputValue(item.firstName);
+    setShowDropdown(false);
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>
-        <div className={styles.searchWrapper}>
+        <div className={styles.searchWrapper} ref={searchWrapperRef}>
           <Input
-            onChange={(e: any) => setInputValue(e.target.value)}
+            onChange={handleInputChange}
+            onFocus={handleInputFocus}
+            onBlur={handleInputBlur}
             value={inputValue}
             className={styles.input}
           />
-
-          {searchItems?.map((item: any, index: number) => (
-            <div key={index} className={styles.containerInside}>
-              {item.files && item.files.length > 0 && item.files[0]?.url ? (
-                <div className={styles.searchDropdown}>
-                  <img
-                    className={styles.img}
-                    src={item.files[0].url}
-                    width={72}
-                    height={72}
-                    alt={item.firstName || "image"}
-                  />
-                  <div className={styles.white}>{item.firstName}</div>
+          {inputValue !== '' && showDropdown && searchItems.length > 0 && (
+            <div className={styles.searchDropdown}>
+              {searchItems.map((item: any, index) => (
+                <div 
+                  key={index} 
+                  className={styles.containerInside}
+                  onMouseDown={(e) => e.preventDefault()} 
+                  onClick={() => handleItemClick(item)}
+                >
+                  {item.files && item.files[0]?.url ? (
+                    <div className={styles.searchItem}>
+                      <img
+                        className={styles.img}
+                        src={item.files[0].url}
+                        width={72}
+                        height={72}
+                        alt={item.firstName || "image"}
+                      />
+                      <div className={styles.white}>{item.firstName}</div>
+                    </div>
+                  ) : null}
                 </div>
-              ) : (
-                <div></div>
-              )}
+              ))}
             </div>
-          ))}
+          )}
         </div>
-
         <Image
-          src={"/icon/userHeaderIcon.svg"}
-          alt="image"
+          src="/icon/userHeaderIcon.svg"
+          alt="User icon"
           width={32}
           height={32}
           className={styles.image}
