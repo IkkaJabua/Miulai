@@ -1,21 +1,8 @@
 .container {
     width: 100%;
-    margin: 30px;
-}
-
-.header {
-    color: #fff;
-    font-weight: 600;
-    font-family:var(--font-Plus-Jakarta-sans);
-    font-size: 20px;
-}
-
-.dataWrapper {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 5px;
-    align-items: center;
-    max-width: 1350px;
-    margin: 0 auto;
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 35px 25px 180px 25px;
+    gap: 10px;
 }

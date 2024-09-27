@@ -3,6 +3,8 @@ import styles from "./ArtistSection.module.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
+
 const ArtistSection = () => {
   const [atrist, setArtist] = useState([]);
 

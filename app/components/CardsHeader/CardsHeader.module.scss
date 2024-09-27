@@ -7,6 +7,7 @@
     width: 100%;
     margin: 0 auto;
     margin-top: 20px;
+    padding-bottom: 40px;
 }
 
 .firstChild {
@@ -14,10 +15,12 @@
     font-size: 20px;
 }
 
-.lastChild {
-    display: flex;
-    align-items: center;
+.seeAll {
     color: #818385;
-    font-size: 14px;
+    font-size: 15px;
+    font-family: var('--font-Plus-Jakarta-sans');
+    border: none;
+    background: none;
+    font-weight: 500;
     cursor: pointer;
 }

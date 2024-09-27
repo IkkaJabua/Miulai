@@ -1,11 +1,10 @@
 import React from 'react';
-import Image from 'next/image'
-import Button from '../Button/Button';
-import style from './TrackDisplay.module.scss';
+import Image from 'next/image';
 import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn';
+import style from './TrackDisplay.module.scss';
 
 interface TrackDisplayProps {
-    currentTrack: {
+    currentTrack?: {
         title: string;
         artist: string;
         albumArt: string;
@@ -13,21 +12,37 @@ interface TrackDisplayProps {
 }
 
 const TrackDisplay = ({ currentTrack }: TrackDisplayProps) => {
+    if (!currentTrack) {
+        // Return a default placeholder or nothing if no currentTrack is provided
+        return (
+            <div className={style.container}>
+                <p>No track selected</p>
+            </div>
+        );
+    }
+
     return (
         <div className={style.container}>
-            <Image src={currentTrack.albumArt} alt="Album Art" width={80} height={80} className={style.img} />
+            <Image
+                src={currentTrack.albumArt || '/defaultAlbumArt.jpg'} // Fallback if albumArt is missing
+                alt="AlbumArt"
+                width={80}
+                height={80}
+                className={style.img}
+            />
             <div className={style.like}>
                 <div className={style.text}>
                     <div className={style.likebtn}>
-                        <HeartShapeBtn isActive={true} isDisabled={false} onClick={() => console.log('Button clicked!')} />
+                        <HeartShapeBtn
+                            isActive={true}
+                            isDisabled={false}
+                            onClick={() => console.log('Like button clicked!')}
+                        />
                     </div>
-                    <span className={style.title}>{currentTrack.title}</span>
-                    <span className={style.artist}>{currentTrack.artist}</span>
-
+                    <span className={style.title}>{currentTrack.title || 'Unknown Title'}</span> {/* Fallback for title */}
+                    <span className={style.artist}>{currentTrack.artist || 'Unknown Artist'}</span> {/* Fallback for artist */}
                 </div>
-
             </div>
-
         </div>
     );
 };

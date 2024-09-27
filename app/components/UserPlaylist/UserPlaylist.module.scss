@@ -3,7 +3,7 @@
 .container {
     padding: 16px;
     width: 255px;
-    height: 290px;
+    height: 295px;
     // width: 266px;
     // height: 309px;
     border-radius: 8px;
@@ -11,7 +11,7 @@
     background: $darkVoid;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    align-items: center;
     gap: 8px;
     cursor: pointer;
     text-decoration: none;
@@ -21,6 +21,9 @@
     color: $shadyLady;
     font-size: 14px;
     font-weight: 600;
+    margin-left: 2px;
+    align-self: flex-start;
+    
 }
 
 .buttons {
@@ -67,10 +70,14 @@
 
 @media screen and (min-width: 750px) and (max-width: 1024px) {
     .container {
-        width: 142px;
-        height: 168px;
+        width: 149px;
+        height: 184px;
         display: flex;
+        padding: 8px;
+        gap: 8px;
+        align-items: center;
         flex-direction: column;
+        
     }
 
     .cellImage {
@@ -79,19 +86,25 @@
     }
 
     .font {
-        margin-left: 5px;
+        align-self: flex-start;
     }
 }
 
 @media screen and (max-width: 750px) {
     .container {
-        width: 148px;
-        height: 188px;
-        gap: 3px;
+        width: 152px;
+        height: 180px;
+        // gap: 3px;
+        align-items: center;
+        padding: 8px;
     }
 
     .cellImage {
-        width: 148px;
-        height: 168px;
+        width: 142px;
+        height: 142px;
+    }
+    .font {
+        margin-left: 3px;
+        align-self: flex-start;
     }
 }

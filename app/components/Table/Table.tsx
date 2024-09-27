@@ -6,8 +6,18 @@ import styles from './Table.module.scss'
 import { render } from "sass";
 import { text } from "stream/consumers";
 import Image from "next/image";
-
+import { useWindowSize } from "react-use";
+import { useRecoilState } from "recoil";
+import { musicState } from "@/app/state";
 const Tables = () => {
+      const [musicArray, setMusicArray] = useRecoilState(musicState);
+
+
+    const { width, height } = useWindowSize();
+    const isMobile = width > 767
+
+
+
 
     const tableData = [
         {
@@ -66,7 +76,9 @@ const Tables = () => {
             album: 'I Hear You',
             time: '3:54',
             id: 8
-        }, {
+        },
+        {
+
             icon: '/table-icon9.svg',
             title: 'Girls Are Fascinating',
             author: 'By Anetha',
@@ -91,9 +103,12 @@ const Tables = () => {
     ]
 
 
+
+
+
     const columns = [
         {
-            title: '#',
+            title: isMobile ? '#' : '',
             dataIndex: 'id',
             key: 'id',
             width: '1%',
@@ -103,8 +118,9 @@ const Tables = () => {
                 </div>
             )
         },
+
         {
-            title: 'Song Name',
+            title: isMobile ? 'Song Name' : '',
             dataIndex: 'title',
             key: 'title',
             width: '30%',
@@ -118,7 +134,7 @@ const Tables = () => {
                 </div>
             ),
         },
-        {
+        width > 725 ? {
             title: 'Album',
             dataIndex: 'album',
             key: 'album',
@@ -128,18 +144,32 @@ const Tables = () => {
                     {text}
                 </div>
             )
-        },
-        {
-            title: 'Time',
-            dataIndex: 'time',
-            key: 'time',
-            width: '15%',
-            render: (text: any, item: any) => (
-                <div className={styles.cellTimeName}>
-                    {text}
+        } : {
+            width: '0.5%',
+            render: () => (
+                <div>
+
                 </div>
             )
         },
+        isMobile ?
+            {
+                title: 'Time',
+                dataIndex: 'time',
+                key: 'time',
+                width: '15%',
+                render: (text: any, item: any) => (
+                    <div className={styles.cellTimeName}>
+                        {text}
+                    </div>
+                )
+            } : {
+                width: '0.5%',
+                render: () => (
+                    <div>
+                    </div>
+                )
+            },
         {
             title: '',
             key: 'like',
@@ -167,3 +197,4 @@ const Tables = () => {
 }
 
 export default Tables;
+

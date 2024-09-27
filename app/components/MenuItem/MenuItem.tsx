@@ -37,14 +37,6 @@ const MenuItem = () => {
             key: '/',
         },
         {
-            title: 'Recommendations',
-            icon: 'menu-logo2',
-            activeIcon: 'clicked-menu-logo2',
-            path: '/recommendations',
-            key: '/recommendations',
-
-        },
-        {
             title: 'Top Hits',
             icon: 'menu-logo3',
             activeIcon: 'clicked-menu-logo3',
@@ -82,8 +74,8 @@ const MenuItem = () => {
             title: 'Artist',
             icon: 'menu-logo7',
             activeIcon: 'clicked-menu-logo7',
-            path: '/artist',
-            key: '/artist',
+            path: '/artistlist',
+            key: '/artistlist',
 
         },
         {

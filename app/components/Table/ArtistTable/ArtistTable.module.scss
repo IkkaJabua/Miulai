@@ -1,4 +1,4 @@
-@import '../colors/colors.scss';
+@import '../../colors/colors.scss';
 
 .wrapper {
     width: 100%;
@@ -29,7 +29,7 @@
     background-color: unset !important;
     max-width: 1112px;
     width: 100%;
-   
+
 }
 
 .wrapper :global .ant-table-thead .ant-table-cell::before {
@@ -90,15 +90,17 @@
     flex-direction: column;
     // gap: 10px;
 }
-@media screen and (max-width: 350px) and (max-width: 767px){
-    .fontGap {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-        }
 
-    
+@media screen and (max-width: 350px) and (max-width: 767px) {
+    .fontGap {
+        display: flex;
+        flex-direction: column;
+        gap: 1px;
+    }
+
+
 }
+
 .songTitle {
     color: $white;
     font-size: 14px;

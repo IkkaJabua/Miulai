@@ -4,7 +4,7 @@ import ItemsUnion from '../CardItems/ItemsUnion/ItemsUnion';
 import { useState } from 'react';
 
 interface Props {
-    header: string;
+    header?: string;
     image: string;
     subtitle?: string;
     title: string;

@@ -3,21 +3,23 @@
     display: flex;
     justify-content: center;
     margin-bottom: 25px;
+    overflow: visible;
+    right: 15px;
 }
 
 .art {
     max-width: 1350px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    gap: 15px;
+    gap: 25px;
+    // justify-content: space-between;
 }
 
 
 @media screen and (max-width: 1555px) {
     .art {
         overflow-x: scroll;
-        padding-bottom: 10px;
+        padding: 57px 0;
     }
 
     .art::-webkit-scrollbar {

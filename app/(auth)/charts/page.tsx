@@ -12,7 +12,7 @@ const Charts = () => {
 
     return(
         <div className={styles.container}>
-            <Header />
+            <ReusableHeader />
             <News 
             title={'Top Chart Of The Week'} 
             image={'/image/chart-background.png'} 
