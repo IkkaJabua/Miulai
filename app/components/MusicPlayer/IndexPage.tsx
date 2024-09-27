@@ -158,9 +158,10 @@ const IndexPage: React.FC = () => {
   const [music, setMusic] = useState<any>();
 
   useEffect(() => {
-    axios.get("https://interstellar-1-pdzj.onrender.com/music/1").then((r) => {
-      console.log(r.data.files[0].url);
-      setMusic(r.data.files[0].url);
+    axios.get("https://interstellar-1-pdzj.onrender.com/music")
+    .then((r) => {
+      // console.log(r.data?.files[0]?.url);
+      // setMusic(r.data?.files[0]?.url);
     });
   }, []);
 

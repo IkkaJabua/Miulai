@@ -14,7 +14,6 @@ const ItemsUnion = () => {
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
-                <Heart />
                 {/* Pass changeOnDotsClick as a prop to Dots */}
                 <Dots onClick={changeOnDotsClick} />
             </div>

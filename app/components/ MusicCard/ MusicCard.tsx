@@ -14,7 +14,7 @@ const MusicCard = () => {
   useEffect(() => {
     axios.get("https://interstellar-1-pdzj.onrender.com/music").then((r) => {
       setCardData(r.data);
-      // console.log(r.data.musics)
+      console.log(r.data);
     });
   }, []);
 

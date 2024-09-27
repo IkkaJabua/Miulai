@@ -1,50 +1,51 @@
 import Card from "../Card/Card";
 import Tables from "../Table/Table";
 import styles from "./TabbedNav.module.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import axios from "axios";
 
 type Props = {
   biographyText: string;
 };
 
-const albumCardData = [
-  {
-    title: "Lobster Telephone",
-    id: 1,
-    image: "/image/albumcard-demo-image1.png",
-  },
-  {
-    title: "Lobster Telephone",
-    id: 2,
-    image: "/image/albumcard-demo-image2.png",
-  },
-  {
-    title: "Lobster Telephone",
-    id: 3,
-    image: "/image/albumcard-demo-image3.png",
-  },
-  {
-    title: "Lobster Telephone",
-    id: 4,
-    image: "/image/albumcard-demo-image1.png",
-  },
-  {
-    title: "Lobster Telephone",
-    id: 5,
-    image: "/image/albumcard-demo-image2.png",
-  },
-  {
-    title: "Lobster Telephone",
-    id: 6,
-    image: "/image/albumcard-demo-image2.png",
-  },
-  {
-    title: "Lobster Telephone",
-    id: 7,
-    image: "/image/albumcard-demo-image2.png",
-  },
-];
+// const albumCardData = [
+//   {
+//     title: "Lobster Telephone",
+//     id: 1,
+//     image: "/image/albumcard-demo-image1.png",
+//   },
+//   {
+//     title: "Lobster Telephone",
+//     id: 2,
+//     image: "/image/albumcard-demo-image2.png",
+//   },
+//   {
+//     title: "Lobster Telephone",
+//     id: 3,
+//     image: "/image/albumcard-demo-image3.png",
+//   },
+//   {
+//     title: "Lobster Telephone",
+//     id: 4,
+//     image: "/image/albumcard-demo-image1.png",
+//   },
+//   {
+//     title: "Lobster Telephone",
+//     id: 5,
+//     image: "/image/albumcard-demo-image2.png",
+//   },
+//   {
+//     title: "Lobster Telephone",
+//     id: 6,
+//     image: "/image/albumcard-demo-image2.png",
+//   },
+//   {
+//     title: "Lobster Telephone",
+//     id: 7,
+//     image: "/image/albumcard-demo-image2.png",
+//   },
+// ];
 
 const TabbedNav = (props: Props) => {
   const [activeTab, setActiveTab] = useState("topSongs");
@@ -52,6 +53,20 @@ const TabbedNav = (props: Props) => {
   const onTabClick = (tab: string) => {
     setActiveTab(tab);
   };
+
+  const [albums, setAlbums] = useState([]);
+
+  useEffect(() => {
+    axios.get(`https://interstellar-1-pdzj.onrender.com/author`).then((r) => {
+      setAlbums(r.data);
+      console.log(r.data);
+    });
+  }, []);
+
+  // useEffect(() => {
+  //   axios.get(`https://interstellar-1-pdzj.onrender.com/author`)
+  //   .then
+  // })
 
   return (
     <div className={styles.tabbedNav}>
@@ -83,13 +98,13 @@ const TabbedNav = (props: Props) => {
 
         {activeTab === "albums" && (
           <div className={styles.cards}>
-            {albumCardData.map((item) => (
+            {albums.map((item: any, i) => (
               <Card
-                key={item.id}
-                header={""}
-                image={item.image}
-                title={item.title}
+                key={i}
+                image={item?.files[0]?.url}
+                title={item.firstName}
                 imageStyle={"normal"}
+                
               />
             ))}
           </div>
@@ -105,14 +120,8 @@ const TabbedNav = (props: Props) => {
               className={styles.image}
             />
             <div className={styles.bioRightside}>
-              <h2>peggy goy</h2>
-              <p className={styles.text}>
-                Peggy Gou (born July 3, 1991) is a South Korean DJ and producer
-                based in Berlin. Originally from Incheon, South Korea, she began
-                taking piano lessons at the age teenage years to study English.
-                After a brief return to South Korea, teenage years to study
-                English. After a brief return to South Korea, Gou returned
-              </p>
+              <h2>{albums[0].firstName}</h2>
+              <p className={styles.text}>{albums[0].biography}</p>
             </div>
           </div>
         )}
