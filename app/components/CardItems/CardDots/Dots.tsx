@@ -1,19 +1,23 @@
-import Icon from '../../Icon/Icon';
 import styles from './Dots.module.scss';
 import Image from 'next/image';
 
 interface Props {
-    onClick?: () => void;
+    onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 
-const CreatePlaylist = (props: Props) => {
+const Dots = (props: Props) => {
+    const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
+        event.stopPropagation(); 
+        if (props.onClick) {
+            props.onClick(event); 
+        }
+    };
 
-
-    return(
-        <div onClick={props.onClick}>   
-            <Image src={'/icon/card-dots.svg'} alt="image" width={32} height={32} />
+    return (
+        <div className={styles.dots} onClick={handleClick}>
+            <Image src={'/icon/card-dots.svg'} alt="dots icon" width={32} height={32} />
         </div>
-    )
-}
+    );
+};
 
-export default CreatePlaylist;
+export default Dots;
