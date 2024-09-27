@@ -23,5 +23,9 @@ export const globalAlbumDataState = atom({
     key: 'globalAlbumDataState',
     default: []
 })
-
+export const artistNameState = atom({
+    key: 'artistNameState',
+    default: ''
+})
+ 
 
