@@ -8,12 +8,14 @@ import { text } from "stream/consumers";
 import Image from "next/image";
 import { useWindowSize } from "react-use";
 import { useRecoilState } from "recoil";
-import { albumCoverState, globalAlbumDataState, musicState, newsImageState } from "@/app/state";
+import { albumCoverState, globalAlbumDataState, mudicIDState, musicState, newsImageState } from "@/app/state";
 import { useEffect } from "react";
 import axios from "axios";
 const ArtistTable = () => {
   const [musicArray, setMusicArray] = useRecoilState(musicState);
   const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
+  const [musicID, setMusicId] = useRecoilState(mudicIDState)
+
 
 
   const formatDuration = (seconds: number) => {
@@ -44,7 +46,7 @@ const ArtistTable = () => {
       width: "30%",
       render: (text: any, record: any,item: any) => (
         <div className={styles.cellSongname}>
-          <Image className={styles.img} src={item.albumCover} width={48} height={48} alt={text} />
+          <img className={styles.img} src={item.albumCover} width={48} height={48} alt={text} />
           <div className={styles.fontGap}>
             <div className={styles.songTitle}>{item.name}</div>
             <div className={styles.songArtist}>{item.artistName}</div>
@@ -99,6 +101,11 @@ const ArtistTable = () => {
       <Table
         className={styles.container}
         dataSource={musicArray}
+        onRow={(record: any) => ({
+          onClick: () => {
+            setMusicId(record.id);
+          },
+        })}
         columns={columns}
         pagination={false}
         rowClassName={styles.row111111}
