@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { useRecoilState } from "recoil";
-import { albumIdState, albumidState, clickFetchState } from "@/app/state";
+import { albumIdState, albumidState, clickFetchState, mudicIDState } from "@/app/state";
 import { useRouter } from "next/navigation";
 import styles from "./Header.module.scss";
 import Input from "../Input/Input";
@@ -23,6 +23,8 @@ const Header: React.FC<InputTpo> = (props) => {
   const [albumId, setAlbumId] = useRecoilState(albumidState);
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
   const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
+  const [musicID, setMusicId] = useRecoilState(mudicIDState)
+
 
   const router = useRouter();
 
@@ -159,7 +161,7 @@ const Header: React.FC<InputTpo> = (props) => {
               }
               {
                 musicData.map((item: any, index) => (
-                  <div key={`music-${index}`} className={styles.searchItem}>
+                  <div key={`music-${index}`} onClick={() => setMusicId(item.id)} className={styles.searchItem}>
                     <Image src={item.albumCover} width={72} height={72} alt="musiccover" />
                     <div className={styles.white}>
                       <div >{item.name}</div>

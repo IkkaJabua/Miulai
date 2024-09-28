@@ -21,17 +21,20 @@ const CreatePlaylist = ({ onClick }: Props) => {
     const onSubmit = async (values: any) => {
         const data: any = new FormData()
         data.append('name', String(values.name))
+        data.append('file', values.file[0])
+
+      axios.post('https://interstellar-1-pdzj.onrender.com/playlist', data).
+        then((r) => {
+          console.log(r)
+        })
+
         // data.append('useId', )
 
         // data.append('artistName', values.artistName)
-        // data.append('file', values.file[0])
         // data.append('description', values.description)
 
 
-        axios.post('https://interstellar-1-pdzj.onrender.com/playlist', data).
-            then((r) => {
-                console.log(r)
-            })
+
 
         // console.log('=====>>>>', values.Playlistname)
         // console.log('=====>>>>', values.file[0])

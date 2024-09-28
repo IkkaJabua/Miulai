@@ -8,7 +8,7 @@ import { text } from "stream/consumers";
 import Image from "next/image";
 import { useWindowSize } from "react-use";
 import { useRecoilState } from "recoil";
-import { globalAlbumDataState, musicState } from "@/app/state";
+import { globalAlbumDataState, mudicIDState, musicState } from "@/app/state";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -16,6 +16,8 @@ import Cookies from "js-cookie";
 const chartTable = () => {
     const [musicArray, setMusicArray] = useRecoilState(musicState);
     const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
+    const [musicID, setMusicId] = useRecoilState(mudicIDState)
+
     const [albumData, setAlbumData] = useState()
     const [musicData, setMusicData] = useState<any>()
     const [musicCover, setMusicCover] = useState<any>()
@@ -116,6 +118,11 @@ const chartTable = () => {
                 className={styles.container}
                 dataSource={musicCover}
                 columns={columns}
+                onRow={(record: any) => ({
+                    onClick: () => {
+                        setMusicId(record.id);
+                    },
+                })}
                 pagination={false}
                 rowClassName={styles.row111111}
             />
