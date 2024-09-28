@@ -50,5 +50,9 @@ export const playerDisplayState = atom({
     key: 'playerDisplayState',
     default: 157
 })
+export const albumMusicFromArtistState = atom({
+    key: 'albumMusicFromArtistState',
+    default: []
+})
  
 

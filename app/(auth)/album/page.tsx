@@ -8,7 +8,7 @@ import styles from './page.module.scss'
 import Link from 'next/link'
 import axios from 'axios'
 import { useRecoilState } from 'recoil'
-import { albumIdState } from '@/app/state'
+import { albumIdState, albumMusicFromArtistState } from '@/app/state'
 import { useStartTyping } from 'react-use'
 
 
@@ -16,14 +16,18 @@ const album = () => {
     const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
     const [albumCover, setAlbumcover] = useState()
     const [albumName, setAlbumName] = useState()
+    const [albumPage, setAlbumPage] = useRecoilState(albumMusicFromArtistState)
 
     useEffect(() => {
 
         axios.get(`https://interstellar-1-pdzj.onrender.com/album/${albumIDData}`). 
         then((r) => {
-            console.log(r.data.file.url)
+            console.log(r.data.musics,'musics musics')
+            setAlbumPage(r.data.musics)
             setAlbumcover(r.data.file.url)
             setAlbumName(r.data.albumName)
+
+
         }).catch(error => {
             console.log('ar modis albimdata')
         })
