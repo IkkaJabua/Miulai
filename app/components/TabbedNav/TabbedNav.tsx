@@ -65,7 +65,7 @@ const TabbedNav = (props: Props) => {
           setMusicArray(allMusics);
         });
     }
-  }, []);
+  }, [clickFetch]);
 
   return (
     <div className={styles.tabbedNav}>

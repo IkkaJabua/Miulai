@@ -1,33 +1,49 @@
-import { useEffect, useState } from 'react'
-import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn'
-import Icon from '../Icon/Icon'
+import { useEffect, useState } from 'react';
+import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn';
+import Icon from '../Icon/Icon';
+import Image from 'next/image';
 import styles from './ MusicCard.module.scss'
-import Image from 'next/image'
-import Playlist from '../Playlist/Playlist'
-import axios from "axios";
+import Playlist from '../Playlist/Playlist';
+import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { mudicIDState } from '@/app/state';
+import Cookies from 'js-cookie';
 
 const MusicCard = () => {
   const [active, setActive] = useState<number>();
-
+  const [musicID, setMusicId] = useRecoilState(mudicIDState);
+  const token = Cookies.get("accessToken");
   const [cardData, setCardData] = useState<any>([]);
 
+  const [fetchMusic, setfetchMusic] = useState()
+
+  // Fetching all music data
   useEffect(() => {
-    axios.get("https://interstellar-1-pdzj.onrender.com/music").then((r) => {
-      setCardData(r.data);
-      console.log(r.data);
-    });
+    axios.get("https://interstellar-1-pdzj.onrender.com/music")
+      .then((r) => {
+        setCardData(r.data);
+        console.log(r.data, 'Music list fetched');
+      })
+      .catch((error) => {
+        console.error("Error fetching music list:", error);
+      });
   }, []);
+
 
   return (
     <div className={styles.mainContainer}>
       {cardData.map((item: any, index: any) => (
-        <div className={styles.container} key={item.id}>
+        <div
+          className={styles.container}
+          key={item.id}
+          onClick={() => setMusicId(item.id)}
+        >
           <div className={styles.container_author}>
             <div>
               <Image
-              className={styles.img}
+                className={styles.img}
                 src={item.albumCover}
-                alt={"foto ar ari "}
+                alt={"album cover"}
                 width={72}
                 height={72}
               />
@@ -40,7 +56,7 @@ const MusicCard = () => {
             </div>
           </div>
           <div className={styles.container_detals}>
-            <div className={styles.time_font_style}>3.58</div>
+            <div className={styles.time_font_style}>3:58</div>
             <div className={styles.container_like_point}>
               <HeartShapeBtn
                 isDisabled={false}
@@ -49,9 +65,7 @@ const MusicCard = () => {
               />
               <div
                 className={styles.cursor}
-                onClick={() =>
-                  setActive(active === item.id ? undefined : item.id)
-                }
+                onClick={() => setActive(active === item.id ? undefined : item.id)}
               >
                 <Image
                   src={"./Dots.svg"}

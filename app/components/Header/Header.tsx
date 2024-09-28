@@ -31,9 +31,11 @@ const Header: React.FC<InputTpo> = (props) => {
     if (inputValue) {
       axios
         .get(`https://interstellar-1-pdzj.onrender.com/search?search=${inputValue}`)
-        .then((response) => {
-          const data = response.data;
+        .then((r) => {
+          const data = r.data;
           console.log("API Response:", data);
+          console.log(r.data, ' searchData')
+
 
           // Set states for authors, albums, and music
           setSearchItems(data.authors || []);
@@ -125,6 +127,8 @@ const Header: React.FC<InputTpo> = (props) => {
                     ) : null
                     }
                     <div className={styles.white}>{author.firstName}</div>
+                    <div className={styles.musicSelection}>Artist</div>
+
                   </div>
                 ))}
 
@@ -149,13 +153,19 @@ const Header: React.FC<InputTpo> = (props) => {
                       <div>{album.albumName}</div>
                       <div className={styles.grayFont}>{album.artistName}</div>
                     </div>
+                    <div className={styles.musicSelection}>Album</div>
                   </div>
                 ))
               }
               {
-                musicData.map((music: any, index) => (
+                musicData.map((item: any, index) => (
                   <div key={`music-${index}`} className={styles.searchItem}>
-                    <div className={styles.white}>{music.title}</div>
+                    <Image src={item.albumCover} width={72} height={72} alt="musiccover" />
+                    <div className={styles.white}>
+                      <div >{item.name}</div>
+                      <div className={styles.grayFont}>{item.artistName}</div>
+                    </div>
+                    <div className={styles.musicSelection}>Music</div>
                   </div>
                 ))
               }

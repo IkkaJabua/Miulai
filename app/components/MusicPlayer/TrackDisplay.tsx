@@ -2,6 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn';
 import style from './TrackDisplay.module.scss';
+import { useRecoilState } from 'recoil';
+import { playerDisplayState } from '@/app/state';
 
 interface TrackDisplayProps {
     currentTrack?: {
@@ -12,6 +14,8 @@ interface TrackDisplayProps {
 }
 
 const TrackDisplay = ({ currentTrack }: TrackDisplayProps) => {
+    const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState)
+
     if (!currentTrack) {
         // Return a default placeholder or nothing if no currentTrack is provided
         return (
@@ -24,7 +28,7 @@ const TrackDisplay = ({ currentTrack }: TrackDisplayProps) => {
     return (
         <div className={style.container}>
             <Image
-                src={currentTrack.albumArt || '/defaultAlbumArt.jpg'} // Fallback if albumArt is missing
+                src={playerDisplay?.albumCover} // Fallback if albumArt is missing
                 alt="AlbumArt"
                 width={80}
                 height={80}
@@ -39,8 +43,8 @@ const TrackDisplay = ({ currentTrack }: TrackDisplayProps) => {
                             onClick={() => console.log('Like button clicked!')}
                         />
                     </div>
-                    <span className={style.title}>{currentTrack.title || 'Unknown Title'}</span> {/* Fallback for title */}
-                    <span className={style.artist}>{currentTrack.artist || 'Unknown Artist'}</span> {/* Fallback for artist */}
+                    <span className={style.title}>{playerDisplay.name || 'Unknown Title'}</span> {/* Fallback for title */}
+                    <span className={style.artist}>{playerDisplay.artistName || 'Unknown Artist'}</span> {/* Fallback for artist */}
                 </div>
             </div>
         </div>

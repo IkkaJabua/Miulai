@@ -41,5 +41,18 @@ export const albumCoverState = atom({
     key: 'albumCoverState',
     default: []
 })
+
+export const mudicIDState = atom({
+    key: 'mudicIDState',
+    default: 155
+})
+export const playerDisplayState = atom({
+    key: 'playerDisplayState',
+    default: 157
+})
+export const albumMusicFromArtistState = atom({
+    key: 'albumMusicFromArtistState',
+    default: []
+})
  
 
