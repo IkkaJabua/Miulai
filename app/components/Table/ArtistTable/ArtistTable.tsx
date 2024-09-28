@@ -42,9 +42,9 @@ const ArtistTable = () => {
       dataIndex: "title",
       key: "title",
       width: "30%",
-      render: (text: any, record: any,item: any) => (
+      render: (text: any, item: any) => (
         <div className={styles.cellSongname}>
-          <Image className={styles.img} src={item.albumCover} width={48} height={48} alt={text} />
+          <img className={styles.img} src={item.albumCover} width={48} height={48} alt={text} />
           <div className={styles.fontGap}>
             <div className={styles.songTitle}>{item.name}</div>
             <div className={styles.songArtist}>{item.artistName}</div>
