@@ -25,7 +25,8 @@ const MusicCard = () => {
           <div className={styles.container_author}>
             <div>
               <Image
-                src={item.file?.url}
+              className={styles.img}
+                src={item.albumCover}
                 alt={"foto ar ari "}
                 width={72}
                 height={72}
@@ -34,7 +35,7 @@ const MusicCard = () => {
             <div className={styles.container_name}>
               <div className={styles.music_name_font_style}>{item.name}</div>
               <div className={styles.music_author_font_style}>
-                {item.artistName} Daft Punk
+                {item.artistName}
               </div>
             </div>
           </div>

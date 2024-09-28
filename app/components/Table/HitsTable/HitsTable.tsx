@@ -61,8 +61,8 @@ const HitsTable = () => {
         <div className={styles.cellSongname}>
           <img className={styles.img} src={item.albumCover} width={48} height={48} alt={text} />
           <div className={styles.fontGap}>
-            <div className={styles.songTitle}>{item.name}</div>
-            <div className={styles.songArtist}>{item.artistName}</div>
+            <div className={styles.songTitle}>{item.name || 'sandro'}</div>
+            <div className={styles.songArtist}>{item.artistName || 'sandro'}</div>
           </div>
         </div>
       ),
