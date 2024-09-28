@@ -21,13 +21,18 @@ const HitsTable = () => {
     const [musicCover,setMusicCover] = useState<any>()
   
   useEffect(() => {
-    axios.get(`https://interstellar-1-pdzj.onrender.com/album`)
+    axios.get(`https://interstellar-1-pdzj.onrender.com/music`)
     .then((r) => {
       console.log(r.data,'musics musics')
       setMusicCover(r.data)
     
     });
   }, []);
+  const formatDuration = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  };
 
 
 
@@ -42,8 +47,8 @@ const HitsTable = () => {
       dataIndex: "id",
       key: "id",
       width: "1%",
-      render: (text: any, item: any) => (
-        <div className={styles.cellId}>{text}</div>
+      render: (text: any, item: any,index : any) => (
+        <div className={styles.cellId}>{index + 1}</div>
       ),
     },
 
@@ -54,7 +59,7 @@ const HitsTable = () => {
       width: "30%",
       render: (text: any, item: any, record: any) => (
         <div className={styles.cellSongname}>
-          {/* <Image src={item.file.url} width={48} height={48} alt={text} /> */}
+          <img className={styles.img} src={item.albumCover} width={48} height={48} alt={text} />
           <div className={styles.fontGap}>
             <div className={styles.songTitle}>{item.name}</div>
             <div className={styles.songArtist}>{item.artistName}</div>
@@ -83,7 +88,8 @@ const HitsTable = () => {
           key: "time",
           width: "15%",
           render: (text: any, item: any) => (
-            <div className={styles.cellTimeName}>{}</div>
+            <div className={styles.cellTimeName}>{formatDuration(item.duration)}</div>  
+            // there is duration 
           ),
         }
       : {
