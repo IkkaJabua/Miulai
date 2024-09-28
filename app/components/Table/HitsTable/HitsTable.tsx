@@ -14,26 +14,22 @@ import axios from "axios";
 import Cookies from "js-cookie";
 
 const HitsTable = () => {
-  //   const [musicArray, setMusicArray] = useRecoilState(musicState);
-  //   const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
-
-  const [albums, setAlbums] = useState([]);
-  const [musics, setMusics] = useState([])
-
-
-  const accessToken = Cookies.get("accessToken");
-
+    const [musicArray, setMusicArray] = useRecoilState(musicState);
+    const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
+    const [albumData, setAlbumData] = useState()
+    const [musicData, setMusicData] = useState<any>()
+    const [musicCover,setMusicCover] = useState<any>()
   
   useEffect(() => {
     axios.get(`https://interstellar-1-pdzj.onrender.com/album`)
     .then((r) => {
-      setAlbums(r.data)
-      console.log(r.data, 'albumssss');
-      
-      
-      
+      console.log(r.data,'musics musics')
+      setMusicCover(r.data)
+    
     });
   }, []);
+
+
 
   const { width, height } = useWindowSize();
   const isMobile = width > 767;
@@ -53,15 +49,15 @@ const HitsTable = () => {
 
     {
       title: isMobile ? "Song Name" : "",
-      dataIndex: "title",
+      dataIndex: "musicCover",
       key: "title",
       width: "30%",
-      render: (text: any, item: any) => (
+      render: (text: any, item: any, record: any) => (
         <div className={styles.cellSongname}>
-          <Image src={`/`} width={48} height={48} alt={text} />
+          {/* <Image src={item.file.url} width={48} height={48} alt={text} /> */}
           <div className={styles.fontGap}>
-            <div className={styles.songTitle}>{}</div>
-            <div className={styles.songArtist}>{}</div>
+            <div className={styles.songTitle}>{item.name}</div>
+            <div className={styles.songArtist}>{item.artistName}</div>
           </div>
         </div>
       ),
@@ -73,7 +69,7 @@ const HitsTable = () => {
           key: "album",
           width: "25%",
           render: (text: any, item: any) => (
-            <div className={styles.cellAlbumName}>{}</div>
+            <div className={styles.cellAlbumName}>{item.albumName}</div>
           ),
         }
       : {
@@ -112,7 +108,7 @@ const HitsTable = () => {
     <div className={styles.wrapper}>
       <Table
         className={styles.container}
-        dataSource={albums}
+        dataSource={musicCover}
         columns={columns}
         pagination={false}
         rowClassName={styles.row111111}
