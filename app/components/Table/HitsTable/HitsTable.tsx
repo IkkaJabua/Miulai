@@ -8,32 +8,35 @@ import { text } from "stream/consumers";
 import Image from "next/image";
 import { useWindowSize } from "react-use";
 import { useRecoilState } from "recoil";
-import { globalAlbumDataState, musicState } from "@/app/state";
+import { globalAlbumDataState, mudicIDState, musicState } from "@/app/state";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
 const HitsTable = () => {
-  //   const [musicArray, setMusicArray] = useRecoilState(musicState);
-  //   const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
+    const [musicArray, setMusicArray] = useRecoilState(musicState);
+    const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
+  const [musicID, setMusicId] = useRecoilState(mudicIDState)
 
-  const [albums, setAlbums] = useState([]);
-  const [musics, setMusics] = useState([])
-
-
-  const accessToken = Cookies.get("accessToken");
-
+    const [albumData, setAlbumData] = useState()
+    const [musicData, setMusicData] = useState<any>()
+    const [musicCover,setMusicCover] = useState<any>()
   
   useEffect(() => {
-    axios.get(`https://interstellar-1-pdzj.onrender.com/album`)
+    axios.get(`https://interstellar-1-pdzj.onrender.com/music`)
     .then((r) => {
-      setAlbums(r.data)
-      console.log(r.data, 'albumssss');
-      
-      
-      
+      console.log(r.data,'musics musics')
+      setMusicCover(r.data)
+    
     });
   }, []);
+  const formatDuration = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  };
+
+
 
   const { width, height } = useWindowSize();
   const isMobile = width > 767;
@@ -46,22 +49,22 @@ const HitsTable = () => {
       dataIndex: "id",
       key: "id",
       width: "1%",
-      render: (text: any, item: any) => (
-        <div className={styles.cellId}>{text}</div>
+      render: (text: any, item: any,index : any) => (
+        <div className={styles.cellId}>{index + 1}</div>
       ),
     },
 
     {
       title: isMobile ? "Song Name" : "",
-      dataIndex: "title",
+      dataIndex: "musicCover",
       key: "title",
       width: "30%",
-      render: (text: any, item: any) => (
+      render: (text: any, item: any, record: any) => (
         <div className={styles.cellSongname}>
-          <Image src={`/`} width={48} height={48} alt={text} />
+          <img className={styles.img} src={item.albumCover} width={48} height={48} alt={text} />
           <div className={styles.fontGap}>
-            <div className={styles.songTitle}>{}</div>
-            <div className={styles.songArtist}>{}</div>
+            <div className={styles.songTitle}>{item.name}</div>
+            <div className={styles.songArtist}>{item.artistName}</div>
           </div>
         </div>
       ),
@@ -73,7 +76,7 @@ const HitsTable = () => {
           key: "album",
           width: "25%",
           render: (text: any, item: any) => (
-            <div className={styles.cellAlbumName}>{}</div>
+            <div className={styles.cellAlbumName}>{item.albumName}</div>
           ),
         }
       : {
@@ -87,7 +90,8 @@ const HitsTable = () => {
           key: "time",
           width: "15%",
           render: (text: any, item: any) => (
-            <div className={styles.cellTimeName}>{}</div>
+            <div className={styles.cellTimeName}>{formatDuration(item.duration)}</div>  
+            // there is duration 
           ),
         }
       : {
@@ -112,7 +116,12 @@ const HitsTable = () => {
     <div className={styles.wrapper}>
       <Table
         className={styles.container}
-        dataSource={albums}
+        dataSource={musicCover}
+        onRow={(record: any) => ({
+          onClick: () => {
+            setMusicId(record.id);
+          },
+        })}
         columns={columns}
         pagination={false}
         rowClassName={styles.row111111}

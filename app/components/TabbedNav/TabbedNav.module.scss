@@ -4,6 +4,7 @@
     align-items: flex-start;
     width: 100%;
 
+
     
     .tabs {
         display: flex;
@@ -52,18 +53,15 @@
     .tabContent {
         width: 100%;
         padding: 20px;
-     
 
     }
 }
 
 .cards {
     display: flex;
-    gap: 35px;
+    gap: 10px;
     margin-left: -10px;
     overflow-x: scroll;
-    margin-top: 30px;
-    margin-bottom: 30px;
 }
 
 .image {
@@ -71,16 +69,11 @@
     width: 100%;
     max-height: 325px;
     height: 100%;
+    border-radius: 8px;
 }
 
 .cards::-webkit-scrollbar {
-    width: 3px;        
-}
-  
-.cards::-webkit-scrollbar-thumb {
-    background-color: #9A16F2;   
-    border-radius: 20px;      
-    border: 8px solid black;  
+    display: none;
 }
 
 .bio {
@@ -94,7 +87,6 @@
     gap: 20px;
     height: 100%;
     overflow-y: scroll;
-
 }
 
 .bioRightside {
@@ -134,5 +126,5 @@
     background-color: #9A16F2;   
     border-radius: 20px;      
     border: 3px solid black;  
-}
+  }
   

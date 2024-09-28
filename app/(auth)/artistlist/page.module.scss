@@ -13,47 +13,61 @@
 }
 
 .wrapper {
-    display: flex;
-    flex-wrap: wrap; /* Allow wrapping of items */
-    justify-content: center; /* Center the cards */
-    gap: 25px; /* Set gap to 25px */
-}
-
-.card {
-    flex: 0 1 200px; /* Set a base width for cards */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
 }
 
 .h2 {
     color: #fff;
-    margin-bottom: 30px;
-    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Media queries */
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 300px) and (max-width: 767px) {
     .container2 {
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-bottom: 180px;
+    }
+
+    .container2 {
         padding-right: 30px;
         padding-left: 15px;
     }
 
     .wrapper {
-        gap: 25px; /* Maintain 25px gap */
+        gap: 35px;
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 485px) and (max-width: 505px) {
     .wrapper {
-        gap: 25px; /* Maintain 25px gap */
+        gap: 50px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1123px) {
+    .wrapper {
+        gap: 55px;
+    }
+
+    .container2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+        padding-right: 40px;
     }
 }
 
 @media screen and (min-width: 1123px) {
     .wrapper {
-        gap: 25px; /* Maintain 25px gap */
+        gap: 40px;
+    }
+
+    .container2 {
+        padding-right: 30px;
     }
 }
-    

@@ -27,5 +27,32 @@ export const artistNameState = atom({
     key: 'artistNameState',
     default: ''
 })
+
+export const clickFetchState = atom({
+    key: 'clickFetchState',
+    default: false
+})
+export const albumIdState = atom({
+    key: 'albumIdState',
+    default: 64
+
+})
+export const albumCoverState = atom({
+    key: 'albumCoverState',
+    default: []
+})
+
+export const mudicIDState = atom({
+    key: 'mudicIDState',
+    default: 155
+})
+export const playerDisplayState = atom({
+    key: 'playerDisplayState',
+    default: 157
+})
+export const albumMusicFromArtistState = atom({
+    key: 'albumMusicFromArtistState',
+    default: []
+})
  
 
