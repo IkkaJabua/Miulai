@@ -46,7 +46,7 @@ const ArtistTable = () => {
       width: "30%",
       render: (text: any, record: any,item: any) => (
         <div className={styles.cellSongname}>
-          <img className={styles.img} src={item.albumCover} width={48} height={48} alt={text} />
+          <img className={styles.img} src={item?.albumCover} width={48} height={48} alt={text} />
           <div className={styles.fontGap}>
             <div className={styles.songTitle}>{item.name}</div>
             <div className={styles.songArtist}>{item.artistName}</div>
@@ -101,13 +101,13 @@ const ArtistTable = () => {
       <Table
         className={styles.container}
         dataSource={musicArray}
+        columns={columns}
+        pagination={false}
         onRow={(record: any) => ({
           onClick: () => {
             setMusicId(record.id);
           },
         })}
-        columns={columns}
-        pagination={false}
         rowClassName={styles.row111111}
       />
     </div>
