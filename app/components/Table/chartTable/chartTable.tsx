@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const chartTable = () => {
+const ChartTable = () => {
     const [musicArray, setMusicArray] = useRecoilState(musicState);
     const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
     const [musicID, setMusicId] = useRecoilState(mudicIDState)
@@ -130,4 +130,4 @@ const chartTable = () => {
     );
 };
 
-export default chartTable;
+export default ChartTable;
