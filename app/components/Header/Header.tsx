@@ -1,9 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
-import Icon from "../Icon/Icon";
-import Input from "../Input/Input";
-import styles from "./Header.module.scss";
 import Image from "next/image";
 import axios from "axios";
+import { useRecoilState } from "recoil";
+import { albumIdState, albumidState, clickFetchState } from "@/app/state";
+import { useRouter } from "next/navigation";
+import styles from "./Header.module.scss";
+import Input from "../Input/Input";
 
 interface InputTpo {
   value?: string;
@@ -11,23 +13,48 @@ interface InputTpo {
 }
 
 const Header: React.FC<InputTpo> = (props) => {
-  const [inputValue, setInputValue] = useState('');
-  const [searchItems, setSearchItems] = useState([]);
+  const [inputValue, setInputValue] = useState("");
+  const [searchItems, setSearchItems] = useState([]); // For authors
+  const [albumSearch, setSearchAlbum] = useState([]); // For albums
+  const [musicData, setMusicData] = useState([]); // For music
   const [showDropdown, setShowDropdown] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const searchWrapperRef = useRef<HTMLDivElement>(null);
+  const [albumId, setAlbumId] = useRecoilState(albumidState);
+  const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
+  const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
+
+  const router = useRouter();
 
   useEffect(() => {
+    // Fetch data only if there's an input value
     if (inputValue) {
       axios
         .get(`https://interstellar-1-pdzj.onrender.com/search?search=${inputValue}`)
-        .then((r) => {
-          setSearchItems(r.data.authors);
-          setShowDropdown(true);
+        .then((response) => {
+          const data = response.data;
+          console.log("API Response:", data);
+
+          // Set states for authors, albums, and music
+          setSearchItems(data.authors || []);
+          setSearchAlbum(data.album || []);
+          setMusicData(data.music || []);
+
+          // Show dropdown only if there are results
+          setShowDropdown(
+            (data.authors && data.authors.length > 0) ||
+            (data.album && data.album.length > 0) ||
+            (data.music && data.music.length > 0)
+          );
         })
-        .catch((error) => console.error("Error fetching search results:", error));
+        .catch((error) => {
+          console.error("Error fetching search results:", error);
+        });
     } else {
+      // Clear dropdown if input is empty
       setSearchItems([]);
+      setSearchAlbum([]);
+      setMusicData([]);
       setShowDropdown(false);
     }
   }, [inputValue]);
@@ -47,16 +74,24 @@ const Header: React.FC<InputTpo> = (props) => {
       if (!searchWrapperRef.current?.contains(document.activeElement)) {
         setIsFocused(false);
         setShowDropdown(false);
-        if (isFocused) {
-          setInputValue('');
-        }
       }
     }, 200);
   };
 
-  const handleItemClick = (item: any) => {
-    setInputValue(item.firstName);
-    setShowDropdown(false);
+  const handleAlbumClick = (album: any) => {
+    router.push("/album");
+    setAlbumId(album.id);
+    // console.log(album.id)
+    setAlbumIDData(album.id)
+    setClickFetch(!clickFetch);
+    setInputValue(""); // Reset input field after selection
+  };
+
+  const handleAuthorClick = (author: any) => {
+    router.push("/artist");
+    setAlbumId(author.id); // Assuming you use the same state for albums and authors
+    setClickFetch(!clickFetch);
+    setInputValue(""); // Reset input field after selection
   };
 
   return (
@@ -70,29 +105,60 @@ const Header: React.FC<InputTpo> = (props) => {
             value={inputValue}
             className={styles.input}
           />
-          {inputValue !== '' && showDropdown && searchItems.length > 0 && (
+          {showDropdown && (
             <div className={styles.searchDropdown}>
-              {searchItems.map((item: any, index) => (
-                <div 
-                  key={index} 
-                  className={styles.containerInside}
-                  onMouseDown={(e) => e.preventDefault()} 
-                  onClick={() => handleItemClick(item)}
-                >
-                  {item.files && item.files[0]?.url ? (
-                    <div className={styles.searchItem}>
+              {
+                searchItems.map((author: any, index) => (
+                  <div
+                    key={`author-${index}`}
+                    className={styles.searchItem}
+                    onClick={() => handleAuthorClick(author)}
+                  >
+                    {author.files && author.files[0]?.url ? (
                       <img
                         className={styles.img}
-                        src={item.files[0].url}
+                        src={author.files[0].url}
                         width={72}
                         height={72}
-                        alt={item.firstName || "image"}
+                        alt={author.firstName || "Author Image"}
                       />
-                      <div className={styles.white}>{item.firstName}</div>
+                    ) : null
+                    }
+                    <div className={styles.white}>{author.firstName}</div>
+                  </div>
+                ))}
+
+
+              {
+                albumSearch.map((album: any, index) => (
+                  <div
+                    key={`album-${index}`}
+                    className={styles.searchItem}
+                    onClick={() => handleAlbumClick(album)}
+                  >
+                    {album.file && album.file.url ? (
+                      <img
+                        className={styles.albuImage}
+                        src={album.file.url}
+                        width={72}
+                        height={72}
+                        alt={album.albumName || "Album Image"}
+                      />
+                    ) : null}
+                    <div className={styles.white}>
+                      <div>{album.albumName}</div>
+                      <div className={styles.grayFont}>{album.artistName}</div>
                     </div>
-                  ) : null}
-                </div>
-              ))}
+                  </div>
+                ))
+              }
+              {
+                musicData.map((music: any, index) => (
+                  <div key={`music-${index}`} className={styles.searchItem}>
+                    <div className={styles.white}>{music.title}</div>
+                  </div>
+                ))
+              }
             </div>
           )}
         </div>

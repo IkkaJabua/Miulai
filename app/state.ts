@@ -27,5 +27,15 @@ export const artistNameState = atom({
     key: 'artistNameState',
     default: ''
 })
+
+export const clickFetchState = atom({
+    key: 'clickFetchState',
+    default: false
+})
+export const albumIdState = atom({
+    key: 'albumIdState',
+    default: 64
+
+})
  
 

@@ -119,8 +119,8 @@ const ArtistTable = () => {
       dataIndex: "id",
       key: "id",
       width: "1%",
-      render: (text: any, item: any) => (
-        <div className={styles.cellId}>{text}</div>
+      render: (text: any, record: any) => (
+        <div className={styles.cellId}>{record.id}</div>
       ),
     },
 

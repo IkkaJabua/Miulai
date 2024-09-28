@@ -8,6 +8,7 @@ import { useRecoilState } from "recoil";
 import {
   albumidState,
   artistNameState,
+  clickFetchState,
   globalAlbumDataState,
   musicState,
   newsImageState,
@@ -31,6 +32,8 @@ const TabbedNav = (props: Props) => {
   const [musicArray, setMusicArray] = useRecoilState(musicState);
   const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
   const [artistName, setArtistName] = useRecoilState(artistNameState);
+  const [clickFetch, setClickFetch] = useRecoilState(clickFetchState)
+
 
 
   const onTabClick = (tab: string) => {

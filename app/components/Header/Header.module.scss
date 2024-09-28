@@ -19,9 +19,8 @@
 }
 
 .searchDropdown {
-    background-color: black;
+    background-color: rgb(15, 14, 14);
     width: 100%;
-    height: 400px;
     position: absolute;
     top: 59px;
     display: flex;
@@ -31,11 +30,15 @@
     width: 500px;
     padding: 10px;
     border-bottom: 8px;
-    background: #151519;
     overflow-y: auto;
+    z-index: 20;
+    max-height: 500px;
 }
 
 .img {
+    border-radius: 50px;
+}
+.albuImage {
     border-radius: 8px;
 }
 
@@ -52,15 +55,25 @@
     gap: 10px;
     padding: 5px;
     cursor: pointer;
+    border-radius: 8px;
     transition: background-color 0.3s;
+    // background-color: rgb(22, 21, 21);
 
     &:hover {
+        border-radius: 10px;
         background-color: rgba(255, 255, 255, 0.1);
     }
 }
 
 .white {
     color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.grayFont {
+    font-size: 14px;
+    color: #9E9A9F;
 }
 
 .popupWrapper {
