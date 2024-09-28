@@ -1,4 +1,3 @@
-// pages/index.tsx
 "use client";
 
 import React, { useState, useRef, useEffect, useCallback } from "react";
@@ -7,6 +6,11 @@ import style from "./IndexPage.module.scss";
 import TrackDisplay from "./TrackDisplay";
 import SliderMobile from "./Slider/Slider";
 import axios from "axios";
+import { useRecoilState } from "recoil";
+import { mudicIDState, playerDisplayState } from "@/app/state";
+import Cookies from "js-cookie"; 
+
+
 
 const tracks = [
   {
@@ -57,8 +61,42 @@ const IndexPage: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const audioRef = useRef<HTMLAudioElement>(null);
-
   const currentTrack = tracks[currentTrackId];
+  const token = Cookies.get("accessToken");
+
+
+  const [musicID, setMusicId] = useRecoilState(mudicIDState)
+  const [fetchMusic, setfetchMusic] = useState()
+  const [playerDisplay, setPlayerDisplay] = useRecoilState(playerDisplayState)
+
+
+
+  useEffect(() => {
+    if (musicID && token) {
+      axios.get(`https://interstellar-1-pdzj.onrender.com/music/${musicID}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+        .then((r) => {
+          setfetchMusic(r.data.file.url)
+          setPlayerDisplay(r.data)
+
+
+
+          console.log(r.data, 'Music details fetched');
+        })
+        .catch((error) => {
+          console.error('Error fetching music details:', error);
+        });
+    } else {
+      console.warn("MusicID or accessToken is missing");
+    }
+  }, [musicID, token]);
+
+
+
+
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -209,7 +247,7 @@ const IndexPage: React.FC = () => {
 
         <audio
           ref={audioRef}
-          src={music}
+          src={fetchMusic}
           onError={() => console.error("Audio failed to load")}
         />
       </div>
