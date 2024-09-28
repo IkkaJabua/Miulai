@@ -6,6 +6,7 @@ import Image from "next/image";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import {
+    albumCoverState,
   albumidState,
   artistNameState,
   clickFetchState,
@@ -34,6 +35,8 @@ const TabbedNav = (props: Props) => {
   const [artistName, setArtistName] = useRecoilState(artistNameState);
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState)
 
+    const [albumCover, setAlbumcover] = useRecoilState<any>(albumCoverState)
+
 
 
   const onTabClick = (tab: string) => {
@@ -51,7 +54,6 @@ const TabbedNav = (props: Props) => {
           setImage(r.data?.files[0]?.url);
           setArtistPhoto(r.data.files[0].url);
           setAlbumData(r.data.albums);
-          console.log(r.data)
           setArtistName(r.data.firstName);
           const albumNames = r.data.albums.map((album: any) => album.albumName);
           setGlobalAlbum(albumNames);
@@ -61,7 +63,6 @@ const TabbedNav = (props: Props) => {
           }, []);
 
           setMusicArray(allMusics);
-          console.log(allMusics, "2paac");
         });
     }
   }, []);

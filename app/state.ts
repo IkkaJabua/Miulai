@@ -37,5 +37,9 @@ export const albumIdState = atom({
     default: 64
 
 })
+export const albumCoverState = atom({
+    key: 'albumCoverState',
+    default: []
+})
  
 
