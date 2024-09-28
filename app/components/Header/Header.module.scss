@@ -5,6 +5,7 @@
 }
 
 .container {
+    position: relative;
     width: 100%;
     display: flex;
     align-items: center;
@@ -12,12 +13,67 @@
     margin-bottom: 30px;
 }
 
+.searchWrapper {
+    position: relative;
+    width: 500px;
+}
+
+.searchDropdown {
+    background-color: rgb(15, 14, 14);
+    width: 100%;
+    position: absolute;
+    top: 59px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: gray;
+    width: 500px;
+    padding: 10px;
+    border-bottom: 8px;
+    overflow-y: auto;
+    z-index: 20;
+    max-height: 500px;
+}
+
+.img {
+    border-radius: 50px;
+}
+.albuImage {
+    border-radius: 8px;
+}
+
 .wrapper {
     display: flex;
     align-items: center;
     width: 100%;
     justify-content: space-between;
-    // margin-bottom: 32px;
+}
+
+.searchItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    // background-color: rgb(22, 21, 21);
+
+    &:hover {
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.white {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.grayFont {
+    font-size: 14px;
+    color: #9E9A9F;
 }
 
 .popupWrapper {

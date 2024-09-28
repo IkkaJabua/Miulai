@@ -4,10 +4,31 @@
     height: 100vh;
     padding: 16px;
     padding-top: 24px;
-    
+
 }
 
+.insideContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 550px;
+    background-color: red;
+}
 
+.itemContainer {
+    width: 500px;
+    height: 100px;
+    background: #151519;
+    color: white;
+}
+.white {
+    color: white;
 
+}
 
-
+.containerInside {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+}

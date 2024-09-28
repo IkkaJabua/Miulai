@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import HeartShapeBtn from "../heatShapeIcon/HeartShapeIcn";
-import Icon from "../Icon/Icon";
-import styles from "./ MusicCard.module.scss";
-import Image from "next/image";
-import Playlist from "../Playlist/Playlist";
+import { useEffect, useState } from 'react'
+import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn'
+import Icon from '../Icon/Icon'
+import styles from './ MusicCard.module.scss'
+import Image from 'next/image'
+import Playlist from '../Playlist/Playlist'
 import axios from "axios";
 
 const MusicCard = () => {
