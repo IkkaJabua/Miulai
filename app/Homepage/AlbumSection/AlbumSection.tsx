@@ -3,8 +3,11 @@ import styles from "./AlbumSection.module.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+
+
 const AlbumSection = () => {
   const [cardData, setCardData] = useState<any>([]);
+
 
   useEffect(() => {
     axios.get("https://interstellar-1-pdzj.onrender.com/album").then((r) => {
