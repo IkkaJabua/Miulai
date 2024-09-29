@@ -13,13 +13,13 @@ const HitsSection = () => {
     
     useEffect(() => {
      
-        axios.get(`https://interstellar-1-pdzj.onrender.com/author`, {
+        axios.get(`https://interstellar-1-pdzj.onrender.com/music`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
             }
         })  
         .then((r) => {
-            console.log(r.data);
+            console.log(r.data,'top hits');
             setMusics(r.data)
         })
     },[])
@@ -30,7 +30,7 @@ const HitsSection = () => {
                 {
                     musics.map((item:any) => (
                         <div className={styles.box} key={item.id}>
-                            <Card image={item?.files[0]?.url} subtitle={item.firstName} title={item?.lastName} imageStyle={'normal'} />
+                            <Card image={item?.albumCover} subtitle={item.artistName} title={item.name} imageStyle={'normal'} />
                         </div>
                     ))
                 }
