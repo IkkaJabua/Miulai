@@ -1,6 +1,9 @@
-'use client';
-import { useState } from 'react';
-import styles from './page.module.scss';
+'use client'
+import { useEffect, useState } from 'react';
+// import Button from '../components/Button/Button';
+// import Input from '../components/Input/Input';
+// import UserPlaylist from '../components/UserPlaylist/UserPlaylist';
+import styles from './page.module.scss'
 import Image from 'next/image';
 import Link from 'next/link';
 import BurgerMenu from '../../components/BurgerMenu/BurgerMenu';
@@ -10,40 +13,51 @@ import CreatePlaylist from '@/app/components/Playlist/CreatePlaylist/CreatePlayl
 import UserPlaylist from '@/app/components/UserPlaylist/UserPlaylist';
 import { useRouter } from 'next/navigation';
 import ReusableHeader from '@/app/components/ReusableHeader/ReusableHeader';
+// import Table from '../components/Table/Table';
+// import CreatePlaylist from '../components/Playlist/CreatePlaylist/CreatePlaylist';
+// import Link from 'next/link';
+
 
 const Playlists = () => {
-    const [active, setActive] = useState(false);
-    const router = useRouter();
+
+    const [active, setActive] = useState(false)
+
+    const [tablet, setTablet] = useState<any>(false)
+
+    const router = useRouter()
+
+    
+
 
     return (
         <div className={styles.container}>
             <div className={styles.miniContainer}>
                 <div className={styles.cellheader}>
+                    {/* <div>
+                        <div onClick={() => router.push('/')}>
+                            <Image className={styles.cursor} src={'./icon/isari.svg'} width={32} height={32} alt='image' />
+                        </div>
+                    </div>
+                    <Image src={'./icon/profile-icon.svg'} width={56} height={56} alt='profile image' /> */}
                     <ReusableHeader />
                 </div>
                 <div className={styles.cellFont}>
                     <Link href={'/'}>
-                        <Image
-                            className={styles.tabletCursos}
-                            src={'/icon/isari.svg'}
-                            width={32}
-                            height={32}
-                            alt='image'
-                        />
+                        <Image className={styles.tabletCursos} src={'./icon/isari.svg'} width={32} height={32} alt='image' />
                     </Link>
                     <div className={styles.mobileGap}>
-                        <div className={styles.cellMyPlaylist}>My Playlists</div>
+                        <div className={styles.cellMyPlaylist}>
+                            My Playlists
+                        </div>
                         <div className={styles.mobileButton}>
-                            <Button
-                                title={''}
+                            <Button title={''}
                                 mode={'reusable button'}
                                 imageSrc='plus.svg'
                                 imageHeight={20}
                                 imageWidth={20}
                                 padding='4px'
                                 borderRadius='4px'
-                                onClick={() => console.log('button clicked')}
-                            />
+                                onClick={() => console.log('button clicked')} />
                         </div>
                     </div>
                 </div>
@@ -68,7 +82,9 @@ const Playlists = () => {
                     </div>
                 </div>
                 <div className={styles.newPlaylist}>
-                    {active && <CreatePlaylist />}
+                    {active &&
+                        <CreatePlaylist />
+                    }
                 </div>
             </div>
             <div className={styles.cellPlaylist}>
@@ -76,7 +92,7 @@ const Playlists = () => {
             </div>
         </div>
     );
-};
+}
 
 Playlists.displayName = 'Playlists';
 
