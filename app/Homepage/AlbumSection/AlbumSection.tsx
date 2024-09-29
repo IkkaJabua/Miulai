@@ -2,11 +2,15 @@ import Card from "@/app/components/Card/Card";
 import styles from "./AlbumSection.module.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useRecoilState } from "recoil";
+import { clickFetchState } from "@/app/state";
 
 
 
 const AlbumSection = () => {
   const [cardData, setCardData] = useState<any>([]);
+  const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
+
 
 
   useEffect(() => {
@@ -15,7 +19,7 @@ const AlbumSection = () => {
       // console.log(r.data[0].musics)
       console.log(r.data);
     });
-  }, []);
+  }, [clickFetch]);
 
   return (
     <div className={styles.container}>
