@@ -23,9 +23,7 @@ const Id = () => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.cellheader} onClick={() => {
-                router.push('/playlists')
-            }}>
+            <div className={styles.cellheader}>
                 <ReusableHeader />
             </div>
             <div>
