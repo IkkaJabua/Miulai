@@ -10,7 +10,6 @@ import axios from 'axios'
 import { useRecoilState } from 'recoil'
 import { albumIdState, albumMusicFromArtistState } from '@/app/state'
 
-// Rename the component to start with an uppercase letter
 const Album = () => {
     const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
     const [albumCover, setAlbumCover] = useState<string>()
@@ -18,11 +17,9 @@ const Album = () => {
     const [albumPage, setAlbumPage] = useRecoilState(albumMusicFromArtistState)
 
     useEffect(() => {
-        // Ensure that albumIDData exists before making the request
         if (albumIDData) {
             axios.get(`https://interstellar-1-pdzj.onrender.com/album/${albumIDData}`)
                 .then((r) => {
-                    console.log(r.data.musics, 'musics musics')
                     setAlbumPage(r.data.musics)
                     setAlbumCover(r.data.file.url)
                     setAlbumName(r.data.albumName)
@@ -31,7 +28,7 @@ const Album = () => {
                     console.log('Failed to fetch album data:', error)
                 })
         }
-    }, [albumIDData]) // Added dependency array to avoid excessive requests
+    }, [albumIDData]) 
 
     return (
         <div className={styles.container}>
