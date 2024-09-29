@@ -32,9 +32,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <RecoilRoot>
       <body className={`${inter.className} ${PlusJakartaSans.className}`} >
         {children}
       </body>
+      </RecoilRoot>
     </html>
   );
 }
