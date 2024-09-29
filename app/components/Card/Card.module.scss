@@ -42,6 +42,9 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    white-space: nowrap;         /* Prevents text from wrapping */
+    overflow: hidden;            /* Hides overflowing text */
+    text-overflow: ellipsis;   
 }
 
 .container h4 {
@@ -51,6 +54,9 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    white-space: nowrap;         /* Prevents text from wrapping */
+    overflow: hidden;            /* Hides overflowing text */
+    text-overflow: ellipsis;     
 }
 
 .wrapper h3 {

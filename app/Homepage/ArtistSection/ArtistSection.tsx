@@ -24,7 +24,7 @@ const ArtistSection = () => {
   return (
     <div className={styles.container}>
       <div className={styles.art}>
-        {atrist.map((item: any) => (
+        {atrist.slice(0,5).map((item: any) => (
           <div className={styles.box} key={item.id}>
             <Card
               header={""}
