@@ -4,7 +4,6 @@ import axios from "axios";
 import CardsHeader from '../components/CardsHeader/CardsHeader';
 import Header from '../components/Header/Header';
 import News from '../components/News/News';
-import UserPopup from '../components/UserPopup/UserPopup';
 import AlbumSection from '../Homepage/AlbumSection/AlbumSection';
 import ArtistSection from '../Homepage/ArtistSection/ArtistSection';
 import ChartsSection from '../Homepage/ChartsSection/ChartsSection';

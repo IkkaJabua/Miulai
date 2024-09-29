@@ -3,9 +3,7 @@ import ReusableHeader from '@/app/components/ReusableHeader/ReusableHeader';
 import styles from './page.module.scss';
 import News from '@/app/components/News/News';
 import Input from '@/app/components/Input/Input';
-import Tables from '@/app/components/Table/Table';
-import Header from '@/app/components/Header/Header';
-import ChartsTable from '../../components/Table/chartTable/ChartTable';
+import ChartTable from '@/app/components/Table/chartTable/chartTable';
 
 
 
@@ -20,7 +18,7 @@ const Charts = () => {
             image={'/image/chart-background.png'} 
             plays={'509,678'} />
             <Input />
-            <ChartsTable />
+            <ChartTable />
         </div>
     )
 }

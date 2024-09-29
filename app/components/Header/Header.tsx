@@ -2,10 +2,16 @@ import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import axios from "axios";
 import { useRecoilState } from "recoil";
-import { albumIdState, albumidState, clickFetchState, mudicIDState } from "@/app/state";
+import {
+  albumIdState,
+  albumidState,
+  clickFetchState,
+  mudicIDState,
+} from "@/app/state";
 import { useRouter } from "next/navigation";
 import styles from "./Header.module.scss";
 import Input from "../Input/Input";
+import UserPopup from "../UserPopup/UserPopup";
 
 interface InputTpo {
   value?: string;
@@ -22,9 +28,14 @@ const Header: React.FC<InputTpo> = (props) => {
   const searchWrapperRef = useRef<HTMLDivElement>(null);
   const [albumId, setAlbumId] = useRecoilState(albumidState);
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
-  const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
-  const [musicID, setMusicId] = useRecoilState(mudicIDState)
+  const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState);
+  const [musicID, setMusicId] = useRecoilState(mudicIDState);
 
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
 
   const router = useRouter();
 
@@ -32,12 +43,13 @@ const Header: React.FC<InputTpo> = (props) => {
     // Fetch data only if there's an input value
     if (inputValue) {
       axios
-        .get(`https://interstellar-1-pdzj.onrender.com/search?search=${inputValue}`)
+        .get(
+          `https://interstellar-1-pdzj.onrender.com/search?search=${inputValue}`
+        )
         .then((r) => {
           const data = r.data;
           console.log("API Response:", data);
-          console.log(r.data, ' searchData')
-
+          console.log(r.data, " searchData");
 
           // Set states for authors, albums, and music
           setSearchItems(data.authors || []);
@@ -47,8 +59,8 @@ const Header: React.FC<InputTpo> = (props) => {
           // Show dropdown only if there are results
           setShowDropdown(
             (data.authors && data.authors.length > 0) ||
-            (data.album && data.album.length > 0) ||
-            (data.music && data.music.length > 0)
+              (data.album && data.album.length > 0) ||
+              (data.music && data.music.length > 0)
           );
         })
         .catch((error) => {
@@ -86,7 +98,7 @@ const Header: React.FC<InputTpo> = (props) => {
     router.push("/album");
     setAlbumId(album.id);
     // console.log(album.id)
-    setAlbumIDData(album.id)
+    setAlbumIDData(album.id);
     setClickFetch(!clickFetch);
     setInputValue(""); // Reset input field after selection
   };
@@ -111,76 +123,84 @@ const Header: React.FC<InputTpo> = (props) => {
           />
           {showDropdown && (
             <div className={styles.searchDropdown}>
-              {
-                searchItems.map((author: any, index) => (
-                  <div
-                    key={`author-${index}`}
-                    className={styles.searchItem}
-                    onClick={() => handleAuthorClick(author)}
-                  >
-                    {author.files && author.files[0]?.url ? (
-                      <img
-                        className={styles.img}
-                        src={author.files[0].url}
-                        width={72}
-                        height={72}
-                        alt={author.firstName || "Author Image"}
-                      />
-                    ) : null
-                    }
-                    <div className={styles.white}>{author.firstName}</div>
-                    <div className={styles.musicSelection}>Artist</div>
+              {searchItems.map((author: any, index) => (
+                <div
+                  key={`author-${index}`}
+                  className={styles.searchItem}
+                  onClick={() => handleAuthorClick(author)}
+                >
+                  {author.files && author.files[0]?.url ? (
+                    <img
+                      className={styles.img}
+                      src={author.files[0].url}
+                      width={72}
+                      height={72}
+                      alt={author.firstName || "Author Image"}
+                    />
+                  ) : null}
+                  <div className={styles.white}>{author.firstName}</div>
+                  <div className={styles.musicSelection}>Artist</div>
+                </div>
+              ))}
 
+              {albumSearch.map((album: any, index) => (
+                <div
+                  key={`album-${index}`}
+                  className={styles.searchItem}
+                  onClick={() => handleAlbumClick(album)}
+                >
+                  {album.file && album.file.url ? (
+                    <img
+                      className={styles.albuImage}
+                      src={album.file.url}
+                      width={72}
+                      height={72}
+                      alt={album.albumName || "Album Image"}
+                    />
+                  ) : null}
+                  <div className={styles.white}>
+                    <div>{album.albumName}</div>
+                    <div className={styles.grayFont}>{album.artistName}</div>
                   </div>
-                ))}
-
-
-              {
-                albumSearch.map((album: any, index) => (
-                  <div
-                    key={`album-${index}`}
-                    className={styles.searchItem}
-                    onClick={() => handleAlbumClick(album)}
-                  >
-                    {album.file && album.file.url ? (
-                      <img
-                        className={styles.albuImage}
-                        src={album.file.url}
-                        width={72}
-                        height={72}
-                        alt={album.albumName || "Album Image"}
-                      />
-                    ) : null}
-                    <div className={styles.white}>
-                      <div>{album.albumName}</div>
-                      <div className={styles.grayFont}>{album.artistName}</div>
-                    </div>
-                    <div className={styles.musicSelection}>Album</div>
+                  <div className={styles.musicSelection}>Album</div>
+                </div>
+              ))}
+              {musicData.map((item: any, index) => (
+                <div
+                  key={`music-${index}`}
+                  onClick={() => setMusicId(item.id)}
+                  className={styles.searchItem}
+                >
+                  <Image
+                    src={item.albumCover}
+                    width={72}
+                    height={72}
+                    alt="musiccover"
+                  />
+                  <div className={styles.white}>
+                    <div>{item.name}</div>
+                    <div className={styles.grayFont}>{item.artistName}</div>
                   </div>
-                ))
-              }
-              {
-                musicData.map((item: any, index) => (
-                  <div key={`music-${index}`} onClick={() => setMusicId(item.id)} className={styles.searchItem}>
-                    <Image src={item.albumCover} width={72} height={72} alt="musiccover" />
-                    <div className={styles.white}>
-                      <div >{item.name}</div>
-                      <div className={styles.grayFont}>{item.artistName}</div>
-                    </div>
-                    <div className={styles.musicSelection}>Music</div>
-                  </div>
-                ))
-              }
+                  <div className={styles.musicSelection}>Music</div>
+                </div>
+              ))}
             </div>
           )}
         </div>
-        <Image
-          src="/icon/userHeaderIcon.svg"
-          alt="User icon"
-          width={32}
-          height={32}
-          className={styles.image}
-        />
+        <div className={styles.userIconWrapper} onClick={togglePopup}>
+          <Image
+            src={"/icon/userHeaderIcon.svg"}
+            alt="User Icon"
+            width={32}
+            height={32}
+            className={styles.image}
+          />
+        </div>
+        {showPopup && (
+          <div className={styles.popupWrapper}>
+            <UserPopup />
+          </div>
+        )}
       </div>
     </div>
   );
