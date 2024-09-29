@@ -28,7 +28,7 @@
     "yarn": "^1.22.22"
   },
   "devDependencies": {
-    "@studiometa/prettier-config": "^3.0.0",
+    "@studiometa/prettier-config": "^4.1.0",
     "@types/crypto-js": "^4.2.2",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
