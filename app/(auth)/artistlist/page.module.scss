@@ -13,11 +13,21 @@
 }
 
 .wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
-    max-width: 100%;
-    margin: 0 auto;
-    position: relative;
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    // max-width: 100%;
+    // margin: 0 auto;
+    // position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    width: 100%;
+}
+
+@media screen and (min-width: 300px) and (max-width: 1100px) {
+    .wrapper {
+        justify-content: center;
+    }
 }
 
 .h2 {
@@ -62,12 +72,12 @@
     }
 }
 
-@media screen and (min-width: 1123px) {
-    .wrapper {
-        gap: 40px;
-    }
+// @media screen and (min-width: 1123px) {
+//     .wrapper {
+//         gap: 10px;
+//     }
 
-    .container2 {
-        padding-right: 30px;
-    }
-}
+//     .container2 {
+//         padding-right: 30px;
+//     }
+// }

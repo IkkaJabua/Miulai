@@ -8,6 +8,7 @@ import Table from '../../../components/Table/Table'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect } from 'react'
+import ReusableHeader from '@/app/components/ReusableHeader/ReusableHeader'
 
 
 
@@ -23,11 +24,7 @@ const Id = () => {
     return (
         <div className={styles.container}>
             <div className={styles.cellheader}>
-                <div>
-                    <Image onClick={() => router.back()} className={styles.cursor} src={'../icon/isari.svg'} width={32} height={32} alt='image' />
-                    {/* <Image className={styles.tabletBurgercursos} src={'../icon/menu-burger.svg'} width={44} height={44} alt='burger-menu-icon' /> */}
-                </div>
-                <Image src={'../icon/profile-icon.svg'} width={56} height={56} alt='profile image' />
+                <ReusableHeader />
             </div>
             <div>
                 <Image onClick={() => router.back()} className={styles.tabletCursor} src={'../icon/isari.svg'} width={32} height={32} alt='image' />

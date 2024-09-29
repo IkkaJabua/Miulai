@@ -15,6 +15,13 @@
         max-width: 500px;
     }
 
+    @media screen and (min-width: 300px) and (max-width: 575px) {
+        .tabs {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
     .tab {
         position: relative;
         background: none;
@@ -62,6 +69,7 @@
     gap: 10px;
     margin-left: -10px;
     overflow-x: scroll;
+    padding-top: 35px;
 }
 
 .image {
@@ -87,6 +95,14 @@
     gap: 20px;
     height: 100%;
     overflow-y: scroll;
+}
+
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .bio {
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 .bioRightside {
