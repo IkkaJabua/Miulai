@@ -28,7 +28,7 @@ const HitsSection = () => {
         <div className={styles.container}>
             <div className={styles.hits}>
                 {
-                    musics.map((item:any) => (
+                    musics.slice(0,5).map((item:any) => (
                         <div className={styles.box} key={item.id}>
                             <Card image={item?.files[0]?.url} subtitle={item.firstName} title={item?.lastName} imageStyle={'normal'} />
                         </div>

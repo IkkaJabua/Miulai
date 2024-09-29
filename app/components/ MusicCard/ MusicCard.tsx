@@ -32,7 +32,7 @@ const MusicCard = () => {
 
   return (
     <div className={styles.mainContainer}>
-      {cardData.map((item: any, index: any) => (
+      {cardData.slice(0,6).map((item: any, index: any) => (
         <div
           className={styles.container}
           key={item.id}

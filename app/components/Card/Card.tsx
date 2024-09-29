@@ -27,8 +27,8 @@ const Card = (props: Props) => {
                     <ItemsUnion />
                 </div>
                 
-                <span>{props.subtitle}</span>
-                <h4>{props.title}</h4>
+                <span className={styles.subtitle}>{props.subtitle}</span>
+                <h4 className={styles.h4}>{props.title}</h4>
             </div>
         </div>
     )

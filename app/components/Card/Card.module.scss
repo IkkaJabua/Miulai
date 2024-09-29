@@ -1,8 +1,98 @@
+// @import '../colors/colors.scss';
+
+// .wrapper {
+//     width: 260px;
+   
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     height: 100%;
+// }
+
+// .heading {
+//     text-align: center;
+// }
+
+// .container {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 5px;
+//     padding: 16px;
+//     background-color: $darkVoid;
+//     border-radius: 8px;
+//     position: relative;
+//     cursor: pointer;
+//     // max-height: 100%;
+//     // max-width: 100%;
+//     height: 280px;
+// }
+
+// .container:hover {
+//     background-color: #323232;
+// }
+
+// .container:hover .image {
+//     opacity: 0.8;
+// }
+
+// .container span:only-of-type {
+//     color: $shadyLady;
+//     font-size: 14px;
+//     font-family: var(--font-Plus-Jakarta-sans);
+//     font-style: normal;
+//     font-weight: 600;
+//     line-height: normal;
+// }
+
+// .container h4 {
+//     color: #FFF;
+//     font-family: var(--font-Plus-Jakarta-sans);
+//     font-size: 16px;
+//     font-style: normal;
+//     font-weight: 600;
+//     line-height: normal;
+// }
+
+// .wrapper h3 {
+//     color: #FFF;
+//     font-family: "Plus Jakarta Sans";
+//     font-size: 20px;
+//     font-style: normal;
+//     font-weight: 500;
+//     line-height: normal;
+// }
+
+// .imageRounded {
+//     border-radius: 50%;
+// }
+
+// .union {
+//     position: absolute;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     width: 100%;
+//     height: 100%;
+//     left: 0;
+//     top: 0;
+//     content-visibility: hidden;
+//     padding-top: 75px;
+// }
+
+// .union:hover {
+//     content-visibility: visible;
+// }
+
+
+
+
+
+
+
 @import '../colors/colors.scss';
 
 .wrapper {
     width: 260px;
-   
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,8 +112,6 @@
     border-radius: 8px;
     position: relative;
     cursor: pointer;
-    // max-height: 100%;
-    // max-width: 100%;
     height: 280px;
 }
 
@@ -35,6 +123,7 @@
     opacity: 0.8;
 }
 
+/* Subtitle styles with ellipsis */
 .container span:only-of-type {
     color: $shadyLady;
     font-size: 14px;
@@ -42,8 +131,13 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    white-space: nowrap;         /* Prevents text from wrapping */
+    overflow: hidden;            /* Hides overflowing text */
+    text-overflow: ellipsis;     /* Adds '...' to the end of the text */
+    max-width: 100%;             /* Make sure there's enough width */
 }
 
+/* Title (h4) styles with ellipsis */
 .container h4 {
     color: #FFF;
     font-family: var(--font-Plus-Jakarta-sans);
@@ -51,6 +145,10 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    white-space: nowrap;         /* Prevents text from wrapping */
+    overflow: hidden;            /* Hides overflowing text */
+    text-overflow: ellipsis;     /* Adds '...' to the end of the text */
+    max-width: 100%;             /* Make sure there's enough width */
 }
 
 .wrapper h3 {
