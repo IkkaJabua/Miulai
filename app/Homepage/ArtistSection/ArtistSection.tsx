@@ -30,7 +30,7 @@ const ArtistSection = () => {
               header={""}
               key={item.id}
               image={item.files[0]?.url}
-              title={item.title}
+              title={item.firstName}
               imageStyle={"round"}
             />
           </div>
