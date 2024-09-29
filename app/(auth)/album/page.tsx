@@ -10,6 +10,7 @@ import axios from 'axios'
 import { useRecoilState } from 'recoil'
 import { albumIdState, albumMusicFromArtistState } from '@/app/state'
 
+
 const Album = () => {
     const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
     const [albumCover, setAlbumCover] = useState<string>()
