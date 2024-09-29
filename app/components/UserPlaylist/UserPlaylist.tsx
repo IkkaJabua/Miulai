@@ -10,33 +10,7 @@ import axios from 'axios'
 
 const UserPlaylist = () => {
     const router = useRouter()
-
-    // const playListData = [
-    //     {
-    //         title: 'Playlist name 1',
-    //         icon: 'albumicon1.svg',
-    //         id: 1,
-    //     }, {
-    //         title: 'Playlist name 2',
-    //         icon: 'albumicon2.svg',
-    //         id: 2,
-    //     }, {
-    //         title: 'Playlist name 3',
-    //         icon: 'albumicon3.svg',
-    //         id: 3,
-    //     }, {
-    //         title: 'Playlist name 4',
-    //         icon: 'albumicon4.svg',
-    //         id: 4,
-    //     }, {
-    //         title: 'Playlist name 5',
-    //         icon: 'albumicon5.svg',
-    //         id: 5
-    //     }
-    // ]
-
     const [playlistdata, setPlylistdata] = useState([])
-
 
     useEffect(() => {
         axios.get('https://interstellar-1-pdzj.onrender.com/playlist')
