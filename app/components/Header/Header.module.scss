@@ -14,8 +14,9 @@
 }
 
 .searchWrapper {
-    position: relative;
-    width: 500px;
+    // position: relative;
+    max-width: 500px;
+    width: 100%;
 }
 
 .searchDropdown {
