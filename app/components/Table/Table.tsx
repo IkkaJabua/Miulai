@@ -17,6 +17,7 @@ const Tables = () => {
 
 
 
+
     const { width, height } = useWindowSize();
     const isMobile = width > 767
 
@@ -110,6 +111,11 @@ const Tables = () => {
                 dataSource={albumPage}
                 columns={columns}
                 pagination={false}
+                onRow={(record: any) => ({
+                    onClick: () => {
+                        setMusicId(record.id);
+                    },
+                })}
                 rowClassName={styles.row111111}
 
             />

@@ -61,7 +61,7 @@
 }
 
 .cellAlbumName {
-
+    cursor: pointer;
     display: flex;
     align-items: center;
     padding: 10px 0px;
@@ -77,12 +77,14 @@
     color: $shadyLady;
     font-size: 14px;
     font-weight: 500;
+    cursor: pointer;
 }
 
 .cellSongname {
     display: flex;
     gap: 20px;
     align-items: center;
+    cursor: pointer;
 }
 
 .fontGap {
