@@ -125,7 +125,8 @@ const Header: React.FC<InputTpo> = (props) => {
             <div className={styles.searchDropdown}>
               {searchItems.map((author: any, index) => (
                 <div
-                  key={`author-${index}`}
+                  // key={`author-${index}`}
+                  key={index}
                   className={styles.searchItem}
                   onClick={() => handleAuthorClick(author)}
                 >

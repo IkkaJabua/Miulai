@@ -6,7 +6,7 @@ import styles from './ MusicCard.module.scss'
 import Playlist from '../Playlist/Playlist';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
-import { mudicIDState } from '@/app/state';
+import { clickFetchState, mudicIDState } from '@/app/state';
 import Cookies from 'js-cookie';
 
 const MusicCard = () => {
@@ -14,6 +14,8 @@ const MusicCard = () => {
   const [musicID, setMusicId] = useRecoilState(mudicIDState);
   const token = Cookies.get("accessToken");
   const [cardData, setCardData] = useState<any>([]);
+  const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
+
 
   const [fetchMusic, setfetchMusic] = useState()
 
@@ -27,7 +29,7 @@ const MusicCard = () => {
       .catch((error) => {
         console.error("Error fetching music list:", error);
       });
-  }, []);
+  }, [clickFetch]);
 
 
   return (

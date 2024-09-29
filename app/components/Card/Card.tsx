@@ -7,8 +7,8 @@ interface Props {
     header?: string;
     image: string;
     subtitle?: string;
-    title: string;
-    imageStyle: 'normal' | 'round';
+    title?: string;
+    imageStyle?: 'normal' | 'round';
 }
 
 const Card = (props: Props) => {
