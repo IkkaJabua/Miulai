@@ -13,7 +13,6 @@ import { albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } fr
 
 const IndexPage: React.FC = () => {
   const token = Cookies.get('accessToken');
-
   const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
