@@ -1,6 +1,6 @@
 "use client";
 import { Table } from "antd";
-import HeartShapeBtn from "../../heatShapeIcon/HeartShapeIcn";
+import HeartShapeBtn from "../heatShapeIcon/HeartShapeIcn";
 import type { DividerClassKey } from "@mui/material";
 import styles from "./ChartTable.module.scss";
 import { render } from "sass";
