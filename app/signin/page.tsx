@@ -182,7 +182,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-function removeCookie(arg0: string) {
-  throw new Error("Function not implemented.");
-}
