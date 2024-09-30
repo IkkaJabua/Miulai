@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PlaylistBox from '../../PlaylistBox/PlaylistBox';
 import NewPlaylist from '../NewPlaylist/NewPlaylist';
 import PlaylistInput from '../PlaylistInput/PlaylistInput';
@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Button from '../../Button/Button';
 import { useForm, SubmitHandler } from "react-hook-form";
 import Icon from '../../Icon/Icon';
+import axios from 'axios';
 
 
 type Props = {
@@ -32,16 +33,28 @@ const data = [
 ]
 
 
-
-
 const AddPlaylist = ({ onForward, onBackward }: Props) => {
-    const { register, handleSubmit, watch } = useForm();
 
+    const { register, handleSubmit, watch } = useForm();
     const checkboxValues = watch();
+
+    const[playlist, setPlaylist] = useState<any[]>([])
+
 
     const onSubmit = (values: any) => {
         console.log('Values', values)
     }
+
+    useEffect(() => {
+        axios.get(`https://interstellar-1-pdzj.onrender.com/playlist`).
+            then((r) => {
+                console.log(r.data, 'aq ar ia q arii aq ariii')
+                setPlaylist(r.data)
+
+            })
+
+    },[])
+
 
 
     console.log(checkboxValues, Object.values(checkboxValues))
@@ -61,7 +74,7 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
             <form onSubmit={handleSubmit(onSubmit)} className={styles.inputWrapper}>
                 {
-                    data.map((item, i) => (<PlaylistInput name={item.name} id={item.id} key={i} register={register} />))
+                    playlist.map((item, i) => (<PlaylistInput name={item.name} onClick={() => console.log(item.id,'aesari aidi aid aeesa')}  id={item.id} key={item.id} register={register} />))
                 }
 
                 {Object.values(checkboxValues).find((val) => val === true) &&

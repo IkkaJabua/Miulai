@@ -59,21 +59,11 @@ const IndexPage: React.FC = () => {
 
   const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
 
-  // useEffect(() => {
-
-  //   axios.get(`https://interstellar-1-pdzj.onrender.com/music`). 
-  //   then((r)=> {
-
-  //     // setMusicArrayTwo(r.data)
-  //   })
-  // })
-
-  // Play the next track based on musicID
   const playNextTrack = useCallback(() => {
     const musicList = musicArrayTwo; // Use your music array directly
     const currentIndex = musicList.findIndex((track: any) => track.id === musicID);
-    const nextIndex = (currentIndex + 1) % musicList.length; // Get the next track, loop if needed
-    setMusicId(musicList[nextIndex].id); // Set the next track's ID
+    const nextIndex = (currentIndex + 1) % musicList.length; 
+    setMusicId(musicList[nextIndex].id); 
     setCurrentTime(0);
     setIsPlaying(true);
   }, [musicArrayTwo, musicID, setMusicId, setCurrentTime, setIsPlaying]);
@@ -82,15 +72,12 @@ const IndexPage: React.FC = () => {
   const playPreviousTrack = useCallback(() => {
     const musicList = musicArrayTwo; // Use your music array directly
     const currentIndex = musicList.findIndex((track: any) => track.id === musicID);
-    const prevIndex = (currentIndex - 1 + musicList.length) % musicList.length; // Get the previous track, loop if needed
-    setMusicId(musicList[prevIndex].id); // Set the previous track's ID
+    const prevIndex = (currentIndex - 1 + musicList.length) % musicList.length; 
+    setMusicId(musicList[prevIndex].id); 
     setCurrentTime(0);
     setIsPlaying(true);
   }, [musicArrayTwo, musicID, setMusicId, setCurrentTime, setIsPlaying]);
 
-  // ============
-
-  // Handle track playback and metadata
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -118,7 +105,6 @@ const IndexPage: React.FC = () => {
     };
   }, [playNextTrack]);
 
-  // Handle play and pause states
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
