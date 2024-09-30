@@ -5,10 +5,9 @@ import News from '@/app/components/News/News';
 import Input from '@/app/components/Input/Input';
 import Tables from '@/app/components/Table/Table';
 import Header from '@/app/components/Header/Header';
-import ChartsTable from '../../components/Table/chartTable/ChartTable'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-
+import ChartTable from '@/app/components/Table/chartTable/chartTable';
 
    
 const Charts = () => {
@@ -30,7 +29,7 @@ const Charts = () => {
         <div className={styles.container}>
             <ReusableHeader />
             <News title={'Top Hit Of The Week'} image={topHit?.albumCover} plays={topHit?.listenerCount} />
-            <ChartsTable />
+            <ChartTable />
 
         </div>
     )
