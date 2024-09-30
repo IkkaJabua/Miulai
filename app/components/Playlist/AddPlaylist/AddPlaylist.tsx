@@ -8,29 +8,15 @@ import Button from '../../Button/Button';
 import { useForm, SubmitHandler } from "react-hook-form";
 import Icon from '../../Icon/Icon';
 import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { globalMusicState } from '@/app/state';
 
 
 type Props = {
     onForward: () => void;
     onBackward?: () => void;
-}
+}  
 
-const data = [
-    {
-        name: 'Playlist 1',
-        id: 1
-    },
-
-    {
-        name: 'Playlist 2',
-        id: 2
-    },
-
-    {
-        name: 'Playlist 3',
-        id: 3
-    }
-]
 
 
 const AddPlaylist = ({ onForward, onBackward }: Props) => {
@@ -38,6 +24,9 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
     const { register, handleSubmit, watch } = useForm();
     const checkboxValues = watch();
     const [playlist, setPlaylist] = useState<any[]>([])
+    const [playlsID, setPlaylstId] = useState()
+    const [globalMusic, setGlobalMusic] = useRecoilState<any>(globalMusicState)
+
 
 
     useEffect(() => {
@@ -56,17 +45,18 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
     const onSubmit = (values: any) => {
 
-        const data = new NewForm()
-
-        axios.post(`https://interstellar-1-pdzj.onrender.com/playlist`). 
+        const data = new FormData()
+        
+        axios.post(`https://interstellar-1-pdzj.onrender.com/playlist/${playlsID}/${globalMusic}`). 
         then((r) => {
+            console.log(r,'gaigzavnaaa')
 
         })
     }
 
 
 
-    console.log(checkboxValues, Object.values(checkboxValues))
+    // console.log(checkboxValues, Object.values(checkboxValues))
 
     return (
         <PlaylistBox className={styles.container}>
@@ -83,12 +73,15 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
             <form onSubmit={handleSubmit(onSubmit)} className={styles.inputWrapper}>
                 {
-                    playlist.map((item, i) => (<PlaylistInput name={item.name} onClick={() => console.log(item.id,'aesari aidi aid aeesa')}  id={item.id} key={item.id} register={register} />))
+                    playlist.map((item, i) => (<PlaylistInput name={item.name} onClick={() => setPlaylstId(item.id)}  id={item.id} key={item.id} register={register} />))
                 }
 
-                {Object.values(checkboxValues).find((val) => val === true) &&
+                {/* {Object.values(checkboxValues).find((val) => val === true) &&
                     <Button title={'Save'} mode={'reusable button'} width={"225px"} onClick={() => console.log('button clicked')} />
-                }
+                } */}
+                <button>
+                    save
+                </button>
 
             </form>
         </PlaylistBox>

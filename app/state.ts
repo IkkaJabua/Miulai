@@ -69,3 +69,13 @@ export const somePlayingState = atom({
     default : null
 })
 
+export const globalMusicState = atom({
+    key: 'globalMusicState',
+    default: null
+})
+
+export const globalPLaylistState = atom({
+    key: 'globalPLaylistState',
+    default: null
+})
+ 

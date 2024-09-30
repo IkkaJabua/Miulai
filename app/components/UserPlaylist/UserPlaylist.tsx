@@ -74,12 +74,15 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
-import { clickFetchState } from '@/app/state';
+import { clickFetchState, globalPLaylistState } from '@/app/state';
 
 const UserPlaylist = () => {
     const router = useRouter();
     const [playlistData, setPlaylistData] = useState<any[]>([]); // Ensure type safety or adjust accordingly.
     const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
+
+    const [globalPlst, setGlobalPlst] = useRecoilState(globalPLaylistState)
+
     
 
 
@@ -108,7 +111,9 @@ const UserPlaylist = () => {
                 <div
                     className={styles.container}
                     key={item.id}
-                    onClick={() => handleCardClick(item.id)}
+                    onClick={() => {
+                        setGlobalPlst(item.id)
+                        handleCardClick(item.id)}}
                 >
                     <div className={styles.hoveredImage}>
                         <Image

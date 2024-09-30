@@ -7,8 +7,12 @@ import Input from '../../../components/Input/Input'
 import Table from '../../../components/Table/Table'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import ReusableHeader from '@/app/components/ReusableHeader/ReusableHeader'
+import Playlist from '../../../components/Table/playlist/playlist'
+import axios from 'axios'
+import { useRecoilState } from 'recoil'
+import { globalPLaylistState, oneArrayMusicState } from '@/app/state'
 
 
 
@@ -16,10 +20,25 @@ import ReusableHeader from '@/app/components/ReusableHeader/ReusableHeader'
 const Id = () => {
     const router = useRouter();
     const pathname = usePathname()
+    const [globalPlst, setGlobalPlst] = useRecoilState(globalPLaylistState)
+    const [newName, setNewsName] = useState()
+    const [data, setData] = useState([])
+    const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
 
-    // useEffect(() => {
-    //     if (pathname === )
-    // })
+
+    useEffect(() => {
+
+        axios.get(`https://interstellar-1-pdzj.onrender.com/Playlist/${globalPlst}`). 
+        then((r) => {
+            console.log(r.data,'sdasdasdsa')
+            setData(r.data.musics)
+            setNewsName(r.data.name)
+            setMusicArrayTwo(data)
+
+
+
+        })
+    },[])
 
     return (
         <div className={styles.container}>
@@ -28,12 +47,12 @@ const Id = () => {
             </div>
             <div>
                 <Image onClick={() => router.back()} className={styles.tabletCursor} src={'../icon/isari.svg'} width={32} height={32} alt='image' />
-                <News title={'Playlist 1'} image={'/image/testImg.jpg'} />
+                <News title={`${newName}`} image={'/icon/albumicon5.svg'} />
             </div>
             <div className={styles.input}>
                 <Input />
             </div>
-            <Table />
+            <Playlist data={data} />
         </div>
     )
 }
