@@ -1,5 +1,5 @@
 "use client";
-
+import Cookies from 'js-cookie'
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import Controls from "./Contorls";
 import style from "./IndexPage.module.scss";
@@ -8,12 +8,12 @@ import SliderMobile from "./Slider/Slider";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import { albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } from "@/app/state";
-import Cookies from "js-cookie";
 
 
 
 const IndexPage: React.FC = () => {
-  const token = Cookies.get("accessToken");
+  const token = Cookies.get('accessToken');
+
   const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
