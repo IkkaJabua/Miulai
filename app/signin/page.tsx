@@ -173,7 +173,7 @@ const Signup = () => {
           </form>
           <div className={styles.signup}>
             <span>Don’t have an account?</span>
-            <span onClick={() => router.push("/singup")}>Sign up</span>
+            <span onClick={() => router.push("/signup")}>Sign up</span>
           </div>
         </div>
       </div>
