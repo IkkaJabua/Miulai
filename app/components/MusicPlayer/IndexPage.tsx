@@ -8,96 +8,44 @@ import SliderMobile from "./Slider/Slider";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import { mudicIDState, playerDisplayState } from "@/app/state";
-import Cookies from "js-cookie"; 
-
-
-
-const tracks = [
-  {
-    title: "Sugar (feat. Francesco)",
-    artist: "By Robin Schulz",
-    albumArt: "/music/RobinSchluz.png",
-    audio: "/music/RobinSchulz.mp3",
-  },
-  {
-    title: "Kinetic Cyclone",
-    artist: "Sample",
-    albumArt: "/music/toko.png",
-    audio: "/music/TokosTrack.mp3.mp3",
-  },
-  {
-    title: "Starboy",
-    artist: "by Weekend",
-    albumArt: "/music/starBoy.png",
-    audio: "/music/Starboy.mp3",
-  },
-  {
-    title: "Not like Us",
-    artist: "by Kendrick lamar",
-    albumArt: "/music/notlikeus.jpg",
-    audio: "/music/NotLikeUs.mp3",
-  },
-  {
-    title: "SDEQ",
-    artist: "Mechanical Reinbow,Kordz",
-    albumArt: "/music/SDEQ.jpg",
-    audio:
-      "/music/Kordz & Mechanical Rainbow - SDEQ (feat. Stephane) [OFFICIAL LYRIC VIDEO].mp3",
-  },
-  {
-    title: "A$AP Rocky-Sundress",
-    artist: "A$AP Rocky",
-    albumArt: "/music/AsapRocky.jpg",
-    audio: "/music/A$AP Rocky - Sundress (Official Video).mp3",
-  },
-];
+import Cookies from "js-cookie";
 
 const IndexPage: React.FC = () => {
-  const [currentTrackId, setCurrentTrackId] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
   const [isLooping, setIsLooping] = useState(false);
   const [isShuffling, setIsShuffling] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const currentTrack = tracks[currentTrackId];
+  const audioRef = useRef<any>(null);
   const token = Cookies.get("accessToken");
 
-
-  const [musicID, setMusicId] = useRecoilState(mudicIDState)
-  const [fetchMusic, setfetchMusic] = useState()
-  const [playerDisplay, setPlayerDisplay] = useRecoilState(playerDisplayState)
-
-
+  const [musicID, setMusicId] = useRecoilState(mudicIDState); // Recoil state for musicID
+  const [fetchMusic, setFetchMusic] = useState<any>(null); // URL for the current track
+  const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState); // Display current track details
 
   useEffect(() => {
     if (musicID && token) {
-      axios.get(`https://interstellar-1-pdzj.onrender.com/music/${musicID}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-        .then((r) => {
-          setfetchMusic(r.data.file.url)
-          setPlayerDisplay(r.data)
-
-
-
-          console.log(r.data, 'Music details fetched');
+      axios
+        .get(`https://interstellar-1-pdzj.onrender.com/music/${musicID}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((response) => {
+          setFetchMusic(response.data.file.url); // Fetch and set the music URL
+          setPlayerDisplay(response.data); // Set the player display information
+          console.log(response.data, "Music details fetched");
         })
         .catch((error) => {
-          console.error('Error fetching music details:', error);
+          console.error("Error fetching music details:", error);
         });
     } else {
       console.warn("MusicID or accessToken is missing");
     }
   }, [musicID, token]);
 
-
-
-
-
+  // Manage volume and looping settings
   useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
@@ -106,15 +54,41 @@ const IndexPage: React.FC = () => {
     }
   }, [volume, isLooping]);
 
+  // Play the next track based on musicID
   const playNextTrack = useCallback(() => {
-    const newIndex = isShuffling
-      ? Math.floor(Math.random() * tracks.length)
-      : (currentTrackId + 1) % tracks.length;
-    setCurrentTrackId(newIndex);
-    setCurrentTime(0);
-    setIsPlaying(true);
-  }, [isShuffling, currentTrackId]);
+    axios
+      .get("https://interstellar-1-pdzj.onrender.com/music")
+      .then((response) => {
+        const musicList = response.data; // Fetch the list of all music
+        const currentIndex = musicList.findIndex((track: any) => track.id === musicID);
+        const nextIndex = (currentIndex + 1) % musicList.length; // Get the next track, loop if needed
+        setMusicId(musicList[nextIndex].id); // Set the next track's ID
+        setCurrentTime(0);
+        setIsPlaying(true);
+      })
+      .catch((error) => {
+        console.error("Error fetching next track:", error);
+      });
+  }, [musicID]);
 
+  // Play the previous track based on musicID
+  const playPreviousTrack = useCallback(() => {
+    axios
+      .get("https://interstellar-1-pdzj.onrender.com/music")
+      .then((response) => {
+        const musicList = response.data; // Fetch the list of all music
+        const currentIndex = musicList.findIndex((track: any) => track.id === musicID);
+        const prevIndex = (currentIndex - 1 + musicList.length) % musicList.length; // Get the previous track, loop if needed
+        setMusicId(musicList[prevIndex].id); // Set the previous track's ID
+        setCurrentTime(0);
+        setIsPlaying(true);
+      })
+      .catch((error) => {
+        console.error("Error fetching previous track:", error);
+      });
+  }, [musicID]);
+
+  // Handle track playback and metadata
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -142,29 +116,22 @@ const IndexPage: React.FC = () => {
     };
   }, [playNextTrack]);
 
+  // Handle play and pause states
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
-        audioRef.current
-          .play()
-          .catch((error) => console.error("Playback failed:", error));
+        audioRef.current.play().catch((error: unknown) => console.error("Playback failed:", error));
       } else {
         audioRef.current.pause();
       }
     }
-  }, [isPlaying, currentTrackId]);
+  }, [isPlaying, fetchMusic]);
 
   const playPause = useCallback(() => {
     setIsPlaying((prevIsPlaying) => !prevIsPlaying);
   }, []);
 
-  const playPrevious = useCallback(() => {
-    const newIndex = (currentTrackId - 1 + tracks.length) % tracks.length;
-    setCurrentTrackId(newIndex);
-    setCurrentTime(0);
-    setIsPlaying(true);
-  }, [currentTrackId]);
-
+  // Handle volume changes
   const handleVolumeChange = useCallback((newVolume: number) => {
     setVolume(newVolume);
     if (audioRef.current) {
@@ -172,14 +139,17 @@ const IndexPage: React.FC = () => {
     }
   }, []);
 
+  // Toggle loop playback
   const toggleLoop = useCallback(() => {
     setIsLooping((prevIsLooping) => !prevIsLooping);
   }, []);
 
+  // Toggle shuffle mode
   const toggleShuffle = useCallback(() => {
     setIsShuffling((prevIsShuffling) => !prevIsShuffling);
   }, []);
 
+  // Handle time changes for the track
   const handleTimeChange = useCallback((newTime: number) => {
     setCurrentTime(newTime);
     if (audioRef.current) {
@@ -187,21 +157,12 @@ const IndexPage: React.FC = () => {
     }
   }, []);
 
+  // Format time display (mm:ss)
   const formatTime = (time: number) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
-
-  const [music, setMusic] = useState<any>();
-
-  useEffect(() => {
-    axios.get("https://interstellar-1-pdzj.onrender.com/music")
-    .then((r) => {
-      // console.log(r.data?.files[0]?.url);
-      // setMusic(r.data?.files[0]?.url);
-    });
-  }, []);
 
   return (
     <div className={style.main}>
@@ -209,7 +170,7 @@ const IndexPage: React.FC = () => {
         isPlaying={isPlaying}
         onPlayPause={playPause}
         onNext={playNextTrack}
-        onPrevious={playPrevious}
+        onPrevious={playPreviousTrack}
         onVolumeChange={handleVolumeChange}
         volume={volume}
         isLooping={isLooping}
@@ -220,17 +181,17 @@ const IndexPage: React.FC = () => {
         duration={duration}
         onTimeChange={handleTimeChange}
         backgroundImage={""}
-        name={undefined}
-        isActive={undefined}
+        name={playerDisplay?.title}
+        isActive={isPlaying}
       />
       <div className={style.container}>
-        <TrackDisplay currentTrack={currentTrack} />
+        <TrackDisplay currentTrack={playerDisplay} />
 
         <Controls
           isPlaying={isPlaying}
           onPlayPause={playPause}
           onNext={playNextTrack}
-          onPrevious={playPrevious}
+          onPrevious={playPreviousTrack}
           onVolumeChange={handleVolumeChange}
           volume={volume}
           isLooping={isLooping}
@@ -240,9 +201,9 @@ const IndexPage: React.FC = () => {
           currentTime={currentTime}
           duration={duration}
           onTimeChange={handleTimeChange}
-          backgroundImage={""}
-          name={undefined}
-          isActive={undefined}
+          backgroundImage={playerDisplay?.albumArt}
+          name={playerDisplay?.title}
+          isActive={isPlaying}
         />
 
         <audio

@@ -10,11 +10,22 @@ import { useRecoilState } from 'recoil';
 import { albumidState } from '@/app/state';
 
 const ArtistsList = () => {
-    const [, setAlbumId] = useRecoilState(albumidState);
+    const [albumId, setAlbumId] = useRecoilState(albumidState);
+    const [reusableID, setReusableId] = useState()
     const router = useRouter();
 
-    const handleCardClick = () => {
-        router.push(`/artist`);
+
+    useEffect(() => {
+        if (albumId === undefined) {
+            router.push(`/artistlist`);
+
+        }
+    }, []);
+
+
+
+    const handleCardClick = (id: number) => {
+        router.push(`/artistlist/${id}`);
     };
 
     const [artists, setArtists] = useState([]);
@@ -40,8 +51,9 @@ const ArtistsList = () => {
                             <div
                                 key={item.id} // Assign the unique key here
                                 onClick={() => {
+                                    setReusableId(item.id)
                                     setAlbumId(item.id);
-                                    handleCardClick();
+                                    handleCardClick(item.id);
                                 }} 
                             >
                                 <Card

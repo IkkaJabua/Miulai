@@ -104,7 +104,7 @@ const Header: React.FC<InputTpo> = (props) => {
   };
 
   const handleAuthorClick = (author: any) => {
-    router.push("/artist");
+    router.push(`/artistlist/${albumId}`);
     setAlbumId(author.id); // Assuming you use the same state for albums and authors
     setClickFetch(!clickFetch);
     setInputValue(""); // Reset input field after selection
