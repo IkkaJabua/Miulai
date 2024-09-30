@@ -68,28 +68,4 @@ export const somePlayingState = atom({
     key: 'somePlayingState',
     default : null
 })
-export const chartsState = atom({
-    key: 'chartsState',
-    default: 0
-})
-
-
-export const playerState = atom({
-    key: 'playerState',
-    default: []
-})
-
-
-export const currentTrackIdState = atom({
-    key: 'currentTrackIdState',
-    default: 0
-})
-
-
-
-
-
-
-
-
 

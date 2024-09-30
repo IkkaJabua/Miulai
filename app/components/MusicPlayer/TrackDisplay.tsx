@@ -3,21 +3,21 @@ import Image from 'next/image';
 import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn';
 import style from './TrackDisplay.module.scss';
 import { useRecoilState } from 'recoil';
-import { musicState } from '@/app/state';
+import { playerDisplayState } from '@/app/state';
 
 interface TrackDisplayProps {
-    currentTrack: {
+    currentTrack?: {
         title: string;
         artist: string;
         albumArt: string;
     };
-    onAlbumArtClick: () => void; // Added the onAlbumArtClick prop
 }
 
-const TrackDisplay: React.FC<TrackDisplayProps> = ({ currentTrack, onAlbumArtClick }) => {
-    const [music, setMusic] = useRecoilState<any>(musicState)
+const TrackDisplay = ({ currentTrack }: TrackDisplayProps) => {
+    const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState)
 
     if (!currentTrack) {
+        // Return a default placeholder or nothing if no currentTrack is provided
         return (
             <div className={style.container}>
                 <p>No track selected</p>
@@ -27,26 +27,24 @@ const TrackDisplay: React.FC<TrackDisplayProps> = ({ currentTrack, onAlbumArtCli
 
     return (
         <div className={style.container}>
-            <div onClick={onAlbumArtClick} className={style.albumArt}> {/* Clickable area */}
-                <img
-                    src={music?.coverImgUrl || '/defaultAlbumArt.jpg'} // Fallback if albumArt is missing
-                    alt="AlbumArt"
-                    width={80}
-                    height={80}
-                    className={style.img}
-                />
-            </div>
+            <Image
+                src={playerDisplay?.albumCover} // Fallback if albumArt is missing
+                alt="AlbumArt"
+                width={80}
+                height={80}
+                className={style.img}
+            />
             <div className={style.like}>
                 <div className={style.text}>
                     <div className={style.likebtn}>
                         <HeartShapeBtn
                             isActive={true}
                             isDisabled={false}
-                            onClick={() => {}}
+                            onClick={() => console.log('Like button clicked!')}
                         />
                     </div>
-                    <span className={style.title}>{music?.title || 'Unknown Title'}</span> {/* Fallback for title */}
-                    <span className={style.artist}>{music?.artistName || 'Unknown Artist'}</span> {/* Fallback for artist */}
+                    <span className={style.title}>{playerDisplay.name || 'Unknown Title'}</span> {/* Fallback for title */}
+                    <span className={style.artist}>{playerDisplay.artistName || 'Unknown Artist'}</span> {/* Fallback for artist */}
                 </div>
             </div>
         </div>
