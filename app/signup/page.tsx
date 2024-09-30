@@ -30,6 +30,9 @@ const Registracion = () => {
             axios.post('https://interstellar-1-pdzj.onrender.com/user', values).
                 then(r => {
                     router.push('/signin')
+                }).catch(() => {
+                    console.log('ver gadis registracias veraaaa')
+
                 })
 
         }
