@@ -8,6 +8,7 @@ import styles from './layout.module.scss';
 import IndexPage from "./components/MusicPlayer/IndexPage";
 import BurgerMenu from "./components/BurgerMenu/BurgerMenu";
 import Mobilemenu from "./components/Mobilemenu/mobilemenu";
+import RecoilWrapper from "./components/RecoilWrapper/RecoilWrapper";
 
 
 
@@ -32,9 +33,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${PlusJakartaSans.className}`} >
-        {children}
-      </body>
+      <RecoilWrapper>
+        <body className={`${inter.className} ${PlusJakartaSans.className}`} >
+          {children}
+        </body>
+      </RecoilWrapper>
     </html>
   );
 }

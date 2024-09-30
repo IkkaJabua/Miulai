@@ -37,13 +37,8 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
     const { register, handleSubmit, watch } = useForm();
     const checkboxValues = watch();
+    const [playlist, setPlaylist] = useState<any[]>([])
 
-    const[playlist, setPlaylist] = useState<any[]>([])
-
-
-    const onSubmit = (values: any) => {
-        console.log('Values', values)
-    }
 
     useEffect(() => {
         axios.get(`https://interstellar-1-pdzj.onrender.com/playlist`).
@@ -53,7 +48,21 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
             })
 
-    },[])
+    }, [])
+
+
+
+
+
+    const onSubmit = (values: any) => {
+
+        const data = new NewForm()
+
+        axios.post(`https://interstellar-1-pdzj.onrender.com/playlist`). 
+        then((r) => {
+
+        })
+    }
 
 
 
