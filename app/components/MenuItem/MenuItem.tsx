@@ -74,8 +74,8 @@ const MenuItem = () => {
             title: 'Artist',
             icon: 'menu-logo7',
             activeIcon: 'clicked-menu-logo7',
-            path: '/artistlist' || '/artist',
-            key: '/artistlist' || '/artist',
+            path: '/artistlist',
+            key: '/artistlist',
 
         },
         {
