@@ -10,12 +10,18 @@ import ArtistSection from '../Homepage/ArtistSection/ArtistSection';
 import ChartsSection from '../Homepage/ChartsSection/ChartsSection';
 import HitsSection from '../Homepage/HitsSection/HitsSection';
 import styles from './page.module.scss';
+import { useRecoilState } from "recoil";
+import { mudicIDState, topHitState } from "../state";
 
 
 // songs.slice(0, 6).map(() => {})
 
 export default function Home() {
   const [inputValue, setInputValue] = useState();
+  const [topHitMusic, setTopHitMusic] = useRecoilState(topHitState)
+  const [musicID, setMusicId] = useRecoilState(mudicIDState)
+
+
 
   const inputChange = (e: any) => {
     // const newValue = e.target.value;
@@ -23,23 +29,26 @@ export default function Home() {
     console.log(e.target.value);
   };
 
-  const [searchItems, setSearchItems] = useState<any>();
-
+  const [topHit, setTopHIt] = useState<any>()
   useEffect(() => {
     axios
       .get(
-        `https://interstellar-1-pdzj.onrender.com/search?search=${inputValue}`
+        `https://interstellar-1-pdzj.onrender.com/music`
       )
       .then(async (r) => {
-        setSearchItems(r.data.authors);
-        console.log(r.data.authors);
+        // setSearchItems(r.data.authors);
+        setTopHIt(r.data[0])
+        setTopHitMusic(r.data[0])
+        setMusicId(r.data[0].id)
+        console.log(r.data[0], 'musikaaa muikaaa ')
       });
-  }, [inputValue]);
+  }, []);
+
 
   return (
     <main className={styles.main}>
       <Header />
-      <News title={'Top Hit Of The Week'} image={'/image/testImg.jpg'} plays={'643,421'} />
+      <News title={'Top Hit Of The Week'} image={topHit?.albumCover} plays={topHit?.listenerCount} />
       <CardsHeader  title={'Top Hits'} subtitle={'See all'} addRoute='hits' />
       <HitsSection />
       <CardsHeader  title={'Top Charts'} subtitle={'See all'} addRoute='charts' />

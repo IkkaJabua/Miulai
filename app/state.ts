@@ -54,5 +54,10 @@ export const albumMusicFromArtistState = atom({
     key: 'albumMusicFromArtistState',
     default: []
 })
+
+export const topHitState = atom({
+    key: 'topHitState',
+    default: null
+})
  
 

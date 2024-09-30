@@ -1,5 +1,9 @@
 import styles from "./News.module.scss";
 import Button from "../Button/Button";
+import { useRecoilState } from "recoil";
+import { mudicIDState, topHitState } from "@/app/state";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 interface Props {
   title: string;
@@ -8,6 +12,33 @@ interface Props {
 }
 
 const News = (props: Props) => {
+
+
+
+  // const [topHitMusic, setTopHitMusic] = useRecoilState(topHitState)
+  const [musicID, setMusicId] = useRecoilState<any>(mudicIDState)
+  const [forMusic, setForMusic] = useState()
+
+
+  useEffect(() => {
+    axios
+      .get(
+        `https://interstellar-1-pdzj.onrender.com/music`
+      )
+      .then(async (r) => {
+        // setSearchItems(r.data.authors);
+        // setTopHIt(r.data[0])
+        // setTopHitMusic(r.data[0])
+        // setMusicId(r.data[0].id)
+        // setTopHitMusic(r.data[0].id)
+        setForMusic(r.data[0].id)
+        console.log(r.data[0].id, 'musikaaa muikaaa ')
+      });
+  }, []);
+
+
+
+
   const backImage: object = {
     backgroundImage: `url(${props.image})`,
     backgroundRepeat: "no-repeat",
@@ -35,7 +66,7 @@ const News = (props: Props) => {
               imageSrc="clip.svg"
               imageWidth={20}
               imageHeight={20}
-              onClick={() => console.log("button clicked")}
+            onClick={() => setMusicId(forMusic)}
             />
           </div>
           <div className={styles.mobileButton}>
@@ -51,7 +82,7 @@ const News = (props: Props) => {
               imageSrc="clip.svg"
               imageWidth={16}
               imageHeight={16}
-              onClick={() => console.log("button clicked")}
+            onClick={() => setMusicId(forMusic)}
             />
           </div>
         </div>
