@@ -7,7 +7,7 @@ import Tables from '@/app/components/Table/Table';
 import Header from '@/app/components/Header/Header';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import ChartTable from '@/app/components/Table/chartTable/chartTable';
+import ChartTable from '@/app/components/Table/ChartTable/ChartTable';
 
    
 const Charts = () => {

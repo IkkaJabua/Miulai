@@ -9,10 +9,10 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import ReusableHeader from '@/app/components/ReusableHeader/ReusableHeader'
-import Playlist from '../../../components/Table/playlist/playlist'
 import axios from 'axios'
 import { useRecoilState } from 'recoil'
 import { globalPLaylistState, oneArrayMusicState } from '@/app/state'
+import PlaylistTable from '../../../components/Table/PlaylistTable/PlaylistTable'
 
 
 
@@ -52,7 +52,7 @@ const Id = () => {
             <div className={styles.input}>
                 <Input />
             </div>
-            <Playlist data={data} />
+            <PlaylistTable data={data} />
         </div>
     )
 }

@@ -1,28 +1,20 @@
 'use client'
 import { Table } from "antd";
 import HeartShapeBtn from "../../heatShapeIcon/HeartShapeIcn";
-import type { DividerClassKey } from "@mui/material";
-import styles from './playlist.module.scss'
-import { render } from "sass";
-import { text } from "stream/consumers";
+import styles from './PlaylistTable.module.scss'
 import Image from "next/image";
 import { useWindowSize } from "react-use";
 import { useRecoilState } from "recoil";
-import { albumMusicFromArtistState, mudicIDState, musicState, oneArrayMusicState } from "@/app/state";
+import { albumMusicFromArtistState, mudicIDState, musicState} from "@/app/state";
 
 interface Props {
     data: any
 }
 
-const playlist = (props: Props) => {
+const PlaylistTable = (props: Props) => {
     const [musicArray, setMusicArray] = useRecoilState(musicState);
     const [albumPage, setAlbumPage] = useRecoilState(albumMusicFromArtistState)
     const [musicID, setMusicId] = useRecoilState(mudicIDState)
-
-
-
-
-
 
 
     const { width, height } = useWindowSize();
@@ -131,5 +123,5 @@ const playlist = (props: Props) => {
     )
 }
 
-export default playlist;
+export default PlaylistTable;
 
