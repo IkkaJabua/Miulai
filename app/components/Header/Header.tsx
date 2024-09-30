@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import styles from "./Header.module.scss";
 import Input from "../Input/Input";
 import UserPopup from "../UserPopup/UserPopup";
+import Cookies from "js-cookie";
 
 interface InputTpo {
   value?: string;
@@ -32,6 +33,7 @@ const Header: React.FC<InputTpo> = (props) => {
   const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState);
   const [musicID, setMusicId] = useRecoilState(mudicIDState);
   const [showPopup, setShowPopup] = useState(false);
+  const token = Cookies.get('accessToken')
 
 
   const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
@@ -52,7 +54,11 @@ const Header: React.FC<InputTpo> = (props) => {
     if (inputValue) {
       axios
         .get(
-          `https://interstellar-1-pdzj.onrender.com/search?search=${inputValue}`
+          `https://interstellar-1-pdzj.onrender.com/search?search=${inputValue}`, {
+            headers: {
+              Authorization: `Bearer ${token}`
+            }
+          }
         )
         .then((r) => {
           const data = r.data;

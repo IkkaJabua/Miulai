@@ -12,6 +12,7 @@ import HitsSection from '../Homepage/HitsSection/HitsSection';
 import styles from './page.module.scss';
 import { useRecoilState } from "recoil";
 import { mudicIDState, topHitState } from "../state";
+import Cookies from "js-cookie";
 
 
 // songs.slice(0, 6).map(() => {})
@@ -20,6 +21,8 @@ export default function Home() {
   const [inputValue, setInputValue] = useState();
   const [topHitMusic, setTopHitMusic] = useRecoilState(topHitState)
   const [musicID, setMusicId] = useRecoilState(mudicIDState)
+  const token = Cookies.get("accessToken");
+
 
 
 
@@ -33,7 +36,11 @@ export default function Home() {
   useEffect(() => {
     axios
       .get(
-        `https://interstellar-1-pdzj.onrender.com/music`
+        `https://interstellar-1-pdzj.onrender.com/music`,{
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
       )
       .then(async (r) => {
         // setSearchItems(r.data.authors);

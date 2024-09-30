@@ -18,6 +18,7 @@ const ChartTable = () => {
     const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
     const [musicID, setMusicId] = useRecoilState(mudicIDState)
     const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState)
+    const token = Cookies.get('accessToken')
 
 
     const [albumData, setAlbumData] = useState()
@@ -25,7 +26,11 @@ const ChartTable = () => {
     const [musicCover, setMusicCover] = useState<any>()
 
     useEffect(() => {
-        axios.get(`https://interstellar-1-pdzj.onrender.com/music`)
+        axios.get(`https://interstellar-1-pdzj.onrender.com/music`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        })
             .then((r) => {
                 console.log(r.data, 'musics musics')
                 setMusicCover(r.data)

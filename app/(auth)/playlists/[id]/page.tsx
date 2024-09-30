@@ -13,6 +13,8 @@ import axios from 'axios'
 import { useRecoilState } from 'recoil'
 import { globalPLaylistState, oneArrayMusicState } from '@/app/state'
 import PlaylistTable from '../../../components/Table/PlaylistTable/PlaylistTable'
+import Cookies from "js-cookie";
+
 
 
 
@@ -24,11 +26,16 @@ const Id = () => {
     const [newName, setNewsName] = useState()
     const [data, setData] = useState([])
     const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
+    const token = Cookies.get("accessToken");
 
 
     useEffect(() => {
 
-        axios.get(`https://interstellar-1-pdzj.onrender.com/Playlist/${globalPlst}`). 
+        axios.get(`https://interstellar-1-pdzj.onrender.com/Playlist/${globalPlst}`, {
+            headers: {
+                Authorization: `bearer ${token}`
+            }
+        }). 
         then((r) => {
             console.log(r.data,'sdasdasdsa')
             setData(r.data.musics)

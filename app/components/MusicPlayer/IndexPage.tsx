@@ -10,6 +10,7 @@ import { useRecoilState } from "recoil";
 import { albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } from "@/app/state";
 import Cookies from "js-cookie";
 
+
 const IndexPage: React.FC = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
@@ -19,7 +20,7 @@ const IndexPage: React.FC = () => {
   const [duration, setDuration] = useState(0);
   const audioRef = useRef<any>(null);
   const token = Cookies.get("accessToken");
-
+  const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
   const [musicID, setMusicId] = useRecoilState(mudicIDState); // Recoil state for musicID
   const [fetchMusic, setFetchMusic] = useState<any>(null); // URL for the current track
   const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState); // Display current track details
@@ -55,9 +56,7 @@ const IndexPage: React.FC = () => {
   }, [volume, isLooping]);
   const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
 
-// ===============
 
-  const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
 
   const playNextTrack = useCallback(() => {
     const musicList = musicArrayTwo; // Use your music array directly
