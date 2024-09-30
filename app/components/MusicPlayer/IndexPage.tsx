@@ -11,7 +11,10 @@ import { albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } fr
 import Cookies from "js-cookie";
 
 
+
 const IndexPage: React.FC = () => {
+  const token = Cookies.get("accessToken");
+  const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
   const [isLooping, setIsLooping] = useState(false);
@@ -19,13 +22,14 @@ const IndexPage: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const audioRef = useRef<any>(null);
-  const token = Cookies.get("accessToken");
   const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
   const [musicID, setMusicId] = useRecoilState(mudicIDState); // Recoil state for musicID
   const [fetchMusic, setFetchMusic] = useState<any>(null); // URL for the current track
   const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState); // Display current track details
 
+
   useEffect(() => {
+    console.log(token,'token')
     if (musicID && token) {
       axios
         .get(`https://interstellar-1-pdzj.onrender.com/music/${musicID}`, {
@@ -46,7 +50,6 @@ const IndexPage: React.FC = () => {
     }
   }, [musicID, token]);
 
-  // Manage volume and looping settings
   useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
@@ -54,7 +57,6 @@ const IndexPage: React.FC = () => {
       audio.loop = isLooping;
     }
   }, [volume, isLooping]);
-  const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
 
 
 
