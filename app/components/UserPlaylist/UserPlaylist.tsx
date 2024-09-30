@@ -73,29 +73,31 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { clickFetchState } from '@/app/state';
 
 const UserPlaylist = () => {
     const router = useRouter();
     const [playlistData, setPlaylistData] = useState<any[]>([]); // Ensure type safety or adjust accordingly.
+    const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
+    
+
 
     useEffect(() => {
-        const fetchPlaylists = async () => {
-            try {
-                const response = await axios.get('https://interstellar-1-pdzj.onrender.com/playlist');
-                setPlaylistData(response.data);
-            } catch (error) {
-                console.error('Error fetching playlists:', error);
-            }
-        };
+        axios.get('https://interstellar-1-pdzj.onrender.com/playlist'). 
+        then((r) => {
+            setPlaylistData(r.data);
 
-        fetchPlaylists();
-    }, []);
+
+        })
+
+    }, [clickFetch]);
 
     const handleCardClick = (id: string) => {
         router.push(`/playlists/${id}`);
     };
 
-    
+
     const stopClickPropagation = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
@@ -106,12 +108,12 @@ const UserPlaylist = () => {
                 <div
                     className={styles.container}
                     key={item.id}
-                    onClick={() => handleCardClick(item.id)} 
+                    onClick={() => handleCardClick(item.id)}
                 >
                     <div className={styles.hoveredImage}>
                         <Image
                             className={styles.cellImage}
-                            src={item.files?.url || '/icon/albumicon3.svg'} 
+                            src={item.files?.url || '/icon/albumicon3.svg'}
                             width={234}
                             height={251}
                             alt="playlist cover"
@@ -124,7 +126,7 @@ const UserPlaylist = () => {
                                     width={24}
                                     height={24}
                                     alt="edit button"
-                                    onClick={() => console.log('Edit button clicked')} 
+                                    onClick={() => console.log('Edit button clicked')}
                                 />
                             </div>
                             <div className={styles.cellDelete} onClick={stopClickPropagation}>
@@ -133,7 +135,7 @@ const UserPlaylist = () => {
                                     width={24}
                                     height={24}
                                     alt="delete button"
-                                    onClick={() => console.log('Delete button clicked')} 
+                                    onClick={() => console.log('Delete button clicked')}
                                 />
                             </div>
                         </div>

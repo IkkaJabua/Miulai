@@ -6,7 +6,7 @@ import styles from './ MusicCard.module.scss'
 import Playlist from '../Playlist/Playlist';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
-import { clickFetchState, mudicIDState } from '@/app/state';
+import { clickFetchState, mudicIDState, oneArrayMusicState } from '@/app/state';
 import Cookies from 'js-cookie';
 
 const MusicCard = () => {
@@ -15,6 +15,9 @@ const MusicCard = () => {
   const token = Cookies.get("accessToken");
   const [cardData, setCardData] = useState<any>([]);
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
+  const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
+
+
 
 
   const [fetchMusic, setfetchMusic] = useState()
@@ -25,6 +28,7 @@ const MusicCard = () => {
       .then((r) => {
         setCardData(r.data);
         console.log(r.data, 'Music list fetched');
+        
       })
       .catch((error) => {
         console.error("Error fetching music list:", error);
@@ -38,7 +42,9 @@ const MusicCard = () => {
         <div
           className={styles.container}
           key={item.id}
-          onClick={() => setMusicId(item.id)}
+          onClick={() => {
+            setMusicArrayTwo(cardData)
+            setMusicId(item.id)}}
         >
           <div className={styles.container_author}>
             <div>

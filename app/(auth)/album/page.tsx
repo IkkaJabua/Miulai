@@ -8,7 +8,7 @@ import styles from './page.module.scss'
 import Link from 'next/link'
 import axios from 'axios'
 import { useRecoilState } from 'recoil'
-import { albumIdState, albumMusicFromArtistState } from '@/app/state'
+import { albumIdState, albumMusicFromArtistState, oneArrayMusicState } from '@/app/state'
 
 
 const Album = () => {
@@ -16,14 +16,21 @@ const Album = () => {
     const [albumCover, setAlbumCover] = useState<string>()
     const [albumName, setAlbumName] = useState<string>()
     const [albumPage, setAlbumPage] = useRecoilState(albumMusicFromArtistState)
+    const [musicArrayTwo, setMusicArrayTwo] = useRecoilState(oneArrayMusicState)
+
+
 
     useEffect(() => {
+
         if (albumIDData) {
             axios.get(`https://interstellar-1-pdzj.onrender.com/album/${albumIDData}`)
                 .then((r) => {
                     setAlbumPage(r.data.musics)
                     setAlbumCover(r.data.file.url)
                     setAlbumName(r.data.albumName)
+                    setMusicArrayTwo(r.data.musics)
+                    // setMusicArrayTwo(r.data.musics)
+
                 })
                 .catch(error => {
                     console.log('Failed to fetch album data:', error)

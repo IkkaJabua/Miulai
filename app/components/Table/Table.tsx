@@ -8,11 +8,12 @@ import { text } from "stream/consumers";
 import Image from "next/image";
 import { useWindowSize } from "react-use";
 import { useRecoilState } from "recoil";
-import { albumMusicFromArtistState, mudicIDState, musicState } from "@/app/state";
+import { albumMusicFromArtistState, mudicIDState, musicState, oneArrayMusicState } from "@/app/state";
 const Tables = () => {
     const [musicArray, setMusicArray] = useRecoilState(musicState);
     const [albumPage, setAlbumPage] = useRecoilState(albumMusicFromArtistState)
     const [musicID, setMusicId] = useRecoilState(mudicIDState)
+
 
 
 

@@ -6,79 +6,99 @@ import Image from 'next/image';
 import { useForm, SubmitHandler } from "react-hook-form"
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import Cookies from 'js-cookie'
+import { useRecoilState } from 'recoil';
+import { clickFetchState } from '@/app/state';
+
+
 
 
 
 type Props = {
-    onClick?: () => void;
+  onClick?: () => void;
 
 
 }
 
+
+
 const CreatePlaylist = ({ onClick }: Props) => {
-    const { register, handleSubmit, watch, formState: { errors }, } = useForm<any>()
-
-    const onSubmit = async (values: any) => {
-        const data: any = new FormData()
-        data.append('name', String(values.name))
-        data.append('file', values.file[0])
-
-      axios.post('https://interstellar-1-pdzj.onrender.com/playlist', data).
-        then((r) => {
-          console.log(r)
-        })
-
-        // data.append('useId', )
-
-        // data.append('artistName', values.artistName)
-        // data.append('description', values.description)
+  const { register, handleSubmit, watch, formState: { errors }, } = useForm<any>()
+  const [userId, setUserId] = useState()
+  const token = Cookies.get('accessToken');
+  const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
 
 
 
 
-        // console.log('=====>>>>', values.Playlistname)
-        // console.log('=====>>>>', values.file[0])
+  useEffect(() => {
+    axios.get(`https://interstellar-1-pdzj.onrender.com/user/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    }).
+      then((r) => {
+        setUserId(r.data.id)
+        console.log(r.data.id)
+      })
+  }, [])
+
+  const onSubmit = async (values: any) => {
+    try {
+      const response = await axios.post('https://interstellar-1-pdzj.onrender.com/playlist', {
+        'name': String(values.name),  // Convert 'name' to a string
+        'userId': String(userId)  // Ensure userId is available
+      }, {
+        headers: {
+          'Content-Type': 'application/json'  // Ensure JSON content type
+        }
+      });
+      setClickFetch(!clickFetch)
+
+    } catch (error) {
     }
+  };
 
-    return (
-      <PlaylistBox className={styles.container}>
-        <div className={styles.header}>
-          <Icon
-            name={"leftsideArrow"}
+
+  return (
+    <PlaylistBox className={styles.container}>
+      <div className={styles.header}>
+        <Icon
+          name={"leftsideArrow"}
+          alt="image"
+          width={20}
+          height={20}
+          onClick={onClick}
+        />
+        <span className={styles.title}>Create New Playlist</span>
+      </div>
+      <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+        <input
+          type="text"
+          placeholder="Playlist name"
+          className={styles.inp}
+          {...register("name")}
+        />
+        {/* <div className={styles.filesWrapper}>
+          <input type="file" className={styles.files} {...register("file")} />
+          <Image
+            src={"/icon/camera.png"}
             alt="image"
-            width={20}
-            height={20}
-            onClick={onClick}
+            width={88}
+            height={80}
+            className={styles.image}
           />
-          <span className={styles.title}>Create New Playlist</span>
-        </div>
-        <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="text"
-            placeholder="Playlist name"
-            className={styles.inp}
-            {...register("name")}
-          />
-          <div className={styles.filesWrapper}>
-            <input type="file" className={styles.files} {...register("file")} />
-            <Image
-              src={"/icon/camera.png"}
-              alt="image"
-              width={88}
-              height={80}
-              className={styles.image}
-            />
-          </div>
-          <Button
-            title={"Save"}
-            mode={"reusable button"}
-            width={"290px"}
-            height="100px"
-            onClick={() => console.log("button clicked")}
-          />
-        </form>
-      </PlaylistBox>
-    );
+        </div> */}
+        <Button
+          title={"Save"}
+          mode={"reusable button"}
+          width={"290px"}
+          height="100px"
+          onClick={() => console.log('')}
+        />
+      </form>
+    </PlaylistBox>
+  );
 }
 
 export default CreatePlaylist;

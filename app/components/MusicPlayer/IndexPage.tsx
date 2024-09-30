@@ -7,7 +7,7 @@ import TrackDisplay from "./TrackDisplay";
 import SliderMobile from "./Slider/Slider";
 import axios from "axios";
 import { useRecoilState } from "recoil";
-import { mudicIDState, playerDisplayState } from "@/app/state";
+import { albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } from "@/app/state";
 import Cookies from "js-cookie";
 
 const IndexPage: React.FC = () => {
@@ -53,40 +53,42 @@ const IndexPage: React.FC = () => {
       audio.loop = isLooping;
     }
   }, [volume, isLooping]);
+  const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
+
+// ===============
+
+  const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
+
+  // useEffect(() => {
+
+  //   axios.get(`https://interstellar-1-pdzj.onrender.com/music`). 
+  //   then((r)=> {
+
+  //     // setMusicArrayTwo(r.data)
+  //   })
+  // })
 
   // Play the next track based on musicID
   const playNextTrack = useCallback(() => {
-    axios
-      .get("https://interstellar-1-pdzj.onrender.com/music")
-      .then((response) => {
-        const musicList = response.data; // Fetch the list of all music
-        const currentIndex = musicList.findIndex((track: any) => track.id === musicID);
-        const nextIndex = (currentIndex + 1) % musicList.length; // Get the next track, loop if needed
-        setMusicId(musicList[nextIndex].id); // Set the next track's ID
-        setCurrentTime(0);
-        setIsPlaying(true);
-      })
-      .catch((error) => {
-        console.error("Error fetching next track:", error);
-      });
-  }, [musicID]);
+    const musicList = musicArrayTwo; // Use your music array directly
+    const currentIndex = musicList.findIndex((track: any) => track.id === musicID);
+    const nextIndex = (currentIndex + 1) % musicList.length; // Get the next track, loop if needed
+    setMusicId(musicList[nextIndex].id); // Set the next track's ID
+    setCurrentTime(0);
+    setIsPlaying(true);
+  }, [musicArrayTwo, musicID, setMusicId, setCurrentTime, setIsPlaying]);
 
   // Play the previous track based on musicID
   const playPreviousTrack = useCallback(() => {
-    axios
-      .get("https://interstellar-1-pdzj.onrender.com/music")
-      .then((response) => {
-        const musicList = response.data; // Fetch the list of all music
-        const currentIndex = musicList.findIndex((track: any) => track.id === musicID);
-        const prevIndex = (currentIndex - 1 + musicList.length) % musicList.length; // Get the previous track, loop if needed
-        setMusicId(musicList[prevIndex].id); // Set the previous track's ID
-        setCurrentTime(0);
-        setIsPlaying(true);
-      })
-      .catch((error) => {
-        console.error("Error fetching previous track:", error);
-      });
-  }, [musicID]);
+    const musicList = musicArrayTwo; // Use your music array directly
+    const currentIndex = musicList.findIndex((track: any) => track.id === musicID);
+    const prevIndex = (currentIndex - 1 + musicList.length) % musicList.length; // Get the previous track, loop if needed
+    setMusicId(musicList[prevIndex].id); // Set the previous track's ID
+    setCurrentTime(0);
+    setIsPlaying(true);
+  }, [musicArrayTwo, musicID, setMusicId, setCurrentTime, setIsPlaying]);
+
+  // ============
 
   // Handle track playback and metadata
   useEffect(() => {
@@ -125,7 +127,7 @@ const IndexPage: React.FC = () => {
         audioRef.current.pause();
       }
     }
-  }, [isPlaying, fetchMusic]);
+  }, [isPlaying, fetchMusic]); 
 
   const playPause = useCallback(() => {
     setIsPlaying((prevIsPlaying) => !prevIsPlaying);

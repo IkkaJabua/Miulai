@@ -7,6 +7,7 @@ import {
   albumidState,
   clickFetchState,
   mudicIDState,
+  oneArrayMusicState,
 } from "@/app/state";
 import { useRouter } from "next/navigation";
 import styles from "./Header.module.scss";
@@ -30,8 +31,15 @@ const Header: React.FC<InputTpo> = (props) => {
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
   const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState);
   const [musicID, setMusicId] = useRecoilState(mudicIDState);
-
   const [showPopup, setShowPopup] = useState(false);
+
+
+  const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
+
+  const oneArray = () => {
+
+  }
+
 
   const togglePopup = () => {
     setShowPopup(!showPopup);
@@ -94,20 +102,35 @@ const Header: React.FC<InputTpo> = (props) => {
     }, 200);
   };
 
-  const handleAlbumClick = (album: any) => {
-    router.push("/album");
-    setAlbumId(album.id);
-    // console.log(album.id)
-    setAlbumIDData(album.id);
-    setClickFetch(!clickFetch);
-    setInputValue(""); // Reset input field after selection
-  };
 
   const handleAuthorClick = (author: any) => {
     router.push(`/artistlist/${albumId}`);
     setAlbumId(author.id); // Assuming you use the same state for albums and authors
     setClickFetch(!clickFetch);
     setInputValue(""); // Reset input field after selection
+  };
+
+  const handleAlbumClick = async (album: any) => {
+    setMusicArrayTwo([]);
+    console.log(musicArrayTwo,'gzashi albomis musikebis chaweramde')
+    try {
+      const response = await axios.get(`https://interstellar-1-pdzj.onrender.com/album/${album.id}`);
+      setMusicArrayTwo(response.data.musics);
+      console.log(musicArrayTwo,'albomis musikebis chaweris mere ')
+
+
+      // Set states
+      setAlbumId(album.id);
+      setAlbumIDData(album.id);
+      setClickFetch(!clickFetch);
+      setInputValue(""); // Reset input field after selection
+
+      // Now navigate after data is set
+      router.push("/album");
+    } catch (error) {
+      console.error("Error fetching album music:", error);
+      // Handle error if needed, e.g., show a notification to the user
+    }
   };
 
   return (

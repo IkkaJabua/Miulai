@@ -60,4 +60,12 @@ export const topHitState = atom({
     default: null
 })
  
+export const  oneArrayMusicState = atom({
+    key: 'oneArrayMusicState',
+    default: []
+})
+export const somePlayingState = atom({
+    key: 'somePlayingState',
+    default : null
+})
 

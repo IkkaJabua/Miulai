@@ -8,13 +8,18 @@ import { text } from "stream/consumers";
 import Image from "next/image";
 import { useWindowSize } from "react-use";
 import { useRecoilState } from "recoil";
-import { albumCoverState, globalAlbumDataState, mudicIDState, musicState, newsImageState } from "@/app/state";
+import { albumCoverState, globalAlbumDataState, mudicIDState, musicState, newsImageState, oneArrayMusicState } from "@/app/state";
 import { useEffect } from "react";
 import axios from "axios";
 const ArtistTable = () => {
   const [musicArray, setMusicArray] = useRecoilState(musicState);
   const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
   const [musicID, setMusicId] = useRecoilState(mudicIDState)
+
+  const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
+
+
+
 
 
 
@@ -105,6 +110,7 @@ const ArtistTable = () => {
         pagination={false}
         onRow={(record: any) => ({
           onClick: () => {
+            setMusicArrayTwo(musicArray)
             setMusicId(record.id);
           },
         })}
