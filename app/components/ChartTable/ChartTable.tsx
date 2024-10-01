@@ -106,18 +106,18 @@ const ChartTable = () => {
                 width: "0.5%",
                 render: () => <div></div>,
             },
-        {
-            title: "",
-            key: "like",
-            width: "10%",
-            render: () => (
-                <HeartShapeBtn
-                    isActive={true}
-                    isDisabled={false}
-                    onClick={() => console.log("button clicked")}
-                />
-            ),
-        },
+        // {
+        //     title: "",
+        //     key: "like",
+        //     width: "10%",
+        //     render: () => (
+        //         <HeartShapeBtn
+        //             isActive={true}
+        //             isDisabled={false}
+        //             onClick={() => console.log("button clicked")}
+        //         />
+        //     ),
+        // },
     ];
 
     return (
