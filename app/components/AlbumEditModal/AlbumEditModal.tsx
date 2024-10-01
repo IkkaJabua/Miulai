@@ -31,7 +31,7 @@ const AlbumEditModal = (props: Props) => {
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{ onClick={(e) => e.stopPropagation()}}}>
       <form
         className={styles.form}
         onSubmit={handleSubmit((values, id) => {
@@ -40,6 +40,7 @@ const AlbumEditModal = (props: Props) => {
       >
         <input
           type="text"
+          onClick={(e) => e.stopPropagation()}
           {...register("name")}
           className={styles.input}
           autoComplete="off"
@@ -47,6 +48,7 @@ const AlbumEditModal = (props: Props) => {
         />
         <input
           type="submit"
+          onClick={(e) => e.stopPropagation()}
           className={styles.submit}
           onClick={props.closeModal}
         />

@@ -97,12 +97,12 @@ const UserPlaylist = () => {
                   alt="edit button"
                 />
                 {openModal && (
-                  <AlbumEditModal
-                    id={item.id}
-                    closeModal={() => {
-                      close;
-                    }}
-                  />
+                  <div style={{position: 'relative'}}><AlbumEditModal
+                  id={item.id}
+                  closeModal={() => {
+                    close;
+                  }}
+                /></div>
                 )}
               </div>
               <div
