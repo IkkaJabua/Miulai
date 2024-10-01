@@ -27,6 +27,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    max-height: 300px;
+    overflow: scroll;
     gap: 13px;
     height: 100%;
 }

@@ -19,7 +19,7 @@ const Album = () => {
     const [albumName, setAlbumName] = useState<string>()
     const [albumPage, setAlbumPage] = useRecoilState(albumMusicFromArtistState)
     const [musicArrayTwo, setMusicArrayTwo] = useRecoilState(oneArrayMusicState)
-    const token = Cookies.get("token");
+    const token = Cookies.get("accessToken");
 
 
 

@@ -23,7 +23,7 @@ export default function Home() {
   const [inputValue, setInputValue] = useState();
   const [topHitMusic, setTopHitMusic] = useRecoilState(topHitState)
   const [musicID, setMusicId] = useRecoilState(mudicIDState)
-  const token = Cookies.get("token");
+  const token = Cookies.get("accessToken");
 
 
 

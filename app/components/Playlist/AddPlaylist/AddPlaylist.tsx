@@ -42,9 +42,6 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
     }, [])
 
 
-
-
-
     const onSubmit = () => {
         console.log(token, 'sad dailoga aba ')
         axios.post(`https://interstellar-1-pdzj.onrender.com/playlist/${playlsID}/${globalMusic}`, {
@@ -69,7 +66,6 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
             <div onClick={onForward}>
                 <NewPlaylist />
             </div>
-
             <form onSubmit={handleSubmit(onSubmit)} className={styles.inputWrapper}>
                 {
                     playlist.map((item, i) => (<PlaylistInput name={item.name} onClick={() => setPlaylstId(item.id)} id={item.id} key={item.id} register={register} />))

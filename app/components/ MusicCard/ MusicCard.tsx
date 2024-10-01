@@ -6,7 +6,7 @@ import styles from './ MusicCard.module.scss'
 import Playlist from '../Playlist/Playlist';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
-import { clickFetchState, mudicIDState, oneArrayMusicState } from '@/app/state';
+import { clickFetchState, globalMusicState, mudicIDState, oneArrayMusicState } from '@/app/state';
 import Cookies from 'js-cookie';
 
 const MusicCard = () => {
@@ -16,6 +16,8 @@ const MusicCard = () => {
   const [cardData, setCardData] = useState<any>([]);
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
   const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
+  const [globalMusic, setGlobalMusic] = useRecoilState<any>(globalMusicState)
+
 
 
 
@@ -48,7 +50,12 @@ const MusicCard = () => {
           key={item.id}
           onClick={() => {
             setMusicArrayTwo(cardData)
-            setMusicId(item.id)}}
+            setMusicId(item.id)
+            setGlobalMusic(item.id)
+            console.log(item.id)
+          }}
+      
+
         >
           <div className={styles.container_author}>
             <div>

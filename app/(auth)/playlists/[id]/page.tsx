@@ -25,18 +25,15 @@ const Id = () => {
     const [data, setData] = useState([])
     const [, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
     const token = Cookies.get("accessToken");
-    console.log(token, 'iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
     
 
     useEffect(() => {
-        console.log(token , 'topkennnnnnnnnnnnnnnnnnnnnn')
         axios.get(`https://interstellar-1-pdzj.onrender.com/playlist/${globalPlst}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }
         }). 
         then((r) => {
-            console.log(r.data,'sdasdasdsa')
             setData(r.data.musics)
             setNewsName(r.data.name)
             setMusicArrayTwo(data)
