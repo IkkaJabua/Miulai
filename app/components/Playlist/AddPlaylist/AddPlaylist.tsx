@@ -36,8 +36,8 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
                 Authorization: `Bearer ${token}`
             }
         }).then((r) => {
-                setPlaylist(r.data)
-            })
+            setPlaylist(r.data)
+        })
     }, [])
 
 
@@ -48,9 +48,9 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
                 Authorization: `Bearer ${token}`
             }
         }).then((r) => {
-                console.log(r, 'gaigzavnaaa')
+            console.log(r, 'gaigzavnaaa')
 
-            })
+        })
     }
 
     return (
@@ -69,6 +69,8 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
                 {
                     playlist.map((item, i) => (<PlaylistInput name={item.name} onClick={() => setPlaylstId(item.id)} id={item.id} key={item.id} register={register} />))
                 }
+
+
                 <button className={styles.button}>
                     save
                 </button>
