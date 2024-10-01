@@ -6,7 +6,7 @@ import { useRecoilState } from "recoil";
 import { albumidState, clickFetchState } from "@/app/state";
 import Cookies from 'js-cookie';
 import { useRouter } from "next/navigation";
-import ArtistCard from "../../components/artistCard/ArtistCard";
+import ArtistCard from "@/app/components/ArtistCard/ArtistCard";
 
 
 

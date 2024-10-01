@@ -5,7 +5,7 @@ import axios from "axios";
 import { useRecoilState } from "recoil";
 import { albumIdState, clickFetchState } from "@/app/state";
 import { useRouter } from "next/navigation";
-import ArtistCard from "../../components/artistCard/ArtistCard";
+import ArtistCard from "@/app/components/ArtistCard/ArtistCard";
 
 
 
