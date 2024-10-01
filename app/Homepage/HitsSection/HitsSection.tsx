@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useRecoilState } from 'recoil';
-import { accessTokenState, clickFetchState, globalMusicState, formusicFetchState, albumidState, albumIdState } from '@/app/state';
+import { accessTokenState, clickFetchState, globalMusicState, formusicFetchState, albumidState, albumIdState, mudicIDState, oneArrayMusicState } from '@/app/state';
 import { useRouter } from "next/navigation";
 
 
@@ -19,6 +19,8 @@ const HitsSection = () => {
     const [viewArtist, setViewArtist] = useRecoilState(formusicFetchState)
     const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState) 
        const [albumId, setAlbumId] = useRecoilState(albumidState);
+    const [musicID, setMusicId] = useRecoilState(mudicIDState)
+    const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
 
 
 
@@ -43,13 +45,13 @@ const HitsSection = () => {
         <div className={styles.container}>
             <div className={styles.hits}>
                 {
-                    musics.slice().map((item:any) => (
+                    musics.slice(0,6).map((item:any) => (
                         <div className={styles.box} key={item.id} onClick={() => {
                             setAlbumIDData(item.albumId)
                             setGlobalMusic(item.id)
                             setAlbumId(item.authorId)
-
-                            console.log(item)
+                            setMusicId(item.id)
+                            setMusicArrayTwo(musics)
                         }}
                             >
                             <Card image={item?.albumCover} subtitle={item.artistName} title={item.name}  imageStyle={'normal'} />
