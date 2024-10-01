@@ -7,7 +7,7 @@ import SliderMobile from "./Slider/Slider";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import Cookies from 'js-cookie'
-import { albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } from "@/app/state";
+import { accessTokenState, albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } from "@/app/state";
 
 
 
@@ -26,9 +26,12 @@ const IndexPage: React.FC = () => {
   const [fetchMusic, setFetchMusic] = useState<any>(null); 
   const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState); 
 
+  const [accessTokenReco, setAccessTokenReco] = useRecoilState(accessTokenState)
+
+
 
   useEffect(() => {
-    console.log(token,'token')
+    console.log(accessTokenReco,'token')
     if (musicID && token) {
       axios
         .get(`https://interstellar-1-pdzj.onrender.com/music/${musicID}`, {

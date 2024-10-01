@@ -78,4 +78,8 @@ export const globalPLaylistState = atom({
     key: 'globalPLaylistState',
     default: null
 })
+export const accessTokenState = atom({
+    key: 'accessTokenState', 
+    default: ''
+})
  

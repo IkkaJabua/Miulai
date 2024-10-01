@@ -9,6 +9,8 @@ import ErrorMessage from "../components/ErrorMessage/ErrorMessage";
 import { useRouter } from "next/navigation";
 import { setCookie } from "../cookies";
 import { useState, useEffect } from "react";
+import { useRecoilState } from "recoil";
+import { accessTokenState } from "../state";
 
 type SignIn = {
   email: string;
@@ -18,6 +20,7 @@ type SignIn = {
 
 const Signup = () => {
   const [rememberMe, setRememberMe] = useState(false);
+  const [accessTokenReco, setAccessTokenReco] = useRecoilState(accessTokenState)
   const router = useRouter();
   const {
     register,
@@ -46,8 +49,7 @@ const Signup = () => {
     axios
       .post("https://interstellar-1-pdzj.onrender.com/auth", values)
       .then((r) => {
-        console.log(r);
-        
+
         setCookie("token", r.data.accessToken, 60);
         if (rememberMe) {
           localStorage.setItem("email", values.email);

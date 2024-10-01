@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useRecoilState } from 'recoil';
-import { clickFetchState, globalMusicState } from '@/app/state';
+import { accessTokenState, clickFetchState, globalMusicState } from '@/app/state';
 
 
 
@@ -14,6 +14,7 @@ const HitsSection = () => {
     const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
 
     const [globalMusic, setGlobalMusic] = useRecoilState(globalMusicState)
+
 
    
     
