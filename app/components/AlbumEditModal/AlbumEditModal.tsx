@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
 import { useRecoilState } from "recoil";
 import { clickFetchState, globalPLaylistState } from "@/app/state";
+import { useState } from "react";
 
 type Props = {
   closeModal?: (e:any) => void;
@@ -11,10 +12,15 @@ type Props = {
   id: number;
 };
 
-const AlbumEditModal = (props: Props) => {
-  const { handleSubmit, register } = useForm();
-  const [ click , setClick] = useRecoilState(clickFetchState)
 
+interface Form {
+  name: string;
+}
+
+const AlbumEditModal = (props: Props) => {
+  const { handleSubmit, register , formState: {errors}} = useForm<Form>();
+  const [ click , setClick] = useRecoilState(clickFetchState)
+ 
 
   const onEditClick = (values: any) => {
     const accessToken = Cookies.get("token");
@@ -31,6 +37,7 @@ const AlbumEditModal = (props: Props) => {
       }
     ).then(() => {
         setClick(!click)
+      
       })
   };
 
@@ -45,14 +52,22 @@ const AlbumEditModal = (props: Props) => {
         <input
           type="text"
           onClick={(e) => e.stopPropagation()}
-          {...register("name")}
+          {...register("name", {
+            required: {
+              value: true,
+              message: 'Name is required'
+            },
+            validate: (value) => {
+              return value.trim().length > 1 || "Name cannot be empty or whitespace";
+            }
+          })}
           className={styles.input}
           autoComplete="off"
           placeholder="Edit name"
         />
+        {errors.name && <p className={styles.errMessage}>{errors.name.message}</p>}
         <input
           type="submit"
-
           className={styles.submit}
           onClick={props.closeModal}
         />

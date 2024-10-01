@@ -36,6 +36,7 @@ const UserPlaylist = () => {
         })
             .then((r) => {
                 setPlaylistData(r.data);
+                setOpenModal(false)
             })
             .catch((error) => {
                 console.error("Error fetching playlists:", error);
