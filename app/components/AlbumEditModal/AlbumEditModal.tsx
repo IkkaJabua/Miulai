@@ -3,16 +3,18 @@ import styles from "./AlbumEditModal.module.scss";
 import { useForm } from "react-hook-form";
 import Cookies from "js-cookie";
 import { useRecoilState } from "recoil";
-import { globalPLaylistState } from "@/app/state";
+import { clickFetchState, globalPLaylistState } from "@/app/state";
 
 type Props = {
-  closeModal?: () => void;
+  closeModal?: (e:any) => void;
   openModal?: () => void;
   id: number;
 };
 
 const AlbumEditModal = (props: Props) => {
   const { handleSubmit, register } = useForm();
+  const [ click , setClick] = useRecoilState(clickFetchState)
+
 
   const onEditClick = (values: any) => {
     const accessToken = Cookies.get("token");
@@ -27,11 +29,13 @@ const AlbumEditModal = (props: Props) => {
           Authorization: `Bearer ${accessToken}`,
         },
       }
-    );
+    ).then(() => {
+        setClick(!click)
+      })
   };
 
   return (
-    <div className={styles.container} style={{ onClick={(e) => e.stopPropagation()}}}>
+    <div className={styles.container}>
       <form
         className={styles.form}
         onSubmit={handleSubmit((values, id) => {
@@ -48,7 +52,7 @@ const AlbumEditModal = (props: Props) => {
         />
         <input
           type="submit"
-          onClick={(e) => e.stopPropagation()}
+
           className={styles.submit}
           onClick={props.closeModal}
         />

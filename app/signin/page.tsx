@@ -61,6 +61,8 @@ const Signup = () => {
         }
         router.push("/");
         window.location.reload()
+      }).catch(() => {
+        setLoading(false)
       });
   };
 

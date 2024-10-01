@@ -17,8 +17,16 @@ const UserPlaylist = () => {
   const token = Cookies.get("accessToken");
   const [globalPlst, setGlobalPlst] = useRecoilState(globalPLaylistState);
   const [openModal, setOpenModal] = useState(false);
-  const open = () => setOpenModal(true);
-  const close = () => setOpenModal(false);
+  const [modalId, setModalId] = useState<number | null>(null); // Tracks which modal to open
+
+  const open = (id: number) => {
+    setModalId(id);
+    setOpenModal(true);
+  };
+
+  const close = (e: any) => {
+    e.stopPropagation(); // Stops event bubbling
+  };
 
   useEffect(() => {
     axios
@@ -33,10 +41,9 @@ const UserPlaylist = () => {
       .catch((error) => {
         console.error("Error fetching playlists:", error);
       });
-  }, [clickFetch, token]); // Add token as a dependency to ensure it's up to date.
+  }, [clickFetch, token]);
 
   const handleCardClick = (id: string) => {
-    console.log('dsadsadasdasdasda')
     router.push(`/playlists/${id}`);
   };
 
@@ -52,7 +59,6 @@ const UserPlaylist = () => {
         },
       })
       .then(() => {
-        // Remove the deleted item from the state
         setPlaylistData((prevData) =>
           prevData.filter((item) => item.id !== id)
         );
@@ -90,26 +96,26 @@ const UserPlaylist = () => {
                   src={"/icon/edit.svg"}
                   width={24}
                   onClick={(e) => {
-                    e.stopPropagation();
-                    setOpenModal((prevState) => !prevState);
+                    e.stopPropagation();  
+                    open(item.id); // Open modal for the clicked item
                   }}
                   height={24}
                   alt="edit button"
                 />
-                {openModal && (
-                  <div style={{position: 'relative'}}><AlbumEditModal
-                  id={item.id}
-                  closeModal={() => {
-                    close;
-                  }}
-                /></div>
+                {openModal && modalId === item.id && (
+                  <div style={{ position: "relative" }}>
+                    <AlbumEditModal
+                      id={item.id}
+                      closeModal={close} // Properly closes the modal
+                    />
+                  </div>
                 )}
               </div>
               <div
                 className={styles.cellDelete}
                 onClick={(e) => {
                   stopClickPropagation(e);
-                  onDeleteClick(item.id); // Pass the correct ID here
+                  onDeleteClick(item.id); // Delete the specific playlist
                 }}
               >
                 <Image
@@ -117,7 +123,6 @@ const UserPlaylist = () => {
                   width={24}
                   height={24}
                   alt="delete button"
-                  onClick={() => console.log("Delete button clicked")}
                 />
               </div>
             </div>
