@@ -1,13 +1,13 @@
 
-import { cookies } from 'next/headers';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
+import Cookies from "js-cookie";
 
 export default async function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname;
-    const token = cookies().get('token');
+    const token = Cookies.get('token');
 
-    const publicRoutes = ['/signin', '/signup'];
+    const publicRoutes = ['/login', '/register'];
     const pathIsPublic = publicRoutes.includes(path);
 
     if (pathIsPublic && token) {
