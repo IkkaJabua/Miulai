@@ -94,14 +94,14 @@ const Tables = () => {
                     </div>
                 )
             },
-        {
-            title: '',
-            key: 'like',
-            width: '10%',
-            render: (() =>
-                <HeartShapeBtn isActive={true} isDisabled={false} onClick={() => console.log('button clicked')} />
-            )
-        },
+        // {
+        //     title: '',
+        //     key: 'like',
+        //     width: '10%',
+        //     render: (() =>
+        //         <HeartShapeBtn isActive={true} isDisabled={false} onClick={() => console.log('button clicked')} />
+        //     )
+        // },
     ];
 
 
