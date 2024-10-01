@@ -1,32 +1,28 @@
-import { NextRequest, NextResponse } from "next/server";
-// import { cookies } from "next/headers";
-import Cookies from "js-cookie";
 
+import { cookies } from 'next/headers';
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
 
-const publicRoutes = ['/signin', '/signup']
+export default async function middleware(request: NextRequest) {
+    const path = request.nextUrl.pathname;
+    const token = cookies().get('token');
 
-export default async function middleware(req: NextRequest) {
-    // NextResponse.redirect('/')
-    // console.log(cookies().get('token'));
-    // console.log('ddd');
+    const publicRoutes = ['/signin', '/signup'];
+    const pathIsPublic = publicRoutes.includes(path);
 
-    const token = Cookies.get('token');
-    const path = req.nextUrl.pathname
-    
-    const pathIsPublic = publicRoutes.includes(path)
-
-    if(/*path === '/signin'*/ pathIsPublic && token) { 
-      return  NextResponse.redirect(new URL('/', req.url))
+    if (pathIsPublic && token) {
+        return NextResponse.redirect(new URL('/', request.url));
     }
 
-    if(!token && !pathIsPublic /*path !== '/signin'*/) {
-      
-        return NextResponse.redirect(new URL('/signin', req.url))
+    if (!token && !pathIsPublic) {
+        return NextResponse.redirect(new URL('/signin', request.url));
     }
 
-    return NextResponse.next()
+    return NextResponse.next();
 }
 
 export const config = {
-    matcher: ['/((?!api|_next/static|_next/image|favicon.ico|image|icon|.png$).*)'],
-} 
+    matcher: [
+        '/((?!api|_next/static|images|icons|searchIcon|_next/image|.\.png$).)',
+    ],
+};
