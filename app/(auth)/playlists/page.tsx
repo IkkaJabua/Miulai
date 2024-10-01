@@ -42,9 +42,9 @@ const Playlists = () => {
                     <ReusableHeader />
                 </div>
                 <div className={styles.cellFont}>
-                    <Link href={'/'}>
+                    {/* <Link href={'/'}>
                         <Image className={styles.tabletCursos} src={'./icon/isari.svg'} width={32} height={32} alt='image' />
-                    </Link>
+                    </Link> */}
                     <div className={styles.mobileGap}>
                         <div className={styles.cellMyPlaylist}>
                             My Playlists

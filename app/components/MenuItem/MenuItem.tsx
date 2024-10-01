@@ -61,14 +61,6 @@ const MenuItem = () => {
             key: '/playlists',
 
         },
-        {
-            title: 'Favorites',
-            icon: 'menu-logo6',
-            activeIcon: 'clicked-menu-logo6',
-            path: '/favorites',
-            key: '/favorites',
-
-        },
         { type: 'header', title: 'Discover', key: 'title' },
         {
             title: 'Artist',
