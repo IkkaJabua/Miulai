@@ -15,7 +15,7 @@ export default async function middleware(req: NextRequest) {
     const pathIsPublic = publicRoutes.includes(path)
 
     if(/*path === '/signin'*/ pathIsPublic && token) { 
-      return  NextResponse.redirect(new URL('/', req.url))
+      return  NextResponse.redirect(new URL('./', req.url))
     }
 
     if(!token && !pathIsPublic /*path !== '/signin'*/) {

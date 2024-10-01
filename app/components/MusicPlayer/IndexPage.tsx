@@ -1,5 +1,4 @@
 "use client";
-import Cookies from 'js-cookie'
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import Controls from "./Contorls";
 import style from "./IndexPage.module.scss";
@@ -7,6 +6,7 @@ import TrackDisplay from "./TrackDisplay";
 import SliderMobile from "./Slider/Slider";
 import axios from "axios";
 import { useRecoilState } from "recoil";
+import Cookies from 'js-cookie'
 import { albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } from "@/app/state";
 
 
