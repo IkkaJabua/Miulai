@@ -13,11 +13,13 @@ import styles from './page.module.scss';
 import { useRecoilState } from "recoil";
 import { mudicIDState, topHitState } from "../state";
 import Cookies from "js-cookie";
+// import middleware from "@/middleware";
 
 
 // songs.slice(0, 6).map(() => {})
 
 export default function Home() {
+
   const [inputValue, setInputValue] = useState();
   const [topHitMusic, setTopHitMusic] = useRecoilState(topHitState)
   const [musicID, setMusicId] = useRecoilState(mudicIDState)

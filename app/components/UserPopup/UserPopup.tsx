@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { clickFetchState } from '@/app/state';
 
 type Props = {
     userName?: string;
@@ -14,6 +16,8 @@ type Props = {
 const UserPopup = ({ userName,}: Props) => {
     const [email, setEmail] = useState<string>('');
     const [name,setName] =useState<string>('')
+    const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
+
     useEffect(() => {
         const fetchUserData = async () => {
             try {
@@ -50,10 +54,11 @@ const UserPopup = ({ userName,}: Props) => {
 
     const router = useRouter();
     const handleLogOut = () => {
+        setClickFetch(!clickFetch)
         document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
         Cookies.remove('token');
-        router.push('/login')
-        window.location.reload();
+        router.push('/signin')
+        // window.location.reload();
     };
 
 

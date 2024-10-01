@@ -3,16 +3,12 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import Cookies from "js-cookie";
 
-const publicRoutes = ['/signin', '/signup'];
-
-
 export default async function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname;
-    const cookie = request.cookies.get('token')
+    const token = Cookies.get('token');
 
-    const token = cookie?.value;
+    const publicRoutes = ['/login', '/register'];
     const pathIsPublic = publicRoutes.includes(path);
-
 
     if (pathIsPublic && token) {
         return NextResponse.redirect(new URL('/', request.url));
@@ -27,7 +23,6 @@ export default async function middleware(request: NextRequest) {
 
 export const config = {
     matcher: [
-        "/((?!api|static|.*\\..*|_next).*)"
-        // '/((?!api|_next/static|images|icons|searchIcon|_next/image|.\.png$).)',
+        '/((?!api|_next/static|images|icons|searchIcon|_next/image|.\.png$).)',
     ],
 };
