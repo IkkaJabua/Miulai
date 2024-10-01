@@ -82,4 +82,8 @@ export const accessTokenState = atom({
     key: 'accessTokenState', 
     default: ''
 })
+export const formusicFetchState = atom({
+    key: 'formusicFetchState',
+    default: null
+})
  
