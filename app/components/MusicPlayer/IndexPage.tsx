@@ -31,7 +31,7 @@ const IndexPage: React.FC = () => {
 
 
   useEffect(() => {
-    console.log(accessTokenReco,'token')
+    console.log(token,'token')
     if (musicID && token) {
       axios
         .get(`https://interstellar-1-pdzj.onrender.com/music/${musicID}`, {

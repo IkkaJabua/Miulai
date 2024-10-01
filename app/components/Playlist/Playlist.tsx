@@ -1,14 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PlaylistBox from '../PlaylistBox/PlaylistBox';
 import PItem from './PItem/PItem';
 import styles from './Playlist.module.scss';
 import Image from 'next/image';
 import AddPlaylist from './AddPlaylist/AddPlaylist';
 import CreatePlaylist from './CreatePlaylist/CreatePlaylist';
+import axios from 'axios';
 
 
 const Playlist = () => {
     const [route, setRoute] = useState(0);
+
+
 
     const onForward = () => {
         setRoute(route + 1)
@@ -22,8 +25,8 @@ const Playlist = () => {
         return (
             <PlaylistBox className={styles.container}>
                 <PItem image={'playlistIcon'} title={'Add to Playlist'} onClick={onForward} />
-                <PItem image={'albumIcon'} title={'Add to Album'} />
-                <PItem image={'artistIcon'} title={'Add to Artist'} />
+                <PItem image={'albumIcon'} title={'View to Album'} />
+                <PItem image={'artistIcon'} title={'View to Artist'}/>
             </PlaylistBox>
         )
 
@@ -45,8 +48,8 @@ const Playlist = () => {
     return (
         <PlaylistBox className={styles.container}>
             <PItem image={'playlistIcon'} title={'Add to Playlist'} onClick={onForward} />
-            <PItem image={'albumIcon'} title={'Add to Album'} />
-            <PItem image={'artistIcon'} title={'Add to Artist'} />
+            <PItem image={'albumIcon'} title={'View to Album'} />
+            <PItem image={'artistIcon'} title={'View to Artist'} />
         </PlaylistBox>
     )
 }

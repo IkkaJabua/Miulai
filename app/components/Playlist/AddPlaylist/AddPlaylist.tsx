@@ -32,7 +32,6 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
     useEffect(() => {
         axios.get(`https://interstellar-1-pdzj.onrender.com/playlist`).
             then((r) => {
-                console.log(r.data, 'aq ar ia q arii aq ariii')
                 setPlaylist(r.data)
 
             })
@@ -45,18 +44,12 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
     const onSubmit = (values: any) => {
 
-        const data = new FormData()
-        
         axios.post(`https://interstellar-1-pdzj.onrender.com/playlist/${playlsID}/${globalMusic}`). 
         then((r) => {
             console.log(r,'gaigzavnaaa')
 
         })
     }
-
-
-
-    // console.log(checkboxValues, Object.values(checkboxValues))
 
     return (
         <PlaylistBox className={styles.container}>
