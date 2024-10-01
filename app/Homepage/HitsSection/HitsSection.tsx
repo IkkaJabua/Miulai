@@ -45,7 +45,7 @@ const HitsSection = () => {
         <div className={styles.container}>
             <div className={styles.hits}>
                 {
-                    musics.slice(0,6).map((item:any) => (
+                    musics.slice(0,5).map((item:any) => (
                         <div className={styles.box} key={item.id} onClick={() => {
                             setAlbumIDData(item.albumId)
                             setGlobalMusic(item.id)
