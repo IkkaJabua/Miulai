@@ -9,13 +9,13 @@ export default async function middleware(req: NextRequest) {
     // console.log(cookies().get('token'));
     // console.log('ddd');
 
-    const token = cookies().get('token');
+    const token = cookies().get('accessToken');
     const path = req.nextUrl.pathname
     
     const pathIsPublic = publicRoutes.includes(path)
 
     if(/*path === '/signin'*/ pathIsPublic && token) { 
-      return  NextResponse.redirect(new URL('./', req.url))
+      return  NextResponse.redirect(new URL('/', req.url))
     }
 
     if(!token && !pathIsPublic /*path !== '/signin'*/) {
