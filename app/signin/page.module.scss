@@ -14,6 +14,25 @@
     font-family: var('--font-Plus-Jakarta-sans');
 }
 
+.button {
+    max-width: 100%;
+    width: 100%;
+    padding: 16px;
+    border-radius: 8px;
+    background: var(--Gradient-apolo, linear-gradient(90deg, #F903D0 0%, #9A16F2 100%));
+    color: white;
+    border: none;
+    margin-top: 40px;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px; // Adjust as necessary
+    width: 350px;
+
+}
 
 .white:first-child {
     color: #fff;
