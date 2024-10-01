@@ -8,7 +8,7 @@ import { text } from "stream/consumers";
 import Image from "next/image";
 import { useWindowSize } from "react-use";
 import { useRecoilState } from "recoil";
-import { globalAlbumDataState, mudicIDState, musicState } from "@/app/state";
+import { globalAlbumDataState, mudicIDState, musicState, oneArrayMusicState } from "@/app/state";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -17,6 +17,7 @@ const HitsTable = () => {
     const [musicArray, setMusicArray] = useRecoilState(musicState);
     const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
   const [musicID, setMusicId] = useRecoilState(mudicIDState)
+  const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
 
     const [albumData, setAlbumData] = useState()
     const [musicData, setMusicData] = useState<any>()
@@ -120,6 +121,7 @@ const HitsTable = () => {
         onRow={(record: any) => ({
           onClick: () => {
             setMusicId(record.id);
+            setMusicArrayTwo(musicCover)
           },
         })}
         columns={columns}

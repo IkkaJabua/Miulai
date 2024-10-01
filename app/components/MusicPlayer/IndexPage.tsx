@@ -201,7 +201,7 @@ const IndexPage: React.FC = () => {
 
         <audio
           ref={audioRef}
-          src={fetchMusic || ''} 
+          src={fetchMusic} 
           onError={() => console.error("Audio failed to load")}
         />
       </div>
