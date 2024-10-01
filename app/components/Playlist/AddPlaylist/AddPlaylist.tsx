@@ -28,7 +28,7 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
     const [globalMusic, setGlobalMusic] = useRecoilState<any>(globalMusicState)
 
 
-    const token = Cookies.get('accessToken')
+    const token = Cookies.get('token')
 
     useEffect(() => {
         axios.get(`https://interstellar-1-pdzj.onrender.com/playlist`, {
