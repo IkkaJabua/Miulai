@@ -92,6 +92,8 @@ const CreatePlaylist = ({ onClick }: Props) => {
         <Button
           title={"Save"}
           mode={"reusable button"}
+          padding='10px'
+          borderRadius='8px'
           width={"290px"}
           height="100px"
           onClick={() => console.log('')}
