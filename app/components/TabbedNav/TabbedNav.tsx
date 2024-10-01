@@ -110,7 +110,7 @@ const TabbedNav = (props: Props) => {
 
         {activeTab === "biography" && (
           <div className={styles.bio}>
-            <Image
+            <img
               src={`${image}`}
               alt="image"
               width={250}

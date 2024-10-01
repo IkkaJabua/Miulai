@@ -4,15 +4,24 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useRecoilState } from 'recoil';
-import { accessTokenState, clickFetchState, globalMusicState, formusicFetchState } from '@/app/state';
+import { accessTokenState, clickFetchState, globalMusicState, formusicFetchState, albumidState, albumIdState } from '@/app/state';
+import { useRouter } from "next/navigation";
+
 
 
 
 const HitsSection = () => {
     const [musics, setMusics] = useState<any>([])
     const token = Cookies.get('token')
+    const router = useRouter();
+
     const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
     const [viewArtist, setViewArtist] = useRecoilState(formusicFetchState)
+    const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState) 
+       const [albumId, setAlbumId] = useRecoilState(albumidState);
+
+
+
 
     const [globalMusic, setGlobalMusic] = useRecoilState(globalMusicState)
 
@@ -26,7 +35,6 @@ const HitsSection = () => {
             }
         })  
         .then((r) => {
-            console.log(r.data,'top hits');
             setMusics(r.data)
         })
     },[clickFetch])
@@ -35,11 +43,16 @@ const HitsSection = () => {
         <div className={styles.container}>
             <div className={styles.hits}>
                 {
-                    musics.slice(0,5).map((item:any) => (
+                    musics.slice().map((item:any) => (
                         <div className={styles.box} key={item.id} onClick={() => {
-                            setViewArtist(item.id)
-                            setGlobalMusic(item.id)}}>
-                            <Card image={item?.albumCover} subtitle={item.artistName} title={item.name} imageStyle={'normal'} />
+                            setAlbumIDData(item.albumId)
+                            setGlobalMusic(item.id)
+                            setAlbumId(item.authorId)
+
+                            console.log(item)
+                        }}
+                            >
+                            <Card image={item?.albumCover} subtitle={item.artistName} title={item.name}  imageStyle={'normal'} />
                         </div>
                     ))
                 }

@@ -8,12 +8,14 @@ import TabbedNav from "@/app/components/TabbedNav/TabbedNav";
 import styles from "./page.module.scss";
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
-import { albumidState } from '@/app/state';
+import { albumidState, formusicFetchState } from '@/app/state';
 
 const Artist = () => {
     const router = useRouter();
     const { id } = useParams(); 
     const [albumId, setAlbumId] = useRecoilState(albumidState);
+    const [viewArtist, setViewArtist] = useRecoilState(formusicFetchState)
+
 
 
     const [artistPhoto, setArtistPhoto] = useState('');
@@ -31,7 +33,7 @@ const Artist = () => {
                     console.error("Error fetching artist data:", error);
                 });
         } else {
-            router.push('/artistlist');
+            
         }
     }, [albumId]);
 

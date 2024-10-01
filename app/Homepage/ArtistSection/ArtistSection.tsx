@@ -6,6 +6,7 @@ import { useRecoilState } from "recoil";
 import { albumidState, clickFetchState } from "@/app/state";
 import Cookies from 'js-cookie';
 import { useRouter } from "next/navigation";
+import ArtistCard from "@/app/components/ArtistCard/ArtistCard";
 
 
 
@@ -33,13 +34,21 @@ const ArtistSection = () => {
           <div className={styles.box} key={item.id} onClick={() => {
             router.push(`/artistlist/${albumId}`);
             setAlbumId(item.id)}}>
-            <Card
+            {/* <Card
               header={""}
               key={item.id}
               image={item.files[0]?.url}
               title={item.firstName}
               imageStyle={"round"}
-            />
+            /> */}
+
+            <ArtistCard 
+              header={""}
+              key={item.id}
+              image={item.files[0]?.url}
+              title={item.firstName}
+              imageStyle={"round"}
+             />
           </div>
         ))}
       </div>
