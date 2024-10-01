@@ -1,0 +1,48 @@
+.modalContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:#000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+
+.albumArt {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.albumArt img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 12px;
+}
+
+.closeButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.closeButton svg {
+    width: 24px;
+    height: 24px;
+}
