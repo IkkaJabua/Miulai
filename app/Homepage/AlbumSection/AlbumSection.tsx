@@ -3,13 +3,19 @@ import styles from "./AlbumSection.module.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRecoilState } from "recoil";
-import { clickFetchState } from "@/app/state";
+import { albumIdState, clickFetchState } from "@/app/state";
+import { useRouter } from "next/navigation";
+
 
 
 
 const AlbumSection = () => {
   const [cardData, setCardData] = useState<any>([]);
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
+  const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
+  const router = useRouter();
+
+
 
 
 
@@ -26,7 +32,10 @@ const AlbumSection = () => {
 
       <div className={styles.album}>
         {cardData.map((item: any) => (
-          <div className={styles.box} key={item.id}>
+          <div className={styles.box} key={item.id} onClick={() =>   {
+            router.push("/album");
+            setAlbumIDData(item.id)
+          }}>
             <Card
               header={""}
               key={item.id}

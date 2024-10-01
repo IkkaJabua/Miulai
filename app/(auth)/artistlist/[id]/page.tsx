@@ -7,17 +7,21 @@ import News from "@/app/components/News/News";
 import TabbedNav from "@/app/components/TabbedNav/TabbedNav";
 import styles from "./page.module.scss";
 import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { albumidState } from '@/app/state';
 
 const Artist = () => {
     const router = useRouter();
     const { id } = useParams(); 
+    const [albumId, setAlbumId] = useRecoilState(albumidState);
+
 
     const [artistPhoto, setArtistPhoto] = useState('');
     const [artistName, setArtistName] = useState('');
 
     useEffect(() => {
-        if (id) {
-            axios.get(`https://interstellar-1-pdzj.onrender.com/author/${id}`)
+        if (albumId) {
+            axios.get(`https://interstellar-1-pdzj.onrender.com/author/${albumId}`)
                 .then((response) => {
                     const artistData = response.data;
                     setArtistPhoto(artistData?.files[0]?.url || '');
@@ -29,12 +33,12 @@ const Artist = () => {
         } else {
             router.push('/artistlist');
         }
-    }, [id]);
+    }, [albumId]);
 
     return (
         <div className={styles.container}>
             <Header />
-            <News title={artistName} image={`${artistPhoto}`} plays={"509,678"} />
+            <News title={artistName} image={`${artistPhoto}`} />
             <TabbedNav biographyText={""} />
         </div>
     );

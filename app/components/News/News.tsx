@@ -51,7 +51,7 @@ const News = (props: Props) => {
         <div className={styles.container_news}>
           <div className={styles.container_title}>
             <div className={styles.font_style_news}>{props.title}</div>
-            <div className={styles.font_style_plays}>{props.plays} Plays</div>
+            <div className={styles.font_style_plays}> Plays {props.plays} </div>
           </div>
           <div className={styles.mainButton}>
             <Button

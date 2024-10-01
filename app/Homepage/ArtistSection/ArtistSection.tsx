@@ -3,8 +3,9 @@ import styles from "./ArtistSection.module.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRecoilState } from "recoil";
-import { clickFetchState } from "@/app/state";
+import { albumidState, clickFetchState } from "@/app/state";
 import Cookies from 'js-cookie';
+import { useRouter } from "next/navigation";
 
 
 
@@ -12,6 +13,10 @@ import Cookies from 'js-cookie';
 const ArtistSection = () => {
   const [atrist, setArtist] = useState([]);
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
+  const router = useRouter();
+  const [albumId, setAlbumId] = useRecoilState(albumidState);
+
+
 
 
 
@@ -25,7 +30,9 @@ const ArtistSection = () => {
     <div className={styles.container}>
       <div className={styles.art}>
         {atrist.slice(0,5).map((item: any) => (
-          <div className={styles.box} key={item.id}>
+          <div className={styles.box} key={item.id} onClick={() => {
+            router.push(`/artistlist/${albumId}`);
+            setAlbumId(item.id)}}>
             <Card
               header={""}
               key={item.id}
