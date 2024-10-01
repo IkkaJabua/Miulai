@@ -10,7 +10,7 @@ import { accessTokenState, clickFetchState, globalMusicState, formusicFetchState
 
 const HitsSection = () => {
     const [musics, setMusics] = useState<any>([])
-    const token = Cookies.get('accessToken')
+    const token = Cookies.get('token')
     const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
     const [viewArtist, setViewArtist] = useRecoilState(formusicFetchState)
 

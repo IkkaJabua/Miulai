@@ -12,7 +12,7 @@ import { accessTokenState, albumIdState, mudicIDState, oneArrayMusicState, playe
 
 
 const IndexPage: React.FC = () => {
-  const token = Cookies.get('accessToken');
+  const token = Cookies.get('token');
   const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
@@ -31,7 +31,6 @@ const IndexPage: React.FC = () => {
 
 
   useEffect(() => {
-    console.log(token,'token')
     if (musicID && token) {
       axios
         .get(`https://interstellar-1-pdzj.onrender.com/music/${musicID}`, {

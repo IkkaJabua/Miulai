@@ -50,7 +50,7 @@ const Signup = () => {
       .post("https://interstellar-1-pdzj.onrender.com/auth", values)
       .then((r) => {
 
-        setCookie("token", r.data.accessToken, 60);
+        setCookie("token", r.data.token, 60);
         if (rememberMe) {
           localStorage.setItem("email", values.email);
           localStorage.setItem("password", values.password);

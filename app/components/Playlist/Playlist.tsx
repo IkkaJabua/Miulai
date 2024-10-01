@@ -16,7 +16,7 @@ const Playlist = () => {
     const [route, setRoute] = useState(0);
     const [viewArtist, setViewArtist] = useRecoilState(formusicFetchState)
 
-    const token = Cookies.get('accessToken')
+    const token = Cookies.get('token')
 
 
 

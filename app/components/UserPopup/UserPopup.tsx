@@ -40,7 +40,7 @@ const UserPopup = ({ userName,}: Props) => {
         fetchUserData();
     }, []);
     const getToken = () => {
-        const match = Cookies.get('accessToken');
+        const match = Cookies.get('token');
         return match 
     };
 
@@ -51,7 +51,7 @@ const UserPopup = ({ userName,}: Props) => {
     const router = useRouter();
     const handleLogOut = () => {
         document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-        Cookies.remove('accessToken');
+        Cookies.remove('token');
         router.push('/login')
         window.location.reload();
     };

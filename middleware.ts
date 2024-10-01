@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { cookies } from "next/headers";
+// import { cookies } from "next/headers";
+import Cookies from "js-cookie";
 
 
 const publicRoutes = ['/signin', '/signup']
@@ -9,7 +10,7 @@ export default async function middleware(req: NextRequest) {
     // console.log(cookies().get('token'));
     // console.log('ddd');
 
-    const token = cookies().get('accessToken');
+    const token = Cookies.get('token');
     const path = req.nextUrl.pathname
     
     const pathIsPublic = publicRoutes.includes(path)
