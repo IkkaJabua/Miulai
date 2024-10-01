@@ -10,18 +10,20 @@ import Icon from '../../Icon/Icon';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
 import { globalMusicState } from '@/app/state';
+import Cookies from 'js-cookie';
 
 
 type Props = {
     onForward: () => void;
     onBackward?: () => void;
-}  
+}
 
 
 
 const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
     const { register, handleSubmit, watch } = useForm();
+    const token = Cookies.get('accessToken')
     const checkboxValues = watch();
     const [playlist, setPlaylist] = useState<any[]>([])
     const [playlsID, setPlaylstId] = useState()
@@ -30,8 +32,11 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
 
     useEffect(() => {
-        axios.get(`https://interstellar-1-pdzj.onrender.com/playlist`).
-            then((r) => {
+        axios.get(`https://interstellar-1-pdzj.onrender.com/playlist`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((r) => {
                 setPlaylist(r.data)
             })
     }, [])
@@ -40,13 +45,16 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
 
 
-    const onSubmit = (values: any) => {
+    const onSubmit = () => {
+        console.log(token, 'sad dailoga aba ')
+        axios.post(`https://interstellar-1-pdzj.onrender.com/playlist/${playlsID}/${globalMusic}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then((r) => {
+                console.log(r, 'gaigzavnaaa')
 
-        axios.post(`https://interstellar-1-pdzj.onrender.com/playlist/${playlsID}/${globalMusic}`). 
-        then((r) => {
-            console.log(r,'gaigzavnaaa')
-
-        })
+            })
     }
 
     return (
@@ -64,7 +72,7 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
             <form onSubmit={handleSubmit(onSubmit)} className={styles.inputWrapper}>
                 {
-                    playlist.map((item, i) => (<PlaylistInput name={item.name} onClick={() => setPlaylstId(item.id)}  id={item.id} key={item.id} register={register} />))
+                    playlist.map((item, i) => (<PlaylistInput name={item.name} onClick={() => setPlaylstId(item.id)} id={item.id} key={item.id} register={register} />))
                 }
 
                 {/* {Object.values(checkboxValues).find((val) => val === true) &&
