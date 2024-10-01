@@ -1,12 +1,10 @@
 'use client'
-import Button from 'antd/es/button/button'
+
 import styles from './page.module.scss'
 import Image from 'next/image'
 import News from '@/app/components/News/News'
 import Input from '../../../components/Input/Input'
-import Table from '../../../components/Table/Table'
-import Link from 'next/link'
-import { usePathname, useRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import ReusableHeader from '@/app/components/ReusableHeader/ReusableHeader'
 import axios from 'axios'
@@ -21,18 +19,20 @@ import Cookies from "js-cookie";
 
 const Id = () => {
     const router = useRouter();
-    const pathname = usePathname()
-    const [globalPlst, setGlobalPlst] = useRecoilState(globalPLaylistState)
+    // const pathname = usePathname()
+    const [globalPlst] = useRecoilState(globalPLaylistState)
     const [newName, setNewsName] = useState()
     const [data, setData] = useState([])
-    const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
+    const [, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
     const token = Cookies.get("accessToken");
-
+    console.log(token, 'iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
+    
 
     useEffect(() => {
-        axios.get(`https://interstellar-1-pdzj.onrender.com/Playlist/${globalPlst}`, {
+        console.log(token , 'topkennnnnnnnnnnnnnnnnnnnnn')
+        axios.get(`https://interstellar-1-pdzj.onrender.com/playlist/${globalPlst}`, {
             headers: {
-                Authorization: `bearer ${token}`
+                Authorization: `Bearer ${token}`
             }
         }). 
         then((r) => {
@@ -40,9 +40,6 @@ const Id = () => {
             setData(r.data.musics)
             setNewsName(r.data.name)
             setMusicArrayTwo(data)
-
-
-
         })
     },[])
 
