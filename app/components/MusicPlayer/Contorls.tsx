@@ -56,7 +56,7 @@ const Controls = (props: propsinterFace) => {
 
                 <div className={style.buttons}>
                     <button onClick={props.onToggleShuffle} className={style.btn}>
-                        <Icon name={props.isShuffling ? 'shuffle' : 'shuffleA'} alt="Shuffle" width={24} height={24} />
+                        <Icon name={props.isShuffling ? 'shuffleA' : 'shuffle'} alt="Shuffle" width={24} height={24} />
                     </button>
                     <button onClick={props.onPrevious} className={style.btn}>
                         <Icon name="previous" alt="Previous" width={24} height={24} />

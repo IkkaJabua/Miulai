@@ -1,4 +1,4 @@
-"use client";
+'use client'
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import Controls from "./Contorls";
 import style from "./IndexPage.module.scss";
@@ -6,14 +6,12 @@ import TrackDisplay from "./TrackDisplay";
 import SliderMobile from "./Slider/Slider";
 import axios from "axios";
 import { useRecoilState } from "recoil";
-import Cookies from 'js-cookie'
+import Cookies from 'js-cookie';
 import { accessTokenState, albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } from "@/app/state";
-
-
 
 const IndexPage: React.FC = () => {
   const token = Cookies.get('token');
-  const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
+  const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
   const [isLooping, setIsLooping] = useState(false);
@@ -22,14 +20,13 @@ const IndexPage: React.FC = () => {
   const [duration, setDuration] = useState(0);
   const audioRef = useRef<any>(null);
   const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
-  const [musicID, setMusicId] = useRecoilState(mudicIDState); 
-  const [fetchMusic, setFetchMusic] = useState<any>(null); 
-  const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState); 
+  const [musicID, setMusicId] = useRecoilState(mudicIDState);
+  const [fetchMusic, setFetchMusic] = useState<any>(null);
+  const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState);
 
-  const [accessTokenReco, setAccessTokenReco] = useRecoilState(accessTokenState)
+  const [accessTokenReco, setAccessTokenReco] = useRecoilState(accessTokenState);
 
-
-
+  // Fetch music data
   useEffect(() => {
     if (musicID && token) {
       axios
@@ -39,7 +36,7 @@ const IndexPage: React.FC = () => {
           },
         })
         .then((response) => {
-          setFetchMusic(response.data.file.url); 
+          setFetchMusic(response.data.file.url);
           setPlayerDisplay(response.data);
           console.log(response.data, "Music details fetched");
         })
@@ -51,6 +48,7 @@ const IndexPage: React.FC = () => {
     }
   }, [musicID, token]);
 
+  // Handle volume and loop changes
   useEffect(() => {
     const audio = audioRef.current;
     if (audio) {
@@ -59,27 +57,33 @@ const IndexPage: React.FC = () => {
     }
   }, [volume, isLooping]);
 
-
+  // Shuffle logic
+  const shuffleArray = (array: any[]) => {
+    return array
+      .map((item) => ({ item, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ item }) => item);
+  };
 
   const playNextTrack = useCallback(() => {
-    const musicList = musicArrayTwo; // Use your music array directly
+    const musicList = isShuffling ? shuffleArray(musicArrayTwo) : musicArrayTwo;
     const currentIndex = musicList.findIndex((track: any) => track.id === musicID);
-    const nextIndex = (currentIndex + 1) % musicList.length; 
-    setMusicId(musicList[nextIndex]?.id); 
+    const nextIndex = (currentIndex + 1) % musicList.length;
+    setMusicId(musicList[nextIndex]?.id);
     setCurrentTime(0);
     setIsPlaying(true);
-  }, [musicArrayTwo, musicID, setMusicId, setCurrentTime, setIsPlaying]);
+  }, [isShuffling, musicArrayTwo, musicID, setMusicId, setCurrentTime, setIsPlaying]);
 
-  // Play the previous track based on musicID
   const playPreviousTrack = useCallback(() => {
-    const musicList = musicArrayTwo; // Use your music array directly
+    const musicList = isShuffling ? shuffleArray(musicArrayTwo) : musicArrayTwo;
     const currentIndex = musicList.findIndex((track: any) => track.id === musicID);
-    const prevIndex = (currentIndex - 1 + musicList.length) % musicList.length; 
-    setMusicId(musicList[prevIndex].id); 
+    const prevIndex = (currentIndex - 1 + musicList.length) % musicList.length;
+    setMusicId(musicList[prevIndex].id);
     setCurrentTime(0);
     setIsPlaying(true);
-  }, [musicArrayTwo, musicID, setMusicId, setCurrentTime, setIsPlaying]);
+  }, [isShuffling, musicArrayTwo, musicID, setMusicId, setCurrentTime, setIsPlaying]);
 
+  // Audio event listeners for updating current time, track ending, and metadata
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -107,6 +111,7 @@ const IndexPage: React.FC = () => {
     };
   }, [playNextTrack]);
 
+  // Play or pause the audio
   useEffect(() => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -115,8 +120,9 @@ const IndexPage: React.FC = () => {
         audioRef.current.pause();
       }
     }
-  }, [isPlaying, fetchMusic]); 
+  }, [isPlaying, fetchMusic]);
 
+  // Toggle play/pause
   const playPause = useCallback(() => {
     setIsPlaying((prevIsPlaying) => !prevIsPlaying);
   }, []);
