@@ -11,6 +11,7 @@ import { setCookie } from "../cookies";
 import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { accessTokenState } from "../state";
+import { Spin } from "antd";
 
 type SignIn = {
   email: string;
@@ -22,6 +23,7 @@ const Signup = () => {
   const [rememberMe, setRememberMe] = useState(false);
   const [accessTokenReco, setAccessTokenReco] = useRecoilState(accessTokenState)
   const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -46,6 +48,7 @@ const Signup = () => {
   }, [setValue]);
 
   const onLogin = (values: SignIn) => {
+    setLoading(true)
     axios
       .post("https://interstellar-1-pdzj.onrender.com/auth", values)
       .then((r) => {
@@ -163,7 +166,12 @@ const Signup = () => {
                 Forgot your password?
               </Link>
             </div>
-            <Button
+            {loading ? (
+                <div className={styles.loading}>
+                    <Spin tip="Submitting..." size="default" />
+                </div>
+            ) : (
+              <Button
               title={"SIGN IN"}
               mode={"reusable button"}
               onClick={() => console.log("button clicked")}
@@ -172,6 +180,8 @@ const Signup = () => {
               borderRadius="8px"
               fontSize="16px"
             />
+            )}
+            
           </form>
           <div className={styles.signup}>
             <span>Don’t have an account?</span>
