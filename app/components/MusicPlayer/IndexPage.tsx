@@ -22,9 +22,9 @@ const IndexPage: React.FC = () => {
   const [duration, setDuration] = useState(0);
   const audioRef = useRef<any>(null);
   const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
-  const [musicID, setMusicId] = useRecoilState(mudicIDState); // Recoil state for musicID
-  const [fetchMusic, setFetchMusic] = useState<any>(null); // URL for the current track
-  const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState); // Display current track details
+  const [musicID, setMusicId] = useRecoilState(mudicIDState); 
+  const [fetchMusic, setFetchMusic] = useState<any>(null); 
+  const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState); 
 
 
   useEffect(() => {
@@ -37,8 +37,8 @@ const IndexPage: React.FC = () => {
           },
         })
         .then((response) => {
-          setFetchMusic(response.data.file.url); // Fetch and set the music URL
-          setPlayerDisplay(response.data); // Set the player display information
+          setFetchMusic(response.data.file.url); 
+          setPlayerDisplay(response.data);
           console.log(response.data, "Music details fetched");
         })
         .catch((error) => {

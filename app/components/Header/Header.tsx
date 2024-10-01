@@ -160,7 +160,7 @@ const Header: React.FC<InputTpo> = (props) => {
                   onClick={() => handleAuthorClick(author)}
                 >
                   {author.files && author.files[0]?.url ? (
-                    <img
+                    <Image
                       className={styles.img}
                       src={author.files[0].url}
                       width={72}
@@ -180,7 +180,7 @@ const Header: React.FC<InputTpo> = (props) => {
                   onClick={() => handleAlbumClick(album)}
                 >
                   {album.file && album.file.url ? (
-                    <img
+                    <Image
                       className={styles.albuImage}
                       src={album.file.url}
                       width={72}
