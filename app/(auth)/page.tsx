@@ -48,7 +48,7 @@ export default function Home() {
         // setSearchItems(r.data.authors);
         setTopHIt(r.data[0])
         setTopHitMusic(r.data[0])
-        setMusicId(r.data[0].id)
+        // setMusicId(r.data[0].id)
         console.log(r.data[0], 'musikaaa muikaaa ')
       });
   }, []);

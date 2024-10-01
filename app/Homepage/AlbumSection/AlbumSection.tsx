@@ -5,6 +5,7 @@ import axios from "axios";
 import { useRecoilState } from "recoil";
 import { albumIdState, clickFetchState } from "@/app/state";
 import { useRouter } from "next/navigation";
+import ArtistCard from "@/app/components/ArtistCard/ArtistCard";
 
 
 
@@ -36,7 +37,15 @@ const AlbumSection = () => {
             router.push("/album");
             setAlbumIDData(item.id)
           }}>
-            <Card
+            {/* <Card
+              header={""}
+              key={item.id}
+              image={item.file?.url}
+              title={item.albumName}
+              subtitle={item.artistName}
+              imageStyle={"normal"}
+            /> */}
+            <ArtistCard 
               header={""}
               key={item.id}
               image={item.file?.url}
