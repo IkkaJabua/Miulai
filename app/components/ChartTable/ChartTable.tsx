@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
+
 const ChartTable = () => {
     const [musicArray, setMusicArray] = useRecoilState(musicState);
     const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
@@ -128,6 +129,7 @@ const ChartTable = () => {
                 onRow={(record: any) => ({
                     onClick: () => {
                         setMusicId(record.id);
+                        setMusicArrayTwo(musicCover)
                     },
                 })}
                 pagination={false}

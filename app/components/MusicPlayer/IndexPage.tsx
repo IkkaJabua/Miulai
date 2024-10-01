@@ -66,7 +66,7 @@ const IndexPage: React.FC = () => {
     const musicList = musicArrayTwo; // Use your music array directly
     const currentIndex = musicList.findIndex((track: any) => track.id === musicID);
     const nextIndex = (currentIndex + 1) % musicList.length; 
-    setMusicId(musicList[nextIndex].id); 
+    setMusicId(musicList[nextIndex]?.id); 
     setCurrentTime(0);
     setIsPlaying(true);
   }, [musicArrayTwo, musicID, setMusicId, setCurrentTime, setIsPlaying]);
