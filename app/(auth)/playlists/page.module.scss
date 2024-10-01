@@ -10,6 +10,14 @@
     gap: 32px;
     margin-bottom: 180px;
 }
+.mobileGap {
+    margin-top: 40px;
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .miniContainer {
     display: flex;
@@ -76,6 +84,7 @@
     font-size: 32px;
     font-weight: 500;
 }
+
 
 @media screen and (min-width: 750px) and (max-width: 1024px) {
     .container {

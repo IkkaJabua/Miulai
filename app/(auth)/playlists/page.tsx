@@ -49,38 +49,37 @@ const Playlists = () => {
                         <div className={styles.cellMyPlaylist}>
                             My Playlists
                         </div>
-                        <div className={styles.mobileButton}>
-                            <Button title={''}
-                                mode={'reusable button'}
-                                imageSrc='plus.svg'
-                                imageHeight={20}
-                                imageWidth={20}
-                                padding='4px'
-                                borderRadius='4px'
-                                onClick={() => console.log('button clicked')} />
+                        <div>
+                            <div className={styles.mobileButton}>
+                                <Button title={''}
+                                    mode={'reusable button'}
+                                    imageSrc='plus.svg'
+                                    imageHeight={20}
+                                    imageWidth={20}
+                                    padding='4px'
+                                    borderRadius='4px'
+                                    onClick={() => setActive(!active)} />
+                            </div>
+                            <div className={styles.screenButton}>
+                                <Button
+                                    title={'New playlist'}
+                                    mode={'reusable button'}
+                                    imageSrc='plus.svg'
+                                    imageHeight={20}
+                                    imageWidth={20}
+                                    padding='12px 16px 12px 12px'
+                                    borderRadius='8px'
+                                    gap='4px'
+                                    fontSize='16px'
+                                    fontWeight='500'
+                                    onClick={() => setActive(!active)}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className={styles.cellInput}>
-                    <div className={styles.cellReusableinput}>
-                        <Input />
-                    </div>
-                    <div className={styles.screenButton}>
-                        <Button
-                            title={'New playlist'}
-                            mode={'reusable button'}
-                            imageSrc='plus.svg'
-                            imageHeight={20}
-                            imageWidth={20}
-                            padding='12px 16px 12px 12px'
-                            borderRadius='8px'
-                            gap='4px'
-                            fontSize='16px'
-                            fontWeight='500'
-                            onClick={() => setActive(!active)}
-                        />
-                    </div>
-                </div>
+                {/* <div className={styles.cellInput}>
+                </div> */}
                 <div className={styles.newPlaylist}>
                     {active &&
                         <CreatePlaylist />
