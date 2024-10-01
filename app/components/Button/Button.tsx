@@ -10,7 +10,7 @@ const Button = (props: ButtonProps) => {
 
 
     return (
-        <button type="submit" className={classes.join(' ').trim()} style={style} onClick={() => props.onClick()}>
+        <button type="submit" className={classes.join(' ').trim()} style={style} onClick={props.onClick}>
             {props.imageSrc && props.imageWidth && props.imageHeight && (
                 <Image
                     src={`../icon/${props.imageSrc}`}

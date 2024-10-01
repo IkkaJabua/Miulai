@@ -13,6 +13,7 @@ import CreatePlaylist from '@/app/components/Playlist/CreatePlaylist/CreatePlayl
 import UserPlaylist from '@/app/components/UserPlaylist/UserPlaylist';
 import { useRouter } from 'next/navigation';
 import ReusableHeader from '@/app/components/ReusableHeader/ReusableHeader';
+import AddPlaylistMain from '@/app/components/AddPlaylistMain/AddPlaylistMain';
 // import Table from '../components/Table/Table';
 // import CreatePlaylist from '../components/Playlist/CreatePlaylist/CreatePlaylist';
 // import Link from 'next/link';
@@ -82,7 +83,7 @@ const Playlists = () => {
                 </div> */}
                 <div className={styles.newPlaylist}>
                     {active &&
-                        <CreatePlaylist />
+                        <AddPlaylistMain  onDelete={() => setActive(false) }/>
                     }
                 </div>
             </div>

@@ -33,9 +33,7 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
         axios.get(`https://interstellar-1-pdzj.onrender.com/playlist`).
             then((r) => {
                 setPlaylist(r.data)
-
             })
-
     }, [])
 
 

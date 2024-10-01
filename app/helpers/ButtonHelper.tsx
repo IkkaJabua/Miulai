@@ -4,12 +4,12 @@ import styles from '../components/Button/Button.module.scss'
 import { useEffect, useState, type JSX } from "react";
 
 
-export interface ButtonProps {
+export interface ButtonProps { 
     title: string;
     disabled?: boolean;
     mode: 'without icon' | 'long with icon' | 'short with icon' | 'reusable button';
     icon?: boolean;
-    onClick: Function;
+    onClick?: () => void;
     width?: string;
     maxWidth?: string;
     padding?: string;
