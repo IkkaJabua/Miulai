@@ -30,6 +30,7 @@ const Id = () => {
 
 
     useEffect(() => {
+        console.log(token, token, token, token)
 
         axios.get(`https://interstellar-1-pdzj.onrender.com/Playlist/${globalPlst}`, {
             headers: {

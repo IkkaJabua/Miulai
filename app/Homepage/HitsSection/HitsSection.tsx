@@ -10,7 +10,7 @@ import { clickFetchState, globalMusicState } from '@/app/state';
 
 const HitsSection = () => {
     const [musics, setMusics] = useState<any>([])
-    const accessToken = Cookies.get('accessToken')
+    const token = Cookies.get('accessToken')
     const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
 
     const [globalMusic, setGlobalMusic] = useRecoilState(globalMusicState)
@@ -18,9 +18,12 @@ const HitsSection = () => {
    
     
     useEffect(() => {
+        console.log(token, token, token, token)
+
+
         axios.get(`https://interstellar-1-pdzj.onrender.com/music`, {
             headers: {
-                Authorization: `Bearer ${accessToken}`
+                Authorization: `Bearer ${token}`
             }
         })  
         .then((r) => {

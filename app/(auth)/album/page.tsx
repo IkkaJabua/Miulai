@@ -25,6 +25,8 @@ const Album = () => {
 
 
     useEffect(() => {
+        console.log(token, token, token, token)
+
 
         if (albumIDData) {
             axios.get(`https://interstellar-1-pdzj.onrender.com/album/${albumIDData}`, {

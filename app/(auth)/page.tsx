@@ -34,6 +34,7 @@ export default function Home() {
 
   const [topHit, setTopHIt] = useState<any>()
   useEffect(() => {
+    console.log(token,token,token,token)
     axios
       .get(
         `https://interstellar-1-pdzj.onrender.com/music`,{

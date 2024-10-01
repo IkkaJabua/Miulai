@@ -50,6 +50,8 @@ const Header: React.FC<InputTpo> = (props) => {
   const router = useRouter();
 
   useEffect(() => {
+    console.log(token, token, token, token)
+
     // Fetch data only if there's an input value
     if (inputValue) {
       axios
