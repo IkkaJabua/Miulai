@@ -74,21 +74,21 @@ const TabbedNav = (props: Props) => {
           className={`${styles.tab} ${activeTab === "topSongs" ? styles.active : ""}`}
           onClick={() => onTabClick("topSongs")}
         >
-          Top Songs
+          <span className={styles.fonts}>Top Songs</span>
         </button>
 
         <button
           className={`${styles.tab} ${activeTab === "albums" ? styles.active : ""}`}
           onClick={() => onTabClick("albums")}
         >
-          Albums
+          <span className={styles.fonts}>Albums</span>
         </button>
 
         <button
           className={`${styles.tab} ${activeTab === "biography" ? styles.active : ""}`}
           onClick={() => onTabClick("biography")}
         >
-          Biography
+          <span className={styles.fonts}>Biography</span>
         </button>
       </div>
 
