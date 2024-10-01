@@ -16,7 +16,6 @@ import { clickFetchState } from '@/app/state';
 
 type Props = {
   onClick?: () => void;
-
 }
 
 
@@ -49,9 +48,11 @@ const CreatePlaylist = ({ onClick }: Props) => {
         'userId': String(userId)  
       }, {
         headers: {
-          'Content-Type': 'application/json'  
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`
+            // Ensure JSON content type
         }
-      });
+      }); 
       setClickFetch(!clickFetch)
 
     } catch (error) {

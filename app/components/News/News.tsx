@@ -31,8 +31,8 @@ const News = (props: Props) => {
         // setTopHitMusic(r.data[0])
         // setMusicId(r.data[0].id)
         // setTopHitMusic(r.data[0].id)
-        setForMusic(r.data[0].id)
-        console.log(r.data[0].id, 'musikaaa muikaaa ')
+        setForMusic(r.data[0]?.id)
+        console.log(r.data[0]?.id, 'musikaaa muikaaa ')
       });
   }, []);
 

@@ -21,14 +21,12 @@ type SignIn = {
 
 const Signup = () => {
   const [rememberMe, setRememberMe] = useState(false);
-  const [accessTokenReco, setAccessTokenReco] = useRecoilState(accessTokenState)
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
     setValue,
-    watch,
     formState: { errors },
   } = useForm<SignIn>();
   const [showPassword, setShowPassword] = useState(false);
@@ -63,6 +61,8 @@ const Signup = () => {
         }
         router.push("/");
         window.location.reload()
+      }).catch(() => {
+        setLoading(false)
       });
   };
 
