@@ -24,8 +24,6 @@ const IndexPage: React.FC = () => {
   const [fetchMusic, setFetchMusic] = useState<any>(null);
   const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState);
 
-  const [accessTokenReco, setAccessTokenReco] = useRecoilState(accessTokenState);
-
   // Fetch music data
   useEffect(() => {
     if (musicID && token) {
@@ -35,10 +33,9 @@ const IndexPage: React.FC = () => {
             Authorization: `Bearer ${token}`,
           },
         })
-        .then((response) => {
-          setFetchMusic(response.data.file.url);
-          setPlayerDisplay(response.data);
-          console.log(response.data, "Music details fetched");
+        .then((r) => {
+          setFetchMusic(r.data.file.url);
+          setPlayerDisplay(r.data);
         })
         .catch((error) => {
           console.error("Error fetching music details:", error);
@@ -204,7 +201,7 @@ const IndexPage: React.FC = () => {
 
         <audio
           ref={audioRef}
-          src={fetchMusic}
+          src={fetchMusic || ''} 
           onError={() => console.error("Audio failed to load")}
         />
       </div>

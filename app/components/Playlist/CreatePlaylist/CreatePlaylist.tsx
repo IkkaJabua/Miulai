@@ -17,7 +17,6 @@ import { clickFetchState } from '@/app/state';
 type Props = {
   onClick?: () => void;
 
-
 }
 
 
@@ -25,7 +24,7 @@ type Props = {
 const CreatePlaylist = ({ onClick }: Props) => {
   const { register, handleSubmit, watch, formState: { errors }, } = useForm<any>()
   const [userId, setUserId] = useState()
-  const token = Cookies.get('token');
+  const token = Cookies.get('accessToken');
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
 
 
@@ -46,11 +45,11 @@ const CreatePlaylist = ({ onClick }: Props) => {
   const onSubmit = async (values: any) => {
     try {
       const response = await axios.post('https://interstellar-1-pdzj.onrender.com/playlist', {
-        'name': String(values.name),  // Convert 'name' to a string
-        'userId': String(userId)  // Ensure userId is available
+        'name': String(values.name),  
+        'userId': String(userId)  
       }, {
         headers: {
-          'Content-Type': 'application/json'  // Ensure JSON content type
+          'Content-Type': 'application/json'  
         }
       });
       setClickFetch(!clickFetch)

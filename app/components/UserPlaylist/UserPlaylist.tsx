@@ -8,24 +8,33 @@ import { useRouter } from 'next/navigation';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
 import { clickFetchState, globalPLaylistState } from '@/app/state';
+import Cookies from 'js-cookie';
 
 const UserPlaylist = () => {
     const router = useRouter();
     const [playlistData, setPlaylistData] = useState<any[]>([]); // Ensure type safety or adjust accordingly.
     const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
+    const token = Cookies.get('token')
 
     const [globalPlst, setGlobalPlst] = useRecoilState(globalPLaylistState)
 
-    
+
 
 
     useEffect(() => {
-        axios.get('https://interstellar-1-pdzj.onrender.com/playlist'). 
-        then((r) => {
-            setPlaylistData(r.data);
+        axios.get('https://interstellar-1-pdzj.onrender.com/playlist', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+
+        }).
+            then((r) => {
+                setPlaylistData(r.data);
+                console.log(r.data, 'playlist')
+                console.log(token, 'token')
 
 
-        })
+            })
 
     }, [clickFetch]);
 
@@ -37,6 +46,19 @@ const UserPlaylist = () => {
     const stopClickPropagation = (e: React.MouseEvent) => {
         e.stopPropagation();
     };
+    const onDelete = (id: Number) => {
+        axios.delete(`https://interstellar-1-pdzj.onrender.com/playlist/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+
+        }).
+            then((r) => {
+                alert('do you Really want to delete?')
+                setClickFetch(!clickFetch)
+            })
+
+    }
 
     return (
         <>
@@ -46,7 +68,8 @@ const UserPlaylist = () => {
                     key={item.id}
                     onClick={() => {
                         setGlobalPlst(item.id)
-                        handleCardClick(item.id)}}
+                        handleCardClick(item.id)
+                    }}
                 >
                     <div className={styles.hoveredImage}>
                         <Image
@@ -67,7 +90,10 @@ const UserPlaylist = () => {
                                     onClick={() => console.log('Edit button clicked')}
                                 />
                             </div>
-                            <div className={styles.cellDelete} onClick={stopClickPropagation}>
+                            <div className={styles.cellDelete} onClick={() => {
+                                onDelete(item.id)
+                                stopClickPropagation
+                            }}>
                                 <Image
                                     src={'/icon/delete.svg'}
                                     width={24}
