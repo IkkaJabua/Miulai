@@ -75,7 +75,7 @@ const Controls = (props: propsinterFace) => {
                         <Icon name="previus-next" alt="Next" width={24} height={24} />
                     </button>
                     <button onClick={props.onToggleLoop} className={style.btn}>
-                        <Icon name={props.isLooping ? "/repeat-one.png" : "repeat"} alt="Loop" width={24} height={24} />
+                        <Icon name={props.isLooping ? "loop" : "repeat"} alt="Loop" width={24} height={24} />
                     </button>
                 </div>
             </div>
@@ -83,7 +83,7 @@ const Controls = (props: propsinterFace) => {
             <div className={style.volume}>
                 {isMuted ? (
                     <button onClick={handleMuteToggle} className={style.btn}>
-                        <Icon name="muteicon" alt="Muted" width={24} height={24} />
+                        <Icon name="mute" alt="Mute" width={24} height={24} />
                     </button>
                 ) : (
                     <button onClick={handleMuteToggle} className={style.btn}>
