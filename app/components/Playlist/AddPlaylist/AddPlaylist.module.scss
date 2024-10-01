@@ -30,3 +30,18 @@
     gap: 13px;
     height: 100%;
 }
+
+.button {
+    border: none;
+    max-width: 100%;
+    width: 200px;
+    color: white;
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    align-self: stretch;
+    border-radius: 8px;
+    background: var(--Gradient-apolo, linear-gradient(90deg, #F903D0 0%, #9A16F2 100%));
+}

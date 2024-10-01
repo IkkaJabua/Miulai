@@ -74,11 +74,7 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
                 {
                     playlist.map((item, i) => (<PlaylistInput name={item.name} onClick={() => setPlaylstId(item.id)} id={item.id} key={item.id} register={register} />))
                 }
-
-                {/* {Object.values(checkboxValues).find((val) => val === true) &&
-                    <Button title={'Save'} mode={'reusable button'} width={"225px"} onClick={() => console.log('button clicked')} />
-                } */}
-                <button>
+                <button className={styles.button}>
                     save
                 </button>
 
