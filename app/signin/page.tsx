@@ -62,6 +62,7 @@ const Signup = () => {
           localStorage.removeItem("password");
         }
         router.push("/");
+        window.location.reload()
       });
   };
 
