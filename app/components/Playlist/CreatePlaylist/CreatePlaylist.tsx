@@ -32,8 +32,6 @@ const CreatePlaylist = ({ onClick }: Props) => {
 
 
   useEffect(() => {
-    console.log(token, token, token, token)
-
     axios.get(`https://interstellar-1-pdzj.onrender.com/user/me`, {
       headers: {
         Authorization: `Bearer ${token}`,

@@ -24,8 +24,6 @@ const MusicCard = () => {
 
   // Fetching all music data
   useEffect(() => {
-    console.log(token, token, token, token)
-
     axios.get("https://interstellar-1-pdzj.onrender.com/music", {
       headers: {
         Authorization: `Bearer ${token}`
