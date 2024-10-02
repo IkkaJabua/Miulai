@@ -11,6 +11,12 @@
     margin-bottom: 180px;
 }
 
+@media screen and (min-width: 300px) and (max-width: 357px) {
+    .container {
+        margin-bottom: 230px;
+    }
+}
+
 @media screen and (min-width: 200px) and (max-width: 370px) {
     .cellPlaylist {
         justify-content: center;
@@ -54,7 +60,6 @@
     gap: 25px;
     max-width: 1500px;
     width: 100%;
-    margin: 0 auto;
 }
 
 
