@@ -10,6 +10,12 @@
     gap: 32px;
     margin-bottom: 180px;
 }
+
+@media screen and (min-width: 200px) and (max-width: 370px) {
+    .cellPlaylist {
+        justify-content: center;
+    }
+}
 .mobileGap {
     margin-top: 40px;
     max-width: 100%;
