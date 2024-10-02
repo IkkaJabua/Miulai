@@ -9,7 +9,6 @@ import axios from "axios";
 import { useRecoilState } from "recoil";
 import Cookies from "js-cookie";
 import {
-  accessTokenState,
   albumidState,
   clickFetchState,
   formusicFetchState,

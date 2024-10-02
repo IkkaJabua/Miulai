@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { useRecoilState } from "recoil";
-import { clickFetchState, globalPLaylistState } from "@/app/state";
+import { clickFetchState, globalPLaylistState, userIDState } from "@/app/state";
 import Cookies from "js-cookie";
 import AlbumEditModal from "../AlbumEditModal/AlbumEditModal";
 
@@ -18,6 +18,22 @@ const UserPlaylist = () => {
     const [globalPlst, setGlobalPlst] = useRecoilState(globalPLaylistState);
     const [openModal, setOpenModal] = useState(false);
     const [modalId, setModalId] = useState<number | null>(null); // Tracks which modal to open
+    const [userID, setUserId] = useRecoilState(userIDState)
+
+    useEffect(() => {
+        axios.get(`https://interstellar-1-pdzj.onrender.com/user/me`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).
+            then((r) => {
+                setUserId(r.data.id)
+            
+            })
+
+    }, [])
+
+
 
     const open = (id: number) => {
         setModalId(id);
@@ -29,14 +45,15 @@ const UserPlaylist = () => {
     };
 
     useEffect(() => {
-        axios.get("https://interstellar-1-pdzj.onrender.com/playlist", {
+        axios.get(`https://interstellar-1-pdzj.onrender.com/user/160`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
         })
             .then((r) => {
-                setPlaylistData(r.data);
+                setPlaylistData(r.data.playlists);
                 setOpenModal(false)
+                console.log(r.data.playlists)
             })
             .catch((error) => {
                 console.error("Error fetching playlists:", error);
@@ -72,7 +89,7 @@ const UserPlaylist = () => {
 
     return (
         <>
-            {playlistData.map((item) => (
+            {playlistData?.map((item) => (
                 <div
                     className={styles.container}
                     key={item.id}

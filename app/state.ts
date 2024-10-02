@@ -97,8 +97,8 @@ export const globalPLaylistState = atom({
     key: 'globalPLaylistState',
     default: null
 })
-export const accessTokenState = atom({
-    key: 'accessTokenState', 
+export const userIDState = atom({
+    key: 'userIDState', 
     default: ''
 })
 export const formusicFetchState = atom({

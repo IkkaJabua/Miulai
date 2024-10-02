@@ -7,7 +7,7 @@ import SliderMobile from "./Slider/Slider";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import Cookies from 'js-cookie';
-import { accessTokenState, albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } from "@/app/state";
+import {  albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } from "@/app/state";
 import ModalPlayer from "./modalPlayer";
 
 const IndexPage: React.FC = () => {

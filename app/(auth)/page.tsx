@@ -11,7 +11,7 @@ import ChartsSection from '../Homepage/ChartsSection/ChartsSection';
 import HitsSection from '../Homepage/HitsSection/HitsSection';
 import styles from './page.module.scss';
 import { useRecoilState } from "recoil";
-import { mudicIDState, topHitState } from "../state";
+import { mudicIDState, topHitState, userIDState } from "../state";
 import Cookies from "js-cookie";
 // import middleware from "@/middleware";
 
@@ -23,9 +23,20 @@ export default function Home() {
   const [inputValue, setInputValue] = useState();
   const [topHitMusic, setTopHitMusic] = useRecoilState(topHitState)
   const [musicID, setMusicId] = useRecoilState(mudicIDState)
+  const [userID, setUserId] = useRecoilState(userIDState)
   const token = Cookies.get("token");
+  useEffect(() => {
+    axios.get(`https://interstellar-1-pdzj.onrender.com/user/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    }).
+      then((r) => {
+        setUserId(r.data.id)
+        console.log(r.data)
+      })
 
-
+  },[])
 
 
   const inputChange = (e: any) => {

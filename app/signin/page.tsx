@@ -10,8 +10,8 @@ import { useRouter } from "next/navigation";
 import { setCookie } from "../cookies";
 import { useState, useEffect } from "react";
 import { useRecoilState } from "recoil";
-import { accessTokenState } from "../state";
 import { Spin } from "antd";
+import { userIDState } from "../state";
 
 type SignIn = {
   email: string;
@@ -20,6 +20,7 @@ type SignIn = {
 };
 
 const Signup = () => {
+  const [useID, setUserID] = useRecoilState(userIDState)
   const [rememberMe, setRememberMe] = useState(false);
   const router = useRouter();
   const [loading, setLoading] = useState<boolean>(false);
