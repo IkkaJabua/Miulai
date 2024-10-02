@@ -39,7 +39,7 @@ const ModalPlayer: React.FC<ModalPlayerProps> = ({
         <Icon name="close" alt="Close" width={24} height={24} />
       </button>
 
-      <Fullscreen currentTrack={currentTrack} />
+      <Fullscreen/>
 
       <FullControls
               isPlaying={isPlaying}
