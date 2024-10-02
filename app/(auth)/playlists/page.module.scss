@@ -9,6 +9,19 @@
     flex-direction: column;
     gap: 32px;
     margin-bottom: 180px;
+    min-height: 100vh;
+}
+
+@media screen and (min-width: 300px) and (max-width: 357px) {
+    .container {
+        margin-bottom: 230px;
+    }
+}
+
+@media screen and (min-width: 200px) and (max-width: 370px) {
+    .cellPlaylist {
+        justify-content: center;
+    }
 }
 .mobileGap {
     margin-top: 40px;
@@ -48,7 +61,6 @@
     gap: 25px;
     max-width: 1500px;
     width: 100%;
-    margin: 0 auto;
 }
 
 

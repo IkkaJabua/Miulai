@@ -86,7 +86,7 @@ const AddPlaylistMain = ( props: Props) => {
                     mode={"reusable button"}
                     padding='10px'
                     borderRadius='8px'
-                    width={"290px"}
+                    width={"220px"}
                     height="100px"
                     onClick={props.onClick}
                 />
