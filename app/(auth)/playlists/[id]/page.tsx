@@ -4,7 +4,7 @@ import styles from './page.module.scss'
 import Image from 'next/image'
 import News from '@/app/components/News/News'
 import Input from '../../../components/Input/Input'
-import { useRouter } from 'next/navigation'
+import { useParams, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import ReusableHeader from '@/app/components/ReusableHeader/ReusableHeader'
 import axios from 'axios'
@@ -24,11 +24,13 @@ const Id = () => {
     const [newName, setNewsName] = useState()
     const [data, setData] = useState([])
     const [ ,setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
+    const param = useParams(); 
+
     const token = Cookies.get("token");
     
 
     useEffect(() => {
-        axios.get(`https://interstellar-1-pdzj.onrender.com/playlist/${globalPlst}`, {
+        axios.get(`https://interstellar-1-pdzj.onrender.com/playlist/${param.id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

@@ -1,7 +1,7 @@
 "use client"; // Add this line to mark the component as a Client Component
 
 import styles from './page.module.scss';
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import Header from '@/app/components/Header/Header';
 import Card from '@/app/components/Card/Card';
 import { useEffect, useState } from 'react';
@@ -13,13 +13,12 @@ const ArtistsList = () => {
     const [albumId, setAlbumId] = useRecoilState(albumidState);
     const [reusableID, setReusableId] = useState()
     const router = useRouter();
+    const param = useParams(); 
+
 
 
     useEffect(() => {
-        if (albumId === undefined) {
             router.push(`/artistlist`);
-
-        }
     }, []);
 
 

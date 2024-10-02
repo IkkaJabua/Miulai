@@ -15,6 +15,7 @@ import {
   newsImageState,
 } from "@/app/state";
 import ArtistTable from "../Table/ArtistTable/ArtistTable";
+import { useParams } from "next/navigation";
 
 type Props = {
   biographyText: string;
@@ -34,6 +35,8 @@ const TabbedNav = (props: Props) => {
   const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
   const [artistName, setArtistName] = useRecoilState(artistNameState);
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState)
+  const param = useParams(); 
+
 
     const [albumCover, setAlbumcover] = useRecoilState<any>(albumCoverState)
 
@@ -46,9 +49,8 @@ const TabbedNav = (props: Props) => {
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-    if (!!albumId) {
       axios
-        .get(`https://interstellar-1-pdzj.onrender.com/author/${albumId}`)
+        .get(`https://interstellar-1-pdzj.onrender.com/author/${param.id}`)
         .then((r: any) => {
           setBiography(r.data.biography);
           setImage(r.data?.files[0]?.url);
@@ -64,7 +66,6 @@ const TabbedNav = (props: Props) => {
 
           setMusicArray(allMusics);
         });
-    }
   }, [clickFetch]);
 
   return (

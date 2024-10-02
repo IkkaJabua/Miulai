@@ -1,61 +1,71 @@
-'use client'
-import { useEffect, useState } from 'react'
-import Header from '../../components/Header/Header'
-import Input from '../../components/Input/Input'
-import News from '../../components/News/News'
-import Table from '../../components/Table/Table'
-import styles from './page.module.scss'
-import Link from 'next/link'
-import axios from 'axios'
-import { useRecoilState } from 'recoil'
-import { albumIdState, albumMusicFromArtistState, oneArrayMusicState } from '@/app/state'
-import Cookies from "js-cookie";
-
-
+"use client"; // Add this line to mark the component as a Client Component
+import styles from './page.module.scss';
+import { useParams, useRouter } from 'next/navigation';
+import Header from '@/app/components/Header/Header';
+import Card from '@/app/components/Card/Card';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { albumidState } from '@/app/state';
 
 const Album = () => {
-    const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
-    const [albumCover, setAlbumCover] = useState<string>()
-    const [albumName, setAlbumName] = useState<string>()
-    const [albumPage, setAlbumPage] = useRecoilState(albumMusicFromArtistState)
-    const [musicArrayTwo, setMusicArrayTwo] = useRecoilState(oneArrayMusicState)
-    const token = Cookies.get("token");
-
+    const [albumId, setAlbumId] = useRecoilState(albumidState);
+    const [reusableID, setReusableId] = useState()
+    const router = useRouter();
+    const param = useParams();
 
 
 
     useEffect(() => {
-        if (albumIDData) {
-            axios.get(`https://interstellar-1-pdzj.onrender.com/album/${albumIDData}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-                .then((r) => {
-                    setAlbumPage(r.data.musics)
-                    setAlbumCover(r.data.file.url)
-                    setAlbumName(r.data.albumName)
-                    setMusicArrayTwo(r.data.musics)
-                    // setMusicArrayTwo(r.data.musics)
+        router.push(`/album`);
+    }, []);
 
-                })
-                .catch(error => {
-                    console.log('Failed to fetch album data:', error)
-                })
-        }
-    }, [albumIDData]) 
+
+
+    const handleCardClick = (id: number) => {
+        router.push(`/album/${id}`);
+    };
+
+    const [artists, setArtists] = useState([]);
+
+    useEffect(() => {
+        axios.get(`https://interstellar-1-pdzj.onrender.com/album`)
+            .then((r) => {
+                setArtists(r.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching artists:", error);
+            });
+    }, []);
 
     return (
         <div className={styles.container}>
-            <div className={styles.headerContainer}>
-                <Header />
-                <div className={styles.bodyContainer}>
-                    <News title={albumName || 'Loading...'} image={albumCover || '/image/1.png'} />
-                    <Table />
+            <Header />
+            <div className={styles.container2}>
+                <h2 className={styles.h2}>Trending Now</h2>
+                <div className={styles.wrapper}>
+                    {
+                        artists.map((item: any) => (
+                            <div
+                                key={item.id} // Assign the unique key here
+                                onClick={() => {
+                                    setReusableId(item.id)
+                                    setAlbumId(item.id);
+                                    handleCardClick(item.id);
+                                }}
+                            >
+                                <Card
+                                    image={item?.file?.url}
+                                    title={item.albumName}
+                                    imageStyle={'round'}
+                                />
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Album
+export default Album;

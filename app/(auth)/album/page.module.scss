@@ -1,13 +1,84 @@
 .container {
-    color: white;
+    min-height: 100vh;
+    height: 100%;
+    padding: 25px;
     width: 100%;
-    padding: 0px 24px 8px 24px;
-    margin-top: 40px;
 }
 
-.bodyContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    margin-bottom: 180px;
+.container2 {
+    max-width: 1450px;
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 150px;
 }
+
+.wrapper {
+    // display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+    // max-width: 100%;
+    // margin: 0 auto;
+    // position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1400px;
+    width: 100%;
+    gap: 20px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 1100px) {
+    .wrapper {
+        justify-content: center;
+    }
+}
+
+.h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .container2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 180px;
+    }
+
+    .container2 {
+        padding-right: 30px;
+        padding-left: 15px;
+    }
+
+    .wrapper {
+        gap: 35px;
+    }
+}
+
+@media screen and (min-width: 485px) and (max-width: 505px) {
+    .wrapper {
+        gap: 50px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1123px) {
+    .wrapper {
+        gap: 55px;
+    }
+
+    .container2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-right: 40px;
+    }
+}
+
+// @media screen and (min-width: 1123px) {
+//     .wrapper {
+//         gap: 10px;
+//     }
+
+//     .container2 {
+//         padding-right: 30px;
+//     }
+// }
