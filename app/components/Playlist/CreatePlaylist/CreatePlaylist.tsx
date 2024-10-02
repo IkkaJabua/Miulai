@@ -21,7 +21,7 @@ type Props = {
 const CreatePlaylist = ({ onClick  , setRoute}: Props) => {
   const { register, handleSubmit, watch, formState: { errors }, } = useForm<any>()
   const [userId, setUserId] = useState()
-  const token = Cookies.get('accessToken');
+  const token = Cookies.get('token');
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
 
 

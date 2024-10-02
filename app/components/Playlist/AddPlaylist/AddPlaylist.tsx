@@ -18,6 +18,7 @@ type Props = {
 };
 
 const AddPlaylist = ({ onForward, onBackward }: Props) => {
+
   const { register, handleSubmit, watch } = useForm();
   const checkboxValues = watch();
   const [playlist, setPlaylist] = useState<any[]>([]);
@@ -90,3 +91,4 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 };
 
 export default AddPlaylist;
+

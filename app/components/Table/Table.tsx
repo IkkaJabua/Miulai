@@ -50,7 +50,7 @@ const Tables = () => {
             width: '30%',
             render: (text: any, item: any) => (
                 <div className={styles.cellSongname}>
-                    <Image src={item.albumCover} width={48} height={48} alt={text} />
+                    <Image className={styles.img} src={item.albumCover} width={48} height={48} alt={text} />
                     <div className={styles.fontGap}>
                         <div className={styles.songTitle}>{item.name}</div>
                         <div className={styles.songArtist}>{item.authorName}</div>
