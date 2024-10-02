@@ -41,10 +41,11 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
   }, []);
 
   const onSubmit = (value: any) => {
-    console.log(token, "sad dailoga aba ");
+      console.log(globalMusic, "sad globalMusic aba ");
     axios
       .post(
-        `https://interstellar-1-pdzj.onrender.com/playlist/${playlsID}/${globalMusic}`,
+          `https://interstellar-1-pdzj.onrender.com/playlist/${playlsID}/${globalMusic}`,{
+        },
         {
           headers: {
             Authorization: `Bearer ${token}`,

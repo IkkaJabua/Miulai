@@ -25,7 +25,6 @@ const IndexPage: React.FC = () => {
   const [musicID, setMusicId] = useRecoilState(mudicIDState);
   const [fetchMusic, setFetchMusic] = useState<any>(null);
   const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState);
-console.log(isModalOpen ,'zasasda')
   // Fetch music data
   useEffect(() => {
     if (musicID && token) {

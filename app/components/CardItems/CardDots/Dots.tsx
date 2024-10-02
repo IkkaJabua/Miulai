@@ -7,7 +7,7 @@ interface Props {
 
 const Dots = (props: Props) => {
     const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-        event.stopPropagation(); 
+
         if (props.onClick) {
             props.onClick(event); 
         }

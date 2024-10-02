@@ -48,10 +48,10 @@ const HitsSection = () => {
                     musics.slice(0,5).map((item:any) => (
                         <div className={styles.box} key={item.id} onClick={() => {
                             setAlbumIDData(item.albumId)
-                            setGlobalMusic(item.id)
-                            console.log(item.id, 'am musikas gavagzavni ')
                             setAlbumId(item.authorId)
                             setMusicId(item.id)
+                            setGlobalMusic(item.id)
+                            console.log(item.id, 'musikid aidi')
                             setMusicArrayTwo(musics)
                         }}
                             >
