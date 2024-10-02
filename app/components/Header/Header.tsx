@@ -33,7 +33,7 @@ const Header: React.FC<InputTpo> = (props) => {
   const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState);
   const [musicID, setMusicId] = useRecoilState(mudicIDState);
   const [showPopup, setShowPopup] = useState(false);
-  const token = Cookies.get('accessToken')
+  const token = Cookies.get('token')
 
 
   const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);

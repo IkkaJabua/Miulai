@@ -19,7 +19,7 @@ const ChartTable = () => {
     const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
     const [musicID, setMusicId] = useRecoilState(mudicIDState)
     const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState)
-    const token = Cookies.get('accessToken')
+    const token = Cookies.get('token')
 
 
     const [albumData, setAlbumData] = useState()

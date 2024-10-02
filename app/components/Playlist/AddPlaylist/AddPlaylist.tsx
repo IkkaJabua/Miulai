@@ -25,7 +25,7 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
   const [playlsID, setPlaylstId] = useState();
   const [globalMusic, setGlobalMusic] = useRecoilState<any>(globalMusicState);
 
-  const token = Cookies.get("accessToken");
+  const token = Cookies.get("token");
 
   useEffect(() => {
     axios

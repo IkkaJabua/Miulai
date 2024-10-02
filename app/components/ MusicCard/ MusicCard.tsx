@@ -12,7 +12,7 @@ import Cookies from 'js-cookie';
 const MusicCard = () => {
   const [active, setActive] = useState<number>();
   const [musicID, setMusicId] = useRecoilState(mudicIDState);
-  const token = Cookies.get("accessToken");
+  const token = Cookies.get("token");
   const [cardData, setCardData] = useState<any>([]);
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
   const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
