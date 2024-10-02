@@ -2,15 +2,12 @@ import Button from '../../Button/Button';
 import Icon from '../../Icon/Icon';
 import PlaylistBox from '../../PlaylistBox/PlaylistBox';
 import styles from './CreatePlaylist.module.scss';
-import Image from 'next/image';
 import { useForm, SubmitHandler } from "react-hook-form"
 import { useEffect, useState } from 'react'
 import axios from 'axios';
 import Cookies from 'js-cookie'
 import { useRecoilState } from 'recoil';
 import { clickFetchState } from '@/app/state';
-
-
 
 
 
