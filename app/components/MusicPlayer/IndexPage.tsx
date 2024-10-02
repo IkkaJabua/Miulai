@@ -76,7 +76,7 @@ const IndexPage: React.FC = () => {
     const musicList = isShuffling ? shuffleArray(musicArrayTwo) : musicArrayTwo;
     const currentIndex = musicList.findIndex((track: any) => track.id === musicID);
     const prevIndex = (currentIndex - 1 + musicList.length) % musicList.length;
-    setMusicId(musicList[prevIndex].id);
+    setMusicId(musicList[prevIndex]?.id);
     setCurrentTime(0);
     setIsPlaying(true);
   }, [isShuffling, musicArrayTwo, musicID, setMusicId, setCurrentTime, setIsPlaying]);

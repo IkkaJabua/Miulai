@@ -5,7 +5,8 @@ import styles from './PlaylistTable.module.scss'
 import Image from "next/image";
 import { useWindowSize } from "react-use";
 import { useRecoilState } from "recoil";
-import { albumMusicFromArtistState, mudicIDState, musicState} from "@/app/state";
+import { albumMusicFromArtistState, mudicIDState, musicState, oneArrayMusicState} from "@/app/state";
+
 
 interface Props {
     data: any
@@ -15,6 +16,8 @@ const PlaylistTable = (props: Props) => {
     const [musicArray, setMusicArray] = useRecoilState(musicState);
     const [albumPage, setAlbumPage] = useRecoilState(albumMusicFromArtistState)
     const [musicID, setMusicId] = useRecoilState(mudicIDState)
+    const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
+
 
 
     const { width, height } = useWindowSize();
@@ -113,6 +116,7 @@ const PlaylistTable = (props: Props) => {
                 onRow={(record: any) => ({
                     onClick: () => {
                         setMusicId(record.id);
+                        setMusicArrayTwo(props.data)
                     },
                 })}
                 rowClassName={styles.row111111}
