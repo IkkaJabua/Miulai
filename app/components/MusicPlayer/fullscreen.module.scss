@@ -1,8 +1,8 @@
 .container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    // align-items: center;
     gap: 18px;
-    // flex-basis: 250px;
 }
 
 .text{
@@ -11,6 +11,10 @@
     gap: 8px;
     max-width: fit-content;
     width: 100%;
+}
+.img {
+    width:300px;
+    height: 300px;
 }
 
 .img {
@@ -33,29 +37,8 @@
     font-weight: 400;
 
 }
-
-
-@media screen and (min-width:0px) and (max-width:767px) {
-.text{
+.flexing {
     display: flex;
+    flex-direction: column;
 }
-.text{
-    display: flex;
-    gap: 8px;
-    max-width: fit-content;
-    width: 100%;
-}
-.likebtn{
-    display: none;
-}
-.title {
-    font-size: 12px;
-}
-.artist{
-    font-size: 11px;
-}
-.img{
-    width: 48px;
-    height: 48px;
-}
-}
+

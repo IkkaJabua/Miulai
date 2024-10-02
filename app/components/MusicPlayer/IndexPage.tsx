@@ -8,6 +8,7 @@ import axios from "axios";
 import { useRecoilState } from "recoil";
 import Cookies from 'js-cookie';
 import { accessTokenState, albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } from "@/app/state";
+import ModalPlayer from "./modalPlayer";
 
 const IndexPage: React.FC = () => {
   const token = Cookies.get('token');
@@ -19,11 +20,12 @@ const IndexPage: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const audioRef = useRef<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control modal
   const [musicArrayTwo, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
   const [musicID, setMusicId] = useRecoilState(mudicIDState);
   const [fetchMusic, setFetchMusic] = useState<any>(null);
   const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState);
-
+console.log(isModalOpen ,'zasasda')
   // Fetch music data
   useEffect(() => {
     if (musicID && token) {
@@ -157,6 +159,16 @@ const IndexPage: React.FC = () => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
+    // Handle album art click to open the modal
+    const handleAlbumArtClick = () => {
+      setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+      setIsModalOpen(false);
+  };
+
+
   return (
     <div className={style.main}>
       <SliderMobile
@@ -178,7 +190,7 @@ const IndexPage: React.FC = () => {
         isActive={isPlaying}
       />
       <div className={style.container}>
-        <TrackDisplay currentTrack={playerDisplay} />
+        <TrackDisplay currentTrack={playerDisplay} onAlbumArtClick={handleAlbumArtClick} />
 
         <Controls
           isPlaying={isPlaying}
@@ -205,6 +217,20 @@ const IndexPage: React.FC = () => {
           onError={() => console.error("Audio failed to load")}
         />
       </div>
+
+            {/* Modal player for larger view */}
+            {isModalOpen && (
+                <ModalPlayer
+                    currentTrack={playerDisplay}
+                    isPlaying={isPlaying}
+                    onClose={handleCloseModal}
+                    onPlayPause={playPause}
+                    onNext={playNextTrack}
+                    onPrevious={playPreviousTrack}
+                    currentTime={currentTime}
+                    duration={duration}
+                    volume={volume} />
+            )}
     </div>
   );
 };

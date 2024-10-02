@@ -18,6 +18,7 @@
   cursor: pointer;
   position: relative;
   bottom: 56px;
+  right: 10px;
 }
 
 .load::-webkit-slider-thumb {
@@ -49,6 +50,7 @@
   bottom: 70px;
   border-radius: 12px;
   background: var(--Gradient-apolo, linear-gradient(90deg, #F903D0 0%, #9A16F2 100%));
+  right: 9px;
 }
 
 @media screen and (min-width:768px) {
