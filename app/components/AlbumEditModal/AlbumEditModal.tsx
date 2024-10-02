@@ -23,7 +23,7 @@ const AlbumEditModal = (props: Props) => {
  
 
   const onEditClick = (values: any) => {
-    const accessToken = Cookies.get("token");
+    const token = Cookies.get("token");
     console.log("here");
     axios.patch(
       `https://interstellar-1-pdzj.onrender.com/playlist/${props.id}`,
@@ -32,7 +32,7 @@ const AlbumEditModal = (props: Props) => {
       },
       {
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${token}`,
         },
       }
     ).then(() => {

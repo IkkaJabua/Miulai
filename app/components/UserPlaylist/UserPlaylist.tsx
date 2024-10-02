@@ -14,7 +14,7 @@ const UserPlaylist = () => {
     const router = useRouter();
     const [playlistData, setPlaylistData] = useState<any[]>([]);
     const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
-    const accessToken = Cookies.get("accessToken");
+    const token = Cookies.get("token");
     const [globalPlst, setGlobalPlst] = useRecoilState(globalPLaylistState);
     const [openModal, setOpenModal] = useState(false);
     const [modalId, setModalId] = useState<number | null>(null); // Tracks which modal to open
@@ -31,7 +31,7 @@ const UserPlaylist = () => {
     useEffect(() => {
         axios.get("https://interstellar-1-pdzj.onrender.com/playlist", {
             headers: {
-                Authorization: `Bearer ${accessToken}`,
+                Authorization: `Bearer ${token}`,
             },
         })
             .then((r) => {
@@ -41,7 +41,7 @@ const UserPlaylist = () => {
             .catch((error) => {
                 console.error("Error fetching playlists:", error);
             });
-    }, [clickFetch, accessToken]);
+    }, [clickFetch, token]);
 
     const handleCardClick = (id: string) => {
         router.push(`/playlists/${id}`);
@@ -55,7 +55,7 @@ const UserPlaylist = () => {
         axios
             .delete(`https://interstellar-1-pdzj.onrender.com/playlist/${id}`, {
                 headers: {
-                    Authorization: `Bearer ${accessToken}`,
+                    Authorization: `Bearer ${token}`,
                 },
             })
             .then(() => {
