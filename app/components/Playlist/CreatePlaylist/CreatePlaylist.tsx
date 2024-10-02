@@ -13,11 +13,12 @@ import { clickFetchState } from '@/app/state';
 
 type Props = {
   onClick?: () => void;
+  setRoute?: any
 }
 
 
 
-const CreatePlaylist = ({ onClick }: Props) => {
+const CreatePlaylist = ({ onClick  , setRoute}: Props) => {
   const { register, handleSubmit, watch, formState: { errors }, } = useForm<any>()
   const [userId, setUserId] = useState()
   const token = Cookies.get('accessToken');
@@ -49,6 +50,8 @@ const CreatePlaylist = ({ onClick }: Props) => {
           Authorization: `Bearer ${token}`
             // Ensure JSON content type
         }
+      }).then(() => {
+        setRoute(null)
       }); 
       setClickFetch(!clickFetch)
 
@@ -58,7 +61,9 @@ const CreatePlaylist = ({ onClick }: Props) => {
 
 
   return (
-    <PlaylistBox className={styles.container}>
+    <PlaylistBox className={styles.container} onClick={(e: any) => {
+      e.stopPropagation()
+    } }>
       <div className={styles.header}>
         <Icon
           name={"leftsideArrow"}
