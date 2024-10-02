@@ -25,7 +25,7 @@ const IndexPage: React.FC = () => {
   const [musicID, setMusicId] = useRecoilState(mudicIDState);
   const [fetchMusic, setFetchMusic] = useState<any>(null);
   const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState);
-
+console.log(isModalOpen ,'zasasda')
   // Fetch music data
   useEffect(() => {
     if (musicID && token) {
@@ -221,7 +221,7 @@ const IndexPage: React.FC = () => {
             {/* Modal player for larger view */}
             {isModalOpen && (
                 <ModalPlayer
-                    currentTrack={currentTrack}
+                    currentTrack={playerDisplay}
                     isPlaying={isPlaying}
                     onClose={handleCloseModal}
                     onPlayPause={playPause}

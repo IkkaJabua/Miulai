@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     gap: 18px;
 }
 
@@ -36,5 +36,9 @@
     font-size: 14px;
     font-weight: 400;
 
+}
+.flexing {
+    display: flex;
+    flex-direction: column;
 }
 

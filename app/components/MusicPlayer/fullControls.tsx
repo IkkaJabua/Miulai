@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import style from './fullControl.module.scss';
+import style from './fullControl.module.scss'
 import formatTime from './helperProp/formatTime';
 import propsinterFace from './helperProp/prop';
 import Icon from '../Icon/Icon';

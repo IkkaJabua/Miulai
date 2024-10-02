@@ -40,11 +40,11 @@ const TrackDisplay: React.FC<TrackDisplayProps> = ({ currentTrack, onAlbumArtCli
             <div className={style.like}>
                 <div className={style.text}>
                     <div className={style.likebtn}>
-                        <HeartShapeBtn
+                        {/* <HeartShapeBtn
                             isActive={true}
                             isDisabled={false}
                             onClick={() => { }}
-                        />
+                        /> */}
                     </div>-
                         <span className={style.title}>{playerDisplay.name || 'Unknown Title'}</span> {/* Fallback for title */}
                         <span className={style.artist}>{playerDisplay.artistName || 'Unknown Artist'}</span> {/* Fallback for artist */}
