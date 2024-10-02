@@ -20,7 +20,7 @@ const Playlist = () => {
 
     const [albumId, setAlbumId] = useRecoilState(albumidState);
     const router = useRouter();
-    const token = Cookies.get('accessToken')
+    const token = Cookies.get('token')
 
 
 
