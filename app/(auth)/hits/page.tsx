@@ -31,7 +31,7 @@ const Hits = () => {
         <div className={styles.container}>
             <ReusableHeader />
             <News title={'Top Hit Of The Week'} image={topHit?.albumCover} plays={topHit?.listenerCount} />
-            <Input />
+            {/* <Input /> */}
             <HitsTable />
         </div>
     )
