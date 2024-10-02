@@ -19,6 +19,11 @@ const MusicCard = () => {
   const [globalMusic, setGlobalMusic] = useRecoilState<any>(globalMusicState)
 
 
+  const formatDuration = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  };
 
 
 
@@ -34,6 +39,7 @@ const MusicCard = () => {
     })
       .then((r) => {
         setCardData(r.data);
+
         console.log(r.data, 'Music list fetched');
         
       })
@@ -76,7 +82,7 @@ const MusicCard = () => {
             </div>
           </div>
           <div className={styles.container_detals}>
-            <div className={styles.time_font_style}>3:58</div>
+            <div className={styles.time_font_style}>{formatDuration(item.duration)}</div>
             <div className={styles.container_like_point}>
               <HeartShapeBtn
                 isDisabled={false}

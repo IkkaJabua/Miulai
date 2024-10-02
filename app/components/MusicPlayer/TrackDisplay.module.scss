@@ -1,13 +1,14 @@
 .container {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 18px;
     // flex-basis: 250px;
 }
 
-.text{
+.text {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     gap: 8px;
     max-width: fit-content;
     width: 100%;
@@ -22,9 +23,10 @@
     font-size: 18px;
     font-weight: 600;
 }
-.like{
+
+.like {
     display: flex;
-    flex-direction: column ;
+    flex-direction: column;
 }
 
 .artist {
@@ -36,26 +38,31 @@
 
 
 @media screen and (min-width:0px) and (max-width:767px) {
-.text{
-    display: flex;
-}
-.text{
-    display: flex;
-    gap: 8px;
-    max-width: fit-content;
-    width: 100%;
-}
-.likebtn{
-    display: none;
-}
-.title {
-    font-size: 12px;
-}
-.artist{
-    font-size: 11px;
-}
-.img{
-    width: 48px;
-    height: 48px;
-}
+    .text {
+        display: flex;
+    }
+
+    .text {
+        display: flex;
+        gap: 8px;
+        max-width: fit-content;
+        width: 100%;
+    }
+
+    .likebtn {
+        display: none;
+    }
+
+    .title {
+        font-size: 12px;
+    }
+
+    .artist {
+        font-size: 11px;
+    }
+
+    .img {
+        width: 48px;
+        height: 48px;
+    }
 }

@@ -28,7 +28,7 @@ const TrackDisplay: React.FC<TrackDisplayProps> = ({ currentTrack, onAlbumArtCli
 
     return (
         <div className={style.container} onClick={onAlbumArtClick} >
-            <div className={style.albumArt}> {/* Clickable area */}
+            <div className={style.albumArt} > {/* Clickable area */}
                 <img
                     src={playerDisplay?.albumCover || '/defaultAlbumArt.jpg'} // Fallback if albumArt is missing
                     alt="AlbumArt"

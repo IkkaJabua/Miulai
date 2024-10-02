@@ -50,7 +50,7 @@ const Id = () => {
                 <News title={`${newName}`} image={'/icon/albumicon5.svg'} />
             </div>
             <div className={styles.input}>
-                <Input />
+                {/* <Input /> */}
             </div>
             <PlaylistTable data={data} />
         </div>
