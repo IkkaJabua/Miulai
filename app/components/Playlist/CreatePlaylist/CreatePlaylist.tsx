@@ -81,16 +81,6 @@ const CreatePlaylist = ({ onClick  , setRoute}: Props) => {
           className={styles.inp}
           {...register("name")}
         />
-        {/* <div className={styles.filesWrapper}>
-          <input type="file" className={styles.files} {...register("file")} />
-          <Image
-            src={"/icon/camera.png"}
-            alt="image"
-            width={88}
-            height={80}
-            className={styles.image}
-          />
-        </div> */}
         <Button
           title={"Save"}
           mode={"reusable button"}

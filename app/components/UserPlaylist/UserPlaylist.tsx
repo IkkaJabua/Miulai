@@ -20,18 +20,19 @@ const UserPlaylist = () => {
     const [modalId, setModalId] = useState<number | null>(null); // Tracks which modal to open
     const [userID, setUserId] = useRecoilState(userIDState)
 
-    useEffect(() => {
-        axios.get(`https://interstellar-1-pdzj.onrender.com/user/me`, {
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        }).
-            then((r) => {
-                setUserId(r.data.id)
-            
-            })
 
-    }, [])
+    // useEffect(() => {
+    //     axios.get(`https://interstellar-1-pdzj.onrender.com/user/me`, {
+    //         headers: {
+    //             Authorization: `Bearer ${token}`
+    //         }
+    //     }).
+    //         then((r) => {
+    //             setUserId(r.data.id)
+            
+    //         })
+
+    // }, [])
 
 
 
@@ -45,7 +46,7 @@ const UserPlaylist = () => {
     };
 
     useEffect(() => {
-        axios.get(`https://interstellar-1-pdzj.onrender.com/user/160`, {
+        axios.get(`https://interstellar-1-pdzj.onrender.com/user/me`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -96,6 +97,7 @@ const UserPlaylist = () => {
                     onClick={(e) => {
                         e.stopPropagation();
                         handleCardClick(item.id);
+                        setGlobalPlst(item.id)
                     }}
                 >
                     <div className={styles.hoveredImage}>

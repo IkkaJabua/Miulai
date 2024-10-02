@@ -29,13 +29,14 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
   useEffect(() => {
     axios
-      .get(`https://interstellar-1-pdzj.onrender.com/playlist`, {
+      .get(`https://interstellar-1-pdzj.onrender.com/user/me`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
       .then((r) => {
-        setPlaylist(r.data);
+        setPlaylist(r.data.playlists);
+        console.log(r.data.playlists, 'moaq moaq')
       });
   }, []);
 
@@ -74,7 +75,7 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
         <NewPlaylist />
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.inputWrapper}>
-        {playlist.map((item, i) => (
+        {playlist?.map((item, i) => (
           <PlaylistInput
             name={item.name}
             onClick={() => setPlaylstId(item.id)}
