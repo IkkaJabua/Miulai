@@ -3,7 +3,7 @@ import Image from 'next/image';
 import HeartShapeBtn from '../heatShapeIcon/HeartShapeIcn';
 import style from './TrackDisplay.module.scss';
 import { useRecoilState } from 'recoil';
-import { musicState } from '@/app/state';
+import { playerDisplayState } from '@/app/state';
 
 interface TrackDisplayProps {
     currentTrack: {
@@ -15,7 +15,7 @@ interface TrackDisplayProps {
 }
 
 const TrackDisplay: React.FC<TrackDisplayProps> = ({ currentTrack, onAlbumArtClick }) => {
-    const [music, setMusic] = useRecoilState<any>(musicState)
+    const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState)
 
     if (!currentTrack) {
         // Return a default placeholder or nothing if no currentTrack is provided
@@ -30,7 +30,7 @@ const TrackDisplay: React.FC<TrackDisplayProps> = ({ currentTrack, onAlbumArtCli
         <div className={style.container}>
             <div onClick={onAlbumArtClick} className={style.albumArt}> {/* Clickable area */}
                 <img
-                    src={music?.coverImgUrl || '/defaultAlbumArt.jpg'} // Fallback if albumArt is missing
+                    src={playerDisplay?.albumCover || '/defaultAlbumArt.jpg'} // Fallback if albumArt is missing
                     alt="AlbumArt"
                     width={80}
                     height={80}
@@ -43,11 +43,11 @@ const TrackDisplay: React.FC<TrackDisplayProps> = ({ currentTrack, onAlbumArtCli
                         <HeartShapeBtn
                             isActive={true}
                             isDisabled={false}
-                            onClick={() => {}}
+                            onClick={() => { }}
                         />
-                    </div>
-                    <span className={style.title}>{music?.title || 'Unknown Title'}</span> {/* Fallback for title */}
-                    <span className={style.artist}>{music?.artistName || 'Unknown Artist'}</span> {/* Fallback for artist */}
+                    </div>-
+                        <span className={style.title}>{playerDisplay.name || 'Unknown Title'}</span> {/* Fallback for title */}
+                        <span className={style.artist}>{playerDisplay.artistName || 'Unknown Artist'}</span> {/* Fallback for artist */}
                 </div>
             </div>
         </div>
