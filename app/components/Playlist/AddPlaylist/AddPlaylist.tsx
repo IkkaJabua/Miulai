@@ -21,14 +21,13 @@ type Props = {
 
 
 const AddPlaylist = ({ onForward, onBackward }: Props) => {
+    const token = Cookies.get('token')
+
     const { register, handleSubmit, watch } = useForm();
     const checkboxValues = watch();
     const [playlist, setPlaylist] = useState<any[]>([])
     const [playlsID, setPlaylstId] = useState()
     const [globalMusic, setGlobalMusic] = useRecoilState<any>(globalMusicState)
-
-
-    const token = Cookies.get('token')
 
     useEffect(() => {
         axios.get(`https://interstellar-1-pdzj.onrender.com/playlist`, {
@@ -42,7 +41,6 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
 
     const onSubmit = (value: any) => {
-        console.log(token, 'sad dailoga aba ')
         axios.post(`https://interstellar-1-pdzj.onrender.com/playlist/${playlsID}/${globalMusic}`, {
             headers: {
                 Authorization: `Bearer ${token}`
@@ -70,9 +68,8 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
                     playlist.map((item, i) => (<PlaylistInput name={item.name} onClick={() => setPlaylstId(item.id)} id={item.id} key={item.id} register={register} />))
                 }
 
-
                 <button className={styles.button}>
-                    save
+                    Save
                 </button>
 
             </form>

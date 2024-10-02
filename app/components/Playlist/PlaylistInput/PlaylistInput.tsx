@@ -11,8 +11,6 @@ type Props = {
 
 const PlaylistInput = ({ name, id , onClick, register}: Props) => {
     
-    
-
     return (
         <div className={styles.container} >
             <div className={styles.wrapper}>

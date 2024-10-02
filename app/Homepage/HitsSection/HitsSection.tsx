@@ -49,6 +49,7 @@ const HitsSection = () => {
                         <div className={styles.box} key={item.id} onClick={() => {
                             setAlbumIDData(item.albumId)
                             setGlobalMusic(item.id)
+                            console.log(item.id, 'am musikas gavagzavni ')
                             setAlbumId(item.authorId)
                             setMusicId(item.id)
                             setMusicArrayTwo(musics)

@@ -23,7 +23,7 @@ const Id = () => {
     const [globalPlst] = useRecoilState(globalPLaylistState)
     const [newName, setNewsName] = useState()
     const [data, setData] = useState([])
-    const [, setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
+    const [ ,setMusicArrayTwo] = useRecoilState<any>(oneArrayMusicState);
     const token = Cookies.get("token");
     
 
