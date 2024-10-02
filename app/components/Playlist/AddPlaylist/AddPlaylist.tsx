@@ -24,6 +24,8 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
   const [playlist, setPlaylist] = useState<any[]>([]);
   const [playlsID, setPlaylstId] = useState();
   const [globalMusic, setGlobalMusic] = useRecoilState<any>(globalMusicState);
+  const [isPopupVisible, setIsPopupVisible] = useState(true);
+
 
   const token = Cookies.get("token");
 
@@ -54,10 +56,44 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
       )
       .then((r) => {
         console.log(r, "gaigzavnaaa");
+        setIsPopupVisible(false)
       });
   };
 
   return (
+  //   <PlaylistBox className={styles.container} onClick={(e: any) => {
+  //       e.stopPropagation()
+  //   }}>
+  //     <div className={styles.header}>
+  //       <Icon
+  //         name={"leftsideArrow"}
+  //         alt="image"
+  //         width={15}
+  //         height={15}
+  //         onClick={onBackward}
+  //       />
+  //       <span className={styles.title}>Add To Playlist</span>
+  //     </div>
+
+  //     <div onClick={onForward}>
+  //       <NewPlaylist />
+  //     </div>
+  //     <form onSubmit={handleSubmit(onSubmit)} className={styles.inputWrapper}>
+  //       {playlist?.map((item, i) => (
+  //         <PlaylistInput
+  //           name={item.name}
+  //           onClick={() => setPlaylstId(item.id)}
+  //           id={item.id}
+  //           key={item.id}
+  //           register={register}
+  //         />
+  //       ))}
+
+  //       <button className={styles.button}>save</button>
+  //     </form>
+  //   </PlaylistBox>
+  // );
+   isPopupVisible ? (
     <PlaylistBox className={styles.container} onClick={(e: any) => {
         e.stopPropagation()
     }}>
@@ -71,7 +107,7 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
         />
         <span className={styles.title}>Add To Playlist</span>
       </div>
-
+  
       <div onClick={onForward}>
         <NewPlaylist />
       </div>
@@ -85,11 +121,12 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
             register={register}
           />
         ))}
-
+  
         <button className={styles.button}>save</button>
       </form>
     </PlaylistBox>
-  );
+  ) : null
+)
 };
 
 export default AddPlaylist;
