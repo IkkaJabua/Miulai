@@ -7,13 +7,13 @@ import SliderMobile from "./Slider/Slider";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import Cookies from 'js-cookie';
-import {  albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } from "@/app/state";
+import { albumIdState, mudicIDState, oneArrayMusicState, playerDisplayState } from "@/app/state";
 import ModalPlayer from "./modalPlayer";
 
 const IndexPage: React.FC = () => {
   const token = Cookies.get('token');
   const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true); // Set default as true
   const [volume, setVolume] = useState(50);
   const [isLooping, setIsLooping] = useState(false);
   const [isShuffling, setIsShuffling] = useState(false);
@@ -25,6 +25,7 @@ const IndexPage: React.FC = () => {
   const [musicID, setMusicId] = useRecoilState(mudicIDState);
   const [fetchMusic, setFetchMusic] = useState<any>(null);
   const [playerDisplay, setPlayerDisplay] = useRecoilState<any>(playerDisplayState);
+
   // Fetch music data
   useEffect(() => {
     if (musicID && token) {
@@ -45,6 +46,13 @@ const IndexPage: React.FC = () => {
       console.warn("MusicID or accessToken is missing");
     }
   }, [musicID, token]);
+
+  // Auto-play when page loads if there is audio
+  useEffect(() => {
+    if (audioRef.current && fetchMusic) {
+      setIsPlaying(true);  // Auto play when page loads
+    }
+  }, [fetchMusic]);
 
   // Handle volume and loop changes
   useEffect(() => {
@@ -158,15 +166,14 @@ const IndexPage: React.FC = () => {
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
 
-    // Handle album art click to open the modal
-    const handleAlbumArtClick = () => {
-      setIsModalOpen(true);
+  // Handle album art click to open the modal
+  const handleAlbumArtClick = () => {
+    setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
-      setIsModalOpen(false);
+    setIsModalOpen(false);
   };
-
 
   return (
     <div className={style.main}>
@@ -217,19 +224,20 @@ const IndexPage: React.FC = () => {
         />
       </div>
 
-            {/* Modal player for larger view */}
-            {isModalOpen && (
-                <ModalPlayer
-                    currentTrack={playerDisplay}
-                    isPlaying={isPlaying}
-                    onClose={handleCloseModal}
-                    onPlayPause={playPause}
-                    onNext={playNextTrack}
-                    onPrevious={playPreviousTrack}
-                    currentTime={currentTime}
-                    duration={duration}
-                    volume={volume} />
-            )}
+      {/* Modal player for larger view */}
+      {isModalOpen && (
+        <ModalPlayer
+          currentTrack={playerDisplay}
+          isPlaying={isPlaying}
+          onClose={handleCloseModal}
+          onPlayPause={playPause}
+          onNext={playNextTrack}
+          onPrevious={playPreviousTrack}
+          currentTime={currentTime}
+          duration={duration}
+          volume={volume}
+        />
+      )}
     </div>
   );
 };
