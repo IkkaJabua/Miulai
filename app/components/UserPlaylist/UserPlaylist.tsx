@@ -54,7 +54,6 @@ const UserPlaylist = () => {
             .then((r) => {
                 setPlaylistData(r.data.playlists);
                 setOpenModal(false)
-                console.log(r.data.playlists)
             })
             .catch((error) => {
                 console.error("Error fetching playlists:", error);

@@ -33,7 +33,6 @@ const ChartTable = () => {
             }
         })
             .then((r) => {
-                console.log(r.data, 'musics musics')
                 setMusicCover(r.data)
 
             });

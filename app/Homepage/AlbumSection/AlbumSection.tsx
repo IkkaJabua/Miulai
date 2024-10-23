@@ -13,7 +13,7 @@ import ArtistCard from "../../components/ArtistCard/ArtistCard";
 const AlbumSection = () => {
   const [cardData, setCardData] = useState<any>([]);
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState);
-  const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
+  // const [albumIDData, setAlbumIDData] = useRecoilState(albumIdState)
   const router = useRouter();
 
 
@@ -34,8 +34,8 @@ const AlbumSection = () => {
       <div className={styles.album}>
         {cardData.map((item: any) => (
           <div className={styles.box} key={item.id} onClick={() =>   {
-            router.push("/album");
-            setAlbumIDData(item.id)
+            router.push(`/album/${item.id}`);
+            
           }}>
             {/* <Card
               header={""}

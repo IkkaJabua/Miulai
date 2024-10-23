@@ -21,32 +21,29 @@ const AlbumID = () => {
     const [albumPage, setAlbumPage] = useRecoilState(albumMusicFromArtistState)
     const [musicArrayTwo, setMusicArrayTwo] = useRecoilState(oneArrayMusicState)
     const token = Cookies.get("token");
-    const param = useParams(); 
+    const { id } = useParams();
 
 
 
 
 
     useEffect(() => {
-        if (albumIDData) {
-            axios.get(`https://interstellar-1-pdzj.onrender.com/album/${param.id}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-                .then((r) => {
-                    setAlbumPage(r.data.musics)
-                    setAlbumCover(r.data.file?.url)
-                    setAlbumName(r.data.albumName)
-                    setMusicArrayTwo(r.data.musics)
-                    // setMusicArrayTwo(r.data.musics)
+        axios.get(`https://interstellar-1-pdzj.onrender.com/album/${id}`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        })
+            .then((r) => {
+                setAlbumPage(r.data.musics)
+                setAlbumCover(r.data.file?.url)
+                setAlbumName(r.data.albumName)
+                setMusicArrayTwo(r.data.musics)
+                // setMusicArrayTwo(r.data.musics)
 
-                })
-                .catch(error => {
-                    console.log('Failed to fetch album data:', error)
-                })
-        }
-    }, [albumIDData])
+            })
+            .catch(error => {
+            })
+    }, [id])
 
     return (
         <div className={styles.container}>

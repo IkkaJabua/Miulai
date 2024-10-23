@@ -33,7 +33,6 @@ export default function Home() {
     }).
       then((r) => {
         setUserId(r.data.id)
-        console.log(r.data)
       })
 
   },[])
@@ -42,7 +41,6 @@ export default function Home() {
   const inputChange = (e: any) => {
     // const newValue = e.target.value;
     setInputValue(e.target.value);
-    console.log(e.target.value);
   };
 
   const [topHit, setTopHIt] = useState<any>()
@@ -60,7 +58,6 @@ export default function Home() {
         setTopHIt(r.data[0])
         setTopHitMusic(r.data[0])
         // setMusicId(r.data[0].id)
-        console.log(r.data[0], 'musikaaa muikaaa ')
       });
   }, []);
 

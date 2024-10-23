@@ -24,7 +24,6 @@ const AlbumEditModal = (props: Props) => {
 
   const onEditClick = (values: any) => {
     const token = Cookies.get("token");
-    console.log("here");
     axios.patch(
       `https://interstellar-1-pdzj.onrender.com/playlist/${props.id}`,
       {

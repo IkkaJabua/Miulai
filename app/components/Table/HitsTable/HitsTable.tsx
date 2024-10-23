@@ -26,7 +26,6 @@ const HitsTable = () => {
   useEffect(() => {
     axios.get(`https://interstellar-1-pdzj.onrender.com/music`)
     .then((r) => {
-      console.log(r.data,'musics musics')
       setMusicCover(r.data)
     
     });

@@ -17,14 +17,6 @@ const MobileMenu = () => {
         if (pathname === undefined) router.push('/')
     }, [pathname])
 
-
-    // useEffect(() => {
-    //     if (activeItem === undefined) setActiveItem(MenuData[0].id)
-    //     console.log(activeItem)
-    // }, [activeItem])
-
-
-
     const MenuData = [
         {
             title: 'Home',

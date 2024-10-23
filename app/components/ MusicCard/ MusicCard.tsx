@@ -40,7 +40,6 @@ const MusicCard = () => {
       .then((r) => {
         setCardData(r.data);
 
-        console.log(r.data, 'Music list fetched');
         
       })
       .catch((error) => {
@@ -59,7 +58,6 @@ const MusicCard = () => {
             setMusicArrayTwo(cardData)
             setMusicId(item.id)
             setGlobalMusic(item.id)
-            console.log(item.id)
           }}
       
 
