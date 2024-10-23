@@ -120,10 +120,12 @@ const Registracion = () => {
 
 
                         <div className={styles.registrationErors}>
-                            <div>Password must contain:</div>
-                            <div>*8 or more characters</div>
-                            <div>*at least one capital letter</div>
-                            <div>*at least one number</div>
+                            <div>Password must Contain:</div>
+                            <div>*8 or more Characters</div>
+                            <div>*at least one Capital letter</div>
+                            <div>*at least one Number</div>
+                            <div>*at least one Symbol</div>
+
                         </div>
 
                         <div className={styles.passwordInput}>
