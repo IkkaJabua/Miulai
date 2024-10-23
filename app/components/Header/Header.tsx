@@ -61,9 +61,6 @@ const Header: React.FC<InputTpo> = (props) => {
         )
         .then((r) => {
           const data = r.data;
-          console.log("API Response:", data);
-          console.log(r.data, " searchData");
-
           // Set states for authors, albums, and music
           setSearchItems(data.authors || []);
           setSearchAlbum(data.album || []);
@@ -117,11 +114,9 @@ const Header: React.FC<InputTpo> = (props) => {
 
   const handleAlbumClick = async (album: any) => {
     setMusicArrayTwo([]);
-    console.log(musicArrayTwo,'gzashi albomis musikebis chaweramde')
     try {
       const response = await axios.get(`https://interstellar-1-pdzj.onrender.com/album/${album.id}`);
       setMusicArrayTwo(response.data.musics);
-      console.log(musicArrayTwo,'albomis musikebis chaweris mere ')
 
 
       // Set states

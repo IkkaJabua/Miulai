@@ -22,7 +22,6 @@ const Charts = () => {
             )
             .then(async (r) => {
                 setTopHIt(r.data[0])
-                // console.log(r.data[0], 'musikaaa muikaaa ')
             });
     }, []);
 

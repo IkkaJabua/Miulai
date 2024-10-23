@@ -15,13 +15,6 @@ const Album = () => {
     const param = useParams();
 
 
-
-    useEffect(() => {
-        router.push(`/album`);
-    }, []);
-
-
-
     const handleCardClick = (id: number) => {
         router.push(`/album/${id}`);
     };
@@ -34,7 +27,6 @@ const Album = () => {
                 setArtists(r.data);
             })
             .catch((error) => {
-                console.error("Error fetching artists:", error);
             });
     }, []);
 

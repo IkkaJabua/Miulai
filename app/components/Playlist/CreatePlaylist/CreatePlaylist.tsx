@@ -35,7 +35,6 @@ const CreatePlaylist = ({ onClick  , setRoute}: Props) => {
     }).
       then((r) => {
         setUserId(r.data.id)
-        console.log(r.data.id)
       })
   }, [])
 

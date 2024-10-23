@@ -38,12 +38,10 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
       })
       .then((r) => {
         setPlaylist(r.data.playlists);
-        console.log(r.data.playlists, 'moaq moaq')
       });
   }, []);
 
   const onSubmit = (value: any) => {
-      console.log(globalMusic, "sad globalMusic aba ");
     axios
       .post(
           `https://interstellar-1-pdzj.onrender.com/playlist/${playlsID}/${globalMusic}`,{
@@ -55,7 +53,6 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
         }
       )
       .then((r) => {
-        console.log(r, "gaigzavnaaa");
         setIsPopupVisible(false)
       });
   };

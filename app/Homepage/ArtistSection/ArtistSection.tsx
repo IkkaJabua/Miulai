@@ -31,9 +31,7 @@ const ArtistSection = () => {
     <div className={styles.container}>
       <div className={styles.art}>
         {atrist.slice(0,5).map((item: any) => (
-          <div className={styles.box} key={item.id} onClick={() => {
-            router.push(`/artistlist/${albumId}`);
-            setAlbumId(item.id)}}>
+          <div className={styles.box} key={item.id} onClick={() => router.push(`/artistlist/${item.id}`)}>
             {/* <Card
               header={""}
               key={item.id}

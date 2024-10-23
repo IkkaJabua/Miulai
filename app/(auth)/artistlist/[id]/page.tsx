@@ -12,29 +12,28 @@ import { albumidState, formusicFetchState } from '@/app/state';
 
 const Artist = () => {
     const router = useRouter();
-    const param = useParams(); 
+    // const param = useParams(); 
+    const { id } = useParams();
+
     const [albumId, setAlbumId] = useRecoilState(albumidState);
     const [viewArtist, setViewArtist] = useRecoilState(formusicFetchState)
-
-console.log(param.id , 'paramm')
 
     const [artistPhoto, setArtistPhoto] = useState('');
     const [artistName, setArtistName] = useState('');
 
     useEffect(() => {
 
-            axios.get(`https://interstellar-1-pdzj.onrender.com/author/${param.id}`)
-                .then((response) => {
-                    const artistData = response.data;
-                    setArtistPhoto(artistData?.files[0]?.url || '');
-                    setArtistName(artistData.firstName);
-                })
-                .catch((error) => {
-                    console.error("Error fetching artist data:", error);
-                });
-        
-        
-    }, [param.id]);
+        axios.get(`https://interstellar-1-pdzj.onrender.com/author/${id}`)
+            .then((response) => {
+                const artistData = response.data;
+                setArtistPhoto(artistData?.files[0]?.url || '');
+                setArtistName(artistData.firstName);
+            })
+            .catch((error) => {
+            });
+
+
+    }, [id]);
 
     return (
         <div className={styles.container}>

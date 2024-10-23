@@ -20,7 +20,6 @@ const Hits = () => {
             )
             .then(async (r) => {
                 setTopHIt(r.data[0])
-                // console.log(r.data[0], 'musikaaa muikaaa ')
             });
     }, []);
     <News title={'Top Hit Of The Week'} image={topHit?.albumCover} plays={topHit?.listenerCount} />
