@@ -28,7 +28,7 @@ const AlbumID = () => {
 
 
     useEffect(() => {
-        axios.get(`https://interstellar-1-pdzj.onrender.com/album/${id}`, {
+        axios.get(`http://49.12.148.222:30469/album/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

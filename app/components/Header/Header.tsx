@@ -53,7 +53,7 @@ const Header: React.FC<InputTpo> = (props) => {
     if (inputValue) {
       axios
         .get(
-          `https://interstellar-1-pdzj.onrender.com/search?search=${inputValue}`, {
+          `http://49.12.148.222:30469/search?search=${inputValue}`, {
             headers: {
               Authorization: `Bearer ${token}`
             }
@@ -115,7 +115,7 @@ const Header: React.FC<InputTpo> = (props) => {
   const handleAlbumClick = async (album: any) => {
     setMusicArrayTwo([]);
     try {
-      const response = await axios.get(`https://interstellar-1-pdzj.onrender.com/album/${album.id}`);
+      const response = await axios.get(`http://49.12.148.222:30469/album/${album.id}`);
       setMusicArrayTwo(response.data.musics);
 
 

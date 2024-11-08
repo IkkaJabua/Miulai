@@ -26,7 +26,7 @@ export default function Home() {
   const [userID, setUserId] = useRecoilState(userIDState)
   const token = Cookies.get("token");
   useEffect(() => {
-    axios.get(`https://interstellar-1-pdzj.onrender.com/user/me`, {
+    axios.get(`http://49.12.148.222:30469/user/me`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -47,7 +47,7 @@ export default function Home() {
   useEffect(() => {
     axios
       .get(
-        `https://interstellar-1-pdzj.onrender.com/music`,{
+        `http://49.12.148.222:30469/music`,{
           headers: {
             Authorization: `Bearer ${token}`,
           },

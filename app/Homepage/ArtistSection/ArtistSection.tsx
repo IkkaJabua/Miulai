@@ -22,7 +22,7 @@ const ArtistSection = () => {
 
 
   useEffect(() => {
-    axios.get(`https://interstellar-1-pdzj.onrender.com/author`).then((r) => {
+    axios.get(`http://49.12.148.222:30469/author`).then((r) => {
       setArtist(r.data);
     });
   }, [clickFetch]);

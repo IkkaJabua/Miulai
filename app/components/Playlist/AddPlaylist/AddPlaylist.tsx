@@ -31,7 +31,7 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
   useEffect(() => {
     axios
-      .get(`https://interstellar-1-pdzj.onrender.com/user/me`, {
+      .get(`http://49.12.148.222:30469/user/me`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -44,7 +44,7 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
   const onSubmit = (value: any) => {
     axios
       .post(
-          `https://interstellar-1-pdzj.onrender.com/playlist/${playlsID}/${globalMusic}`,{
+          `http://49.12.148.222:30469/playlist/${playlsID}/${globalMusic}`,{
         },
         {
           headers: {

@@ -22,7 +22,7 @@ const UserPlaylist = () => {
 
 
     // useEffect(() => {
-    //     axios.get(`https://interstellar-1-pdzj.onrender.com/user/me`, {
+    //     axios.get(`http://49.12.148.222:30469/user/me`, {
     //         headers: {
     //             Authorization: `Bearer ${token}`
     //         }
@@ -46,7 +46,7 @@ const UserPlaylist = () => {
     };
 
     useEffect(() => {
-        axios.get(`https://interstellar-1-pdzj.onrender.com/user/me`, {
+        axios.get(`http://49.12.148.222:30469/user/me`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -70,7 +70,7 @@ const UserPlaylist = () => {
 
     const onDeleteClick = (id: number) => {
         axios
-            .delete(`https://interstellar-1-pdzj.onrender.com/playlist/${id}`, {
+            .delete(`http://49.12.148.222:30469/playlist/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

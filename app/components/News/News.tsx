@@ -23,7 +23,7 @@ const News = (props: Props) => {
   useEffect(() => {
     axios
       .get(
-        `https://interstellar-1-pdzj.onrender.com/music`
+        `http://49.12.148.222:30469/music`
       )
       .then(async (r) => {
         // setSearchItems(r.data.authors);

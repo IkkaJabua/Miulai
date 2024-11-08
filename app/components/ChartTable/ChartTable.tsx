@@ -27,7 +27,7 @@ const ChartTable = () => {
     const [musicCover, setMusicCover] = useState<any>()
 
     useEffect(() => {
-        axios.get(`https://interstellar-1-pdzj.onrender.com/music`, {
+        axios.get(`http://49.12.148.222:30469/music`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

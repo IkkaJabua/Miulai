@@ -21,7 +21,7 @@ const AlbumSection = () => {
 
 
   useEffect(() => {
-    axios.get("https://interstellar-1-pdzj.onrender.com/album").then((r) => {
+    axios.get("http://49.12.148.222:30469/album").then((r) => {
       setCardData(r.data);
       // console.log(r.data[0].musics)
       console.log(r.data);
@@ -71,7 +71,7 @@ export default AlbumSection;
 //     const [cardData, setCardData] = useState<any>([]);
 
 //     useEffect(() => {
-//         axios.get('https://interstellar-1-pdzj.onrender.com/album')
+//         axios.get('http://49.12.148.222:30469//album')
 //             .then((r) => {
 //                 setCardData(r.data);
 //                 console.log(r.data); // Log the API response to see its structure

@@ -24,7 +24,7 @@ const UserPopup = ({ userName,}: Props) => {
                 const token = Cookies.get("token");
                 console.log(token , 'token ')
 
-                const response = await axios.get('https://interstellar-1-pdzj.onrender.com/user/me', {
+                const response = await axios.get('http://49.12.148.222:30469/user/me', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     }

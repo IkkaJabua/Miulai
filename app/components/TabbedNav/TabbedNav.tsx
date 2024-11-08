@@ -50,7 +50,7 @@ const TabbedNav = (props: Props) => {
 
   useEffect(() => {
       axios
-        .get(`https://interstellar-1-pdzj.onrender.com/author/${param.id}`)
+        .get(`http://49.12.148.222:30469/author/${param.id}`)
         .then((r: any) => {
           setBiography(r.data.biography);
           setImage(r.data?.files[0]?.url);

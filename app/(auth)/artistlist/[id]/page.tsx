@@ -23,7 +23,7 @@ const Artist = () => {
 
     useEffect(() => {
 
-        axios.get(`https://interstellar-1-pdzj.onrender.com/author/${id}`)
+        axios.get(`http://49.12.148.222:30469/author/${id}`)
             .then((response) => {
                 const artistData = response.data;
                 setArtistPhoto(artistData?.files[0]?.url || '');

@@ -30,7 +30,7 @@ const IndexPage: React.FC = () => {
   useEffect(() => {
     if (musicID && token) {
       axios
-        .get(`https://interstellar-1-pdzj.onrender.com/music/${musicID}`, {
+        .get(`http://49.12.148.222:30469/music/${musicID}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

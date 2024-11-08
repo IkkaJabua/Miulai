@@ -28,7 +28,7 @@ const CreatePlaylist = ({ onClick  , setRoute}: Props) => {
 
 
   useEffect(() => {
-    axios.get(`https://interstellar-1-pdzj.onrender.com/user/me`, {
+    axios.get(`http://49.12.148.222:30469/user/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       }
@@ -40,7 +40,7 @@ const CreatePlaylist = ({ onClick  , setRoute}: Props) => {
 
   const onSubmit = async (values: any) => {
     try {
-      const response = await axios.post('https://interstellar-1-pdzj.onrender.com/playlist', {
+      const response = await axios.post('http://49.12.148.222:30469/playlist', {
         'name': String(values.name),  
         'userId': String(userId)  
       }, {
