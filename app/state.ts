@@ -63,7 +63,7 @@ export const albumCoverState = atom({
 
 export const mudicIDState = atom({
     key: 'mudicIDState',
-    default: 214
+    default: 1
 })
 export const playerDisplayState = atom({
     key: 'playerDisplayState',
