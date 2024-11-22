@@ -71,7 +71,7 @@ export default AlbumSection;
 //     const [cardData, setCardData] = useState<any>([]);
 
 //     useEffect(() => {
-//         axios.get('http://49.12.148.222:30469//album')
+//         axios.get('https://backend.miulai.ge//album')
 //             .then((r) => {
 //                 setCardData(r.data);
 //                 console.log(r.data); // Log the API response to see its structure

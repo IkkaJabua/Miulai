@@ -22,7 +22,7 @@ const UserPlaylist = () => {
 
 
     // useEffect(() => {
-    //     axios.get(`http://49.12.148.222:30469/user/me`, {
+    //     axios.get(`https://backend.miulai.ge/user/me`, {
     //         headers: {
     //             Authorization: `Bearer ${token}`
     //         }

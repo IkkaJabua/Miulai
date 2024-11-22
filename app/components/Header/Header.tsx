@@ -115,7 +115,7 @@ const Header: React.FC<InputTpo> = (props) => {
   const handleAlbumClick = async (album: any) => {
     setMusicArrayTwo([]);
     try {
-      const response = await axios.get(`http://49.12.148.222:30469/album/${album.id}`);
+      const response = await axios.get(`https://backend.miulai.ge/album/${album.id}`);
       setMusicArrayTwo(response.data.musics);
 
 

@@ -26,7 +26,7 @@ export default function Home() {
   const [userID, setUserId] = useRecoilState(userIDState)
   const token = Cookies.get("token");
   useEffect(() => {
-    axios.get(`http://49.12.148.222:30469/user/me`, {
+    axios.get(`https://backend.miulai.ge/user/me`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -47,7 +47,7 @@ export default function Home() {
   useEffect(() => {
     axios
       .get(
-        `http://49.12.148.222:30469/music`,{
+        `https://backend.miulai.ge/music`,{
           headers: {
             Authorization: `Bearer ${token}`,
           },

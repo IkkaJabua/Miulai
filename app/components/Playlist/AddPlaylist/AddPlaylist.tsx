@@ -44,7 +44,7 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
   const onSubmit = (value: any) => {
     axios
       .post(
-          `http://49.12.148.222:30469/playlist/${playlsID}/${globalMusic}`,{
+          `https://backend.miulai.ge  /playlist/${playlsID}/${globalMusic}`,{
         },
         {
           headers: {
