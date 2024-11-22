@@ -28,7 +28,7 @@ const AlbumID = () => {
 
 
     useEffect(() => {
-        axios.get(`http://49.12.148.222:30469/album/${id}`, {
+        axios.get(`https://backend.miulai.ge/album/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
