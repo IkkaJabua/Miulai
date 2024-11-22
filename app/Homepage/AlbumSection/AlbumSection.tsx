@@ -21,7 +21,7 @@ const AlbumSection = () => {
 
 
   useEffect(() => {
-    axios.get("http://49.12.148.222:30469/album").then((r) => {
+    axios.get("https://backend.miulai.ge/album").then((r) => {
       setCardData(r.data);
       // console.log(r.data[0].musics)
       console.log(r.data);

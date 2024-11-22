@@ -30,7 +30,7 @@ const Id = () => {
     
 
     useEffect(() => {
-        axios.get(`http://49.12.148.222:30469/playlist/${param.id}`, {
+        axios.get(`https://backend.miulai.ge/playlist/${param.id}`, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

@@ -24,7 +24,7 @@ const HitsTable = () => {
     const [musicCover,setMusicCover] = useState<any>()
   
   useEffect(() => {
-    axios.get(`http://49.12.148.222:30469/music`)
+    axios.get(`https://backend.miulai.ge/music`)
     .then((r) => {
       setMusicCover(r.data)
     

@@ -22,7 +22,7 @@ const Album = () => {
     const [artists, setArtists] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://49.12.148.222:30469/album`)
+        axios.get(`https://backend.miulai.ge/album`)
             .then((r) => {
                 setArtists(r.data);
             })

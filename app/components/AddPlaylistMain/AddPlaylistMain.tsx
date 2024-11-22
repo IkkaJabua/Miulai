@@ -35,7 +35,7 @@ const AddPlaylistMain = ( props: Props) => {
 
 
     useEffect(() => {
-        axios.get(`http://49.12.148.222:30469/user/me`, {
+        axios.get(`https://backend.miulai.ge/user/me`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             }
@@ -47,7 +47,7 @@ const AddPlaylistMain = ( props: Props) => {
 
     const onSubmit = async (values: any) => {
         try {
-            const response = await axios.post('http://49.12.148.222:30469/playlist', {
+            const response = await axios.post('https://backend.miulai.ge/playlist', {
                 'name': String(values.name),
                 'userId': String(userId)
             }, {

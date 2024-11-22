@@ -31,7 +31,7 @@ const AddPlaylist = ({ onForward, onBackward }: Props) => {
 
   useEffect(() => {
     axios
-      .get(`http://49.12.148.222:30469/user/me`, {
+      .get(`https://backend.miulai.ge/user/me`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

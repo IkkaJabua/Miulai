@@ -53,7 +53,7 @@ const Header: React.FC<InputTpo> = (props) => {
     if (inputValue) {
       axios
         .get(
-          `http://49.12.148.222:30469/search?search=${inputValue}`, {
+          `https://backend.miulai.ge/search?search=${inputValue}`, {
             headers: {
               Authorization: `Bearer ${token}`
             }

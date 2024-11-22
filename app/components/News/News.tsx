@@ -23,7 +23,7 @@ const News = (props: Props) => {
   useEffect(() => {
     axios
       .get(
-        `http://49.12.148.222:30469/music`
+        `https://backend.miulai.ge/music`
       )
       .then(async (r) => {
         // setSearchItems(r.data.authors);

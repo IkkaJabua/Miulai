@@ -28,7 +28,7 @@ const CreatePlaylist = ({ onClick  , setRoute}: Props) => {
 
 
   useEffect(() => {
-    axios.get(`http://49.12.148.222:30469/user/me`, {
+    axios.get(`https://backend.miulai.geuser/me`, {
       headers: {
         Authorization: `Bearer ${token}`,
       }

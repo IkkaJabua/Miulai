@@ -16,7 +16,7 @@ const Hits = () => {
     useEffect(() => {
         axios
             .get(
-                `http://49.12.148.222:30469/music`
+                `https://backend.miulai.ge/music`
             )
             .then(async (r) => {
                 setTopHIt(r.data[0])

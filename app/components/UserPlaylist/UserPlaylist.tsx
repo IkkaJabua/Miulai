@@ -46,7 +46,7 @@ const UserPlaylist = () => {
     };
 
     useEffect(() => {
-        axios.get(`http://49.12.148.222:30469/user/me`, {
+        axios.get(`https://backend.miulai.ge/user/me`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -70,7 +70,7 @@ const UserPlaylist = () => {
 
     const onDeleteClick = (id: number) => {
         axios
-            .delete(`http://49.12.148.222:30469/playlist/${id}`, {
+            .delete(`https://backend.miulai.ge/playlist/${id}`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },

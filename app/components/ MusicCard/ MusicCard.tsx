@@ -32,7 +32,7 @@ const MusicCard = () => {
 
   // Fetching all music data
   useEffect(() => {
-    axios.get("http://49.12.148.222:30469/music", {
+    axios.get("https://backend.miulai.ge/music", {
       headers: {
         Authorization: `Bearer ${token}`
       }

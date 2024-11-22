@@ -30,7 +30,7 @@ const IndexPage: React.FC = () => {
   useEffect(() => {
     if (musicID && token) {
       axios
-        .get(`http://49.12.148.222:30469/music/${musicID}`, {
+        .get(`https://backend.miulai.ge/music/${musicID}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
