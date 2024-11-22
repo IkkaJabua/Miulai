@@ -27,7 +27,7 @@ const Registracion = () => {
         const password = watch('password')
         const currentpassword = watch('currentPassword')
         if (password === currentpassword) {
-            axios.post('http://49.12.148.222:30469/user', values).
+            axios.post('https://backend.miulai.ge/user', values).
                 then(r => {
                     router.push('/signin')
                 }).catch(() => {

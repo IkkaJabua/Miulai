@@ -49,7 +49,7 @@ const Signup = () => {
   const onLogin = (values: SignIn) => {
     setLoading(true)
     axios
-      .post("http://49.12.148.222:30469/auth", values)
+      .post("https://backend.miulai.ge/auth", values)
       .then((r) => {
 
         setCookie("token", r.data.accessToken, 60);
