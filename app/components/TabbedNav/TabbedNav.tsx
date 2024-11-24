@@ -6,7 +6,7 @@ import Image from "next/image";
 import axios from "axios";
 import { useRecoilState } from "recoil";
 import {
-    albumCoverState,
+  albumCoverState,
   albumidState,
   artistNameState,
   clickFetchState,
@@ -15,7 +15,8 @@ import {
   newsImageState,
 } from "@/app/state";
 import ArtistTable from "../Table/ArtistTable/ArtistTable";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
+import ArtistCard from "../ArtistCard/ArtistCard";
 
 type Props = {
   biographyText: string;
@@ -28,6 +29,7 @@ const TabbedNav = (props: Props) => {
   const [image, setImage] = useState();
   const [albumData, setAlbumData] = useState<any[]>([]);
   const [music, setMusic] = useState<any[]>([]);
+  const router = useRouter();
 
   const [artistPhoto, setArtistPhoto] = useRecoilState(newsImageState);
 
@@ -35,10 +37,10 @@ const TabbedNav = (props: Props) => {
   const [globalalbum, setGlobalAlbum] = useRecoilState(globalAlbumDataState);
   const [artistName, setArtistName] = useRecoilState(artistNameState);
   const [clickFetch, setClickFetch] = useRecoilState(clickFetchState)
-  const param = useParams(); 
+  const param = useParams();
 
 
-    const [albumCover, setAlbumcover] = useRecoilState<any>(albumCoverState)
+  const [albumCover, setAlbumcover] = useRecoilState<any>(albumCoverState)
 
 
 
@@ -49,23 +51,23 @@ const TabbedNav = (props: Props) => {
   const [albums, setAlbums] = useState([]);
 
   useEffect(() => {
-      axios
-        .get(`https://backend.miulai.ge/author/${param.id}`)
-        .then((r: any) => {
-          setBiography(r.data.biography);
-          setImage(r.data?.files[0]?.url);
-          setArtistPhoto(r.data.files[0].url);
-          setAlbumData(r.data.albums);
-          setArtistName(r.data.firstName);
-          const albumNames = r.data.albums.map((album: any) => album.albumName);
-          setGlobalAlbum(albumNames);
+    axios
+      .get(`https://backend.miulai.ge/author/${param.id}`)
+      .then((r: any) => {
+        setBiography(r.data.biography);
+        setImage(r.data?.files[0]?.url);
+        setArtistPhoto(r.data.files[0].url);
+        setAlbumData(r.data.albums);
+        setArtistName(r.data.firstName);
+        const albumNames = r.data.albums.map((album: any) => album.albumName);
+        setGlobalAlbum(albumNames);
 
-          const allMusics = r.data.albums.reduce((acc: any[], album: any) => {
-            return acc.concat(album.musics || []);
-          }, []);
+        const allMusics = r.data.albums.reduce((acc: any[], album: any) => {
+          return acc.concat(album.musics || []);
+        }, []);
 
-          setMusicArray(allMusics);
-        });
+        setMusicArray(allMusics);
+      });
   }, [clickFetch]);
 
   return (
@@ -99,12 +101,12 @@ const TabbedNav = (props: Props) => {
         {activeTab === "albums" && (
           <div className={styles.cards}>
             {albumData?.map((item: any, i) => (
-              <Card
-                key={i}
-                image={item.file?.url}
-                title={item.albumName}
-                imageStyle={"normal"}
-              />
+              <div key={item.id} onClick={() => router.push(`../album/${item.id}`)}>
+                <ArtistCard image={item.file?.url}
+                  title={item.albumName}
+                  imageStyle={"normal"}
+                />
+              </div>
             ))}
           </div>
         )}
