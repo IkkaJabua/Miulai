@@ -10,6 +10,7 @@ import { useRecoilState } from "recoil";
 import Cookies from "js-cookie";
 import {
   albumidState,
+  albumRouterState,
   clickFetchState,
   formusicFetchState,
 } from "@/app/state";
@@ -18,6 +19,7 @@ import { useRouter } from "next/navigation";
 const Playlist = () => {
   const [route, setRoute] = useState(0);
   const [viewArtist, setViewArtist] = useRecoilState(formusicFetchState);
+  const [albumRouter, setAlbumRouter] = useRecoilState<any>(albumRouterState)
 
   const [albumId, setAlbumId] = useRecoilState(albumidState);
   const router = useRouter();
@@ -49,7 +51,7 @@ const Playlist = () => {
           onClick={(e) => {
             e.stopPropagation();
             e.nativeEvent.stopImmediatePropagation();
-            router.push(`/album`);
+            router.push(`/album/${albumRouter}`);
           }}
         />
         <PItem

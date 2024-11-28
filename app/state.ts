@@ -106,4 +106,9 @@ export const formusicFetchState = atom({
     default: null
 })
 
+export const albumRouterState = atom({
+    key: 'albumRouterState',
+    default: null
+})
+
  

@@ -126,7 +126,7 @@ const Header: React.FC<InputTpo> = (props) => {
       setInputValue(""); // Reset input field after selection
 
       // Now navigate after data is set
-      router.push("/album");
+      router.push(`/album/${album.id}`);
     } catch (error) {
       console.error("Error fetching album music:", error);
       // Handle error if needed, e.g., show a notification to the user
